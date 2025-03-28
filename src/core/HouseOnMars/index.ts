@@ -1,0 +1,1 @@
+export { HouseOnMars } from './HouseOnMars';

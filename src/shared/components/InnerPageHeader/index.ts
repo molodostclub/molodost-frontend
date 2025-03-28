@@ -1,0 +1,1 @@
+export { InnerPageHeader } from './InnerPageHeader';

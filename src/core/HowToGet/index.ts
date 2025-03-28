@@ -1,0 +1,1 @@
+export { HowToGet } from './HowToGet';

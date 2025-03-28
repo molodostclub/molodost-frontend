@@ -1,0 +1,1 @@
+export { AnketaComponent } from './AnketaComponent'

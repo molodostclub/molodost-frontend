@@ -1,0 +1,1 @@
+export { AnketaPage } from './AnketaPage';

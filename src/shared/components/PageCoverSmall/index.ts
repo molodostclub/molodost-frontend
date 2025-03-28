@@ -1,0 +1,1 @@
+export { PageCoverSmall } from './PageCoverSmall';

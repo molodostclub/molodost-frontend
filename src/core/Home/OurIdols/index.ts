@@ -1,0 +1,1 @@
+export { OurIdols } from './OurIdols';

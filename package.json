@@ -1,0 +1,47 @@
+{
+  "name": "molodost-landing",
+  "version": "0.1.0",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier"
+    }
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "lint": "next lint",
+    "format": "prettier --write \"src/**/*.+(ts|tsx|json|css|md)\""
+  },
+  "browserslist": [
+    "defaults, iOS >= 8.0"
+  ],
+  "dependencies": {
+    "@next/bundle-analyzer": "^13.4.4",
+    "@svgr/webpack": "8.0.1",
+    "@types/node": "18.16.3",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.1",
+    "@vanilla-extract/css": "1.11.0",
+    "axios": "1.4.0",
+    "classnames": "^2.3.2",
+    "embla-carousel": "8.0.0-rc02",
+    "embla-carousel-react": "8.0.0-rc02",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.2",
+    "next": "13.4.4",
+    "react": "18.2.0",
+    "react-datepicker": "^4.16.0",
+    "react-dom": "18.2.0",
+    "react-select": "^5.7.4",
+    "sharp": "^0.32.1",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/react-datepicker": "^4.15.0",
+    "@vanilla-extract/next-plugin": "2.1.2",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8"
+  }
+}

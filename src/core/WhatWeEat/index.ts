@@ -1,0 +1,1 @@
+export { WhatWeEat } from './WhatWeEat';

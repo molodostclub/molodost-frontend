@@ -1,0 +1,16 @@
+name: Request website images
+on: workflow_dispatch
+
+jobs:
+  trigger-preload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install --no-package-lock --no-save axios@1.4.0
+      - name: Trigger next image optimizer
+        run: node ./on_deploy/deploy.mjs

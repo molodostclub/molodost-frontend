@@ -1,0 +1,11 @@
+export { Intro } from './Intro';
+export { OurAltay } from './OurAltay';
+export { OurBase } from './OurBase';
+export { WhatWeEat } from './WhatWeEat';
+export { WhereDoWeLive } from './WhereDoWeLive';
+export { OurIdols } from './OurIdols';
+export { PageContainer } from './PageContainer';
+export { Entertainment } from './Entertainment';
+export { OurEcosystem } from './OurEcosystem';
+export { Postscriptum } from './Postscriptum';
+export { Motto } from './Motto';

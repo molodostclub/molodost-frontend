@@ -1,0 +1,63 @@
+import { pageContent, tablet, vars } from '@styles';
+import { style, styleVariants } from '@vanilla-extract/css';
+import { pageSubtitle } from '@/styles/uikit.css';
+
+export const content = style([
+  pageContent,
+  tablet({
+    maxWidth: 720,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  }),
+]);
+
+export const textContent = style([
+  { marginTop: 30 },
+  tablet({ marginTop: 30 })
+]);
+
+export const separator = style([
+  {
+    margin: '30px 0',
+    backgroundColor: vars.color.brand,
+    height: 1,
+    width: '100%',
+  },
+]);
+
+const textBase = style({
+  fontFamily: vars.font.CeraCondensedCYMedium,
+  fontWeight: 500,
+  fontSize: 25,
+  lineHeight: '25px',
+  textTransform: 'uppercase',
+});
+
+export const contacts = style({
+  margin: '30px 0 40px',
+});
+
+export const accentText = style([
+  textBase,
+  {
+    color: vars.color.brand,
+  },
+]);
+
+export const ctaBtn = style({
+  width: '100%',
+  borderRadius: 30,
+  minHeight: 60,
+  border: 'none',
+  fontSize: 25,
+  lineHeight: '25px',
+  backgroundColor: vars.color.brand,
+  color: vars.color.white,
+  fontFamily: vars.font.CeraCondensedCYRegular,
+  textTransform: 'uppercase',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+})
