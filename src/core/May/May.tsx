@@ -15,7 +15,9 @@ export const May: FC = () => {
 						Майские не за горами, <span className={styles.textRed50Bold}>а в компании гор!</span>
 					</p>
 					<br />
-					<p className={styles.textBlack36}>Когда зацветёт легендарный маральник, а Катунь радостно забурлит, спускаясь с тающих ледников Белухи «Молодость» начнет свой официальный <span className={styles.textRed40}>5-ый сезон</span> на Алтае!</p>
+					<p className={styles.textBlack36}>
+						Когда зацветёт легендарный маральник, а Катунь радостно забурлит, спускаясь с тающих ледников Белухи, «Молодость» начнет свой официальный <span className={styles.textRed40}>5-й сезон</span> на Алтае!
+					</p>
 				</div>
 
 				{/* <div className={styles.katalkaColumns}>
@@ -44,8 +46,10 @@ export const May: FC = () => {
 					</div>
 				</div>
 				<div className={styles.paragraph}>
-					<p className={styles.katalkaListItem}>На&nbsp;майские у&nbsp;нас пройдет специальный детский заезд совместно с&nbsp;нашим партнером&nbsp;&mdash; бюро семейных впечатлений и&nbsp;образования &laquo;Искра&raquo;. У&nbsp;них
-          отличная развивающая и&nbsp;развлекательная программа для детей с&nbsp;семейными мастер-классами. Подробности условия участия при бронировании.</p>
+					<p className={styles.katalkaListItem}>
+						На&nbsp;майские у&nbsp;нас пройдет специальный детский заезд совместно с&nbsp;нашим партнером&nbsp;&mdash; бюро семейных впечатлений и&nbsp;образования &laquo;Искра&raquo;. У&nbsp;них отличная развивающая и&nbsp;развлекательная программа для детей с&nbsp;семейными
+						мастер-классами. Подробности условия участия при бронировании.
+					</p>
 				</div>
 				<div className={cn(styles.katalkaColumns, styles.katalkaColumnsReverse)}>
 					<div className={styles.katalkaColumn}>
@@ -68,22 +72,28 @@ export const May: FC = () => {
 				<div className={styles.paragraph}>
 					<p className={styles.textBlack36}>В&nbsp;ЭТУ СУММУ ВХОДИТ ВСЕ, ЧТО НУЖНО, ЧТОБЫ НИ&nbsp;О&nbsp;ЧЕМ НЕ&nbsp;ДУМАТЬ, КРОМЕ ОТДЫХА:</p>
 					<ul className={styles.katalkaList}>
-						<li className={styles.katalkaListItem}>Проживание в&nbsp;&laquo;хорошей спальне&raquo;</li>
+						<li className={styles.katalkaListItem}>Проживание в&nbsp;&laquo;хорошей спальне&raquo;;</li>
 						<li className={styles.katalkaListItem}>Трансфер из/в аэропорт Горно-Алтайска;</li>
-						<li className={styles.katalkaListItem}>Трехразовое питание в&nbsp;формате общего стола в&nbsp;нашем Гастротрактире &laquo;Довольный дракон&raquo;</li>
-						<li className={styles.katalkaListItem}>Ночной дожор и&nbsp;мороженое</li>
-						<li className={styles.katalkaListItem}>Водяной сбор</li>
-						<li className={styles.katalkaListItem}>Кофе, какао и&nbsp;алтайский чай</li>
-						<li className={styles.katalkaListItem}>Культурная программа для души и&nbsp;тела, а&nbsp;также хорошая компания и&nbsp;уютные посиделки у&nbsp;костра на&nbsp;берегу Катуни</li>
-						<li className={styles.katalkaListItem}>Налоги и&nbsp;эквайринг</li>
+						<li className={styles.katalkaListItem}>Трехразовое питание в&nbsp;формате общего стола в&nbsp;нашем гастротрактире &laquo;Довольный дракон&raquo;;</li>
+						<li className={styles.katalkaListItem}>Ночной дожор и&nbsp;мороженое;</li>
+						<li className={styles.katalkaListItem}>Водяной сбор;</li>
+						<li className={styles.katalkaListItem}>Кофе, какао и&nbsp;алтайский чай;</li>
+						<li className={styles.katalkaListItem}>Культурная программа для души и&nbsp;тела, а&nbsp;также хорошая компания и&nbsp;уютные посиделки у&nbsp;костра на&nbsp;берегу Катуни;</li>
+						<li className={styles.katalkaListItem}>Налоги и&nbsp;эквайринг;</li>
 					</ul>
 					<br />
 					<br />
-					<p className={styles.katalkaListItem}>* услуги бани на входят в стоимость пакета</p>
+					<p className={styles.katalkaListItem}>* услуги бани не входят в стоимость пакета</p>
 				</div>
 
 				<div className={styles.paragraph}>
-					<p className={styles.textBlack40Medium}>НОМЕР ТУРКЛУБА &laquo;МОЛОДОСТЬ&raquo;</p>
+					<p className={styles.textBlack40Medium}>
+						А&nbsp;ЕЩЕ С&nbsp;1&nbsp;МАЯ ВЫ&nbsp;МОЖЕТЕ ПОПАСТЬ В&nbsp;НАШ
+						<br />
+						<a href='/mars' className={cn(styles.textRed40, styles.textUnderline)}>ГОСТЕВОЙ ДОМ &laquo;ПРИЮТ НА&nbsp;МАРСЕ&raquo;</a>
+					</p>
+					<br />
+					<p className={styles.textBlack40Medium}>НОМЕР ТУРКЛУБА &laquo;МОЛОДОСТЬ&raquo;:</p>
 					<a href="tel:+79647002112" className={styles.textRed40}>
 						+7&nbsp;964&nbsp;700&nbsp;21&nbsp;12
 					</a>

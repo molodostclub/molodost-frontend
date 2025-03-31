@@ -49,6 +49,12 @@ export const textRed40 = style([
   }),
 ]);
 
+export const textUnderline = style([
+  {
+    textDecoration: 'underline',
+  }
+])
+
 export const textRed36Medium = style([
   {
     fontSize: 18,
