@@ -21,22 +21,27 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_PAT }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: ghcr.io/molodostclub/molodost-frontend:latest
+          tags: |
+            ghcr.io/molodostclub/molodost-frontend:latest
 
-      - name: Deploy to Server
+      - name: Force Update Service with Random Digest Tag
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
+            echo "Pulling fresh image"
+            docker pull ghcr.io/molodostclub/molodost-frontend:latest
+            echo "Forcing service update"
             docker service update molodost_landing \
               --image ghcr.io/molodostclub/molodost-frontend:latest \
+              --force \
               --with-registry-auth
