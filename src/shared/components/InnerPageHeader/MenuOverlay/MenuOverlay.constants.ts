@@ -7,8 +7,8 @@ export type MenuItem = {
 
 export const APP_ROUTES: MenuItem[] = [
 	{
-		label: 'Каталка',
-		href: '/katalka',
+		label: 'Майские',
+		href: '/may',
 	},
 	{
 		label: 'Правила жизни',
