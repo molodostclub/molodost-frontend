@@ -43,5 +43,5 @@ jobs:
             echo "Forcing service update"
             docker service update molodost_landing \
               --image ghcr.io/molodostclub/molodost-frontend:latest \
-              --force \
-              --with-registry-auth
+              --with-registry-auth \
+              --force
