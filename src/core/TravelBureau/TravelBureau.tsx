@@ -52,7 +52,7 @@ export const TravelBureau: FC = () => {
           <div className={styles.itemImageWrapper}>
             <Image
               fill
-              src="/images/gidy.jpg"
+              src="/images/Altay-travel.jpeg"
               alt="турбюро"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw"
               className={styles.image}

@@ -190,7 +190,7 @@ export function AnketaComponent() {
 	];
 
 	const checkboxesWantTry: Checkbox[] = [
-		{ label: 'Зажаренного барана на вертеле 40 000 ₽', value: '1', checked: false },
+		{ label: 'Зажаренного барана на вертеле 45 000 ₽', value: '1', checked: false },
 		{ label: 'Алтайский рибай 4 000 ₽', value: '2', checked: false },
 		{ label: 'Легендарный хариус 2 000 ₽', value: '3', checked: false },
 	];
@@ -636,7 +636,7 @@ export function AnketaComponent() {
 								</div>
 							))}
 							<br />
-							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне или доме: 7&nbsp;777 &nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, 4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;14&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
+							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне: 7&nbsp;777 &nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, 4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;14&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
 							<br />
 							<div className={indent.mt_4}>
 								<Label caption="Для больших семей и&nbsp;компаний есть много вариантов размещения:" />
