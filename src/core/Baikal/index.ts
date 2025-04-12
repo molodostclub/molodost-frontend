@@ -1,0 +1,1 @@
+export { BaikalPage } from './baikal';

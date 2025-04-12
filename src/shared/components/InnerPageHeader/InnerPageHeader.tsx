@@ -53,7 +53,7 @@ export const InnerPageHeader: FC<Props> = ({ isMainPage = false }) => {
                 width={168}
                 height={146}
                 alt="Молодость на Алтае"
-                src="/icons/logo-white.svg"
+                src="/icons/logo-white-clean.svg"
                 className={styles.logoIcon}
               />
             </Link>

@@ -16,7 +16,7 @@ export const Footer: FC = () => {
 			<FooterButtons />
 			<RulesList />
 			<footer className={styles.footer}>
-				<Image src="/icons/logo-white.svg" alt="Логотип" width={173} height={137} />
+				<Image src="/icons/logo-white-clean.svg" alt="Логотип" width={173} height={137} />
 				<ul className={styles.contactList}>
 					<li className={styles.contactItem}>
 						<a href={telHref(tel)} className={styles.contactLink}>

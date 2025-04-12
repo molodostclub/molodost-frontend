@@ -7,8 +7,7 @@ export const May: FC = () => {
 	return (
 		<>
 			<div className={styles.content}>
-				{/* <h1 className={styles.textRed96}>Каталка</h1> */}
-				<p className={styles.textRed55}>МАЙСКИЕ ПРАЗДНИКИ</p>
+				<h1 className={styles.textRed55}>МАЙСКИЕ ПРАЗДНИКИ</h1>
 				<p className={styles.textBlack40}>С&nbsp;1&nbsp;по&nbsp;10&nbsp;мая&nbsp;2025&nbsp;года</p>
 				<div className={styles.paragraph}>
 					<p className={styles.textBlack36}>
@@ -19,15 +18,6 @@ export const May: FC = () => {
 						Когда зацветёт легендарный маральник, а Катунь радостно забурлит, спускаясь с тающих ледников Белухи, «Молодость» начнет свой официальный <span className={styles.textRed40}>5-й сезон</span> на Алтае!
 					</p>
 				</div>
-
-				{/* <div className={styles.katalkaColumns}>
-          <div className={styles.katalkaColumn}>
-            <img alt="Дом в Манжероке" src="/images/katalka/house.jpg" className={styles.katalkaImg} />
-          </div>
-          <div className={styles.katalkaColumn}>
-            <img alt="Сноубордист в Манжероке" src="/images/katalka/snowboarding.jpg" className={styles.katalkaImg} />
-          </div>
-        </div> */}
 
 				<div className={styles.paragraph}>
 					<p className={styles.textBlack36}>
