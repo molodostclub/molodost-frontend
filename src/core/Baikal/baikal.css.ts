@@ -275,7 +275,7 @@ export const mobileHidden = style([
 		display: 'none !important',
 	},
 	tablet({
-		display: 'block',
+		display: 'block !important',
 	}),
 ]);
 
