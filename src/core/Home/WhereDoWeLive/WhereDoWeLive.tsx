@@ -12,8 +12,8 @@ type Props = {
 };
 
 export const WhereDoWeLive: FC<Props> = ({ houses }) => {
-  const filteredIndividual = houses.individual.filter((house) => !house.attributes.isMars);
-	const filteredInHouse = houses.inHouse.filter((house) => !house.attributes.isMars);
+  const filteredIndividual = houses.individual.filter((house) => !house.attributes.isMars && !house.attributes.isBaikal);
+	const filteredInHouse = houses.inHouse.filter((house) => !house.attributes.isMars && !house.attributes.isBaikal);
   
   return (
     <>
