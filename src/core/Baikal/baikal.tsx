@@ -84,7 +84,7 @@ export const GallerySlider = () => {
 export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 	const filteredIndividual = individual.filter((house) => house.attributes.isBaikal);
 
-	// Фильтруем дома (inHouse), оставляя только те, где isMars === false
+	// Фильтруем дома (inHouse), оставляя только те, где isBaikal === true
 	const filteredInHouse = inHouse.filter((house) => house.attributes.isBaikal);
 
 	return (
