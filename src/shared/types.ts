@@ -78,6 +78,7 @@ export type HouseModel = Entity<
     videoPreview?: StrapiResponse<MediaUploadModel | null>;
     isIndividual: boolean;
     isMars?: boolean;
+    isBaikal?: boolean;
   }>
 >;
 

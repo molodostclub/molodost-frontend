@@ -82,10 +82,10 @@ export const GallerySlider = () => {
 };
 
 export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
-	//const filteredIndividual = individual.filter((house) => house.attributes.isMars);
+	const filteredIndividual = individual.filter((house) => house.attributes.isBaikal);
 
 	// Фильтруем дома (inHouse), оставляя только те, где isMars === false
-	//const filteredInHouse = inHouse.filter((house) => house.attributes.isMars);
+	const filteredInHouse = inHouse.filter((house) => house.attributes.isBaikal);
 
 	return (
 		<Container className={indent.mt_6}>
@@ -126,7 +126,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				<div className={cn(indent.tablet_mt_10, indent.mt_6)}>
 					<p className={styles.flatsTitle}>в&nbsp;гэрах</p>
 				</div>
-				{/* <div className={styles.housingBlock}>
+				<div className={styles.housingBlock}>
 					{filteredIndividual.map((house) => (
 						<Housing house={house} key={house.id} />
 					))}
@@ -138,7 +138,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 					{filteredInHouse.map((house) => (
 						<Housing house={house} key={house.id} />
 					))}
-				</div> */}
+				</div>
 			</div>
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
 				<SectionHeading>ДОМ приемов</SectionHeading>
@@ -219,7 +219,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				<br />
 				<br />
 				<SectionHeading>
-					Чтобы купить &laquo;Билет на&nbsp;Марс&raquo;, пишите на&nbsp;единый номер турклуба &laquo;Молодость&raquo;{' '}
+					ЧТОБЫ СТАТЬ ЧЛЕНОМ ТУРКЛУБА «МОЛОДОСТЬ», СВЯЗЫВАЙТЕСЬ С НАМИ ПО ТЕЛЕФОНУ{' '}
 					<a className={cn(styles.attentionRed)} href="https://wa.me/+79647002112" target="_blank">
 						+7&nbsp;(964)&nbsp;700-21-12
 					</a>

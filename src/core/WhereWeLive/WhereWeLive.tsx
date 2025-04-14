@@ -35,10 +35,10 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
   const [isOpenModal, setOpenModal] = useState<boolean>(false);
 
   // Фильтруем номера (individual), оставляя только те, где isMars === false
-  const filteredIndividual = individual.filter(house => !house.attributes.isMars);
+  const filteredIndividual = individual.filter(house => !house.attributes.isMars && !house.attributes.isBaikal);
 
   // Фильтруем дома (inHouse), оставляя только те, где isMars === false
-  const filteredInHouse = inHouse.filter(house => !house.attributes.isMars);
+  const filteredInHouse = inHouse.filter(house => !house.attributes.isMars && !house.attributes.isBaikal);
 
   const openModal = () => setOpenModal(true);
   const closeModal = () => setOpenModal(false);
