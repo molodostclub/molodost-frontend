@@ -120,9 +120,6 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 			</div>
 			<div id="roomsOnBaikal" className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
 				<SectionHeading>размещение</SectionHeading>
-				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>
-					Приют на Марсе включает в себя <span className={styles.attention}>9 спален</span>.
-				</Description>
 				<div className={cn(indent.tablet_mt_10, indent.mt_6)}>
 					<p className={styles.flatsTitle}>в&nbsp;гэрах</p>
 				</div>
