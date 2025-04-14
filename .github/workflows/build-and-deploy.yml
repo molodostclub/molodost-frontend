@@ -31,7 +31,7 @@ jobs:
           tags: |
             ghcr.io/molodostclub/molodost-frontend:latest
 
-      - name: Force Update Service with Random Digest Tag
+      - name: Deploy frontend via SSH
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -39,11 +39,11 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-            echo "Pulling fresh image"
             docker pull ghcr.io/molodostclub/molodost-frontend:latest
-            echo "Forcing service update"
-            docker service update molodost_landing \
-              --image ghcr.io/molodostclub/molodost-frontend:latest \
-              --with-registry-auth \
-              --force
-          
+            docker stop molodost_frontend || true
+            docker rm molodost_frontend || true
+            docker run -d \
+              --name molodost_frontend \
+              -p 3000:3000 \
+              --restart unless-stopped \
+              ghcr.io/molodostclub/molodost-frontend:latest
