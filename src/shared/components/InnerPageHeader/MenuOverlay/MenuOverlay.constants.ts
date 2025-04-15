@@ -7,20 +7,19 @@ export type MenuItem = {
 
 export const APP_ROUTES: MenuItem[] = [
 	{
-		label: 'Майские',
-		href: '/may',
-	},
-	{
-		label: 'Правила жизни',
-		href: '/pravila-zhizni',
-	},
-	{
-		label: 'В Сибирь за свой счет',
-		href: '/v-sibir-za-svoy-schet',
+		label: '«МОЛОДОСТЬ» НА АЛТАЕ',
+		subItems: [
+			{ label: '- Наш Алтай', href: '/nash-altay' },
+			{ label: '- Наша экосистема', href: '/nasha-ekosistema' },
+			{ label: '- Правила жизни', href: '/pravila-zhizni' },
+			{ label: '- В Сибирь за свой счет', href: '/v-sibir-za-svoy-schet' },
+			{ label: '- Про нас говорят', href: '/pro-nas-govoryat' },
+		],
 	},
 	{
 		label: 'ТУРБАЗА «МОЛОДОСТЬ»',
 		subItems: [
+			{ label: '- Майские', href: '/may', },
 			{ label: '- ГДЕ МЫ ЖИВЕМ', href: '/rooms' },
 			{ label: '- ЧТО МЫ ЕДИМ И ПЬЕМ', href: '/chto-my-edim' },
 			{ label: '- КАК МЫ ПУТЕШЕСТВУЕМ', href: '/kak-my-puteshevstvuem' },
@@ -39,13 +38,18 @@ export const APP_ROUTES: MenuItem[] = [
 		],
 	},
 	{
-		label: 'ПРО «МОЛОДОСТЬ»',
+		label: '«МОЛОДОСТЬ» НА байкале',
 		subItems: [
-			{ label: '- Наш Алтай', href: '/nash-altay' },
-			{ label: '- Наша экосистема', href: '/nasha-ekosistema' },
-			{ label: '- Как к нам попасть', href: '/kak-popast' },
-			{ label: '- Про нас говорят', href: '/pro-nas-govoryat' },
-			{ label: '- Контакты', href: '/nashi-kontakty' },
+			{ label: '– Наш пляжный курорт', href: '/baikal' },
+			{ label: '– Где мы живем', href: '/baikal#scrollto=roomsOnBaikal' },
 		],
+	},
+	{
+		label: 'Как к нам попасть',
+		href: '/kak-popast',
+	},
+	{
+		label: 'Контакты',
+		href: '/nashi-kontakty',
 	},
 ];

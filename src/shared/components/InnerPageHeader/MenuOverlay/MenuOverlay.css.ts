@@ -46,7 +46,6 @@ export const overlayOpened = style({
 	transform: 'translateX(0)',
 });
 
-
 export const overlayTransition = style({
 	transition: 'transform 300ms ease-in-out',
 });
@@ -79,6 +78,7 @@ export const content = style([
 		display: 'flex',
 		flexDirection: 'column',
 		margin: 30,
+		height: 'calc(100% - 60px)',
 	},
 ]);
 
@@ -121,6 +121,7 @@ export const cross = style({
 
 export const menu = style({
 	marginTop: 48,
+	height: 'calc(100% - 80px)',
 });
 
 export const menuList = style([
@@ -128,6 +129,8 @@ export const menuList = style([
 		listStyle: 'none',
 		textAlign: 'left',
 		padding: 0,
+		height: '100%',
+		overflow: 'auto',
 	},
 	tablet({ textAlign: 'center' }),
 ]);
@@ -138,6 +141,12 @@ export const menuItem = style({
 	selectors: {
 		'&:not(:first-child)': {
 			marginTop: 20,
+		},
+		'&:nth-of-type(4)': {
+			borderTop: '1px solid rgba(255 255 255 / 0.4)',
+			paddingTop: 20,
+			paddingBottom: 20,
+			borderBottom: '1px solid rgba(255 255 255 / 0.4)',
 		},
 	},
 });
@@ -193,7 +202,7 @@ export const subMenu = style({
 	listStyle: 'none',
 	paddingLeft: 15,
 	marginTop: 5,
-  maxHeight: 0,
+	maxHeight: 0,
 	overflow: 'hidden',
 	transition: 'max-height 0.3s ease-in-out',
 });
