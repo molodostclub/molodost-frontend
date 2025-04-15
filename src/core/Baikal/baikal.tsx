@@ -96,7 +96,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 			<Description className={indent.mt_4}>
 				Мы&nbsp;катаемся с&nbsp;песчаных дюн, как с&nbsp;горок, гуляем босиком по&nbsp;берегу, собираем грибы, водянку и&nbsp;бруснику. Ездим по&nbsp;бездорожью на&nbsp;джипах, гуляем на&nbsp;лодке до&nbsp;Ольхона, медитируем под тибетские чаши и&nbsp;сидим у&nbsp;костра.
 			</Description>
-			<Description className={indent.mt_4}>Мы&nbsp;помогаем путешественникам разного уровня и&nbsp;подготовки сориентироваться на&nbsp;местности&nbsp;&mdash; с&nbsp;момента прибытияи до&nbsp;самого отлёта.</Description>
+			<Description className={indent.mt_4}>Мы&nbsp;помогаем путешественникам разного уровня и&nbsp;подготовки сориентироваться на&nbsp;местности&nbsp;&mdash; с&nbsp;момента прибытия и&nbsp;до&nbsp;самого отлёта.</Description>
 			<Description className={indent.mt_4}>Команда Молодости вашей.</Description>
 			<div className={cn(indent.tablet_mt_10, indent.mt_6, styles.imageWrapper)}>
 				<GallerySlider />
@@ -211,7 +211,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_6)}>
 				<div className={cn(styles.border, indent.mb_8)}>&nbsp;</div>
 				<SectionHeading>
-					Проект реализуется совместно с&nbsp;нашими партнерами&nbsp;&mdash; группой компаний <span className={styles.attentionRed}>Highland Gold и&nbsp;ГОК &laquo;Озерный&raquo;</span>
+					Проект реализуется совместно с&nbsp;нашими партнерами&nbsp;&mdash; группой компаний <span className={styles.attentionRed}>ГОК &laquo;Озерный&raquo;</span>
 				</SectionHeading>
 				<br />
 				<br />
