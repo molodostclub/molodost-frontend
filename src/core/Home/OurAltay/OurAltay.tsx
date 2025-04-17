@@ -48,7 +48,7 @@ export const OurAltay = () => {
         </Description>
 
         <div className={styles.card}>
-          <Link href="/dom-na-marse">
+          <Link href="/mars">
             <p className={styles.cardTitleAccented}>На Марс раньше Илона Маска</p>
             <p className={styles.cardDescription}>
             В&nbsp;нашем новом гостевом доме &laquo;Молодость на&nbsp;Марсе&raquo; в&nbsp;селе Тобелер в&nbsp;20км от&nbsp;границы с&nbsp;Монголией
