@@ -5,9 +5,9 @@ import { Container, Description, FlexContainer, PageHeading, SectionHeading } fr
 import * as styles from './baikal.css';
 import { indent } from '@/styles';
 import cn from 'classnames';
-//import { Video } from '@/shared/components/Video';
+import { Video } from '@/shared/components/Video';
 import { HousesSplit, formatPriceWithSign } from '@/utils';
-//import { ADDITIONAL_SERVICES } from '../PricesPage/PricesPage.constants';
+import { ADDITIONAL_SERVICES } from '../PricesPage/PricesPage.constants';
 import { Housing } from '../WhereWeLive/Housing/Housing';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -50,10 +50,16 @@ export const GallerySlider = () => {
 			</Swiper>
 
 			<div ref={prevRef} className={styles.navPrev}>
-				{/* SVG */}
+				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+					<circle cx="17.5" cy="17.5" r="17.5" transform="rotate(-180 17.5 17.5)" fill="#F4F4F4" />
+					<path d="M21 10.5L14 17.5L21 24.5" stroke="#E03823" strokeOpacity="0.9" strokeWidth="1.7" />
+				</svg>
 			</div>
 			<div ref={nextRef} className={styles.navNext}>
-				{/* SVG */}
+				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+					<circle cx="17.5" cy="17.5" r="17.5" transform="rotate(-90 17.5 17.5)" fill="#F4F4F4" />
+					<path d="M14 24.5L21 17.5L14 10.5" stroke="#E03823" strokeOpacity="0.9" strokeWidth="1.7" />
+				</svg>
 			</div>
 			<div ref={paginationRef} className={styles.pagination} />
 		</div>
@@ -62,10 +68,8 @@ export const GallerySlider = () => {
 
 export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 	const filteredIndividual = individual.filter((house) => house.attributes.isBaikal);
-
 	// Фильтруем дома (inHouse), оставляя только те, где isBaikal === true
 	const filteredInHouse = inHouse.filter((house) => house.attributes.isBaikal);
-
 	return (
 		<Container className={indent.mt_6}>
 			<PageHeading colorBrand>пляжный курорт &laquo;Молодость&raquo; на&nbsp;берегу&nbsp;байкала</PageHeading>

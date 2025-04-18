@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { globalStyle } from '@vanilla-extract/css';
 import { tablet, vars } from '@styles';
 
 export const halfWidthInTablet = style([{ width: '100%' }, tablet({ width: '50%' })]);
@@ -128,24 +129,25 @@ export const navPrev = style([navButton, { left: '27px' }]);
 export const navNext = style([navButton, { right: '27px' }]);
 
 export const pagination = style({
-	display: 'flex',
-	justifyContent: 'center',
-	marginTop: '16px',
-	gap: '10px',
+	display: 'flex !important',
+	justifyContent: 'center !important',
+	marginTop: '16px !important',
+	gap: '10px !important',
 	position: 'relative',
 	top: '0 !important',
 });
 
-export const bullet = style({
+globalStyle('.swiper-pagination-bullet', {
 	width: '9px',
 	height: '9px',
 	borderRadius: '50%',
 	backgroundColor: vars.color.gray,
 	cursor: 'pointer',
-	opacity: 1,
+	opacity: '1',
+	transition: 'background-color 0.3s ease',
 });
 
-export const bulletActive = style({
+globalStyle('.swiper-pagination-bullet-active', {
 	backgroundColor: vars.color.brand,
 });
 
