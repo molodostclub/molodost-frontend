@@ -138,17 +138,17 @@ export const pagination = style({
 });
 
 globalStyle('.swiper-pagination-bullet', {
-	width: '9px',
-	height: '9px',
-	borderRadius: '50%',
-	backgroundColor: vars.color.gray,
-	cursor: 'pointer',
-	opacity: '1',
-	transition: 'background-color 0.3s ease',
+	width: '9px !important',
+	height: '9px !important',
+	borderRadius: '50% !important',
+	backgroundColor: `${vars.color.gray} !important`,
+	cursor: 'pointer !important',
+	opacity: '1 !important',
+	transition: 'background-color 0.3s ease !important',
 });
 
 globalStyle('.swiper-pagination-bullet-active', {
-	backgroundColor: vars.color.brand,
+	backgroundColor: `${vars.color.brand} !important`,
 });
 
 export const accent = style({
