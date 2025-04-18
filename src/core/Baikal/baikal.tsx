@@ -1,13 +1,13 @@
-import { FC, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Container, Description, FlexContainer, PageHeading, SectionHeading } from '@uikit';
 
 import * as styles from './baikal.css';
 import { indent } from '@/styles';
 import cn from 'classnames';
-import { Video } from '@/shared/components/Video';
+//import { Video } from '@/shared/components/Video';
 import { HousesSplit, formatPriceWithSign } from '@/utils';
-import { ADDITIONAL_SERVICES } from '../PricesPage/PricesPage.constants';
+//import { ADDITIONAL_SERVICES } from '../PricesPage/PricesPage.constants';
 import { Housing } from '../WhereWeLive/Housing/Housing';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -23,37 +23,25 @@ export const GallerySlider = () => {
 	const prevRef = useRef<HTMLDivElement>(null);
 	const nextRef = useRef<HTMLDivElement>(null);
 	const paginationRef = useRef<HTMLDivElement>(null);
+	const [swiperInstance, setSwiperInstance] = useState<any>(null);
+
+	useEffect(() => {
+		if (swiperInstance && prevRef.current && nextRef.current && paginationRef.current && swiperInstance.params) {
+			swiperInstance.params.navigation.prevEl = prevRef.current;
+			swiperInstance.params.navigation.nextEl = nextRef.current;
+			swiperInstance.navigation.init();
+			swiperInstance.navigation.update();
+
+			swiperInstance.params.pagination.el = paginationRef.current;
+			swiperInstance.pagination.init();
+			swiperInstance.pagination.render();
+			swiperInstance.pagination.update();
+		}
+	}, [swiperInstance]);
 
 	return (
 		<div className={styles.wrapper}>
-			<Swiper
-				modules={[Navigation, Pagination]}
-				navigation={{
-					prevEl: prevRef.current,
-					nextEl: nextRef.current,
-				}}
-				pagination={{
-					el: paginationRef.current,
-					clickable: true,
-					bulletClass: styles.bullet,
-					bulletActiveClass: styles.bulletActive,
-				}}
-				onBeforeInit={(swiper) => {
-					// Проверка, что navigation — объект (а не false/undefined)
-					if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
-						swiper.params.navigation.prevEl = prevRef.current;
-						swiper.params.navigation.nextEl = nextRef.current;
-					}
-
-					if (swiper.params.pagination && typeof swiper.params.pagination !== 'boolean') {
-						swiper.params.pagination.el = paginationRef.current;
-					}
-				}}
-				loop
-				spaceBetween={30}
-				slidesPerView={1}
-				className={styles.mySwiper}
-			>
+			<Swiper modules={[Navigation, Pagination]} onSwiper={setSwiperInstance} loop spaceBetween={30} slidesPerView={1} className={styles.mySwiper}>
 				{photos.map((src, i) => (
 					<SwiperSlide key={i} className={styles.mySwiperSlide}>
 						<img src={src} alt={`Фото ${i + 1}`} className={styles.slideImage} />
@@ -61,21 +49,12 @@ export const GallerySlider = () => {
 				))}
 			</Swiper>
 
-			{/* стрелки со встроенными SVG */}
 			<div ref={prevRef} className={styles.navPrev}>
-				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
-					<circle cx="17.5" cy="17.5" r="17.5" transform="rotate(-180 17.5 17.5)" fill="#F4F4F4" />
-					<path d="M21 10.5L14 17.5L21 24.5" stroke="#E03823" strokeOpacity="0.9" strokeWidth="1.7" />
-				</svg>
+				{/* SVG */}
 			</div>
 			<div ref={nextRef} className={styles.navNext}>
-				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
-					<circle cx="17.5" cy="17.5" r="17.5" transform="rotate(-90 17.5 17.5)" fill="#F4F4F4" />
-					<path d="M14 24.5L21 17.5L14 10.5" stroke="#E03823" strokeOpacity="0.9" strokeWidth="1.7" />
-				</svg>
+				{/* SVG */}
 			</div>
-
-			{/* пагинация */}
 			<div ref={paginationRef} className={styles.pagination} />
 		</div>
 	);
