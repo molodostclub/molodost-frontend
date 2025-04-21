@@ -9,17 +9,18 @@ import { TravelBureau } from '@/core/TravelBureau';
 import { MovingPricing } from '@/core/MovingPricing';
 import { CarRent } from '@/core/CarRent';
 
-type Props = {
-  trips: TripsSplit;
-};
+// type Props = {
+//   trips: TripsSplit;
+// };
 
-export default function Home({ trips }: Props) {
+//export default function Home({ trips }: Props) {
+  export default function Home() {
   return (
     <>
       <PageMeta title="Как мы путешествуем" />
       <InnerPageHeader />
       <PageCover src="/images/how-we-trip-cover.jpg" />
-      <HowWeTrip trips={trips} />
+      {/* <HowWeTrip trips={trips} /> */}
       <PageCoverSmall src="/images/bureau-1.jpg" />
       <TravelBureau />
       <MovingPricing />
@@ -30,20 +31,20 @@ export default function Home({ trips }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  try {
-    const trips = await getTripsSplit();
+// export const getStaticProps: GetStaticProps<Props> = async () => {
+//   try {
+//     const trips = await getTripsSplit();
 
-    return {
-      props: {
-        trips,
-      },
-      revalidate: 5,
-    };
-  } catch (error) {
-    console.error(error);
-    console.log((error as any).response.data);
+//     return {
+//       props: {
+//         trips,
+//       },
+//       revalidate: 5,
+//     };
+//   } catch (error) {
+//     console.error(error);
+//     console.log((error as any).response.data);
 
-    throw error;
-  }
-};
+//     throw error;
+//   }
+// };

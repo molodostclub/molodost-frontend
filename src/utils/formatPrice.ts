@@ -4,5 +4,5 @@ export const formatPriceWithSign = (val: number | undefined) => {
     return '';
   }
 
-  return `${formatPrice(val)} ₽`;
+  return `${formatPrice(val)}\u00A0₽`;
 }
