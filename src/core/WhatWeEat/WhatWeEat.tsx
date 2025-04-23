@@ -86,18 +86,13 @@ export const WhatWeEat = () => (
 				Для друзей &laquo;Молодости&raquo;, которые не&nbsp;живут на&nbsp;базе, но&nbsp;хотят заскочить в&nbsp;гости, мы&nbsp;предлагаем следующие опции:
 			</Description>
 		</div>
-		<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
-			<p className={styles.attention}>
-				Цены актуальны <span className={styles.attentionRed}>до 31 марта 2025 года</span>.
-			</p>
-		</div>
 		<br />
 		<br />
 		<div className={styles.grid}>
 			<TraktirMealsForNonGuests />
 			<ProzhivanieSide showExtraPerson={false} />
 		</div>
-    {/* <div className={styles.grid}>
+		{/* <div className={styles.grid}>
       <div></div>
       <AdditionalServicesSide />
     </div> */}

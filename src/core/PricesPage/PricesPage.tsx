@@ -18,6 +18,7 @@ import {
 	TOUR_PARTNERS,
 	AUTO_RENT,
 	CORPORATIVE_PRICE,
+	CORPORATIVE_PRICE_NON_GUESTS,
 	CLOSED_TOURS,
 	PRICE_SERVICES,
 	TO_MARS,
@@ -65,9 +66,9 @@ export const ProzhivanieSide: FC<ProzhivanieSideProps> = ({ showExtraPerson = tr
 			<>
 				<p className={styles.sideTitle}>Дополнительный человек:</p>
 				<p className={styles.sideText}>
-					взрослый 7&nbsp;777&nbsp;₽/СУТКИ
+					взрослый 6&nbsp;000&nbsp;₽/СУТКИ
 					<br />
-					ребёнок (от&nbsp;5&nbsp;до&nbsp;14&nbsp;лет) 4&nbsp;000&nbsp;₽/СУТКИ
+					ребёнок (от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет) 4&nbsp;000&nbsp;₽/СУТКИ
 				</p>
 			</>
 		)}
@@ -75,7 +76,7 @@ export const ProzhivanieSide: FC<ProzhivanieSideProps> = ({ showExtraPerson = tr
 		<p className={styles.sideText}>
 			взрослый 8&nbsp;000&nbsp;₽/ДЕНЬ
 			<br />
-			ребёнок (от&nbsp;5&nbsp;до&nbsp;14&nbsp;лет) 5&nbsp;600&nbsp;₽/ДЕНЬ
+			ребёнок (от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет) 5&nbsp;000&nbsp;₽/ДЕНЬ
 		</p>
 	</div>
 );
@@ -103,7 +104,7 @@ const AdditionalServices: FC = () => {
 					<p className={styles.twoCol}>{item.twoCol}</p>
 
 					<div>
-						<p className={styles.priceNum}>{item.priceChild ? `${formatPriceWithSign(item.price)} / ${formatPriceWithSign(item.priceChild)}` : formatPriceWithSign(item.price)}</p>
+						{item.priceText ? <p className={styles.priceNum}>{item.priceText}</p> : <p className={styles.priceNum}>{item.priceChild ? `${formatPriceWithSign(item.price)} / ${formatPriceWithSign(item.priceChild)}` : formatPriceWithSign(item.price)}</p>}
 
 						{item.note && <p className={styles.priceNote}>{item.note}</p>}
 					</div>
@@ -642,7 +643,10 @@ const TourBureau: FC = () => {
 						</div>
 
 						<p className={styles.twoCol}>{item.duration}</p>
-						{item.pricePrefix ? (
+
+						{item.priceText ? (
+							<p className={styles.priceNum}>{item.priceText}</p>
+						) : item.pricePrefix ? (
 							<p className={styles.priceNum}>
 								{item.pricePrefix}
 								{formatPriceWithSign(item.price)}
@@ -653,6 +657,7 @@ const TourBureau: FC = () => {
 						)}
 					</div>
 				))}
+				{/*  */}
 			</div>
 
 			{/* ПАРТНЁРСКИЕ АКТИВНОСТИ */}
@@ -678,8 +683,11 @@ const TourBureau: FC = () => {
 								) : (
 									<p className={styles.priceTitle}>{item.title}</p>
 								)}
+
 								<div>
-									{item.pricePrefix ? (
+									{item.priceText ? (
+										<p className={styles.priceNum}>{item.priceText}</p>
+									) : item.pricePrefix ? (
 										<p className={styles.priceNum}>
 											{item.pricePrefix}
 											{formatPriceWithSign(item.price)}
@@ -687,7 +695,8 @@ const TourBureau: FC = () => {
 									) : (
 										<p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p>
 									)}
-									{item.note && <p className={styles.priceNote}>{item.note}</p>}
+
+									{item.note && !item.priceText && <p className={styles.priceNote}>{item.note}</p>}
 								</div>
 							</div>
 						))}
@@ -767,6 +776,46 @@ const Corporative: FC = () => (
 			</div>
 
 			{CORPORATIVE_PRICE.map((item, index) => (
+				<div className={styles.priceRowTop} key={index}>
+					<div>
+						<p className={styles.priceTitle}>{item.title}</p>
+						{item.subtitle && <p className={styles.priceSubtitle}>{item.subtitle}</p>}
+
+						{item.list && (
+							<>
+								<p className={styles.priceListTitle}>{item.listTitle}</p>
+								<ul className={styles.priceList}>
+									{item.list.map((listItem, listIndex) => (
+										<li key={listIndex}>{listItem}</li>
+									))}
+								</ul>
+							</>
+						)}
+					</div>
+
+					<p className={styles.twoCol}>{item.duration}</p>
+					<div>
+						{item.priceText ? <p className={styles.priceNum}>{item.priceText}</p> : <p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p>}
+						{item.note && <p className={styles.priceNote}>{item.note}</p>}
+					</div>
+				</div>
+			))}
+		</div>
+	</>
+);
+const CorporativeNonGuests: FC = () => (
+	<>
+		<br />
+		<br />
+		<br />
+		<div className={styles.priceTable}>
+			<div className={styles.priceRow}>
+				<div className={styles.tableHeaderCol}>услуга</div>
+				<div className={styles.tableHeaderCol}>про&shy;дол&shy;жи&shy;тель&shy;ность</div>
+				<div className={styles.tableHeaderCol}>цена, руб</div>
+			</div>
+
+			{CORPORATIVE_PRICE_NON_GUESTS.map((item, index) => (
 				<div className={styles.priceRowTop} key={index}>
 					<div>
 						<p className={styles.priceTitle}>{item.title}</p>
@@ -925,7 +974,6 @@ const ToMars: FC = () => (
 	</>
 );
 
-
 export const PricesPage: FC = () => {
 	return (
 		<main className={styles.content} id="vsibirzasvoyschet">
@@ -1027,6 +1075,12 @@ export const PricesPage: FC = () => {
 				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
 			</h2>
 			<Corporative />
+			<h2 className={styles.subtitle}>
+				КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ <br />
+				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo; <br />
+				ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ
+			</h2>
+			<CorporativeNonGuests />
 			<h2 className={styles.subtitle}>
 				ОРГАНИЗАЦИЯ ИНДИВИДУАЛЬНЫХ ЗАКРЫТЫХ <br />
 				МЕРОПРИЯТИЙ НА ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;

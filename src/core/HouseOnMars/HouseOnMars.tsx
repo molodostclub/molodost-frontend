@@ -87,11 +87,6 @@ export const HouseOnMars: FC = () => {
 				<div className={cn(styles.border, indent.mb_6, indent.tablet_mb_13)}></div>
 			</div>
 			<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
-				<p className={styles.attention}>
-					Цены актуальны <span className={styles.attentionRed}>до 31 марта 2025 года</span>.
-				</p>
-			</div>
-			<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
 				<SectionHeading>Билет на марс</SectionHeading>
 				<FlexContainer gap={20} flexDirection="column" desktopFlexDirection="row" className={cn(indent.mt_6, indent.tablet_mt_8)}>
 					<div className={styles.halfWidthInTablet}>

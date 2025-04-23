@@ -40,7 +40,7 @@ export const YouthIgnites: FC = () => {
       </div>
       <div className={uikit.descriptionSpacing.short}>
         <Description>
-          Аренда всей базы в том числе автопарка стоит 2 000 000 ₽/сутки.
+          Аренда всей базы в том числе автопарка стоит 2 500 000 ₽/сутки (до 50 человек).
           <br />
           <br />
           В&nbsp;организации корпоративных заездов от&nbsp;10&nbsp;человек и&nbsp;частных

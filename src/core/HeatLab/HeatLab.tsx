@@ -30,12 +30,6 @@ export const HeatLab: FC = () => {
   return (
     <main className={styles.content}>
       <PageHeading>Банный комплекс «БлагодатЪ»</PageHeading>
-      <div className={cn(indent.tablet_mt_15, indent.mt_6)}>
-        <p className={styles.attention}>
-          Цены актуальны{' '}
-          <span className={styles.attentionRed}>до 31 марта 2025 года</span>.
-        </p>
-      </div>
       <div className={styles.grid}>
         <div className={styles.textContent}>
           <Description>

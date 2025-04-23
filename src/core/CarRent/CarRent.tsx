@@ -6,49 +6,42 @@ import { Description, PageHeading, PriceTableHeader, PriceTableRow, priceTable }
 import cn from 'classnames';
 
 import * as styles from './CarRent.css';
+import * as stylesPrice from '../PricesPage/PricesPage.css';
 import { AIRPORT_TRANSFER_PRICE, CARS, FROM_AIRPORT_TRANSFER_PRICE, BUSINESS_TRANSFER_PRICE_ADULT, BUSINESS_TRANSFER_PRICE_CHILD } from './CarRent.constants';
+import { AUTO_RENT } from '../PricesPage/PricesPage.constants';
 
 const PriceTable: FC = () => (
 	<div className={styles.tableContainer}>
-		<div className={priceTable.table}>
-			<PriceTableHeader>
-				<div className={priceTable.cell}>час</div>
-				<div className={priceTable.cell}>сутки</div>
-			</PriceTableHeader>
-			{CARS.map(({ name, pricePerDay, pricePerHour }, i) => (
-				<PriceTableRow key={i} title={name}>
-					<div className={priceTable.cell}>
-						<div className={priceTable.accent}>{formatPriceWithSign(pricePerHour)}</div>
-						<div>+ заправка</div>
+		{AUTO_RENT.map((item) => (
+			<>
+				<div className={stylesPrice.priceRowSmall}>
+					{!!item.subtitle ? (
+						<p className={stylesPrice.priceTitle}>
+							{item.title} <br />
+							<span className={stylesPrice.priceSubtitle}>{item.subtitle}</span>
+						</p>
+					) : (
+						<p className={stylesPrice.priceTitle}>{item.title}</p>
+					)}
+					<div>
+						<p className={stylesPrice.priceNum}>{formatPriceWithSign(item.price)} +&nbsp;заправка</p>
+						{!!item.note ? <p className={stylesPrice.priceNote}>{item.note}</p> : ''}
 					</div>
-					<div className={priceTable.cell}>
-						<div className={priceTable.accent}>{formatPriceWithSign(pricePerDay)}</div>
-						<div>+ заправка</div>
-					</div>
-				</PriceTableRow>
-			))}
-			<PriceTableRow title="Встреча в аэропорту" titleCell="titleCellLarge">
-				<div className={priceTable.cell}>
-					<span className={priceTable.accent}>{formatPriceWithSign(FROM_AIRPORT_TRANSFER_PRICE)}</span>
-					<span className={uikit.scopeMobile}> / чел.</span>
-					<span className={uikit.spanDesktop}> / человек</span>
 				</div>
-			</PriceTableRow>
-			<PriceTableRow title="Трансфер в Аэропорт" titleCell="titleCellLarge">
-				<div className={priceTable.cell}>
-					<span className={priceTable.accent}>{formatPriceWithSign(AIRPORT_TRANSFER_PRICE)}</span>
-					<span className={uikit.scopeMobile}> / чел.</span>
-					<span className={uikit.spanDesktop}> / человек</span>
-				</div>
-			</PriceTableRow>
-			<PriceTableRow title="Бизнес зал прилет (взрослый/ребенок до 12 лет) *с учетом нашей комиссии" titleCell="titleCellLarge">
-				<div className={priceTable.cell}>
-					<span className={priceTable.accent}>
-						{formatPriceWithSign(BUSINESS_TRANSFER_PRICE_ADULT)}/{formatPriceWithSign(BUSINESS_TRANSFER_PRICE_CHILD)}
-					</span>
-					<span className={uikit.spanDesktop}> / человек</span>
-				</div>
-			</PriceTableRow>
+				<br />
+				<br />
+			</>
+		))}
+		<div>
+			<p className={stylesPrice.sideLightText}>
+				При аренде автомобиля дополнительно оплачивается заправка 15&nbsp;руб./км по&nbsp;стоимости бензина.
+				<br />
+				<br />
+				Мы&nbsp;не&nbsp;хотим чтобы вы&nbsp;торопились, поэтому считаем людей не&nbsp;больше 6&nbsp;часов.
+				<br />
+				<br />
+				А&nbsp;все штрафы мы&nbsp;включим вам в&nbsp;счет или довыставим после того, как вы&nbsp;уедете.
+			</p>
 		</div>
 	</div>
 );
@@ -57,14 +50,8 @@ export const CarRent: FC = () => {
 	return (
 		<main className={styles.content} id="avtoprokat">
 			<PageHeading>автопрокат «бывалый рейнджер»</PageHeading>
-			<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
-				<p className={styles.attention}>
-					Цены актуальны <span className={styles.attentionRed}>до 31 марта 2025 года</span>.
-				</p>
-			</div>
 			<div className={styles.grid}>
 				<div className={styles.textContent.top}>
-					{/* <BrandLink linkTo='/' button='left'>динамика мечты</BrandLink> */}
 					<Description>
 						Если вам хочется что-нибудь забронировать заранее — забронируйте автомобиль, и вы не будете ни от кого и ни от чего зависеть.
 						<br />
