@@ -6,6 +6,7 @@ type PricesModel = {
 	twoCol?: string;
 	twoColChild?: string;
 	price?: number;
+	priceHigh?: number;
 	pricePrefix?: string;
 	priceText?: string;
 	priceChild?: number;
@@ -32,66 +33,79 @@ export const PROZHIVANIE_PRICES: PricesModel[] = [
 		title: 'хорошая спальня',
 		twoCol: '1',
 		price: 12_345,
+		priceHigh: 15_000,
 	},
 	{
 		title: 'замечательная спальня',
 		twoCol: '1',
 		price: 16_000,
+		priceHigh: 19_000,
 	},
 	{
 		title: 'потрясающая спальня',
 		twoCol: '1',
 		price: 19_000,
+		priceHigh: 23_000,
 	},
 	{
 		title: 'семейный номер',
 		twoCol: '2',
 		price: 35_000,
+		priceHigh: 40_000,
 	},
 	{
 		title: 'дом с печкой',
 		twoCol: '2',
 		price: 35_000,
+		priceHigh: 40_000,
 	},
 	{
 		title: 'барнхаус',
 		twoCol: '2',
 		price: 40_000,
+		priceHigh: 50_000,
 	},
 	{
 		title: 'лохматый дом',
 		twoCol: '2',
 		price: 35_000,
+		priceHigh: 40_000,
 	},
 	{
 		title: 'семейный дом',
 		twoCol: '4',
 		price: 47_000,
+		priceHigh: 50_000,
 	},
 	{
 		title: 'дом птица',
 		twoCol: '4',
 		price: 40_000,
+		priceHigh: 50_000,
 	},
 	{
 		title: 'малый шукшинский дом',
 		twoCol: '2',
 		price: 50_000,
+		priceHigh: 60_000,
 	},
 	{
 		title: 'дом на холме (4 спальни)',
 		twoCol: '4',
 		price: 65_000,
+		priceHigh: 75_000,
 	},
 	{
 		title: 'большой шукшинский дом',
 		twoCol: '4',
 		price: 70_000,
+		priceHigh: 80_000,
 	},
 	{
 		title: 'карахаус',
 		twoCol: '3',
 		price: 70_000,
+		priceHigh: 80_000,
 	},
 ];
 
@@ -117,38 +131,6 @@ export const ADDITIONAL_PRICES: PricesModel[] = [
 		price: 15_000,
 	},
 	{
-		title: 'Встреча в аэропорту, Tank\u00A0300',
-		twoCol: 'в\u00A0одну сторону, за\u00A0машину до\u00A03\u00A0человек',
-		price: 6_000,
-	},
-	{
-		title: 'Встреча в\u00A0аэропорту, Mercedes\u00A0Viano',
-		twoCol: 'в\u00A0одну сторону, за\u00A0машину до\u00A05\u00A0человек',
-		price: 8_000,
-	},
-	{
-		title: 'Встреча в\u00A0аэропорту на\u00A0 групповом трансфере, доп\u00A0человек/проводы',
-		twoCol: 'в\u00A0одну \u00A0сторону',
-		priceText: '2\u00A0500\u00A0₽ / 2\u00A0000\u00A0₽',
-	},
-	{
-		title: 'Бизнес зал\u00A0прилет',
-		subtitle: 'взрослый/ребенок до\u00A012\u00A0лет',
-		twoCol: '',
-		priceText: 'стоимость рассчитывается по\u00A0запросу и\u00A0включает комиссию 20%',
-	},
-	{
-		title: 'Бизнес зал вылет',
-		subtitle: 'взрослый/ребенок до\u00A012\u00A0лет',
-		twoCol: '',
-		priceText: 'стоимость рассчитывается по\u00A0запросу и\u00A0включает комиссию 20%',
-	},
-	{
-		title: 'индивидуальный трансфер в\u00A0любую сторону',
-		subtitle: '1 час',
-		priceText: '3\u00A0000\u00A0₽ +\u00A0бензин 15\u00A0руб/км',
-	},
-	{
 		title: 'доставка «бывалый рейнджер»',
 		twoCol: 'в течение дня',
 		price: 2_500,
@@ -165,10 +147,7 @@ export const ADDITIONAL_PRICES: PricesModel[] = [
 export const GASTRO_TRAKTIR_FESTIVAL: PricesModel[] = [
 	{
 		title: 'Завтрак',
-		twoCol: 'взрослый',
-		twoColChild: 'ребёнок (до 12 лет)',
-		price: 2_500,
-		priceChild: 1_500,
+		priceText: 'Входит в стоимость проживания',
 	},
 	{
 		title: 'обед',
@@ -187,11 +166,8 @@ export const GASTRO_TRAKTIR_FESTIVAL: PricesModel[] = [
 ];
 export const GASTRO_TRAKTIR_QUIET: PricesModel[] = [
 	{
-		title: 'завтрак',
-		twoCol: 'взрослый',
-		twoColChild: 'ребёнок (до 12 лет)',
-		price: 0,
-		priceChild: 0,
+		title: 'Завтрак',
+		priceText: 'Входит в стоимость проживания',
 	},
 	{
 		title: 'обед',
@@ -421,12 +397,18 @@ export const TRIKSTER_MENU: PricesModel[] = [
 	},
 ];
 
+export const HEAT_LAB_SERVICE: HeatLabModel[] = [
+	{
+		title: '',
+		listTitle: 'Входит:',
+		list: ['— аренда подготовленного пространства бани', '— веники', '— вода Petroglyph с\u00A0газом и\u00A0без', '— алтайский травяной чай', '— мед, сушки и\u00A0варенье', '— необходимое количество полотенец и\u00A0простыней', '— фирменная шапка в\u00A0подарок'],
+	},
+];
+
 export const HEAT_LAB: HeatLabModel[] = [
 	{
 		title: 'Банная церемония «Черный Хан»',
 		subtitle: '2\u00A0пармейстера, горячий чан\u00A0алтайских травах',
-		listTitle: 'Входит:',
-		list: ['— аренда подготовленного пространства бани', '— веники', '— вода Petroglyph с\u00A0газом и\u00A0без', '— алтайский травяной чай', '— мед, сушки и\u00A0варенье', '— необходимое количество полотенец и\u00A0простыней', '— фирменная шапка в\u00A0подарок'],
 		duration: '2 - 3 часа',
 		clients: 'до 2 человек',
 		price: 80_000,
@@ -451,11 +433,9 @@ export const HEAT_LAB: HeatLabModel[] = [
 	{
 		title: 'Банная церемония «Молодость»',
 		subtitle: '1 пармейстер',
-		listTitle: 'Входит:',
-		list: ['— аренда подготовленного пространства бани', '— веники', '— вода Petroglyph с\u00A0газом и\u00A0без', '— алтайский травяной чай', '— мед, сушки и\u00A0варенье', '— необходимое количество полотенец и\u00A0простыней', '— фирменная шапка в\u00A0подарок'],
 		duration: '120 мин.',
 		clients: 'до 2 человек',
-		price: 35_000,
+		price: 40_000,
 	},
 	{
 		title: 'каждый дополнительный час',
@@ -759,18 +739,21 @@ export const TOUR_INDIVIDUAL: HeatLabModel[] = [
 		duration: '2\u00A0дня / 1\u00A0ночь',
 		priceText: 'РАССЧИТЫВАЕТСЯ ИНДИВИДУАЛЬНО',
 	},
-  {
+	{
 		title: 'Обед в We are Altay с вертолётом',
 		duration: '1\u00A0день',
 		priceText: 'РАССЧИТЫВАЕТСЯ ИНДИВИДУАЛЬНО',
 	},
-  {
+	{
 		title: 'Телецкое озеро',
 		subtitle: 'индивидуальная поездка',
 		duration: '1\u00A0день',
 		priceText: 'от\u00A080\u00A0000\u00A0₽ на\u00A0одного человека с\u00A0учетом катера и\u00A0нашей комиссии',
 	},
-  {
+];
+
+export const DRIVERS: HeatLabModel[] = [
+	{
 		title: 'Следопыт',
 		duration: '1 час',
 		price: 4_000,
@@ -790,22 +773,22 @@ export const TOUR_INDIVIDUAL: HeatLabModel[] = [
 export const TOUR_PARTNERS: PricesModel[] = [
 	{
 		title: 'Конные прогулки',
-    subtitle: '2\u00A0часа',
+		subtitle: '2\u00A0часа',
 		priceText: 'Взрослый 6\u00A0000\u00A0₽ / Ребенок 4\u00A0500\u00A0₽',
 	},
-  {
+	{
 		title: ' ',
-    subtitle: ' ',
+		subtitle: ' ',
 		priceText: ' ',
 	},
 	{
 		title: 'Поездки на болотоходах и\u00A0квадроциклах',
-		priceText: 'от\u00A012\u00A0000\u00A0₽ / час'
+		priceText: 'от\u00A012\u00A0000\u00A0₽ / час',
 	},
 	{
 		title: 'Рафтинг',
-    subtitle: 'от 6 чел',
-		priceText: 'от\u00A07\u00A0000\u00A0₽ / человек'
+		subtitle: 'от 6 чел',
+		priceText: 'от\u00A07\u00A0000\u00A0₽ / человек',
 	},
 	{
 		title: 'Вертолётные туры',
@@ -835,6 +818,41 @@ export const AUTO_RENT: PricesModel[] = [
 		title: 'TANK',
 		subtitle: '24 часа',
 		price: 20_000,
+	},
+];
+
+export const TRANSFER: PricesModel[] = [
+	{
+		title: 'Встреча в аэропорту, Tank\u00A0300',
+		twoCol: 'в\u00A0одну сторону, за\u00A0машину до\u00A03\u00A0человек',
+		price: 6_000,
+	},
+	{
+		title: 'Встреча в\u00A0аэропорту, Mercedes\u00A0Viano',
+		twoCol: 'в\u00A0одну сторону, за\u00A0машину до\u00A05\u00A0человек',
+		price: 8_000,
+	},
+	{
+		title: 'Встреча в\u00A0аэропорту на\u00A0 групповом трансфере, доп\u00A0человек/проводы',
+		twoCol: 'в\u00A0одну \u00A0сторону',
+		priceText: '2\u00A0500\u00A0₽ / 2\u00A0000\u00A0₽',
+	},
+	{
+		title: 'Бизнес зал\u00A0прилет',
+		subtitle: 'взрослый/ребенок до\u00A012\u00A0лет',
+		twoCol: '',
+		priceText: 'стоимость рассчитывается по\u00A0запросу и\u00A0включает комиссию 20%',
+	},
+	{
+		title: 'Бизнес зал вылет',
+		subtitle: 'взрослый/ребенок до\u00A012\u00A0лет',
+		twoCol: '',
+		priceText: 'стоимость рассчитывается по\u00A0запросу и\u00A0включает комиссию 20%',
+	},
+	{
+		title: 'индивидуальный трансфер в\u00A0любую сторону',
+		subtitle: '1 час',
+		priceText: '3\u00A0000\u00A0₽ +\u00A0бензин 15\u00A0руб/км',
 	},
 ];
 

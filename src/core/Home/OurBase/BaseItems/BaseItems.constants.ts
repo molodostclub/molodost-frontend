@@ -5,7 +5,7 @@ export const OUR_BASE_ITEMS = [
     description: 'Конторский дом с ресепшн и лаунж-зоной.',
   },
   {
-    imageSrc: '/images/baza/baza7.jpg',
+    imageSrc: '/images/our-altay/what-we-eat.jpg',
     title: 'Довольный дракон',
     description: 'Гастро-трактир локальной кухни.',
   },
@@ -33,13 +33,13 @@ export const OUR_BASE_ITEMS = [
       'Спортивный зал «Одиссей» с тренажерами Life Fitness и workout-площадкой на свежем воздухе.',
   },
   {
-    imageSrc: '/images/baza/baza5.jpg',
+    imageSrc: '/images/our-altay/mongol-yurta.jpg',
     title: 'Монгольская юрта',
     description:
       'Настоящая юрта из войлока, в которой мы проводим лекции, чайные церемонии, стоим на гвоздях и даже слушаем концерты. ',
   },
   {
-    imageSrc: '/images/baza/baza6.jpg',
+    imageSrc: '/images/our-altay/club-srub.jpg',
     title: 'Клуб «Сруб»',
     description:
       'Клуб «Сруб», где мы иногда танцуем как чертяки, а иногда проводим медитации и конференции.',

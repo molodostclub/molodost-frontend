@@ -14,21 +14,17 @@ export const content = style([
 export const grid = style([
   {
     display: 'grid',
-    gridTemplateAreas: '"text" "price"',
-    gridTemplateColumns: '100%',
-    marginTop: 30,
+    gridTemplateColumns: '1fr 1fr',
   },
   tablet({
-    marginTop: 60,
+    marginTop: 30,
     gap: '0 60px',
-    gridTemplateAreas: '"text price"',
-    gridTemplateColumns: '0.5fr 0.5fr',
+    gridTemplateColumns: '1fr 1fr',
   }),
 ]);
 
 export const textContent = style([
   {
-    gridArea: 'text',
     marginTop: 30 
   },
   tablet({
@@ -41,7 +37,6 @@ export const tableContainer = style([
     maxWidth: 320,
     width: '100%',
     marginTop: 30,
-    gridArea: 'price',
   },
   tablet({ marginTop: 0 }),
 ]);

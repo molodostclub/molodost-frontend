@@ -9,7 +9,7 @@ export const OurAltay = () => {
 		<div className={styles.container}>
 			<SectionHeading>Наш алтай</SectionHeading>
 			<div className={styles.imageWrap}>
-				<Image fill alt="" src="/images/our-altay-cover.jpg" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+				<Image fill alt="" src="/images/our-altay/our-altay.jpg" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
 			</div>
 			<div className={styles.textContent}>
 				<Description>

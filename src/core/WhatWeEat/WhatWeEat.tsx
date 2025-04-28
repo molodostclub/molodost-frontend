@@ -7,7 +7,7 @@ import { Description, PriceTableRow, SectionHeading, priceTable } from '@uikit';
 import * as styles from './WhatWeEat.css';
 import { indent } from '@styles';
 import cn from 'classnames';
-import { TraktirMealsForNonGuests, AdditionalServicesSide, ProzhivanieSide } from '../PricesPage/PricesPage';
+import { TraktirMealsForNonGuests, AdditionalServicesSide, ProzhivanieSide, TraktirMeals } from '../PricesPage/PricesPage';
 
 //const FoodPricing: FC = () => (
 // 	<div className={styles.tableContainer}>
@@ -88,10 +88,19 @@ export const WhatWeEat = () => (
 		</div>
 		<br />
 		<br />
+		<Description>Питание для гостей проживающих на&nbsp;базе</Description>
 		<div className={styles.grid}>
-			<TraktirMealsForNonGuests />
+			<TraktirMeals />
 			<ProzhivanieSide showExtraPerson={false} />
 		</div>
+		<br />
+		<br />
+		<Description>Питание для гостей не&nbsp;проживающих на&nbsp;базе</Description>
+		<div className={styles.grid}>
+			<TraktirMealsForNonGuests />
+			<div></div>
+		</div>
+
 		{/* <div className={styles.grid}>
       <div></div>
       <AdditionalServicesSide />
