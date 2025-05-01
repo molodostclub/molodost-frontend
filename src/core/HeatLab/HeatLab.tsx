@@ -13,7 +13,7 @@ import Image from 'next/image';
 export const HeatLab: FC = () => {
 	return (
 		<main className={styles.content}>
-			<PageHeading>Банный комплекс «БлагодатЪ»</PageHeading>
+			<PageHeading>Банный комплекс «БлагодатЬ»</PageHeading>
 			<br />
 			<br />
 			<div className={styles.textContent}>

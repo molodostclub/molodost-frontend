@@ -7,7 +7,7 @@ import { Description, PriceTableRow, SectionHeading, priceTable } from '@uikit';
 import * as styles from './WhatWeEat.css';
 import { indent } from '@styles';
 import cn from 'classnames';
-import { TraktirMealsForNonGuests, AdditionalServicesSide, ProzhivanieSide, TraktirMeals } from '../PricesPage/PricesPage';
+import { TraktirMealsForNonGuests, AdditionalServicesSide, ProzhivanieSide, TraktirMeals, BarMenu, TriksterMenu } from '../PricesPage/PricesPage';
 
 //const FoodPricing: FC = () => (
 // 	<div className={styles.tableContainer}>
@@ -120,6 +120,8 @@ export const WhatWeEat = () => (
 				<br />
 			</Description>
 		</div>
+		<br />
+		<BarMenu />
 		<div className={styles.imageContainer}>
 			<Image fill src="/images/chto-my-edim-coffe.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
 		</div>
@@ -127,5 +129,6 @@ export const WhatWeEat = () => (
 		<div className={styles.textContent.bottom}>
 			<Description>По нашему собственному мнению у нас самый крепкий эспрессо и самый вкусный каппучино в Сибири.</Description>
 		</div>
+		<TriksterMenu />
 	</div>
 );

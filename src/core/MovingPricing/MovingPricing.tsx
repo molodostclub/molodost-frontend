@@ -29,19 +29,19 @@ export const MovingPricing: FC = () => (
 				</div>
 
 				{TOUR_HIKINGS.map((item, index) => (
-					<div className={stylesPrice.priceRow} key={index}>
-						{item.subtitle ? (
-							<p className={stylesPrice.priceTitle}>
-								{item.title} <br />
-								<span className={stylesPrice.priceSubtitle}>{item.subtitle}</span>
-							</p>
-						) : (
-							<p className={stylesPrice.priceTitle}>{item.title}</p>
-						)}
-						<p className={stylesPrice.twoCol}>{item.twoCol}</p>
-						<p className={stylesPrice.priceNum}>{formatPriceWithSign(item.price)}</p>
-					</div>
-				))}
+									<div className={stylesPrice.priceRow} key={index}>
+										{item.subtitle ? (
+											<p className={stylesPrice.priceTitle}>
+												{item.title} <br />
+												<span className={stylesPrice.priceSubtitle}>{item.subtitle}</span>
+											</p>
+										) : (
+											<p className={stylesPrice.priceTitle}>{item.title}</p>
+										)}
+										<p className={stylesPrice.twoCol}>{item.twoCol}</p>
+										{item.price ? <p className={stylesPrice.priceNum}>{formatPriceWithSign(item.price)}</p> : <p className={stylesPrice.priceNum}>{item.priceText}</p>}
+									</div>
+								))}
 			</div>
 			{/* ПАРТНЁРСКИЕ АКТИВНОСТИ */}
 			<div>

@@ -56,7 +56,7 @@ export function AnketaComponent() {
 			checked: false,
 		},
 		{
-			label: 'Замечательная спальня 15 555 ₽ / в день',
+			label: 'Замечательная спальня 16 000 ₽ / в день',
 			value: '2',
 			checked: false,
 		},
@@ -164,7 +164,7 @@ export function AnketaComponent() {
 
 	const checkboxesStepnik: Checkbox[] = [
 		{
-			label: 'Мне это важно (целый день, 12 345 ₽ взрослый, 8 000 ₽ ребенок)',
+			label: 'Мне это важно (целый день, 15 000 ₽ взрослый, 10 500 ₽ ребенок)',
 			value: '1',
 			checked: false,
 		},
@@ -236,17 +236,17 @@ export function AnketaComponent() {
 
 	const checkboxesBlagodat: Checkbox[] = [
 		{
-			label: 'Банную церемонию «Танец тепла» в четыре руки (45 000 ₽, до 2 чел, 120 мин)',
+			label: 'Банную церемонию «Благодать» в четыре руки (от 30 000 ₽, до 2 чел, 90 мин)',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Банную церемонию «Молодость» (35 000 ₽, до 2 чел, 120 мин)',
+			label: 'Банную церемонию «Молодость» (40 000 ₽, до 2 чел, 120 мин)',
 			value: '2',
 			checked: false,
 		},
 		{
-			label: 'Классическое парение (10 000 ₽, 1 чел, 30 мин)',
+			label: 'Классическое парение (10 000 ₽, 1 чел, 20 мин)',
 			value: '3',
 			checked: false,
 		},
@@ -608,7 +608,7 @@ export function AnketaComponent() {
 									</div>
 								))}
 								<div style={{ marginTop: 30 }}>
-									<small className={cn(indent.mt_2, styles.note)}>
+									{/* <small className={cn(indent.mt_2, styles.note)}>
 										СЕЗОННЫЕ ЗАЕЗДЫ В&nbsp;МОЛОДОСТИ:
 										<br />
 										<br />
@@ -619,7 +619,7 @@ export function AnketaComponent() {
 										<br />
 										ИЮЛЬ&nbsp;&mdash; АВГУСТ:
 										<br /> В&nbsp;это время к&nbsp;цене проживания добавляется сезонный билет взрослый 7&nbsp;000&nbsp;₽ в&nbsp;день, ребенок (от&nbsp;5&nbsp;до&nbsp;14&nbsp;лет) 5&nbsp;600&nbsp;₽ в&nbsp;день.
-									</small>
+									</small> */}
 								</div>
 							</div>
 						</div>
@@ -636,7 +636,7 @@ export function AnketaComponent() {
 								</div>
 							))}
 							<br />
-							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне: 7&nbsp;777 &nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, 4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;14&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
+							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне: 6&nbsp;000 &nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, 4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
 							<br />
 							<div className={indent.mt_4}>
 								<Label caption="Для больших семей и&nbsp;компаний есть много вариантов размещения:" />
@@ -787,7 +787,7 @@ export function AnketaComponent() {
 							<br />
 							{/* Chto hochetsa vo vremya poezdki */}
 							<div className={indent.mt_4}>
-								<Label caption="Что вам хочется во&nbsp;время поездок по&nbsp;Алтаю? (у&nbsp;нас есть джипы TANK, Range Rover и&nbsp;микроавтобусы Mercedes Viano)" />
+								<Label caption="Что вам хочется во&nbsp;время поездок по&nbsp;Алтаю? (у&nbsp;нас есть джипы TANK и&nbsp;микроавтобусы Mercedes Viano)" />
 							</div>
 							{travelPriority.map((item, i) => (
 								<div key={i} className={indent.mt_2}>
@@ -901,13 +901,13 @@ export function AnketaComponent() {
 						<br />
 						<br />
 						{/* Text under form */}
-						<p className={styles.noteBlack}>
+						{/* <p className={styles.noteBlack}>
 							Еще мы&nbsp;включим в&nbsp;ваш счет &laquo;водяной сбор&raquo;{' '}
 							<span className={styles.noteRed}>
 								<b>&mdash;350&nbsp;₽ с&nbsp;человека</b>
 							</span>{' '}
 							за&nbsp;безлимитное пользование водой petroglyph, эти деньги пойдут на&nbsp;социальные проекты на&nbsp;Алтае.
-						</p>
+						</p> */}
 						<br />
 						<br />
 						<br />

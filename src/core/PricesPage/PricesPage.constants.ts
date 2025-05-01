@@ -582,8 +582,8 @@ export const TOUR_GROUPS: PricesModel[] = [
 	{
 		title: 'Степник на Стоянке Чёрного хана',
 		twoCol: 'весь день',
-		price: 12_345,
-		priceChild: 8_000,
+		price: 15_000,
+		priceChild: 10_500,
 	},
 	{
 		title: 'Степник на Стоянке Чёрного хана',
@@ -617,8 +617,8 @@ export const TOUR_GROUPS: PricesModel[] = [
 		title: 'Тень на плетень',
 		subtitle: 'авторское приключение - СЕЗОННЫЙ ЗАЕЗД для проживающих гостей',
 		twoCol: 'весь день',
-		price: 10_000,
-		priceChild: 7_000,
+		price: 0,
+		priceChild: 0,
 	},
 	{
 		title: 'Вода-вода (Телецкое озеро)',
@@ -1343,11 +1343,11 @@ export const PRICE_SERVICES: PricesModel[] = [
 ];
 
 export const TO_MARS: PricesModel[] = [
-	// {
-	//   title: 'хорошая спальня',
-	//   twoCol: '2',
-	//   price: 12_345,
-	// },
+	{
+		title: 'хорошая спальня',
+		twoCol: '2',
+		price: 12_345,
+	},
 	{
 		title: 'замечательная спальня',
 		twoCol: '2',
@@ -1362,6 +1362,12 @@ export const TO_MARS: PricesModel[] = [
 		title: 'Логово Вавилонского Тигра',
 		twoCol: '3',
 		price: 50_000,
+	},
+	{
+		title: 'Аренда приюта полностью',
+		subtitle: 'до 8 чел. Каждый дополнительный человек - 30 000 руб.',
+		twoCol: '1 сутки',
+		price: 300_000,
 	},
 ];
 

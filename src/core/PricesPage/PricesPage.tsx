@@ -295,7 +295,7 @@ const TraktirMenu: FC = () => (
 	</div>
 );
 
-const BarMenu: FC = () => (
+export const BarMenu: FC = () => (
 	<div className={styles.priceTable}>
 		<div className={styles.priceRow}>
 			<div className={styles.tableHeaderCol}>НАПИТОК</div>
@@ -346,7 +346,7 @@ const BarSide: FC = () => (
 	</div>
 );
 
-const TriksterMenu: FC = () => (
+export const TriksterMenu: FC = () => (
 	<div className={styles.priceTable}>
 		<div className={styles.priceRow}>
 			<div className={styles.tableHeaderCol}>НАПИТОК</div>
@@ -1092,11 +1092,11 @@ export const PricesPage: FC = () => {
 				ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ
 			</h2>
 			<CorporativeNonGuests />
-			<h2 className={styles.subtitle}>
+			{/* <h2 className={styles.subtitle}>
 				ОРГАНИЗАЦИЯ ИНДИВИДУАЛЬНЫХ ЗАКРЫТЫХ <br />
 				МЕРОПРИЯТИЙ НА ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
 			</h2>
-			<ClosedTours />
+			<ClosedTours /> */}
 			{/* <h2 className={styles.subtitle}>
         ПРАЙС НА УСЛУГИ <br />
         В ГОРКЛУБЕ &laquo;МОЛОДОСТЬ&raquo;
