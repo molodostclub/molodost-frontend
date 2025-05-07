@@ -236,7 +236,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				<SectionHeading>Билет на&nbsp;Марс</SectionHeading>
 				<div className={cn(styles.bilet, indent.tablet_mt_6, indent.mt_4)}>
 					<div className={cn(styles.biletPrice)}>
-						<span className={cn(styles.attentionRed, styles.attention)}>{formatPriceWithSign(108_000)}</span>
+						<span className={cn(styles.attentionRed, styles.attention)}>{formatPriceWithSign(122_000)}</span>
 						<span>за машину</span>
 					</div>
 					<p className={cn(styles.biletPriceDescription, indent.mt_3)}>до&nbsp;3&nbsp;пассажиров, в&nbsp;стоимость входит трансфер, сопровождение следопытом и&nbsp;бензин.</p>

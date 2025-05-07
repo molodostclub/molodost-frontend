@@ -12,6 +12,7 @@ export const header = style([
     width: '100%',
     padding: '40px 60px 65px 40px',
     background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0) 100%)',
+    top: 0,
   }),
 ]);
 

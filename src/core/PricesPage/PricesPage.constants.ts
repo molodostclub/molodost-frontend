@@ -726,7 +726,7 @@ export const TOUR_INDIVIDUAL: HeatLabModel[] = [
 		title: 'Миссия на Марс на одну ночь при двухместном размещении',
 		duration: '1\u00A0человек',
 		pricePrefix: 'от ',
-		price: 80_000,
+		price: 122_000,
 	},
 	{
 		title: 'Золотое кольцо',

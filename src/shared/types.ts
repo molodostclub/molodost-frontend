@@ -1,3 +1,5 @@
+export {}
+
 export type ID = number;
 
 type WithSlug<T> = T & {
@@ -94,3 +96,13 @@ export interface EcosystemEntryModel {
 export type EcosystemModel = Entity<{
   entries: EcosystemEntryModel[];
 }>;
+
+declare global {
+	interface Window {
+		travelline?: {
+			integration?: {
+				__cq?: any[];
+			};
+		};
+	}
+}
