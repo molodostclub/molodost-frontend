@@ -25,7 +25,15 @@ export const grid = style([
 	}),
 ]);
 
-export const subtitle = style([uikit.pageSubtitle, { marginBottom: 0, marginTop: 70, fontSize: 26 }]);
+export const subtitle = style([
+	uikit.pageSubtitle,
+	{
+		
+		marginBottom: 0,
+		marginTop: 70,
+		fontSize: 26,
+	},
+]);
 
 const textContentBase = style([
 	tablet({
@@ -168,6 +176,34 @@ export const priceListTitle = style([
 		fontSize: 10,
 		lineHeight: 1,
 		textTransform: 'lowercase',
+	},
+	tablet({
+		fontSize: 16,
+	}),
+]);
+
+export const list = style([
+	{
+		fontFamily: vars.font.CeraCondensedCYRegular,
+		fontSize: 12,
+		lineHeight: 1,
+		display: 'flex',
+		flexDirection: 'column',
+		marginTop: 10,
+		gap: 5,
+		listStyle: 'initial',
+		paddingLeft: 20,
+	},
+	tablet({
+		fontSize: 16,
+	}),
+]);
+
+export const listItem = style([
+	{
+		fontFamily: vars.font.CeraCondensedCYRegular,
+		fontSize: 12,
+		lineHeight: 1,
 	},
 	tablet({
 		fontSize: 16,

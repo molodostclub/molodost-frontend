@@ -19,6 +19,7 @@ export const APP_ROUTES: MenuItem[] = [
 	{
 		label: 'ТУРБАЗА «МОЛОДОСТЬ»',
 		subItems: [
+			{ label: '- Забронировать', href: '/booking', },
 			{ label: '- Майские', href: '/may', },
 			{ label: '- ГДЕ МЫ ЖИВЕМ', href: '/rooms' },
 			{ label: '- ЧТО МЫ ЕДИМ И ПЬЕМ', href: '/chto-my-edim' },

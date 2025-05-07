@@ -20,7 +20,7 @@ export default function Home({ trips }: Props) {
 			<HowWeTrip trips={trips} />
 			<TravelBureau />
 			<MovingPricing />
-			<PageCoverSmall src="/images/avtoprokat-cover.jpg" />
+			<PageCoverSmall src="/images/carRent/one.jpg" />
 			<CarRent />
 			<Footer />
 		</>

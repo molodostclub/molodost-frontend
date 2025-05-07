@@ -28,6 +28,7 @@ import {
 	DRIVERS,
 	TRANSFER,
 	HEAT_LAB_SERVICE,
+	ZOZH_ZOM,
 } from './PricesPage.constants';
 
 const Prozhivanie: FC = () => {
@@ -81,6 +82,13 @@ export const ProzhivanieSide: FC<ProzhivanieSideProps> = ({ showExtraPerson = tr
 			<br />
 			ребёнок (от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет) 5&nbsp;000&nbsp;₽/ДЕНЬ
 		</p>
+		<p className={styles.sideText}>Что входит:</p>
+		<ul className={styles.list}>
+			<li className={styles.listItem}>круглосуточное питание&nbsp;- обед, ужин</li>
+			<li className={styles.listItem}>«алтайский водопой» от&nbsp;воды Petroglyph</li>
+			<li className={styles.listItem}>ланчбоксы в&nbsp;путешествия и&nbsp;ночной дожор</li>
+			<li className={styles.listItem}>алтайский травяной сбор (чай) весь день&nbsp;- комплиментарно</li>
+		</ul>
 	</div>
 );
 
@@ -147,46 +155,51 @@ export const AdditionalServicesSide: FC = () => (
 );
 
 export const TraktirMeals: FC = () => (
-	<div className={styles.priceTable}>
-		<div className={styles.priceRow}>
-			<div className={styles.tableHeaderCol}>&nbsp;</div>
-			<div className={styles.tableHeaderCol}></div>
-			<div className={styles.tableHeaderCol}>цена,&nbsp;руб</div>
-		</div>
-		{GASTRO_TRAKTIR_FESTIVAL.map((item) => (
+	<>
+		<div className={styles.priceTable}>
 			<div className={styles.priceRow}>
-				{!!item.subtitle ? (
-					<p className={styles.twoCol}>
-						{item.title} <br />
-						<span className={styles.priceSubtitle}>{item.subtitle}</span>
-					</p>
-				) : (
-					<p className={styles.priceTitle}>{item.title}</p>
-				)}
-				{!!item.twoColChild ? (
-					<div>
-						<p className={styles.twoCol}>{item.twoCol}</p>
-						<p className={styles.twoCol}>{item.twoColChild}</p>
-					</div>
-				) : (
-					<p className={styles.twoCol}>{item.twoCol}</p>
-				)}
-				<div>
-					{!!item.priceChild ? (
-						<div className={styles.priceNum}>
-							<p>{formatPriceWithSign(item.price)}</p>
-							<p>{formatPriceWithSign(item.priceChild)}</p>
-						</div>
-					) : item.price ? (
-						<p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p>
-					) : (
-						<p className={styles.priceNum}>{item.priceText}</p>
-					)}
-					{!!item.note ? <p className={styles.priceNote}>{item.note}</p> : ''}
-				</div>
+				<div className={styles.tableHeaderCol}>&nbsp;</div>
+				<div className={styles.tableHeaderCol}></div>
+				<div className={styles.tableHeaderCol}>цена,&nbsp;руб</div>
 			</div>
-		))}
-	</div>
+			{GASTRO_TRAKTIR_FESTIVAL.map((item, index) => (
+				<div className={styles.priceRow} key={index}>
+					{!!item.subtitle ? (
+						<p className={styles.twoCol}>
+							{item.title} <br />
+							<span className={styles.priceSubtitle}>{item.subtitle}</span>
+						</p>
+					) : (
+						<p className={styles.priceTitle}>{item.title}</p>
+					)}
+					{!!item.twoColChild ? (
+						<div>
+							<p className={styles.twoCol}>{item.twoCol}</p>
+							<p className={styles.twoCol}>{item.twoColChild}</p>
+						</div>
+					) : (
+						<p className={styles.twoCol}>{item.twoCol}</p>
+					)}
+					<div>
+						{!!item.priceChild ? (
+							<div className={styles.priceNum}>
+								<p>{formatPriceWithSign(item.price)}</p>
+								<p>{formatPriceWithSign(item.priceChild)}</p>
+							</div>
+						) : item.price ? (
+							<p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p>
+						) : (
+							<p className={styles.priceNum}>{item.priceText}</p>
+						)}
+						{!!item.note ? <p className={styles.priceNote}>{item.note}</p> : ''}
+					</div>
+				</div>
+			))}
+			<br />
+			<br />
+			<p className={styles.sideText}>Услуга &laquo;водопой&raquo; &mdash;&nbsp;500&nbsp;руб.&nbsp;с&nbsp;человека в&nbsp;сутки. Неограниченный запас воды Petroglyph с&nbsp;газом и&nbsp;без оплачивается теми гостями, которые не&nbsp;берут &laquo;съедобное бревно&raquo;.</p>
+		</div>
+	</>
 );
 export const TraktirMealsForNonGuests: FC = () => (
 	<div className={styles.priceTable}>
@@ -195,8 +208,8 @@ export const TraktirMealsForNonGuests: FC = () => (
 			<div className={styles.tableHeaderCol}></div>
 			<div className={styles.tableHeaderCol}>цена,&nbsp;руб</div>
 		</div>
-		{GASTRO_TRAKTIR_FESTIVAL_FOR_NON_GUESTS.map((item) => (
-			<div className={styles.priceRow}>
+		{GASTRO_TRAKTIR_FESTIVAL_FOR_NON_GUESTS.map((item, index) => (
+			<div className={styles.priceRow} key={index}>
 				{!!item.subtitle ? (
 					<p className={styles.twoCol}>
 						{item.title} <br />
@@ -302,8 +315,8 @@ export const BarMenu: FC = () => (
 			<div className={styles.tableHeaderCol}></div>
 			<div className={styles.tableHeaderCol}>цена,&nbsp;руб</div>
 		</div>
-		{BAR_MENU.map((item) => (
-			<div className={styles.priceRow}>
+		{BAR_MENU.map((item, index) => (
+			<div className={styles.priceRow} key={index}>
 				{!!item.subtitle ? (
 					<p className={styles.priceTitle}>
 						{item.title} <br />
@@ -353,8 +366,8 @@ export const TriksterMenu: FC = () => (
 			<div className={styles.tableHeaderCol}></div>
 			<div className={styles.tableHeaderCol}>цена,&nbsp;руб</div>
 		</div>
-		{TRIKSTER_MENU.map((item) => (
-			<div className={styles.priceRow}>
+		{TRIKSTER_MENU.map((item, index) => (
+			<div className={styles.priceRow} key={index}>
 				{!!item.subtitle ? (
 					<p className={styles.priceTitle}>
 						{item.title} <br />
@@ -728,7 +741,7 @@ const TourBureau: FC = () => {
 						))}
 					</div>
 					<div>
-						<p className={styles.sideLightText}>Мы&nbsp;не&nbsp;скрываем собственные комиссии и&nbsp;наценки. За&nbsp;работу с&nbsp;подрядчиками мы&nbsp;берем комиссию от&nbsp;7% (вертолеты) до&nbsp;30% (бизнес-зал), которую вы&nbsp;увидите в&nbsp;своем счете.</p>
+						<p className={styles.sideLightText}>Мы&nbsp;не&nbsp;скрываем собственные комиссии и&nbsp;наценки. За&nbsp;работу с&nbsp;подрядчиками мы&nbsp;берем комиссию от&nbsp;7% (вертолеты) до&nbsp;20% (бизнес-зал), которую вы&nbsp;увидите в&nbsp;своем счете.</p>
 					</div>
 				</div>
 			</div>
@@ -988,15 +1001,57 @@ const ToMars: FC = () => (
 	</>
 );
 
+export const ZozhZom: FC = () => (
+	<div className={styles.priceTable}>
+		{/* Заголовок таблицы */}
+		<div className={styles.priceRowWide}>
+			<div className={styles.tableHeaderColWide}>услуга</div>
+			<div className={styles.tableHeaderColWide}>дли&shy;тель&shy;ность</div>
+			<div className={styles.tableHeaderColWide}>кол-во, чел.</div>
+			<div className={styles.tableHeaderColWide}>цена, руб</div>
+		</div>
+
+		{/* Данные из HEAT_LAB */}
+		{ZOZH_ZOM.map((item, itemIndex) => (
+			<div key={itemIndex} className={styles.priceRowWide}>
+				<div>
+					<p className={styles.priceTitle}>{item.title}</p>
+					{!!item.subtitle && (
+						<>
+							<p className={styles.priceSubtitle}>{item.subtitle}</p>
+							<p className={styles.priceListTitle}>{item.listTitle}</p>
+							{!!item.list && (
+								<ul className={styles.priceList}>
+									{item.list.map((listItem, listIndex) => (
+										<li key={listIndex}>{listItem}</li>
+									))}
+								</ul>
+							)}
+						</>
+					)}
+				</div>
+				<p className={styles.priceNumList}>{item.duration}</p>
+				<p className={styles.priceNumList}>{item.clients}</p>
+				<p className={styles.priceNumList}>
+					{formatPriceWithSign(item.price)}
+					{!!item.note && (
+						<>
+							<br />
+							<span className={styles.priceNote}>{item.note}</span>
+						</>
+					)}
+				</p>
+			</div>
+		))}
+	</div>
+);
+
 export const PricesPage: FC = () => {
 	return (
 		<main className={styles.content} id="vsibirzasvoyschet">
 			<PageHeading>ТАРИФ НА&nbsp;ПРОЖИВАНИЕ И&nbsp;УСЛУГИ НА&nbsp;БАЗЕ И&nbsp;В&nbsp;РАМКАХ ЭКОСИСТЕМЫ МОЛОДОСТЬ НА&nbsp;АЛТАЕ</PageHeading>
 			<br />
 			<Description>
-				{/*Все цены указаны без учета налога, который&nbsp;мы, как компания
-        на&nbsp;упрощенной системе, платим в&nbsp;размере&nbsp;6% со&nbsp;всех поступающих
-        платежей. При оплате банковской картой комиссия за&nbsp;эквайринг составляет 2,3%.*/}
 				<br />
 				<br />
 				Если по&nbsp;итогу отдыха вы&nbsp;захотите оставить чаевые, мы&nbsp;с&nbsp;благодарностью включим их&nbsp;в&nbsp;счет в&nbsp;размере 5-10%. В&nbsp;организации корпоративных заездов от&nbsp;10&nbsp;человек нам помогает наш постоянный партнер агентство &laquo;Маури&raquo;, которые
@@ -1033,11 +1088,6 @@ export const PricesPage: FC = () => {
 			<div className={styles.grid}>
 				<TraktirMealsForNonGuests />
 			</div>
-			{/* <div className={styles.separator}></div>
-			<div className={styles.grid}>
-				<TraktirMenu />
-				<div></div>
-			</div> */}
 			<div className={styles.separator}></div>
 			<h2 className={styles.subtitle}>
 				&laquo;СЧАСТЛИВЫЙ ДРАКОН&raquo;
@@ -1055,7 +1105,6 @@ export const PricesPage: FC = () => {
 			</h2>
 			<div className={styles.grid}>
 				<TriksterMenu />
-				<TriksterSide />
 			</div>
 			<h2 className={styles.subtitle}>
 				Лаборатория тепла
@@ -1064,6 +1113,10 @@ export const PricesPage: FC = () => {
 			</h2>
 			<br />
 			<HeatLabSibir />
+			<h2 className={styles.subtitle}>ЗОЖ и СОМ</h2>
+			<br />
+			<ZozhZom />
+			<div className={styles.separator}></div>
 			<h2 className={styles.subtitle}>
 				ТУРБЮРО
 				<br />
@@ -1092,16 +1145,6 @@ export const PricesPage: FC = () => {
 				ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ
 			</h2>
 			<CorporativeNonGuests />
-			{/* <h2 className={styles.subtitle}>
-				ОРГАНИЗАЦИЯ ИНДИВИДУАЛЬНЫХ ЗАКРЫТЫХ <br />
-				МЕРОПРИЯТИЙ НА ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
-			</h2>
-			<ClosedTours /> */}
-			{/* <h2 className={styles.subtitle}>
-        ПРАЙС НА УСЛУГИ <br />
-        В ГОРКЛУБЕ &laquo;МОЛОДОСТЬ&raquo;
-      </h2>
-      <PriceServices /> */}
 			<h2 className={styles.subtitle}>
 				ПРОЖИВАНИЕ <br />
 				ПРИЮТ &laquo;НА МАРСЕ&raquo;

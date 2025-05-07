@@ -88,14 +88,14 @@ export const WhatWeEat = () => (
 		</div>
 		<br />
 		<br />
-		<Description>Питание для гостей проживающих на&nbsp;базе</Description>
+		<SectionHeading>Питание для гостей проживающих на&nbsp;базе</SectionHeading>
 		<div className={styles.grid}>
 			<TraktirMeals />
 			<ProzhivanieSide showExtraPerson={false} />
 		</div>
 		<br />
 		<br />
-		<Description>Питание для гостей не&nbsp;проживающих на&nbsp;базе</Description>
+		<SectionHeading>Питание для гостей не&nbsp;проживающих на&nbsp;базе</SectionHeading>
 		<div className={styles.grid}>
 			<TraktirMealsForNonGuests />
 			<div></div>
@@ -106,7 +106,7 @@ export const WhatWeEat = () => (
       <AdditionalServicesSide />
     </div> */}
 		<div className={styles.imageContainer}>
-			<Image fill src="/images/chto-my-edim-bar.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+			<Image fill src="/images/chto-edim/coffe.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
 		</div>
 		<h2 className={uikit.titleVaryingSize}>бар &laquo;я догоню&raquo;</h2>
 		<div className={styles.textContent.bottom}>

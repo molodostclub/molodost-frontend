@@ -24,7 +24,7 @@ export const OUR_BASE_ITEMS = [
     imageSrc: '/images/baza/baza3.jpg',
     title: 'Терраса для йоги',
     description:
-      'Место с лучшим видом на базе, где мы проводим зарядки, читаем книги и медитируем',
+      'Место с лучшим видом на базе, где мы проводим зарядки, читаем книги и медитируем.',
   },
   {
     imageSrc: '/images/odissey-card.jpg',

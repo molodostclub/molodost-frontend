@@ -194,7 +194,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_6)}>
 				<div className={cn(styles.border, indent.mb_8)}>&nbsp;</div>
 				<SectionHeading>
-					Проект реализуется совместно с&nbsp;нашими партнерами&nbsp;&mdash; группой компаний <span className={styles.attentionRed}>ГОК &laquo;Озерный&raquo;</span>
+					Инвестор проекта <span className={styles.attentionRed}>ГОК &laquo;Озерный&raquo;</span>. Реализацией проекта занимается Творческий кооператив «Молодость».
 				</SectionHeading>
 				<br />
 				<br />

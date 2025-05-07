@@ -30,6 +30,14 @@ export const menuLink = style([
     lineHeight: '15px',
     textDecoration: 'underline',
     color: vars.color.brand,
+    transition: '0.3s ease-in-out',
+
+    selectors: {
+      '&:hover': {
+        opacity: 0.8,
+        transition: '0.3s ease-in-out',
+      },
+    },
   },
   tablet({
     fontSize: 25,

@@ -7,7 +7,7 @@ export default function KakPopast() {
     <>
       <PageMeta title="Забронировать проживание" />
       <InnerPageHeader />
-      <PageCover src="/images/kak-popast-cover.jpg" />
+      <PageCover src="/images/booking/main.jpg" />
       <Booking />
       <Footer />
     </>
