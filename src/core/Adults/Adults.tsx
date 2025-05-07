@@ -56,7 +56,7 @@ export const Adults: FC = () => {
 						<img alt="Отдых в молодости" src="/images/adults/three.jpg" className={styles.katalkaImg} />
 					</div>
 					<div className={styles.katalkaColumn}>
-						<img alt="Турбаза Молодость на Алтае" src="/images/adults/two.jpg" className={styles.katalkaImg} />
+						<img alt="Турбаза Молодость на Алтае" src="/images/adults/two.JPG" className={styles.katalkaImg} />
 					</div>
 				</div>
 				<div className={styles.paragraph}>

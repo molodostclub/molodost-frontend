@@ -6,7 +6,7 @@ import { Adults } from '@/core/Adults';
 export default function AdultsPage() {
   return (
     <>
-      <PageMeta title="Майские праздники" />
+      <PageMeta title="МОЛОДОСТЬ ПО-ВЗРОСЛОМУ" />
       <InnerPageHeader />
       <PageCover src="/images/adults/one.jpg" />
       <Adults />
