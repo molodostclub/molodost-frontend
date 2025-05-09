@@ -1,5 +1,6 @@
 import { pageContent, tablet, vars } from '@styles';
 import { style } from '@vanilla-extract/css';
+import { table } from 'console';
 
 export const content = style([
 	pageContent,
@@ -24,10 +25,13 @@ export const separator = style([
 export const grid = style([
 	{
 		display: 'grid',
-		gridTemplateColumns: '1fr 1fr',
+		gridTemplateColumns: '1fr',
 		columnGap: 40,
 		rowGap: 60,
 	},
+	tablet({
+		gridTemplateColumns: '1fr 1fr',
+	})
 ]);
 
 export const column = style([
