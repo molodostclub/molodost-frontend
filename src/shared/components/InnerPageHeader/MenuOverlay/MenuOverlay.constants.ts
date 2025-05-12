@@ -27,7 +27,7 @@ export const APP_ROUTES: MenuItem[] = [
 			{ label: '- АВТОПРОКАТ', href: '/kak-my-puteshevstvuem#scrollto=avtoprokat' },
 			{ label: '- ДЕТИ', href: '/deti-v-molodosti' },
 			{ label: '- БАННЫЙ КОМПЛЕКС «БЛАГОДАТЬ»', href: '/laboratoriya-tepla' },
-			{ label: '- ЗОЖ И СОМ', href: '/zozh-i-zom' },
+			{ label: '- ЗОЖ И ЗОМ', href: '/zozh-i-zom' },
 			{ label: '– Мероприятия в «Молодости» ', href: '/molodost-zazhigayet' },
 		],
 	},

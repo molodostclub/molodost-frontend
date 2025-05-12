@@ -883,10 +883,10 @@ export function AnketaComponent() {
 								</div>
 							))}
 							<br />
-							<small className={cn(indent.mt_2, styles.note)}>
+							{/*<small className={cn(indent.mt_2, styles.note)}>
 								Мы&nbsp;очень рекомендуем это сделать, стоимость услуги 7&nbsp;020&nbsp;р взрослый и&nbsp;3&nbsp;510&nbsp;р ребенок (дети по&nbsp;правилам аэропорта с&nbsp;2&nbsp;до&nbsp;12&nbsp;лет). В&nbsp;летнее время в&nbsp;нашем маленьком Горно-Алтайском аэропорту бывают
 								столпотворения.
-							</small>
+							</small>*/}
 							<br />
 							<div className={indent.mt_4}>
 								<Label caption="У&nbsp;нас есть льготное проживание в&nbsp;низкий сезон для деятелей культуры и&nbsp;других представителей творческих профессий, если вы&nbsp;чувствуете, что вам к&nbsp;нам очень надо, то&nbsp;расскажите, почему вы&nbsp;к&nbsp;нам хотите и&nbsp;мы&nbsp;постараемся принять вас по&nbsp;льготному тарифу:" />
