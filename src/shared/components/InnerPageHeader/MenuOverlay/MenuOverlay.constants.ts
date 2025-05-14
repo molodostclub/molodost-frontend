@@ -24,7 +24,7 @@ export const APP_ROUTES: MenuItem[] = [
 			{ label: '- ГДЕ МЫ ЖИВЕМ', href: '/rooms' },
 			{ label: '- ЧТО МЫ ЕДИМ И ПЬЕМ', href: '/chto-my-edim' },
 			{ label: '- КАК МЫ ПУТЕШЕСТВУЕМ', href: '/kak-my-puteshevstvuem' },
-			{ label: '- АВТОПРОКАТ', href: '/kak-my-puteshevstvuem#scrollto=avtoprokat' },
+			{ label: '- АВТОПРОКАТ', href: '/kak-my-puteshevstvuem#avtoprokat' },
 			{ label: '- ДЕТИ', href: '/deti-v-molodosti' },
 			{ label: '- БАННЫЙ КОМПЛЕКС «БЛАГОДАТЬ»', href: '/laboratoriya-tepla' },
 			{ label: '- ЗОЖ И ЗОМ', href: '/zozh-i-zom' },
@@ -35,14 +35,14 @@ export const APP_ROUTES: MenuItem[] = [
 		label: '«МОЛОДОСТЬ» НА МАРСЕ',
 		subItems: [
 			{ label: '- Наш приют', href: '/mars' },
-			{ label: '- Где мы живем', href: '/mars#scrollto=roomsOnMars' },
+			{ label: '- Где мы живем', href: '/mars#roomsOnMars' },
 		],
 	},
 	{
 		label: '«МОЛОДОСТЬ» НА байкале',
 		subItems: [
 			{ label: '– Наш пляжный курорт', href: '/baikal' },
-			{ label: '– Где мы живем', href: '/baikal#scrollto=roomsOnBaikal' },
+			{ label: '– Где мы живем', href: '/baikal#roomsOnBaikal' },
 		],
 	},
 	{

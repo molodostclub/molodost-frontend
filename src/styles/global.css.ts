@@ -2,6 +2,10 @@ import { globalFontFace, globalStyle } from '@vanilla-extract/css';
 
 import { fonts, vars } from './theme.css';
 
+globalStyle("html", {
+	scrollBehavior: "smooth"
+})
+
 globalStyle('body', {
   backgroundColor: vars.color.mainBackground,
 });
