@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 
 import { HowWeTrip } from '@core/HowWeTrip';
@@ -12,6 +13,19 @@ type Props = {
 };
 
 export default function Home({ trips }: Props) {
+	useEffect(() => {
+		if (typeof window === 'undefined') return;
+
+		const hash = window.location.hash;
+		if (hash) {
+			const element = document.querySelector(hash);
+			if (element) {
+				setTimeout(() => {
+					element.scrollIntoView({ behavior: 'smooth' });
+				}, 100); // Даем DOM время на загрузку
+			}
+		}
+	}, []);
 	return (
 		<>
 			<PageMeta title="Как мы путешествуем" />

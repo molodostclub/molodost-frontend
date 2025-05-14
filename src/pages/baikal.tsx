@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { PageContainer, Postscriptum } from '@core/Home';
 import { InnerPageHeader, PageCover, Footer, PageMeta } from '@shared/components';
 import { BaikalPage } from '@/core/Baikal';
@@ -8,6 +9,19 @@ import { getHousesSplit } from '@/utils';
 type Props = HousesSplit;
 
 export default function Baikal(pageProps: Props) {
+	useEffect(() => {
+		if (typeof window === 'undefined') return;
+
+		const hash = window.location.hash;
+		if (hash) {
+			const element = document.querySelector(hash);
+			if (element) {
+				setTimeout(() => {
+					element.scrollIntoView({ behavior: 'smooth' });
+				}, 100); // Даем DOM время на загрузку
+			}
+		}
+	}, []);
 	return (
 		<>
 			<PageMeta title="Молодость на Байкале" />
