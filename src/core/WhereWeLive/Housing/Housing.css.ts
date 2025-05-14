@@ -104,15 +104,18 @@ export const title = style({
 export const parameters = style([
   {
     display: 'flex',
+    flexDirection: "column",
+    maxWidth: "80%",
     marginTop: 20,
-    gap: 35,
+    gap: 20,
   },
 ]);
 
 export const parameter = style([
   {
     display: 'flex',
-    gap: 18,
+    gap: 10,
+    	justifyContent: "space-between"
   },
 ]);
 
