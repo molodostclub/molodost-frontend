@@ -75,6 +75,7 @@ export type HouseModel = Entity<
     peopleMin: number;
     peopleMax: number;
     basePrice: number;
+    basePrice2?: number;
     pictures: StrapiResponse<MediaUploadModel[] | null>;
     video?: StrapiResponse<MediaUploadModel | null>;
     videoPreview?: StrapiResponse<MediaUploadModel | null>;
