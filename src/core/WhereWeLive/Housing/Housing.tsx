@@ -29,7 +29,7 @@ const Pricing: FC<{
 				<div className={styles.paramValue}>{formatPriceWithSign(price)}</div>
 			</div>
 
-			{(isMars  && isBaikal !== true) && price2 !== undefined  && (
+			{isMars !== true && isBaikal !== true && price2 !== undefined && (
 				<div className={styles.parameter}>
 					<div className={styles.paramName}>
 						высокий сезон за {peopleMin}-{numberEnding} человек{textEnding}
