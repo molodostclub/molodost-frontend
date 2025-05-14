@@ -10,18 +10,29 @@ type Props = HousesSplit;
 
 export default function MarsPage(pageProps: Props) {
 	useEffect(() => {
-		if (typeof window === 'undefined') return;
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // ждём, пока DOM отрисуется (если блок рендерится динамически)
+        requestAnimationFrame(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    };
 
-		const hash = window.location.hash;
-		if (hash) {
-			const element = document.querySelector(hash);
-			if (element) {
-				setTimeout(() => {
-					element.scrollIntoView({ behavior: 'smooth' });
-				}, 100); // Даем DOM время на загрузку
-			}
-		}
-	}, []);
+    // Скролл при монтировании, если уже есть hash
+    handleHashChange();
+
+    // Скролл при каждом изменении hash
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 	return (
 		<>
 			<PageMeta title="Приют на марсе" />
