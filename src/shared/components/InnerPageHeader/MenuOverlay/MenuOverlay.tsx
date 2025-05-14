@@ -7,7 +7,6 @@ import { SmallLogo } from '@uikit';
 import { useIsFirstRender } from '@shared/hooks';
 import { APP_ROUTES, MenuItem } from './MenuOverlay.constants';
 import * as styles from './MenuOverlay.css';
-import { scrollToAnchor, getHashParams } from './MeuOverlay.utils';
 
 type Props = {
 	opened: boolean;
@@ -19,13 +18,6 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 	const router = useRouter();
 	const [openMenu, setOpenMenu] = useState<string | null>(null);
 
-	useEffect(() => {
-		const params = getHashParams();
-		if (params.scrollto) {
-			scrollToAnchor(params.scrollto);
-		}
-	}, []);
-
 	const handleClickMenuItem = (event: MouseEvent<HTMLAnchorElement>, item: MenuItem) => {
 		if (isCurrentPage(item.href ?? '#')) {
 			event.preventDefault();
@@ -36,6 +28,10 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 
 			if (anchor) {
 				window.location.hash = anchor;
+
+				setTimeout(() => {
+					history.replaceState(null, '', window.location.pathname + window.location.search);
+				}, 500);
 			}
 		}
 	};
