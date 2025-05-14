@@ -32,11 +32,10 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 			onClose();
 
 			const url = new URL(item.href ?? '', window.location.origin);
-			const scrollto = url.searchParams.get('scrollto');
+			const anchor = url.hash.replace('#', '');
 
-			if (scrollto) {
-				window.history.pushState(null, '', `#scrollto=${scrollto}`);
-				scrollToAnchor(scrollto);
+			if (anchor) {
+				window.location.hash = anchor;
 			}
 		}
 	};
