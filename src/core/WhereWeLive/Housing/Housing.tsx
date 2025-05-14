@@ -15,7 +15,8 @@ const Pricing: FC<{
 	price: number;
 	price2?: number;
 	isMars?: boolean;
-}> = ({ peopleMin, price, price2, isMars }) => {
+	isBaikal?: boolean;
+}> = ({ peopleMin, price, price2, isMars, isBaikal }) => {
 	const numberEnding = peopleMin === 1 ? 'го' : 'х';
 	const textEnding = peopleMin === 1 ? 'а' : '';
 
@@ -28,7 +29,7 @@ const Pricing: FC<{
 				<div className={styles.paramValue}>{formatPriceWithSign(price)}</div>
 			</div>
 
-			{!isMars && price2 !== undefined && (
+			{(isMars  && isBaikal !== true) && price2 !== undefined  && (
 				<div className={styles.parameter}>
 					<div className={styles.paramName}>
 						высокий сезон за {peopleMin}-{numberEnding} человек{textEnding}
@@ -54,6 +55,8 @@ export const Housing: FC<HousingProps> = ({
 			pictures,
 			video,
 			videoPreview,
+			isMars,
+			isBaikal,
 		},
 	},
 }) => {
@@ -83,7 +86,7 @@ export const Housing: FC<HousingProps> = ({
 					<div>{area} м²</div>
 				</div>
 				<p className={styles.description}>{description || subtitle}</p>
-				<Pricing peopleMin={peopleMin} price={basePrice} price2={basePrice2} />
+				<Pricing peopleMin={peopleMin} price={basePrice} price2={basePrice2} isMars={isMars} isBaikal={isBaikal} />
 			</div>
 		</div>
 	);
