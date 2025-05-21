@@ -9,7 +9,7 @@ export const LINKS = [
   // },
   {
     label: 'Порядок бронирования',
-    href: '/docs/poradok_bronirovania.docx',
+    href: '/docs/poradok_bronirovania_new.docx',
   },
   {
     label: 'Правила предоставления услуг',

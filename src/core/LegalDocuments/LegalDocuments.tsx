@@ -31,7 +31,7 @@ export const LegalDocuments: FC = () => (
 				<br />
 				<Description>
 					Юридический и фактический адрес: <br />
-					649115, Алтай республика, Майминский район, Соузгинское сельское поселение, с. Соузга, тер. Молодость, зд.&nbsp;1
+					649115, Республика Алтай, Майминский район, с. Соузга, тер. Молодость, зд. 1
 				</Description>
 				<br />
 				<br />
@@ -42,21 +42,21 @@ export const LegalDocuments: FC = () => (
 				<br />
 				<br />
 				<br />
-				{/* <Description colorBrand>Альфа Банк</Description>
-        <br />
-        <Description>
-          р/с 40702810323620000248
-          <br />
-          к/с 30101810600000000774
-          <br />
-          БИК 045004774
-        </Description>
-        <br />
-        <Description>В&nbsp;Филиал &laquo;Новосибирский&raquo; АО&nbsp;&laquo;АЛЬФА-БАНК&raquo;</Description>
-        <br />
-        <br />
-        <br /> */}
-				<Description colorBrand>ООО "Банк Точка"</Description>
+				<Description colorBrand>Альфа Банк</Description>
+				<br />
+				<Description>
+					р/с 40702810323620000248
+					<br />
+					к/с 30101810600000000774
+					<br />
+					БИК 045004774
+				</Description>
+				<br />
+				<Description>В&nbsp;Филиал &laquo;Новосибирский&raquo; АО&nbsp;&laquo;АЛЬФА-БАНК&raquo;</Description>
+				<br />
+				<br />
+				<br />
+				{/* <Description colorBrand>ООО "Банк Точка"</Description>
 				<br />
 				<Description>
 					р/с 40702810620000154461
@@ -66,7 +66,7 @@ export const LegalDocuments: FC = () => (
 					БИК 044525104
 				</Description>
 				<br />
-				<br />
+				<br /> */}
 				<Description>
 					Генеральный директор: <br />
 					Лампарадзе Роман Нугзарович

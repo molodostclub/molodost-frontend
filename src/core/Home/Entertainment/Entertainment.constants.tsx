@@ -1,13 +1,13 @@
 
 export const ENTERTAINMENT_DATA = [
   {
-    image: '/images/feature-1.jpg',
-    title: (<>{'Турбюро'} <br /> {'«Алтайский трактат»'}</>),
+    image: '/images/home/feature-1.jpg',
+    title: 'Турбюро',
     text: 'Алтай — очень большой и очень разный. Даже если вы приехали на 8—10 дней, мы рекомендуем не пытаться уложить все самое-самое интересное, поставить все галочки и сфотографироваться у всех достопримечательностей за одну поездку.',
     linkTo: '/kak-my-puteshevstvuem#scrollto=turbjuro',
   },
   {
-    image: '/images/feature-3.jpg',
+    image: '/images/home/ranger.jpg',
     title: (<>{'автопрокат'} <br /> {'«Бывалый рейнджер»'}</>),
     text: 'Почти все наши поездки можно сделать самостоятельно, воспользовавшись нашим автопрокатом.',
     linkTo: '/kak-my-puteshevstvuem#scrollto=avtoprokat',
@@ -19,19 +19,19 @@ export const ENTERTAINMENT_DATA = [
     linkTo: '/laboratoriya-tepla',
   },
   {
-    image: '/images/feature-2.jpg',
+    image: '/images/home/feature-2.jpg',
     title: 'ЗОЖ И ЗОМ',
     text: 'Здоровый образ жизни и мыслей - это то, зачем на Алтай приезжают многие наши гости. Мы тоже верим, что местный воздух и востребованная нынче ландшафтотерапия - лучшие средства для того, чтобы выдохнуть и перезагрузиться.',
     linkTo: '/zozh-i-zom',
   },
   {
-    image: '/images/feature-4.jpg',
+    image: '/images/home/feature-4.jpg',
     title: 'дети',
     text: 'В «Молодости» есть все для отдыха с детьми разного возраста. У нас отлично провели время даже младенцы 4 месяцев. Дети в «Молодости» считаются от 5 до 14 лет.',
     linkTo: '/deti-v-molodosti',
   },
   {
-    image: '/images/molodost-zazhigaet.jpg?v=20230629',
+    image: '/images/home/molodost-zazhigaet.jpg',
     title: 'молодость зажигает',
     text: 'В «Молодость» лучше всего ехать большой компанией, тогда мы сможем специально под вас организовывать мероприятия на нашей турбазе и остальных площадках нашей экосистемы.',
     linkTo: '/molodost-zazhigayet',

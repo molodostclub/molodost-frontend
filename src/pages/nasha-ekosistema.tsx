@@ -20,7 +20,7 @@ export default function NashaEkosistema(props: Props) {
     <>
       <PageMeta title="Наша экосистема" />
       <InnerPageHeader />
-      <PageCover src="/images/our-ecosystem-new.jpg" />
+      <PageCover src="/images/ecosystem/ecosystem-new.jpg" />
       <OurEcosystem ecosystemEntries={entries} />
       <Footer />
     </>

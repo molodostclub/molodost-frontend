@@ -90,6 +90,10 @@ const PravilaZhizniItem: FC = () => (
 				Чтобы забронировать поездку к нам, нужно позвонить или написать нам напрямую по номеру{' '}
 				<Link href="tel:+79647002112" className={styles.listItemLink}>
 					+7 964 700-21-12
+				</Link>{' '}
+				или{' '}
+				<Link href="/booking" className={styles.listItemLink}>
+					забронировать на сайте
 				</Link>
 				.
 				<br />
@@ -102,7 +106,7 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
-				Мы бронируем номера по предоплате <span className={styles.listItemHighlight}>50%</span> от стоимости проживания. <br />
+				Мы бронируем номера по предоплате <span className={styles.listItemHighlight}>стоимость первых суток</span>. <br />
 				Если ваши планы поменяются, мы <span className={styles.listItemHighlight}>перенесем ваш депозит</span> на другие даты без штрафа. Очень просим вас сообщать об изменениях в ваших планах&nbsp;&mdash; особенно летом, в майские праздники и в Новый год.
 			</p>
 		</li>
@@ -119,12 +123,12 @@ const PravilaZhizniItem: FC = () => (
 				Мы не скрываем собственные комиссии и наценки. За работу с подрядчиками мы берем комиссию от <span className={styles.listItemHighlight}>7%</span> (вертолеты) до <span className={styles.listItemHighlight}>20%</span> (бизнес-зал), которую вы увидите в своем счете.
 			</p>
 		</li>
-		<li className={styles.listItem}>
+		{/* <li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
 				За организацию корпоративных и групповых заездов от 10 человек отвечает наш постоянный <span className={styles.listItemHighlight}>партнер&nbsp;&mdash; ивент-агентство &laquo;Маури&raquo;</span>, которое берет свою комиссию 10% от стоимости всей программы без учета проживания. <br />
 			</p>
-		</li>
+		</li> */}
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
@@ -203,7 +207,7 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
-				<span className={styles.listItemHighlight}>У &laquo;Молодости&raquo; много друзей</span>, поэтому если вы хотите попасть к нам в Новый год, на майские и в разгар лета, то бронируйте проживание как можно скорее. У нас всего 46 спален, и мы физически не можем принять больше людей, чем
+				<span className={styles.listItemHighlight}>У &laquo;Молодости&raquo; много друзей</span>, поэтому если вы хотите попасть к нам в Новый год, на майские и в разгар лета, то бронируйте проживание как можно скорее. У нас всего 42 спальни, и мы физически не можем принять больше людей, чем
 				можем разместить на ночлег.
 				<br />
 				<br />
@@ -238,11 +242,10 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
-				У &laquo;Молодости&raquo; есть несколько <span className={styles.listItemHighlight}>форматов работы</span>, в том числе <span className={styles.listItemHighlight}>ФЕСТИВАЛЬНЫЙ</span> с ежедневной культурной и развлекательной программой, и{' '}
-				<span className={styles.listItemHighlight}>ТИХИЙ</span>, когда мы устраиваем для самих себя праздник непослушания на базе, о чем сообщим дополнительно при бронировании.
+				У&nbsp;&laquo;Молодости&raquo; есть несколько форматов работы, в&nbsp;том числе <span className={styles.listItemHighlight}>ВЫСОКИЙ СЕЗОН</span>.
 				<br />
 				<br />
-				Просим вас с пониманием отнестись к тому, что с учетом специфики туристического бизнеса в Сибири и резкой сезонности нашего региона в разное время мы можем оказать вам разный набор услуг, о чем сообщим дополнительно.
+				Просим вас с&nbsp;пониманием отнестись к&nbsp;тому, что с&nbsp;учетом специфики туристического бизнеса в&nbsp;Сибири и&nbsp;резкой сезонности нашего региона в&nbsp;разное время мы&nbsp;можем оказать вам разный набор услуг, о&nbsp;чем сообщим дополнительно.
 			</p>
 		</li>
 		<li className={styles.listItem}>
@@ -350,7 +353,7 @@ const PravilaZhizniItem: FC = () => (
 				вашей бронью и отправятся в поездку вместо вас. И нашу комиссию мы тоже выставлять вам не будем.
 			</p>
 		</li>
-		<li className={styles.listItem}>
+		{/* <li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
 				Если для вашего спокойствия вам все-таки необходимо <span className={styles.listItemHighlight}>все спланировать заранее</span>, то учтите, что для нас это большая дополнительная нагрузка. Пошаговое планирование вашего пребывания в &laquo;Молодости&raquo; на семью или компанию до 6
@@ -363,7 +366,7 @@ const PravilaZhizniItem: FC = () => (
 				<br />
 				Если вам все-таки очень нужно все забронировать заранее, хотя мы по нашему опыту знаем, что вы потом поменяете все несколько раз, скажите нам: с вами свяжется наш шеф-батлер Надежда Астафьева и расскажет про все возможности данного предложения.
 			</p>
-		</li>
+		</li> */}
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
@@ -372,7 +375,7 @@ const PravilaZhizniItem: FC = () => (
 				день на семью или компанию до 6 человек, и в него входит в том числе и планирование активностей.
 				<br />
 				<br />
-				Если вас заинтересовало это предложение, скажите нам&nbsp;&mdash; и с вами свяжется наш шеф-батлер Анастасия Баскакова и расскажет про все возможности данного предложения.
+				Если вас заинтересовало это предложение, скажите нам&nbsp;&mdash; и с вами свяжется наш шеф-батлер и расскажет про все возможности данного предложения.
 			</p>
 		</li>
 		<li className={styles.listItem}>

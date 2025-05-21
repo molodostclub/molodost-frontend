@@ -157,7 +157,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				<div className={styles.border}>&nbsp;</div>
 				<Description className={cn(indent.tablet_mt_8, indent.mt_6, styles.attentionRed, styles.apercu16)}>Мы&nbsp;считаем, что вода и&nbsp;воздух на&nbsp;Алтае должны быть бесплатными, и&nbsp;не&nbsp;хотим торговать ни&nbsp;тем ни&nbsp;другим.</Description>
 				<Description className={cn(indent.mt_4, styles.apercu16)}>
-					При этом на&nbsp;закупку воды Petroglyph и&nbsp;переработку пластика, который возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей в&nbsp;год. Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 350&nbsp;рублей. Все деньги, которые мы&nbsp;получим за&nbsp;эту
+					При этом на&nbsp;закупку воды Petroglyph и&nbsp;переработку пластика, который возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей в&nbsp;год. Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 500&nbsp;рублей. Все деньги, которые мы&nbsp;получим за&nbsp;эту
 					услугу, пойдут на&nbsp;реализацию образовательных и&nbsp;экологических проектов на&nbsp;Алтае.
 				</Description>
 				<div className={cn(styles.border, indent.tablet_mt_8, indent.mt_6)}>&nbsp;</div>

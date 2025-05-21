@@ -19,8 +19,9 @@ export const APP_ROUTES: MenuItem[] = [
 	{
 		label: 'ТУРБАЗА «МОЛОДОСТЬ»',
 		subItems: [
-			{ label: '- Забронировать', href: '/booking', },
-			{ label: '- МОЛОДОСТЬ ПО-ВЗРОСЛОМУ', href: '/adults', },
+			{ label: '- Как к нам попасть', href: '/kak-popast' },
+			{ label: '- Забронировать', href: '/booking' },
+			{ label: '- МОЛОДОСТЬ ПО-ВЗРОСЛОМУ', href: '/adults' },
 			{ label: '- ГДЕ МЫ ЖИВЕМ', href: '/rooms' },
 			{ label: '- ЧТО МЫ ЕДИМ И ПЬЕМ', href: '/chto-my-edim' },
 			{ label: '- КАК МЫ ПУТЕШЕСТВУЕМ', href: '/kak-my-puteshevstvuem' },
@@ -45,10 +46,7 @@ export const APP_ROUTES: MenuItem[] = [
 			{ label: '– Где мы живем', href: '/baikal#roomsOnBaikal' },
 		],
 	},
-	{
-		label: 'Как к нам попасть',
-		href: '/kak-popast',
-	},
+
 	{
 		label: 'Контакты',
 		href: '/nashi-kontakty',

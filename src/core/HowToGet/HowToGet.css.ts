@@ -30,6 +30,7 @@ export const grid = style([
 		rowGap: 60,
 	},
 	tablet({
+		marginTop: 50,
 		gridTemplateColumns: '1fr 1fr',
 	})
 ]);

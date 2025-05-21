@@ -8,17 +8,17 @@ interface HeaderMenuList {
 export const HEADER_MENU_LIST: HeaderMenuList[] = [
   {
     id: 1,
-    label: 'как к нам попасть',
-    href: '/kak-popast',
+    label: 'АЛТАЙ',
+    href: '/',
   },
   {
     id: 2,
-    label: 'правила жизни',
-    href: '/pravila-zhizni',
+    label: 'МАРС',
+    href: '/mars',
   },
   {
     id: 3,
-    label: 'В Сибирь за свой счет',
-    href: '/v-sibir-za-svoy-schet',
+    label: 'БАЙКАЛ',
+    href: '/baikal',
   },
 ];

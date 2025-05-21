@@ -7,7 +7,7 @@ export default function KakPopast() {
     <>
       <PageMeta title="Как к нам попасть" />
       <InnerPageHeader />
-      <PageCover src="/images/kak-popast-cover.jpg" />
+      <PageCover src="/images/kak-popast/tourbase.jpg" />
       <HowToGet />
       <Footer />
     </>
