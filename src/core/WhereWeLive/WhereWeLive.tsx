@@ -6,27 +6,27 @@ import { HousesSplit, formatPriceWithSign } from '@/utils';
 import { ContactsBox } from '@/shared/components';
 import { Housing } from './Housing/Housing';
 import * as styles from './WhereWeLive.css';
-import { BookingModule } from './BookingModule/BookingModule';
 import { Modal } from '@/shared/components/Modal';
 import { ContactForm } from '../ContactForm';
-import { indent } from '@/styles';
-import cn from 'classnames';
+import Link from 'next/link';
 
 const PricingInfo: FC = () => (
-	<div className={styles.pricingInfoContent}>
-		<div className={styles.border} />
-		<div className={styles.pricingInfoContainer}>
-			<div>
-				<p className={styles.priceText}>{formatPriceWithSign(6000)}</p>
-				<p className={styles.pricingInfoText}>доплата за&nbsp;взрослого</p>
+	<>
+		<div className={styles.pricingInfoContent}>
+			<div className={styles.border} />
+			<div className={styles.pricingInfoContainer}>
+				<div>
+					<p className={styles.priceText}>{formatPriceWithSign(6000)}</p>
+					<p className={styles.pricingInfoText}>доплата за&nbsp;взрослого</p>
+				</div>
+				<div>
+					<p className={styles.priceText}>{formatPriceWithSign(4000)}</p>
+					<p className={styles.pricingInfoText}>доплата за&nbsp;ребенка (от&nbsp;5 до&nbsp;12&nbsp;лет)</p>
+				</div>
 			</div>
-			<div>
-				<p className={styles.priceText}>{formatPriceWithSign(4000)}</p>
-				<p className={styles.pricingInfoText}>доплата за&nbsp;ребенка (от&nbsp;5 до&nbsp;12&nbsp;лет)</p>
-			</div>
+			<div className={styles.border} />
 		</div>
-		<div className={styles.border} />
-	</div>
+	</>
 );
 
 type Props = HousesSplit;
@@ -78,14 +78,21 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
 								<br />
 								Теперь здесь&nbsp;&mdash; реконструированные дома, в&nbsp;которых и&nbsp;деревенский русский минимализм, и&nbsp;немного экобрутализма.
 							</Description>
-
 							<div className={styles.priceDesktop}>
 								<PricingInfo />
 							</div>
 						</div>
 						<div className={styles.noteBlock}>
 							<p className={styles.accentText} style={{ marginBottom: 30 }}>
-								Чтобы забронировать проживание, свяжитесь с&nbsp;нами по&nbsp;номеру
+								Бронирование проживания на турбазе «Молодость» на Алтае
+							</p>
+							<div className={styles.contacts}>
+								<Link className={styles.ctaBtn} href="/booking">
+									<button className={styles.ctaBtn}>Забронировать</button>
+								</Link>
+							</div>
+							<p className={styles.accentText} style={{ marginBottom: 30 }}>
+								Или свяжитесь с&nbsp;нами по&nbsp;номеру
 							</p>
 							<div className={styles.contacts}>
 								<ContactsBox type="small" />
@@ -95,6 +102,10 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
 							</div>
 						</div>
 					</div>
+					<br />
+					<br />
+					<Description>ИЮЛЬ - АВГУСТ ВЫСОКИЙ СЕЗОН</Description>
+
 					<h2 className={styles.heading}>размещение в&nbsp;номерах</h2>
 				</div>
 				<div className={styles.housingBlock}>

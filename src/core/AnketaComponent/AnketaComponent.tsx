@@ -229,8 +229,8 @@ export function AnketaComponent() {
 			checked: false,
 		},
 		{ label: 'Попасть к вашему остеопату (10 000 ₽)', value: '3', checked: false },
-		{ label: 'Расслабиться на массаже  (7 000 ₽)', value: '4', checked: false },
-		{ label: 'Регулярно ходить на хайкинг (от 3 000 ₽)', value: '5', checked: false },
+		{ label: 'Расслабиться на массаже  (8 000 ₽)', value: '4', checked: false },
+		{ label: 'Регулярно ходить на хайкинг (от 3 500 ₽)', value: '5', checked: false },
 		{ label: 'Определюсь на месте', value: '6', checked: false },
 	];
 
@@ -755,7 +755,7 @@ export function AnketaComponent() {
 								</div>
 							))}
 							<div className={indent.mt_4}>
-								<small className={styles.note}>Кроме вас, на&nbsp;это мероприятие будут приглашены все гости базы.</small>
+								<small className={styles.note}>Кроме вас на&nbsp;это мероприятие будут приглашены все гости базы.</small>
 							</div>
 							<br />
 						</div>
@@ -797,7 +797,7 @@ export function AnketaComponent() {
 							<br />
 							{/* Vo vremya puteshestvia */}
 							<div className={indent.mt_4}>
-								<Label caption="Мы&nbsp;работаем по&nbsp;принципу &laquo;План на&nbsp;завтра вы&nbsp;узнаете завтра&raquo;. Но, приобретая пакет BLACK KHAN вы&nbsp;можете выбрать из&nbsp;нашего списка прогулок и&nbsp;поездок&nbsp;то, что вам нравится:" />
+								<Label caption="Мы&nbsp;работаем по&nbsp;принципу &laquo;План на&nbsp;завтра вы&nbsp;узнаете завтра&raquo;. Но, приобретая пакет BLACK KHAN, мы&nbsp;заранее распланируем все понравившиеся вам поездки из&nbsp;нашего списка:" />
 								<div className={indent.mt_4}>
 									<small className={styles.labelDescription}>
 										Прогуляться по&nbsp;алтайской Хоббитании

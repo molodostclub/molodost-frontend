@@ -27,7 +27,7 @@ const Accompany: FC<{
 export const TravelBureau: FC = () => {
   return (
     <main className={styles.content} id="turbjuro">
-      <PageHeading>турбюро &laquo;алтайский трактат&raquo;</PageHeading>
+      <PageHeading>турбюро</PageHeading>
       <div className={styles.grid}>
         <div className={styles.textContent.top}>
           <Description>

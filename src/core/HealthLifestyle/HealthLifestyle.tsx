@@ -9,7 +9,7 @@ import { ZozhZom } from '../PricesPage/PricesPage';
 
 export const HealthLifestyle = () => (
 	<div className={styles.content}>
-		<PageHeading>ЗОЖ и СОМ</PageHeading>
+		<PageHeading>ЗОЖ и ЗОМ</PageHeading>
 
 		<div className={cn(styles.textTop, indent.mt_6)}>
 			<Description>

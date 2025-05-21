@@ -6,7 +6,7 @@ export default function PravilaKolivinga() {
     <>
       <PageMeta title="Правила жизни" />
       <InnerPageHeader />
-      <PageCover src="/images/pravila-zhizni-cover.png" />
+      <PageCover src="/images/pravila-zhizni/pravila-zhizni-main.jpg" />
       <PravilaZhizni />
       <Footer />
     </>

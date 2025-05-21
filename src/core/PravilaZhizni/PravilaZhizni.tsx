@@ -116,7 +116,7 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
-				Мы не скрываем собственные комиссии и наценки. За работу с подрядчиками мы берем комиссию от <span className={styles.listItemHighlight}>7%</span> (вертолеты) до <span className={styles.listItemHighlight}>30%</span> (бизнес-зал), которую вы увидите в своем счете.
+				Мы не скрываем собственные комиссии и наценки. За работу с подрядчиками мы берем комиссию от <span className={styles.listItemHighlight}>7%</span> (вертолеты) до <span className={styles.listItemHighlight}>20%</span> (бизнес-зал), которую вы увидите в своем счете.
 			</p>
 		</li>
 		<li className={styles.listItem}>
@@ -143,7 +143,7 @@ const PravilaZhizniItem: FC = () => (
 		</li>
 		<li className={styles.listItem}>
 			<ListIco />
-			<p className={styles.listItemText}>При высокой загрузке нашей базы и для вашего удобства мы можем выслать вам итоговый счет уже после отъезда из &laquo;Молодости&raquo;. Оплатить его можно наличными в Москве или по ссылке.</p>
+			<p className={styles.listItemText}>При высокой загрузке нашей базы и для вашего удобства мы можем выслать вам итоговый счет уже после отъезда из &laquo;Молодости&raquo;. Оплатить его можно по ссылке.</p>
 		</li>
 		<li className={styles.listItem}>
 			<ListIco />

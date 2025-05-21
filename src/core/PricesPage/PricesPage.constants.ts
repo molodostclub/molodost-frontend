@@ -676,8 +676,8 @@ export const TOUR_GROUPS: PricesModel[] = [
 	{
 		title: 'Чуйский тракт - 1/2',
 		twoCol: 'Весь день',
-		price: 10_000,
-		priceChild: 8_000,
+		price: 15_000,
+		priceChild: 10_500,
 	},
 	{
 		title: 'Эл музей',
@@ -733,7 +733,7 @@ export const TOUR_HIKINGS: PricesModel[] = [
 		title: 'Групповой хайкинг по\u00A0«Хоббитании»',
 		subtitle: 'Проводится от\u00A03\u00A0человек',
 		twoCol: '2–3 часа',
-		priceText: '3\u00A0000\u00A0₽ / 2\u00A0000\u00A0₽',
+		priceText: '3\u00A0500\u00A0₽ / 2\u00A0000\u00A0₽',
 	},
 	{
 		title: 'Групповой хайкинг на\u00A0гору Черепан',

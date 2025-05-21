@@ -1134,11 +1134,11 @@ export const PricesPage: FC = () => {
 			<h2 className={styles.subtitle}>&nbsp;</h2>
 			<Transfer />
 			<div className={styles.separator}></div>
-			<h2 className={styles.subtitle}>
+			{/* <h2 className={styles.subtitle}>
 				КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ <br />
 				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
 			</h2>
-			<Corporative />
+			<Corporative /> */}
 			<h2 className={styles.subtitle}>
 				КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ <br />
 				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo; <br />
