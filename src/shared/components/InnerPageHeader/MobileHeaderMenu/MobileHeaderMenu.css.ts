@@ -6,9 +6,6 @@ export const mobileHeaderMenu = style([
   {
     display: 'block',
     marginTop: 20,
-    marginLeft: -30,
-    marginRight: -30,
-    paddingLeft: 30,
     overflowX: 'auto',
 
     // hide scroll Chrome, Safari, Opera

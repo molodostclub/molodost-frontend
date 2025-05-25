@@ -1051,11 +1051,11 @@ export const PricesPage: FC = () => {
 		<main className={styles.content} id="vsibirzasvoyschet">
 			<PageHeading>ТАРИФ НА&nbsp;ПРОЖИВАНИЕ И&nbsp;УСЛУГИ НА&nbsp;БАЗЕ И&nbsp;В&nbsp;РАМКАХ ЭКОСИСТЕМЫ МОЛОДОСТЬ НА&nbsp;АЛТАЕ</PageHeading>
 			<br />
-			<Description>
+			{/* <Description>
 				<br />
 				<br />
 				Если по&nbsp;итогу отдыха вы&nbsp;захотите оставить чаевые, мы&nbsp;с&nbsp;благодарностью включим их&nbsp;в&nbsp;счет в&nbsp;размере 5-10%.
-			</Description>
+			</Description> */}
 			<h2 className={styles.subtitle}>
 				ПРОЖИВАНИЕ
 				<br />

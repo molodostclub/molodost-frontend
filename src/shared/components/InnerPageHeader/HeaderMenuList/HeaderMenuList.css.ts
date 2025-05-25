@@ -8,26 +8,27 @@ export const headerMenu = style([
     alignItems: 'center',
     columnGap: 20,
     listStyle: 'none',
+    justifyContent: "space-evenly",
   },
   tablet({
     justifyContent: 'flex-start',
-    columnGap: 40,
+    columnGap: 60,
   }),
 ]);
 
-export const navItem = style({
-  ':last-child': {
-    paddingRight: '30px',
-  },
-})
+// export const navItem = style({
+//   ':last-child': {
+//     paddingRight: '30px',
+//   },
+// })
 
 export const menuLink = style([
   {
     whiteSpace: 'nowrap',
     textTransform: 'uppercase',
     fontFamily: vars.font.CeraCondensedCYBold,
-    fontSize: 15,
-    lineHeight: '15px',
+    fontSize: 18,
+    lineHeight: 1,
     textDecoration: 'underline',
     color: vars.color.brand,
     transition: '0.3s ease-in-out',

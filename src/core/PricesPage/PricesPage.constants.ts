@@ -30,24 +30,24 @@ type HeatLabModel = {
 
 export const ZOZH_ZOM: HeatLabModel[] = [
 	{
-		title: "Индивидуальная тренировка с\u00A0тренером",
-		duration: "60 минут",
-		clients: "1",
-		price: 10_000
+		title: 'Индивидуальная тренировка с\u00A0тренером',
+		duration: '60 минут',
+		clients: '1',
+		price: 10_000,
 	},
 	{
-		title: "Индивидуальная тренировка с\u00A0тренером каждый следующий человек",
-		duration: "60 минут",
-		clients: "1",
-		price: 5_000
+		title: 'Каждый следующий человек',
+		duration: '60 минут',
+		clients: '1',
+		price: 5_000,
 	},
 	{
-		title: "Сплит-тренировка с\u00A0тренером",
-		duration: "60 минут",
-		clients: "5 раз",
-		price: 40_000
+		title: 'Сплит-тренировка с\u00A0тренером',
+		duration: '60 минут',
+		clients: '5 раз',
+		price: 40_000,
 	},
-]
+];
 
 export const PROZHIVANIE_PRICES: PricesModel[] = [
 	{
@@ -569,10 +569,10 @@ export const HEAT_LAB: HeatLabModel[] = [
 	},
 	{
 		title: 'Аренда бани (большая)',
-		
-		duration: '60 мин.',
+
+		duration: '90 мин.',
 		clients: '',
-		price: 20_000,
+		price: 25_000,
 	},
 	{
 		title: 'каждые дополнительные 30 минут',

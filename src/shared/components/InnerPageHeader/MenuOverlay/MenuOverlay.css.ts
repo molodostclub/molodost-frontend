@@ -14,7 +14,7 @@ export const overlayWrapper = style({
 	visibility: 'hidden',
 	opacity: 0,
 	transition: 'opacity 0.3s ease, visibility 0.3s ease',
-	zIndex: 999,
+	zIndex: 9999999,
 });
 
 export const opened = style({
