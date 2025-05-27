@@ -8,7 +8,7 @@ export const HeaderMenuList: FC = () => {
   return (
     <ul className={styles.headerMenu}>
       {HEADER_MENU_LIST.map(item => (
-        <li key={item.id} className={styles.navItem}>
+        <li key={item.id}>
           <Link
             className={styles.menuLink}
             href={item.href}
