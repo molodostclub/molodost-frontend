@@ -1,5 +1,5 @@
 import { FC } from 'react';
-
+import Link from 'next/link';
 import * as styles from './May.css';
 import cn from 'classnames';
 
@@ -80,7 +80,9 @@ export const May: FC = () => {
 					<p className={styles.textBlack40Medium}>
 						А&nbsp;ЕЩЕ С&nbsp;1&nbsp;МАЯ ВЫ&nbsp;МОЖЕТЕ ПОПАСТЬ В&nbsp;НАШ
 						<br />
-						<a href='/mars' className={cn(styles.textRed40, styles.textUnderline)}>ГОСТЕВОЙ ДОМ &laquo;ПРИЮТ НА&nbsp;МАРСЕ&raquo;</a>
+						<Link href="/mars" className={cn(styles.textRed40, styles.textUnderline)}>
+							ГОСТЕВОЙ ДОМ &laquo;ПРИЮТ НА&nbsp;МАРСЕ&raquo;
+						</Link>
 					</p>
 					<br />
 					<p className={styles.textBlack40Medium}>НОМЕР ТУРКЛУБА &laquo;МОЛОДОСТЬ&raquo;:</p>
