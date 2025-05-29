@@ -1112,7 +1112,7 @@ export const PricesPage: FC = () => {
 			</h2>
 			<br />
 			<HeatLabSibir />
-			<h2 className={styles.subtitle}>ЗОЖ и СОМ</h2>
+			<h2 className={styles.subtitle}>ЗОЖ и ЗОМ</h2>
 			<br />
 			<ZozhZom />
 			<div className={styles.separator}></div>
