@@ -260,8 +260,8 @@ const TraktirMenu: FC = () => (
 			<div className={styles.tableHeaderCol}></div>
 			<div className={styles.tableHeaderCol}>цена,&nbsp;руб</div>
 		</div>
-		{TRAKTIR_MENU.map((item) => (
-			<div className={styles.priceRow}>
+		{TRAKTIR_MENU.map((item, index) => (
+			<div key={index} className={styles.priceRow}>
 				{!!item.subtitle ? (
 					<p className={styles.priceTitle}>
 						{item.title} <br />
@@ -757,8 +757,8 @@ const AutoRent: FC = () => (
 					<div className={styles.tableHeaderCol}>услуга</div>
 					<div className={styles.tableHeaderCol}>цена,&nbsp;руб</div>
 				</div>
-				{AUTO_RENT.map((item) => (
-					<div className={styles.priceRowSmall}>
+				{AUTO_RENT.map((item, itemIndex) => (
+					<div key={itemIndex} className={styles.priceRowSmall}>
 						{!!item.subtitle ? (
 							<p className={styles.priceTitle}>
 								{item.title} <br />
@@ -927,8 +927,8 @@ const PriceServices: FC = () => (
 			<div className={styles.tableHeaderCol}>про&shy;дол&shy;жи&shy;тель&shy;ность</div>
 			<div className={styles.tableHeaderCol}>цена, руб</div>
 		</div>
-		{PRICE_SERVICES.map((item) => (
-			<div className={styles.priceRow}>
+		{PRICE_SERVICES.map((item, itemIndex) => (
+			<div key={itemIndex} className={styles.priceRow}>
 				{!!item.subtitle ? (
 					<p className={styles.priceTitle}>
 						{item.title} <br />
@@ -954,8 +954,8 @@ const ToMars: FC = () => (
 				<div className={styles.tableHeaderCol}>кол-во человек</div>
 				<div className={styles.tableHeaderCol}>цена, руб / сутки</div>
 			</div>
-			{TO_MARS.map((item) => (
-				<div className={styles.priceRow}>
+			{TO_MARS.map((item, itemIndex) => (
+				<div key={itemIndex} className={styles.priceRow}>
 					{!!item.subtitle ? (
 						<p className={styles.priceTitle}>
 							{item.title} <br />
@@ -983,8 +983,8 @@ const ToMars: FC = () => (
 					с&nbsp;завтраком
 				</div>
 			</div>
-			{ADDITIONAL_SERVICES.map((item) => (
-				<div className={styles.priceRow}>
+			{ADDITIONAL_SERVICES.map((item, itemIndex) => (
+				<div key={itemIndex} className={styles.priceRow}>
 					{!!item.subtitle ? (
 						<p className={styles.priceTitle}>
 							{item.title} <br />

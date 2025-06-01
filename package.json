@@ -11,6 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p 3000",
+    "deploy": "npm run build && npm start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.+(ts|tsx|json|css|md)\""
   },
