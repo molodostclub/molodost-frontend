@@ -40,10 +40,16 @@ jobs:
           script: |
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             docker pull ghcr.io/molodostclub/molodost-frontend:latest
+
+            # Остановить и удалить старый контейнер (если есть)
             docker stop molodost_frontend || true
             docker rm molodost_frontend || true
+
+            # Запустить новый контейнер фронтенда, передав переменную с базовым URL бэкенда
             docker run -d \
               --name molodost_frontend \
+              --network molodost_net \
               -p 3000:3000 \
+              -e NEXT_PUBLIC_BASE_URL="http://molodost-backend:1337" \
               --restart unless-stopped \
               ghcr.io/molodostclub/molodost-frontend:latest

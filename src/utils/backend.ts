@@ -7,7 +7,8 @@ import {
   TripModel,
 } from '@shared/types';
 
-export const BASE_URL ='https://admin.molodost.club'
+const BASE = process.env.NEXT_PUBLIC_BASE_URL || 'https://admin.molodost.club';
+export const BASE_URL = BASE;
 
 export const getMediaLink = (path: string): string => `${BASE_URL}${path}`;
 
