@@ -24,7 +24,11 @@ ENV NODE_ENV=production
 # 🔥 Удаляем кэш Next.js перед сборкой
 RUN rm -rf .next/cache
 
-# Билдим проект
+# ← Добавляем сюда ARG/ENV для передачи URL бэкенда
+ARG NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
+
+# Билдим проект (Next.js «впечатает» NEXT_PUBLIC_BASE_URL в бандл)
 RUN \
   if [ -f yarn.lock ]; then yarn build; \
   elif [ -f package-lock.json ]; then npm run build; \
