@@ -6,6 +6,18 @@ export const halfWidthInTablet = style([{ width: '100%' }, tablet({ width: '50%'
 
 export const imageWrapper = style([{ borderRadius: 15, maxWidth: 'calc(100vw - 60px)' }, tablet({ borderRadius: 25 })]);
 
+export const imageWrapperGrid = style([
+	imageWrapper,
+	{
+		display: "grid",
+		gridTemplateColumns: "1fr",
+		gap: 20
+	},
+	tablet({
+		gridTemplateColumns: "1fr 1fr",
+	}),
+]);
+
 export const image = style({
 	// @ts-ignore
 	position: 'static !important',

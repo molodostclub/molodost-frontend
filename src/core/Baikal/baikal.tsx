@@ -5,9 +5,7 @@ import { Container, Description, FlexContainer, PageHeading, SectionHeading } fr
 import * as styles from './baikal.css';
 import { indent } from '@/styles';
 import cn from 'classnames';
-import { Video } from '@/shared/components/Video';
-import { HousesSplit, formatPriceWithSign } from '@/utils';
-import { ADDITIONAL_SERVICES } from '../PricesPage/PricesPage.constants';
+import { HousesSplit } from '@/utils';
 import { Housing } from '../WhereWeLive/Housing/Housing';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -167,10 +165,11 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 			</div>
 
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
-				<SectionHeading>БОЛЬШАЯ МОНГОЛЬСКАЯ ЮРТА</SectionHeading>
-				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>Настоящая монгольская юрта из&nbsp;войлока. В&nbsp;ней часто проходят лекции, а&nbsp;также медитации.</Description>
-				<div className={cn(styles.imageWrapper, indent.tablet_mt_10, indent.mt_6)}>
-					<Image fill alt="монгольская юрта" src="/images/baikal/yurta.jpg" className={styles.image} />
+				<SectionHeading>Дом звука</SectionHeading>
+				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>Уютное пространство вместимостью до&nbsp;25&nbsp;человек, идеально подходит для проведения медитаций, духовных практик, йога-ретритов и&nbsp;совместных встреч. Расположен на&nbsp;берегу Байкала, с&nbsp;потрясающим видом на&nbsp;озеро, что создает особую атмосферу спокойствия и&nbsp;гармонии.</Description>
+				<div className={cn(styles.imageWrapperGrid, indent.tablet_mt_10, indent.mt_6)}>
+					<Image fill alt="монгольская юрта" src="/images/baikal/houseSound-2.jpg" className={styles.image} />
+					<Image fill alt="монгольская юрта" src="/images/baikal/houseSound-1.jpg" className={styles.image} />
 				</div>
 			</div>
 
