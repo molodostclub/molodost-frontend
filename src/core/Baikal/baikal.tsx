@@ -97,7 +97,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				</div>
 			</FlexContainer>
 			<div className={cn(styles.imageWrapper, indent.tablet_mt_10, indent.mt_6)}>
-				<Image fill alt="Расположение" src="/images/baikal/map.jpg" className={styles.image} />
+				<Image fill alt="Расположение" src="/images/baikal/baikal_map.png" className={styles.image} />
 			</div>
 			<div id="roomsOnBaikal" className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
 				<SectionHeading>размещение</SectionHeading>
