@@ -28,6 +28,7 @@ export const backendApi = axios.create({
 	timeout: 5000,
 });
 
+
 export interface HousesSplit {
 	individual: HouseModel[];
 	inHouse: HouseModel[];
