@@ -21,10 +21,10 @@ export default function TripPage({ trip }: { trip: TripModel }) {
 	);
 }
 
-export const getStaticProps: GetStaticProps<{ trip: TripModel }, { slug: string }> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<{ trip: TripModel | null }, { slug: string }> = async ({ params }) => {
 	if (!params?.slug) {
 		console.warn('⛔️ No slug provided to getStaticProps');
-		return { notFound: true };
+		return { props: { trip: null }, revalidate: 60 };
 	}
 
 	try {
@@ -34,19 +34,15 @@ export const getStaticProps: GetStaticProps<{ trip: TripModel }, { slug: string 
 		});
 
 		const trip = res.data?.data;
-
 		if (!trip || typeof trip !== 'object') {
 			console.warn(`❌ Trip not found or invalid for slug: ${params.slug}`);
-			return { notFound: true };
+			return { props: { trip: null }, revalidate: 60 };
 		}
 
-		return {
-			props: { trip },
-			revalidate: 60,
-		};
+		return { props: { trip }, revalidate: 60 };
 	} catch (error: any) {
-		console.error(`🔥 Ошибка при загрузке trip ${params.slug}:`, error?.message || error);
-		return { notFound: true };
+		console.error(`🔥 Ошибка при загрузке trip ${params.slug}:`, error.message);
+		return { props: { trip: null }, revalidate: 60 };
 	}
 };
 
@@ -58,20 +54,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		const paths = trips
 			.filter((t) => !!t.attributes.slug)
 			.map((trip) => ({
-				params: {
-					slug: trip.attributes.slug,
-				},
+				params: { slug: trip.attributes.slug },
 			}));
 
-		return {
-			paths,
-			fallback: 'blocking',
-		};
+		return { paths, fallback: 'blocking' };
 	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке getStaticPaths для trips:', error?.message || error);
+		console.error('🔥 Ошибка при загрузке getStaticPaths для trips:', error.message);
 		return {
 			paths: [],
-			fallback: 'blocking', // 👈 всё ещё можно генерировать по запросу
+			fallback: 'blocking',
 		};
 	}
 };
+

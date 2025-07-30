@@ -54,13 +54,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			props: { ...data },
 			revalidate: 60,
 		};
-	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке Baikal:', error.message || error);
-		if (error?.response?.data) {
-			console.error('Ответ от API:', error.response.data);
-		}
-
-		// Возвращаем безопасные дефолтные props
+	} catch (error) {
+		console.warn('getHousesSplit уже вернул безопасный объект, но поймано исключение:', error);
 		return {
 			props: {
 				individual: [],

@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			revalidate: 5,
 		};
 	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке trips:', error.message || error);
+		console.error('🔥 Ошибка при загрузке trips:', error.message);
 		if (error?.response?.data) {
 			console.error('Ответ от API:', error.response.data);
 		}
@@ -78,3 +78,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 		};
 	}
 };
+

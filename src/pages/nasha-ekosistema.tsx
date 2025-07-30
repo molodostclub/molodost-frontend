@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps<{ ecosystem: EcosystemModel | null }
 				'populate[0]': 'entries',
 				'populate[entries][populate]': '*',
 			},
-			validateStatus: (status) => status < 500, // 💡 важно
+			validateStatus: (status) => status < 500,
 		});
 
 		const ecosystem = res.data?.data;
@@ -38,26 +38,21 @@ export const getStaticProps: GetStaticProps<{ ecosystem: EcosystemModel | null }
 		if (!ecosystem || typeof ecosystem !== 'object') {
 			console.warn('❌ Invalid ecosystem data');
 			return {
-				props: {
-					ecosystem: null,
-				},
+				props: { ecosystem: null },
 				revalidate: 60,
 			};
 		}
 
 		return {
-			props: {
-				ecosystem,
-			},
+			props: { ecosystem },
 			revalidate: 60,
 		};
 	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке экосистемы:', error.message || error);
+		console.error('🔥 Ошибка при загрузке экосистемы:', error.message);
 		return {
-			props: {
-				ecosystem: null,
-			},
+			props: { ecosystem: null },
 			revalidate: 60,
 		};
 	}
 };
+

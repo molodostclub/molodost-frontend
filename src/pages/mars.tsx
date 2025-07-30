@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			revalidate: 1,
 		};
 	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке данных для MarsPage:', error.message || error);
+		console.error('🔥 Ошибка при загрузке данных для MarsPage:', error.message);
 		if (error?.response?.data) {
 			console.error('Ответ от API:', error.response.data);
 		}

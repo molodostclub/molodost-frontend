@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			revalidate: 5,
 		};
 	} catch (error: any) {
-		console.error('Ошибка загрузки houses:', error?.message || error);
+		console.error('🔥 Ошибка загрузки houses:', error?.message || error);
 		if (error?.response?.data) {
 			console.error('Ответ от API:', error.response.data);
 		}

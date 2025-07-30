@@ -5,7 +5,17 @@ import { backendApi, getMediaLinkFromModel } from '@utils';
 import { EcosystemModel } from '@/shared/types';
 import { InfoCard } from '@/uikit';
 
-export default function CardsPage({ ecosystem }: { ecosystem: EcosystemModel }) {
+export default function CardsPage({ ecosystem }: { ecosystem: EcosystemModel | null }) {
+	if (!ecosystem || !ecosystem.attributes?.entries?.length) {
+		return (
+			<>
+				<InnerPageHeader />
+				<PageCover />
+				<p style={{ padding: '2rem', textAlign: 'center' }}>Карточки временно недоступны. Попробуйте позже.</p>
+			</>
+		);
+	}
+
 	const {
 		attributes: { entries },
 	} = ecosystem;
@@ -15,7 +25,7 @@ export default function CardsPage({ ecosystem }: { ecosystem: EcosystemModel }) 
 			<InnerPageHeader />
 			<PageCover />
 			{entries.map(({ id, cover, title, pagePath, trip }) => (
-				<InfoCard image={getMediaLinkFromModel(cover.data)} title={title} key={id} linkTo={pagePath ? pagePath : trip ? `/puteshestvia/${trip.slug}` : undefined} />
+				<InfoCard image={getMediaLinkFromModel(cover?.data)} title={title} key={id} linkTo={pagePath ? pagePath : trip?.slug ? `/puteshestvia/${trip.slug}` : undefined} />
 			))}
 		</>
 	);
@@ -50,7 +60,7 @@ export const getStaticProps: GetStaticProps<{ ecosystem: EcosystemModel | null }
 			revalidate: 60,
 		};
 	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке ecosystem:', error.message || error);
+		console.error('🔥 Ошибка при загрузке ecosystem:', error.message);
 		return {
 			props: {
 				ecosystem: null,
