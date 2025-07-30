@@ -30,6 +30,8 @@ jobs:
                   push: true
                   tags: |
                       ghcr.io/molodostclub/molodost-frontend:latest
+                  build-args: |
+                      NEXT_PUBLIC_BASE_URL=http://molodost-backend:1337
 
             - name: Deploy frontend via SSH
               uses: appleboy/ssh-action@v0.1.10
