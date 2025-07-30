@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { HouseModel, MediaUploadFormat, MediaUploadModel, TripModel } from '@shared/types';
 
-export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://admin.molodost.club';
+export const BASE_URL = 'https://admin.molodost.club';
 
 export const getMediaLink = (path: string): string => {
 	if (!BASE_URL || !path) return '';
