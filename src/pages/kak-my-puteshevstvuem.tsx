@@ -61,9 +61,20 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			},
 			revalidate: 5,
 		};
-	} catch (error) {
-		console.error(error);
-		console.log((error as any).response.data);
-		throw error;
+	} catch (error: any) {
+		console.error('🔥 Ошибка при загрузке trips:', error.message || error);
+		if (error?.response?.data) {
+			console.error('Ответ от API:', error.response.data);
+		}
+
+		return {
+			props: {
+				trips: {
+					allDay: [],
+					notAllDay: [],
+				},
+			},
+			revalidate: 60,
+		};
 	}
 };

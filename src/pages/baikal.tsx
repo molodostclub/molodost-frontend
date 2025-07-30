@@ -52,11 +52,21 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 		const data = await getHousesSplit();
 		return {
 			props: { ...data },
-			revalidate: 1,
+			revalidate: 60,
 		};
-	} catch (error) {
-		console.error(error);
-		console.log((error as any).response.data);
-		throw error;
+	} catch (error: any) {
+		console.error('🔥 Ошибка при загрузке Baikal:', error.message || error);
+		if (error?.response?.data) {
+			console.error('Ответ от API:', error.response.data);
+		}
+
+		// Возвращаем безопасные дефолтные props
+		return {
+			props: {
+				individual: [],
+				inHouse: [],
+			},
+			revalidate: 300,
+		};
 	}
 };

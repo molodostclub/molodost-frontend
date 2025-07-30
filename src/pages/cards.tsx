@@ -6,35 +6,56 @@ import { EcosystemModel } from '@/shared/types';
 import { InfoCard } from '@/uikit';
 
 export default function CardsPage({ ecosystem }: { ecosystem: EcosystemModel }) {
-  const { attributes: { entries } } = ecosystem;
+	const {
+		attributes: { entries },
+	} = ecosystem;
 
-  return (
-    <>
-      <InnerPageHeader />
-      <PageCover />
-      {entries.map(({ id, cover, title, pagePath, trip }) => (
-        <InfoCard image={getMediaLinkFromModel(cover.data)} title={title} key={id} linkTo={pagePath ? pagePath : trip ? `/puteshestvia/${trip.slug}` : undefined} />
-      ))}
-    </>
-  );
+	return (
+		<>
+			<InnerPageHeader />
+			<PageCover />
+			{entries.map(({ id, cover, title, pagePath, trip }) => (
+				<InfoCard image={getMediaLinkFromModel(cover.data)} title={title} key={id} linkTo={pagePath ? pagePath : trip ? `/puteshestvia/${trip.slug}` : undefined} />
+			))}
+		</>
+	);
 }
 
-export const getStaticProps: GetStaticProps<{ ecosystem: EcosystemModel }> = async () => {
-  const { data } = await backendApi.get('ecosystem', {
-    params: {
-      'populate[0]': 'entries',
-      'populate[entries][populate]': '*'
-    }
-  });
+export const getStaticProps: GetStaticProps<{ ecosystem: EcosystemModel | null }> = async () => {
+	try {
+		const res = await backendApi.get('ecosystem', {
+			params: {
+				'populate[0]': 'entries',
+				'populate[entries][populate]': '*',
+			},
+			validateStatus: (status) => status < 500, // 💡 важно
+		});
 
-  if (!data) throw new Error('No ecosystem component');
+		const ecosystem = res.data?.data;
 
-  const ecosystem: EcosystemModel = data.data;
+		if (!ecosystem || typeof ecosystem !== 'object') {
+			console.warn('❌ Invalid or missing ecosystem data');
+			return {
+				props: {
+					ecosystem: null,
+				},
+				revalidate: 60,
+			};
+		}
 
-  return {
-    props: {
-      ecosystem,
-    },
-    revalidate: 1,
-  };
-}
+		return {
+			props: {
+				ecosystem,
+			},
+			revalidate: 60,
+		};
+	} catch (error: any) {
+		console.error('🔥 Ошибка при загрузке ecosystem:', error.message || error);
+		return {
+			props: {
+				ecosystem: null,
+			},
+			revalidate: 60,
+		};
+	}
+};
