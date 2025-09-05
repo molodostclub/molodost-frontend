@@ -15,7 +15,7 @@ type InputEvent = ChangeEvent<HTMLInputElement>;
 export function PromoComponent() {
 	const agreementLink = () => (
 		<Link target="_blank" href="/docs/promo/personalAgreement.doc" className={styles.agreementLink}>
-			обработку моих персональных данных
+			обработку персональных данных
 		</Link>
 	);
 
