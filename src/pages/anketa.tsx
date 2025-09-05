@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { AnketaPage } from '@/core/Promo';
+import { AnketaPage } from '@/core/AnketaPage';
 import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function Anketa() {
