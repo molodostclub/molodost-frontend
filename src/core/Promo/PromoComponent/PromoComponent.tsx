@@ -18,6 +18,7 @@ export function PromoComponent() {
 			обработку персональных данных
 		</Link>
 	);
+	
 
 	const marketingLink = () => (
 		<Link target="_blank" href="/docs/promo/marketingAgreement.doc" className={styles.agreementLink}>
