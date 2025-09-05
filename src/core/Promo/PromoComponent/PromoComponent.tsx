@@ -13,17 +13,47 @@ import { Description, SectionHeading } from '@/uikit';
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
 export function PromoComponent() {
+	const policyLink = () => (
+		<Link target="_blank" href="/docs/promo/policy.doc" className={styles.agreementLink}>
+			политикой конфиденциальности
+		</Link>
+	);
+
 	const agreementLink = () => (
-		<Link target="_blank" href="/docs/personal-data-agreement.pdf" className={styles.agreementLink}>
+		<Link target="_blank" href="/docs/promo/personalAgreement.doc" className={styles.agreementLink}>
 			обработку моих персональных данных
 		</Link>
 	);
+
+	const marketingLink = () => (
+		<Link target="_blank" href="/docs/promo/marketingAgreement.doc" className={styles.agreementLink}>
+			на получение информационной и рекламной рассылки
+		</Link>
+	);
+
+	const policyAgreementInit: Checkbox[] = [
+		{
+			label: 'Я соглашаюсь с',
+			linkText: policyLink(),
+			value: '5',
+			checked: false,
+		},
+	];
 
 	const personalAgreementInit: Checkbox[] = [
 		{
 			label: 'Я даю согласие на',
 			linkText: agreementLink(),
-			value: '5',
+			value: '6',
+			checked: false,
+		},
+	];
+
+	const marketingAgreementInit: Checkbox[] = [
+		{
+			label: 'Я даю согласие на',
+			linkText: marketingLink(),
+			value: '7',
 			checked: false,
 		},
 	];
@@ -32,7 +62,9 @@ export function PromoComponent() {
 	const [surname, setSurname] = useState<string>('');
 	const [whatsapp, setWhatsapp] = useState<string>('');
 	const [attachment, setAttachment] = useState<File | null>(null);
+	const [policyAgreement, setPolicyAgreement] = useState<Checkbox[]>(policyAgreementInit);
 	const [personalAgreement, setPersonalAgreement] = useState<Checkbox[]>(personalAgreementInit);
+	const [marketingAgreement, setMarketingAgreement] = useState<Checkbox[]>(marketingAgreementInit);
 
 	const [StateForm, setStateForm] = useState<number>(FormState.Default);
 
@@ -125,7 +157,13 @@ export function PromoComponent() {
 						</div>
 
 						<div className={indent.mt_4}>
+							<BaseCheckbox name="policyAgreement" item={policyAgreement[0]} required={true} onChange={() => onChangeCheckbox(policyAgreement[0].value, policyAgreement, (data) => setPolicyAgreement(data))} />
+						</div>
+						<div className={indent.mt_4}>
 							<BaseCheckbox name="personalAgreement" item={personalAgreement[0]} required={true} onChange={() => onChangeCheckbox(personalAgreement[0].value, personalAgreement, (data) => setPersonalAgreement(data))} />
+						</div>
+						<div className={indent.mt_4}>
+							<BaseCheckbox name="marketingAgreement" item={marketingAgreement[0]} required={true} onChange={() => onChangeCheckbox(marketingAgreement[0].value, marketingAgreement, (data) => setMarketingAgreement(data))} />
 						</div>
 
 						<button type="submit" className={cn(styles.ctaBtn, indent.mt_4)} id="sendForm">
