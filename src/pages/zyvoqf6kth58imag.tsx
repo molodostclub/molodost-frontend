@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import { AnketaPage } from '@/core/Promo';
+import { Promo } from '@/core/Promo';
 import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function Anketa() {
   return (
     <>
-      <PageMeta title="Анкета" />
+      <PageMeta title="Промо" />
       <InnerPageHeader />
-      <PageCover src="/images/anketa/large.jpeg" />
-      <AnketaPage />
+      <PageCover src="/images/promo/promo-main.jpg" />
+      <Promo />
       <Footer />
     </>
   );

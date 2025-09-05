@@ -22,27 +22,22 @@ export default function TripPage({ trip }: { trip: TripModel }) {
 }
 
 export const getStaticProps: GetStaticProps<{ trip: TripModel | null }, { slug: string }> = async ({ params }) => {
-	if (!params?.slug) {
-		console.warn('⛔️ No slug provided to getStaticProps');
-		return { props: { trip: null }, revalidate: 60 };
-	}
+	const slug = params?.slug;
+	if (!slug) return { notFound: true };
 
 	try {
-		const res = await backendApi.get(`slugify/slugs/trip/${params.slug}`, {
+		const res = await backendApi.get(`slugify/slugs/trip/${slug}`, {
 			params: { populate: '*' },
-			validateStatus: (status) => status < 500,
+			timeout: 8000,
+			validateStatus: (s) => s < 500,
 		});
 
-		const trip = res.data?.data;
-		if (!trip || typeof trip !== 'object') {
-			console.warn(`❌ Trip not found or invalid for slug: ${params.slug}`);
-			return { props: { trip: null }, revalidate: 60 };
-		}
+		const trip = res.data?.data as TripModel | undefined;
+		if (!trip) return { notFound: true };
 
 		return { props: { trip }, revalidate: 60 };
-	} catch (error: any) {
-		console.error(`🔥 Ошибка при загрузке trip ${params.slug}:`, error.message);
-		return { props: { trip: null }, revalidate: 60 };
+	} catch {
+		return { notFound: true };
 	}
 };
 
@@ -66,4 +61,3 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		};
 	}
 };
-

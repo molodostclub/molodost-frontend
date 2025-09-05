@@ -1,4 +1,10 @@
 User-agent: *
-Disallow: *?
-Disallow: /api/
-Disallow: /docs/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /.env
+Disallow: /.git
+Disallow: /vendor/
+Disallow: /core/
+Crawl-delay: 3
+Sitemap: https://molodost.club/sitemap.xml

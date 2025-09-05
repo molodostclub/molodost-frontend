@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { HouseModel, MediaUploadFormat, MediaUploadModel, TripModel } from '@shared/types';
 
-export const BASE_URL = 'https://admin.molodost.club';
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://admin.molodost.club';
 
 export const getMediaLink = (path: string): string => {
 	if (!BASE_URL || !path) return '';
@@ -24,8 +24,10 @@ export const getMediaLinkFromModel = (model: MediaUploadModel | MediaUploadModel
 };
 
 export const backendApi = axios.create({
-	baseURL: BASE_URL ? `${BASE_URL}/api` : '',
-	timeout: 5000,
+  baseURL: `${BASE_URL}/api/`,
+  timeout: 8000,
+  headers: { Accept: 'application/json' },
+  validateStatus: (s) => s < 500
 });
 
 
