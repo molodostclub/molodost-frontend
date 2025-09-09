@@ -35,6 +35,16 @@ export const input = style([
 	},
 ]);
 
+export const errorText = style([
+	{
+		fontFamily: vars.font.ApercuProRegular,
+		fontWeight: 400,
+		fontSize: 16,
+		lineHeight: 1,
+		color: vars.color.brand,
+	},
+]);
+
 export const inputFile = style([
 	{
 		width: '100%',
@@ -54,8 +64,8 @@ globalStyle(`input[type="file" i]::-webkit-file-upload-button`, {
 
 globalStyle(`input[type="file" i]::-webkit-file-upload-button:hover`, {
 	background: vars.color.brand,
-    color: vars.color.white,
-    cursor: "pointer",
+	color: vars.color.white,
+	cursor: 'pointer',
 	transition: '0.3s ease-in-out',
 });
 
