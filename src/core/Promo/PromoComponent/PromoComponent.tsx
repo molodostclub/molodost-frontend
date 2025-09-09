@@ -103,10 +103,10 @@ export function PromoComponent() {
 	const [name, setName] = useState('');
 	const [surname, setSurname] = useState('');
 	const [waFormatted, setWaFormatted] = useState(''); // отображаемое значение
+	const [checkAmount, setCheckAmount] = useState('');
 	const [waDigits, setWaDigits] = useState(''); // только цифры (для бэка)
 	const [waValid, setWaValid] = useState(false);
 
-	const [attachment, setAttachment] = useState<File | null>(null);
 	const [personalAgreement, setPersonalAgreement] = useState<Checkbox[]>(personalAgreementInit);
 	const [marketingAgreement, setMarketingAgreement] = useState<Checkbox[]>(marketingAgreementInit);
 	const [StateForm, setStateForm] = useState<number>(FormState.Default);
@@ -142,12 +142,13 @@ export function PromoComponent() {
 		formData.append('name', name);
 		formData.append('surname', surname);
 		formData.append('whatsapp', `+${waDigits}`);
-		if (attachment) formData.append('attachment', attachment, attachment.name);
+		formData.append('checkAmount', checkAmount);
 
 		try {
 			const res = await fetch(`${API_BASE}/form-requests`, {
 				method: 'POST',
-				body: formData,
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ name, surname, whatsapp: `+${waDigits}`, checkAmount }),
 			});
 
 			if (res.ok) onSuccess();
@@ -189,7 +190,7 @@ export function PromoComponent() {
 								</Label>
 							</div>
 
-							<div className={indent.mt_4}>
+							{/* <div className={indent.mt_4}>
 								<Label caption="Фото чека">
 									<br />
 									<input
@@ -200,6 +201,13 @@ export function PromoComponent() {
 											setAttachment(f);
 										}}
 									/>
+								</Label>
+							</div> */}
+
+							<div className={indent.mt_4}>
+								<Label caption="Сумма чека">
+									<br />
+									<BaseInput type="text" placeholder="Введите сумму" value={checkAmount} required={true} onChange={(e: InputEvent) => setCheckAmount(e.target.value)} />
 								</Label>
 							</div>
 						</div>
