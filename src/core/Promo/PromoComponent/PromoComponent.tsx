@@ -145,7 +145,7 @@ export function PromoComponent() {
 		if (attachment) formData.append('attachment', attachment, attachment.name);
 
 		try {
-			const res = await fetch(`${API_BASE}/form-requests`, {
+			const res = await fetch(`${API_BASE}/form-request`, {
 				method: 'POST',
 				body: formData,
 			});
