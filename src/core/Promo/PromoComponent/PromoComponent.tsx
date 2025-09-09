@@ -190,7 +190,6 @@ export function PromoComponent() {
 									<br />
 									<input
 										type="file"
-										accept=".pdf,.jpg,.jpeg,.png"
 										className={styles.inputFile}
 										onChange={(e: InputEvent) => {
 											const f = e.target.files?.[0] || null;
