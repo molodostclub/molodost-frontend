@@ -9,6 +9,7 @@ import { Checkbox } from '@/shared/components/BaseCheckbox/types';
 import { FormState, backendApi } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
+const API_BASE = process.env.NEXT_PUBLIC_STRAPI_API ?? 'https://admin.molodost.club/api';
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
@@ -144,10 +145,13 @@ export function PromoComponent() {
 		if (attachment) formData.append('attachment', attachment, attachment.name);
 
 		try {
-			const { status } = await backendApi.post('form-requests', formData, {
-				headers: { 'Content-Type': 'multipart/form-data' },
+			const res = await fetch(`${API_BASE}/form-requests`, {
+				method: 'POST',
+				body: formData,
 			});
-			status === 200 ? onSuccess() : onError();
+
+			if (res.ok) onSuccess();
+			else onError();
 		} catch {
 			onError();
 		}
