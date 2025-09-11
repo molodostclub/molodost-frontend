@@ -6,9 +6,10 @@ import * as styles from './PromoComponent.css';
 import cn from 'classnames';
 import { BaseCheckbox } from '@/shared/components/BaseCheckbox';
 import { Checkbox } from '@/shared/components/BaseCheckbox/types';
-import { FormState, backendApi } from '@/utils';
+import { FormState } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
+
 const API_BASE = process.env.NEXT_PUBLIC_STRAPI_API ?? 'https://admin.molodost.club/api';
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
@@ -102,14 +103,15 @@ export function PromoComponent() {
 
 	const [name, setName] = useState('');
 	const [surname, setSurname] = useState('');
-	const [waFormatted, setWaFormatted] = useState(''); // отображаемое значение
+	const [waFormatted, setWaFormatted] = useState('');
 	const [checkAmount, setCheckAmount] = useState('');
-	const [waDigits, setWaDigits] = useState(''); // только цифры (для бэка)
+	const [waDigits, setWaDigits] = useState('');
 	const [waValid, setWaValid] = useState(false);
 
 	const [personalAgreement, setPersonalAgreement] = useState<Checkbox[]>(personalAgreementInit);
 	const [marketingAgreement, setMarketingAgreement] = useState<Checkbox[]>(marketingAgreementInit);
 	const [StateForm, setStateForm] = useState<number>(FormState.Default);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const onChangeCheckbox = (value: string, checkboxes: Checkbox[], callback: (data: any) => void) => {
 		const copyItem = [...checkboxes];
@@ -131,19 +133,15 @@ export function PromoComponent() {
 
 	const isFormValid = useMemo(() => {
 		const consentOk = personalAgreement[0]?.checked;
-		return waValid && consentOk;
-	}, [waValid, personalAgreement]);
+		const amountOk = String(checkAmount).trim().length > 0;
+		return waValid && consentOk && amountOk;
+	}, [waValid, personalAgreement, checkAmount]);
 
 	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (!waValid) return;
+		if (!waValid || isSubmitting) return;
 
-		const formData = new FormData();
-		formData.append('name', name);
-		formData.append('surname', surname);
-		formData.append('whatsapp', `+${waDigits}`);
-		formData.append('checkAmount', checkAmount);
-
+		setIsSubmitting(true);
 		try {
 			const res = await fetch(`${API_BASE}/form-requests`, {
 				method: 'POST',
@@ -155,6 +153,8 @@ export function PromoComponent() {
 			else onError();
 		} catch {
 			onError();
+		} finally {
+			setIsSubmitting(false);
 		}
 	};
 
@@ -190,20 +190,6 @@ export function PromoComponent() {
 								</Label>
 							</div>
 
-							{/* <div className={indent.mt_4}>
-								<Label caption="Фото чека">
-									<br />
-									<input
-										type="file"
-										className={styles.inputFile}
-										onChange={(e: InputEvent) => {
-											const f = e.target.files?.[0] || null;
-											setAttachment(f);
-										}}
-									/>
-								</Label>
-							</div> */}
-
 							<div className={indent.mt_4}>
 								<Label caption="Сумма чека">
 									<br />
@@ -220,9 +206,10 @@ export function PromoComponent() {
 							<BaseCheckbox name="marketingAgreement" item={marketingAgreement[0]} required={true} onChange={() => onChangeCheckbox(marketingAgreement[0].value, marketingAgreement, (data) => setMarketingAgreement(data))} />
 						</div>
 
-						<button type="submit" className={cn(styles.ctaBtn, indent.mt_4)} id="sendForm" disabled={!isFormValid}>
-							ОСТАВИТЬ ЗАЯВКУ
+						<button type="submit" className={cn(styles.ctaBtn, indent.mt_4)} id="sendForm" disabled={!isFormValid || isSubmitting} aria-busy={isSubmitting}>
+							{isSubmitting ? 'Загрузка...' : 'ОСТАВИТЬ ЗАЯВКУ'}
 						</button>
+
 						<div className={indent.mt_4}>
 							<small className={styles.noteBlack}>
 								Нажимая кнопку &laquo;Отправить&raquo;, я&nbsp;подтверждаю, что ознакомлен с&nbsp;
