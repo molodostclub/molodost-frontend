@@ -25,7 +25,7 @@ export const getMediaLinkFromModel = (model: MediaUploadModel | MediaUploadModel
 
 export const backendApi = axios.create({
 	baseURL: `${BASE_URL}/api/`,
-	timeout: 8000,
+	timeout: 15000, // Увеличен таймаут до 15 секунд
 	headers: { Accept: 'application/json' },
 	validateStatus: (s) => s < 500,
 });
@@ -35,22 +35,40 @@ export interface HousesSplit {
 	inHouse: HouseModel[];
 }
 
+// Кэш для хранения результатов запроса
+let housesCache: HousesSplit | null = null;
+let housesCacheTime: number = 0;
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 часа кэширования
+
 export const getHousesSplit = async (): Promise<HousesSplit> => {
+	// Проверка кэша
+	const now = Date.now();
+	if (housesCache && (now - housesCacheTime) < CACHE_DURATION) {
+		return housesCache;
+	}
+
 	if (!BASE_URL) {
 		console.warn('ℹ️ BACKEND URL не задан, возвращаем пустые дома');
 		return { individual: [], inHouse: [] };
 	}
 
 	try {
+		// Запрос с populate=* как в оригинале
 		const { data } = await backendApi.get(`houses`, {
 			params: { populate: '*' },
 		});
 		const houses: HouseModel[] = data?.data || [];
 
-		return {
+		const result = {
 			individual: houses.filter((h) => h.attributes.isIndividual),
 			inHouse: houses.filter((h) => !h.attributes.isIndividual),
 		};
+		
+		// Сохраняем в кэш
+		housesCache = result;
+		housesCacheTime = now;
+		
+		return result;
 	} catch (err) {
 		console.error('❌ Ошибка в getHousesSplit:', err);
 		return {
