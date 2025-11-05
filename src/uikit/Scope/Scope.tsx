@@ -11,12 +11,13 @@ const useWindowWidth = () => {
   useEffect(() => {
     window.addEventListener('resize', updateWidth);
 
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       updateWidth();
     }, 50);
 
     return () => {
       window.removeEventListener('resize', updateWidth);
+      clearTimeout(timeoutId); // Исправление утечки памяти: очистка таймера при размонтировании
     };
   }, []);
 

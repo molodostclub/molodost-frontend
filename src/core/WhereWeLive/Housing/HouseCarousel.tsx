@@ -109,7 +109,7 @@ export const HouseCarousel: FC<Props> = ({ pictures, video, videoPreview }) => {
       emblaApi.off('select', onEmblaUpdate);
       emblaApi.off('reInit', onEmblaUpdate);
     };
-  }, [emblaApi, setScrollSnaps, onEmblaUpdate]);
+  }, [emblaApi, onEmblaUpdate]); // Исправлено: setScrollSnaps (setState функция) не должна быть в зависимостях
 
   const getPosterUrl = () => videoPreview ? getMediaLinkFromModel(videoPreview.attributes) : undefined
 

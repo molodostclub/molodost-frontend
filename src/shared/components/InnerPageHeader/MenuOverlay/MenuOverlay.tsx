@@ -1,4 +1,4 @@
-import { FC, Fragment, MouseEvent, useEffect, useState } from 'react';
+import { FC, Fragment, MouseEvent, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -17,6 +17,16 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 	const isFirstRender = useIsFirstRender();
 	const router = useRouter();
 	const [openMenu, setOpenMenu] = useState<string | null>(null);
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+	useEffect(() => {
+		return () => {
+			// Очистка таймера при размонтировании компонента для предотвращения утечки памяти
+			if (timeoutRef.current) {
+				clearTimeout(timeoutRef.current);
+			}
+		};
+	}, []);
 
 	const handleClickMenuItem = (event: MouseEvent<HTMLAnchorElement>, item: MenuItem) => {
 		if (isCurrentPage(item.href ?? '#')) {
@@ -27,10 +37,16 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 			const anchor = url.hash.replace('#', '');
 
 			if (anchor) {
+				// Очищаем предыдущий таймер, если он существует
+				if (timeoutRef.current) {
+					clearTimeout(timeoutRef.current);
+				}
+
 				window.location.hash = anchor;
 
-				setTimeout(() => {
+				timeoutRef.current = setTimeout(() => {
 					history.replaceState(null, '', window.location.pathname + window.location.search);
+					timeoutRef.current = null;
 				}, 500);
 			}
 		}

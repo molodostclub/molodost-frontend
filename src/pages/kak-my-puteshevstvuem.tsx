@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			props: {
 				trips,
 			},
-			revalidate: 5,
+			revalidate: 3600, // 1 час - было 5 секунд, это вызывало постоянную регенерацию и 100% CPU
 		};
 	} catch (error: any) {
 		console.error('🔥 Ошибка при загрузке trips:', error.message);

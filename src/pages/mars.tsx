@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 		return {
 			props: { ...data },
-			revalidate: 1,
+			revalidate: 3600, // 1 час - было 1 секунда, это вызывало постоянную регенерацию и 100% CPU
 		};
 	} catch (error: any) {
 		console.error('🔥 Ошибка при загрузке данных для MarsPage:', error.message);

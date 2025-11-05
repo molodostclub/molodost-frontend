@@ -83,7 +83,18 @@ export interface TripsSplit {
 	notAllDay: TripModel[];
 }
 
+// Кэш для хранения результатов запроса поездок
+let tripsCache: TripsSplit | null = null;
+let tripsCacheTime: number = 0;
+const TRIPS_CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 часа кэширования
+
 export const getTripsSplit = async (): Promise<TripsSplit> => {
+	// Проверка кэша
+	const now = Date.now();
+	if (tripsCache && (now - tripsCacheTime) < TRIPS_CACHE_DURATION) {
+		return tripsCache;
+	}
+
 	if (!BASE_URL) {
 		console.warn('ℹ️ BACKEND URL не задан, возвращаем пустые поездки');
 		return { allDay: [], notAllDay: [] };
@@ -95,10 +106,16 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 		});
 		const trips: TripModel[] = data?.data || [];
 
-		return {
+		const result = {
 			allDay: trips.filter((h) => h.attributes.isAllDay),
 			notAllDay: trips.filter((h) => !h.attributes.isAllDay),
 		};
+
+		// Сохраняем в кэш
+		tripsCache = result;
+		tripsCacheTime = now;
+
+		return result;
 	} catch (error) {
 		console.error('❌ Ошибка в getTripsSplit:', error);
 		return {
