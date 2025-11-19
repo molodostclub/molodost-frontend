@@ -21,7 +21,7 @@ export const APP_ROUTES: MenuItem[] = [
 		subItems: [
 			{ label: '- Как к нам попасть', href: '/kak-popast' },
 			{ label: '- Забронировать', href: '/booking' },
-			{ label: '- МОЛОДОСТЬ ПО-ВЗРОСЛОМУ', href: '/adults' },
+			{ label: '- КАТАЛКА', href: '/katalka' },
 			{ label: '- ГДЕ МЫ ЖИВЕМ', href: '/rooms' },
 			{ label: '- ЧТО МЫ ЕДИМ И ПЬЕМ', href: '/chto-my-edim' },
 			{ label: '- КАК МЫ ПУТЕШЕСТВУЕМ', href: '/kak-my-puteshevstvuem' },

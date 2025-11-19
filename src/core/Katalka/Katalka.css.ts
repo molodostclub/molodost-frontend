@@ -61,6 +61,19 @@ export const textRed36 = style([
 	}),
 ]);
 
+export const textRed24Centered = style([
+	{
+		fontSize: 18,
+		fontFamily: vars.font.CeraCondensedCYMedium,
+		textTransform: 'uppercase',
+		color: vars.color.brand,
+		textAlign: 'center',
+	},
+	tablet({
+		fontSize: 24,
+	}),
+]);
+
 export const textRed36Medium = style([
 	{
 		fontSize: 18,

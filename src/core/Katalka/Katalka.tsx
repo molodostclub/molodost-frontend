@@ -7,12 +7,14 @@ export const Katalka: FC = () => {
 	return (
 		<>
 			<div className={styles.content}>
-				<h1 className={styles.textRed96}>ФЕСТИВАЛЬ</h1>
+				<h1 className={styles.textRed96}>Каталка с&nbsp;&laquo;Молодостью&raquo; в&nbsp;Манжероке</h1>
+				<br />
+				<br />
 				<p className={styles.textRed55}>«ТЁПЛЫЙ ПРИЁМ В&nbsp;ХОЛОДНОМ МЕСТЕ»</p>
-				<p className={styles.textBlack55}>ЛЕТЕТЬ БЛИЖЕ, ЧЕМ ДО СОЧИ</p>
+				<p className={styles.textBlack55}>ЛЕТЕТЬ КАК ДО СОЧИ</p>
 				<div className={styles.paragraph}>
 					<p className={styles.textBlack36}>C&nbsp;13&nbsp;ФЕВРАЛЯ по&nbsp;10&nbsp;марта 2026&nbsp;ГОДА</p>
-					<p className={styles.textRed36}>ЛУЧШАЯ КАТАЛКА НА АЛТАЕ</p>
+					{/* <p className={styles.textRed36}>ЛУЧШАЯ КАТАЛКА НА АЛТАЕ</p> */}
 				</div>
 
 				<div className={styles.katalkaColumnsWide}>
@@ -22,13 +24,17 @@ export const Katalka: FC = () => {
 					<div className={styles.katalkaColumn}>
 						<div className={styles.cardRotated}>
 							<p>
-								50&nbsp;КМ ТРАСС ЛЮБОЙ СЛОЖНОСТИ
+								Лавина денег Сбера
 								<br />
-								ВЕЧЕРНЯЯ КАТАЛКА
+								сошла с&nbsp;гор
 								<br />
-								С&nbsp;ПОТРЯСАЮЩИМИ ВИДАМИ
+								в&nbsp;Манжероке,
 								<br />
-								НОЧНЫХ ГОР И&nbsp;ЛЕСА
+								и&nbsp;теперь лучшая каталка
+								<br />
+								в&nbsp;стране появилась всего
+								<br />
+								в&nbsp;15 минутах от&nbsp;&laquo;Молодости&raquo;
 							</p>
 						</div>
 					</div>
@@ -71,9 +77,9 @@ export const Katalka: FC = () => {
 					<p className={styles.textBlack36}>
 						<span className={styles.katalkaPriceRedHighlight}>СТОИМОСТЬ</span>
 						<br />
-						<span className={styles.accentText}>28&nbsp;000&nbsp;₽</span> В СУТКИ НА&nbsp;ОДНОГО
+						<span className={styles.accentText}>28&nbsp;000&nbsp;₽*</span> В СУТКИ НА&nbsp;ОДНОГО
 						<br />
-						<span className={styles.accentText}>40&nbsp;000&nbsp;₽</span> В СУТКИ ЗА&nbsp;ДВОИХ
+						<span className={styles.accentText}>40&nbsp;000&nbsp;₽*</span> В СУТКИ ЗА&nbsp;ДВОИХ
 						<br />
 						5-12&nbsp;ЛЕТ <span className={styles.accentText}>+6&nbsp;000&nbsp;₽</span> В СУТКИ
 						<br />
@@ -83,9 +89,9 @@ export const Katalka: FC = () => {
 				<br />
 				<br />
 				<br />
-				<br />
-				<br />
-				<br />
+				<div className={styles.paragraph}>
+					<p className={styles.textRed24Centered}>Стоимость указана с&nbsp;учетом проживания в&nbsp;замечательной спальне. Если вы&nbsp;хотите жить в&nbsp;доме, напишите нам, и&nbsp;мы&nbsp;посчитаем сумму доплаты за&nbsp;размещение</p>
+				</div>
 				<p className={styles.textBlack40Medium}>ПО ВСЕМ ВОПРОСАМ:</p>
 				<a href="tel:+79647002112" className={styles.textRed40}>
 					+7&nbsp;964&nbsp;700&nbsp;21&nbsp;12
