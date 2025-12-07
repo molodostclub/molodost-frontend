@@ -22,12 +22,14 @@ const Pricing: FC<{
 
 	return (
 		<div className={styles.parameters}>
-			<div className={styles.parameter}>
-				<div className={styles.paramName}>
-					цена за {peopleMin}-{numberEnding} человек{textEnding}
+			{isMars !== true && (
+				<div className={styles.parameter}>
+					<div className={styles.paramName}>
+						цена за {peopleMin}-{numberEnding} человек{textEnding}
+					</div>
+					<div className={styles.paramValue}>{formatPriceWithSign(price)}</div>
 				</div>
-				<div className={styles.paramValue}>{formatPriceWithSign(price)}</div>
-			</div>
+			)}
 
 			{isMars !== true && isBaikal !== true && price2 !== undefined && (
 				<div className={styles.parameter}>

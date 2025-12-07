@@ -1144,11 +1144,12 @@ export const PricesPage: FC = () => {
 				ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ
 			</h2>
 			<CorporativeNonGuests />
-			<h2 className={styles.subtitle}>
+			{/* <h2 className={styles.subtitle}>
 				ПРОЖИВАНИЕ <br />
 				ПРИЮТ &laquo;НА МАРСЕ&raquo;
 			</h2>
 			<ToMars />
+			 */}
 		</main>
 	);
 };

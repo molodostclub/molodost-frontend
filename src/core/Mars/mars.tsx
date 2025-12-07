@@ -125,27 +125,27 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 							<div className={cn(styles.foodPrices, indent.tablet_mt_10, indent.mt_6)}>
 								<div className={styles.foodItem}>
 									<div className={styles.foodRow}>
-										<p className={styles.foodItemTitle}>ЗАВТРАК</p>
+										{/*<p className={styles.foodItemTitle}>ЗАВТРАК</p>
 										<p className={styles.foodItemPrice}>
 											<span className={styles.attentionRed}>{formatPriceWithSign(ADDITIONAL_SERVICES[0].price)}</span>/чел.
-										</p>
+										</p>*/}
 									</div>
-									<p className={cn(styles.foodItemDescription, indent.tablet_mt_2, indent.mt_1)}>входит в стоимость проживания</p>
+									{/*<p className={cn(styles.foodItemDescription, indent.tablet_mt_2, indent.mt_1)}>входит в стоимость проживания</p>*/}
 								</div>
 								<div className={cn(styles.foodItem, indent.mt_4)}>
 									<div className={styles.foodRow}>
-										<p className={styles.foodItemTitle}>ОБЕД</p>
+										{/*<p className={styles.foodItemTitle}>ОБЕД</p>
 										<p className={styles.foodItemPrice}>
 											<span className={styles.attentionRed}>{formatPriceWithSign(ADDITIONAL_SERVICES[1].price)}</span>/чел.
-										</p>
+										</p>*/}
 									</div>
 								</div>
 								<div className={cn(styles.foodItem, indent.mt_4)}>
 									<div className={styles.foodRow}>
-										<p className={styles.foodItemTitle}>УЖИН</p>
+										{/*<p className={styles.foodItemTitle}>УЖИН</p>
 										<p className={styles.foodItemPrice}>
 											<span className={styles.attentionRed}>{formatPriceWithSign(ADDITIONAL_SERVICES[2].price)}</span>/чел.
-										</p>
+										</p>*/}
 									</div>
 								</div>
 							</div>
@@ -157,8 +157,9 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				<div className={styles.border}>&nbsp;</div>
 				<Description className={cn(indent.tablet_mt_8, indent.mt_6, styles.attentionRed, styles.apercu16)}>Мы&nbsp;считаем, что вода и&nbsp;воздух на&nbsp;Алтае должны быть бесплатными, и&nbsp;не&nbsp;хотим торговать ни&nbsp;тем ни&nbsp;другим.</Description>
 				<Description className={cn(indent.mt_4, styles.apercu16)}>
-					При этом на&nbsp;закупку воды Petroglyph и&nbsp;переработку пластика, который возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей в&nbsp;год. Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 500&nbsp;рублей. Все деньги, которые мы&nbsp;получим за&nbsp;эту
-					услугу, пойдут на&nbsp;реализацию образовательных и&nbsp;экологических проектов на&nbsp;Алтае.
+					При этом на&nbsp;закупку воды Petroglyph и&nbsp;переработку пластика, который возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей в&nbsp;год.
+					{/* Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 500&nbsp;рублей. Все деньги, которые мы&nbsp;получим за&nbsp;эту
+					услугу, пойдут на&nbsp;реализацию образовательных и&nbsp;экологических проектов на&nbsp;Алтае.*/}
 				</Description>
 				<div className={cn(styles.border, indent.tablet_mt_8, indent.mt_6)}>&nbsp;</div>
 			</div>
@@ -173,9 +174,9 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 						</div>
 						<div className={cn(styles.foodRowGap, indent.mt_4)}>
 							<p className={styles.foodItemTitle}>Баня</p>
-							<p className={styles.foodItemPrice}>
+							{/*<p className={styles.foodItemPrice}>
 								<span className={styles.attentionRed}>{formatPriceWithSign(15_000)}</span>/час.
-							</p>
+							</p>*/}
 						</div>
 					</div>
 					<div className={styles.halfWidthInTablet}>
@@ -184,7 +185,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 						</div>
 						<div className={cn(styles.foodRowGap, indent.mt_4)}>
 							<p className={styles.foodItemTitle}>Чан</p>
-							<p className={cn(styles.foodItemDescription)}>входит в стоимость бани</p>
+							{/*<p className={cn(styles.foodItemDescription)}>входит в стоимость бани</p>*/}
 						</div>
 					</div>
 				</FlexContainer>
@@ -239,7 +240,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 						<span className={cn(styles.attentionRed, styles.attention)}>{formatPriceWithSign(122_000)}</span>
 						<span>за машину</span>
 					</div>
-					<p className={cn(styles.biletPriceDescription, indent.mt_3)}>до&nbsp;3&nbsp;пассажиров, в&nbsp;стоимость входит трансфер, сопровождение следопытом и&nbsp;бензин.</p>
+					<p className={cn(styles.biletPriceDescription, indent.mt_3)}>до&nbsp;3&nbsp;пассажиров,{/* в&nbsp;стоимость*/} входит трансфер, сопровождение следопытом и&nbsp;бензин.</p>
 				</div>
 				<Description className={cn(indent.tablet_mt_6, indent.mt_4)}>Точная цена билета рассчитывается индивидуально и&nbsp;может значительно увеличиваться в&nbsp;зависимости от&nbsp;количества участников поездки и&nbsp;конкретных пожеланий.</Description>
 			</div>
@@ -285,10 +286,10 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
 				<SectionHeading>Аренда приюта</SectionHeading>
 				<div className={cn(styles.bilet, indent.tablet_mt_6, indent.mt_4)}>
-					<div className={cn(styles.biletPrice)}>
+					{/*<div className={cn(styles.biletPrice)}>
 						<span className={cn(styles.attentionRed, styles.attention)}>{formatPriceWithSign(500_000)}</span>
 						<span className={styles.biletPriceDescription}>1 сутки</span>
-					</div>
+					</div>*/}
 					<p className={cn(styles.foodItemDescription, indent.tablet_mt_3, indent.mt_2)}>до 18 человек</p>
 					<p className={cn(styles.biletPriceDescription, indent.tablet_mt_4, indent.mt_2)}>с&nbsp;завтраком, обедом и&nbsp;ужином, кофейней, б/а напитками, водяным сбором, а&nbsp;также посещением бани и&nbsp;чана.</p>
 				</div>
