@@ -12,7 +12,7 @@ interface HousingProps {
 
 const Pricing: FC<{
 	peopleMin?: number;
-	price: number;
+	price?: number;
 	price2?: number;
 	isMars?: boolean;
 	isBaikal?: boolean;
@@ -22,7 +22,7 @@ const Pricing: FC<{
 
 	return (
 		<div className={styles.parameters}>
-			{isMars !== true && (
+			{isMars !== true && price != null && price > 0 && (
 				<div className={styles.parameter}>
 					<div className={styles.paramName}>
 						цена за {peopleMin}-{numberEnding} человек{textEnding}
@@ -31,7 +31,7 @@ const Pricing: FC<{
 				</div>
 			)}
 
-			{isMars !== true && isBaikal !== true && price2 !== undefined && (
+			{isMars !== true && isBaikal !== true && price2 != null && price2 > 0 && (
 				<div className={styles.parameter}>
 					<div className={styles.paramName}>
 						высокий сезон за {peopleMin}-{numberEnding} человек{textEnding}
