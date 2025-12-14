@@ -39,3 +39,4 @@ deploy/
 
 .env
 /analyze
+*.conf
