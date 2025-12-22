@@ -50,11 +50,15 @@ jobs:
                       # Убедиться, что сеть существует
                       docker network create molodost_net || true
 
-                      # Запустить новый контейнер
+                      # Запустить новый контейнер с ограничениями ресурсов для предотвращения высокого CPU
                       docker run -d \
                         --name molodost_frontend \
                         --network molodost_net \
                         -p 3000:3000 \
-                        -e NEXT_PUBLIC_BASE_URL="http://molodost-backend:1337" \
+                        --memory="768m" \
+                        --memory-swap="768m" \
+                        --cpus="1.0" \
                         --restart unless-stopped \
+                        -e NEXT_PUBLIC_BASE_URL="http://molodost-backend:1337" \
+                        -e NODE_OPTIONS="--max-old-space-size=600" \
                         ghcr.io/molodostclub/molodost-frontend:latest

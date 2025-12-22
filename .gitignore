@@ -40,3 +40,5 @@ deploy/
 .env
 /analyze
 *.conf
+*.sh
+*.md
