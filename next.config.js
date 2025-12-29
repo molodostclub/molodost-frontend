@@ -15,7 +15,16 @@ const nextConfig = {
   output: 'standalone',
 
   images: {
-    minimumCacheTTL: 31536000,
+    // Уменьшаем время кеширования с года до 7 дней для лучшей ротации
+    minimumCacheTTL: 604800, // 7 дней в секундах (было 31536000 - год)
+    // Оптимизируем размеры изображений - оставляем только нужные
+    // Ограничиваем максимальные размеры для предотвращения обработки слишком больших изображений
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048], // Максимум 2048px
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Максимум 384px
+    formats: ['image/webp', 'image/avif'],
+    // Ограничиваем качество для уменьшения нагрузки
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     domains: ['127.0.0.1'],
     remotePatterns: [
       { protocol: 'http', hostname: '0.0.0.0', port: '1337', pathname: '**' },
@@ -39,7 +48,8 @@ const nextConfig = {
       {
         source: '/_next/image',
         headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+          // Уменьшаем время кеширования в браузере до 7 дней (совпадает с minimumCacheTTL)
+          { key: 'Cache-Control', value: 'public, max-age=604800, s-maxage=604800, immutable' },
           { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
         ],
       },

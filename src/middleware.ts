@@ -8,6 +8,9 @@ export function middleware(req: NextRequest) {
 	const url = new URL(req.url);
 	const pathname = url.pathname;
 
+	// Инициализация кеша изображений выполняется через server-init.js при старте сервера
+	// т.к. middleware работает в Edge Runtime без доступа к файловой системе
+
 	if (req.method === 'HEAD' || req.method === 'OPTIONS') {
 		return new NextResponse(null, { status: 204 });
 	}

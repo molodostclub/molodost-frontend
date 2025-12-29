@@ -50,4 +50,8 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-CMD ["node", "server.js"]
+# Копируем скрипт инициализации кеша
+COPY --chown=nextjs:nodejs server-init.js ./
+
+# Запускаем через server-init.js который очистит кеш перед стартом
+CMD ["node", "server-init.js"]
