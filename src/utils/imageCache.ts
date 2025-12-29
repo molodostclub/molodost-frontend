@@ -1,3 +1,5 @@
+// Импортируем Node.js модули
+// В клиентском бандле эти импорты будут заменены на stub через webpack alias
 import * as fs from 'fs';
 import * as path from 'path';
 

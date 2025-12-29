@@ -1,5 +1,7 @@
 const NextBundleAnalyzer = require('@next/bundle-analyzer');
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const webpack = require('webpack');
+const path = require('path');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 const withAnalyzer = !!process.env.ANALYZE;
@@ -56,7 +58,42 @@ const nextConfig = {
     ];
   },
 
-  webpack(config) {
+  webpack(config, { isServer }) {
+    // Исключаем Node.js модули из клиентского бандла
+    if (!isServer) {
+      // Настраиваем fallback для Node.js модулей
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        child_process: false,
+        path: false,
+        os: false,
+      };
+
+      // Игнорируем импорты Node.js модулей везде
+      if (!config.plugins) {
+        config.plugins = [];
+      }
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^(fs|child_process|path|os)$/,
+        })
+      );
+
+      // Исключаем Node.js-специфичные утилиты из клиентского бандла
+      // Заменяем на stub-файлы чтобы избежать ошибок импорта
+      const originalAlias = config.resolve.alias || {};
+      config.resolve.alias = {
+        ...originalAlias,
+      };
+      
+      // Заменяем только при точном совпадении пути
+      const utilsPath = path.resolve(__dirname, 'src/utils');
+      config.resolve.alias['@utils/imageCache$'] = path.join(utilsPath, 'imageCache.stub.ts');
+      config.resolve.alias['@utils/workerMonitor$'] = path.join(utilsPath, 'workerMonitor.stub.ts');
+      config.resolve.alias['@utils/initImageCache$'] = path.join(utilsPath, 'initImageCache.stub.ts');
+    }
+
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,

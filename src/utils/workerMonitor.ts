@@ -3,6 +3,8 @@
  * Отслеживает зависшие процессы и логирует их
  */
 
+// Импортируем Node.js модули
+// В клиентском бандле эти импорты будут заменены на stub через webpack alias
 import * as os from 'os';
 import * as child_process from 'child_process';
 

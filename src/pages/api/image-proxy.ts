@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { validateImageSize, isValidImageUrl } from '@utils/imageValidation';
+// Импортируем напрямую, а не через index.ts (чтобы избежать попадания в клиентский бандл)
+import { validateImageSize, isValidImageUrl } from '../../utils/imageValidation';
 
 /**
  * API route для проксирования изображений с проверками и таймаутами

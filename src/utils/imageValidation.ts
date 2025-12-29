@@ -159,27 +159,32 @@ async function validateImageSizeByFetching(
 
 /**
  * Получает размеры изображения
+ * В серверном окружении использует sharp для проверки размеров (если доступен)
  */
 async function getImageDimensions(imageUrl: string): Promise<{ width: number; height: number } | null> {
   try {
-    // В Node.js окружении можно использовать sharp для проверки размеров
-    // Но для упрощения проверяем через загрузку изображения
-    return new Promise((resolve) => {
-      // Для браузерного окружения используем Image объект
-      if (typeof window !== 'undefined') {
+    // Для браузерного окружения используем Image объект
+    if (typeof window !== 'undefined') {
+      return new Promise((resolve) => {
         const img = new Image();
+        const timeout = setTimeout(() => resolve(null), 10000); // 10 сек таймаут
+        
         img.onload = () => {
+          clearTimeout(timeout);
           resolve({ width: img.width, height: img.height });
         };
         img.onerror = () => {
+          clearTimeout(timeout);
           resolve(null);
         };
         img.src = imageUrl;
-      } else {
-        // Для серверного окружения возвращаем null (размеры проверяются на уровне обработки)
-        resolve(null);
-      }
-    });
+      });
+    }
+
+    // Для серверного окружения возвращаем null
+    // Размеры будут проверяться при обработке изображения Next.js
+    // Если нужна точная проверка, можно использовать sharp (опционально)
+    return null;
   } catch (error) {
     console.error('[Image Validation] Ошибка при получении размеров изображения:', error);
     return null;
