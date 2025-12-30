@@ -9,10 +9,12 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/optimize-images.js",
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p 3000",
     "lint": "next lint",
-    "format": "prettier --write \"src/**/*.+(ts|tsx|json|css|md)\""
+    "format": "prettier --write \"src/**/*.+(ts|tsx|json|css|md)\"",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "browserslist": [
     "defaults, iOS >= 8.0"
