@@ -18,6 +18,7 @@ COPY src ./src
 COPY public ./public
 COPY next.config.js .
 COPY tsconfig.json .
+COPY scripts ./scripts
 
 ENV NODE_ENV=production
 
