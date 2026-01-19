@@ -31,7 +31,7 @@ jobs:
                   tags: |
                       ghcr.io/molodostclub/molodost-frontend:latest
                   build-args: |
-                      NEXT_PUBLIC_BASE_URL=http://molodost-backend:1337
+                      NEXT_PUBLIC_BASE_URL=https://admin.molodost.club
 
             - name: Deploy frontend via SSH
               uses: appleboy/ssh-action@v0.1.10
@@ -59,6 +59,7 @@ jobs:
                         --memory-swap="768m" \
                         --cpus="1.0" \
                         --restart unless-stopped \
-                        -e NEXT_PUBLIC_BASE_URL="http://molodost-backend:1337" \
+                        -e NEXT_PUBLIC_BASE_URL="https://admin.molodost.club" \
+                        -e BACKEND_URL="http://molodost-backend:1337" \
                         -e NODE_OPTIONS="--max-old-space-size=600" \
                         ghcr.io/molodostclub/molodost-frontend:latest

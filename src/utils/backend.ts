@@ -1,17 +1,34 @@
 import axios from 'axios';
 import { HouseModel, MediaUploadFormat, MediaUploadModel, TripModel } from '@shared/types';
 
-export const BASE_URL = 'https://admin.molodost.club';
+// Функция для получения BASE_URL (вызывается каждый раз, чтобы получить актуальное значение)
+// Для серверных запросов (SSR) используем внутренний Docker URL
+// Для клиентских запросов используем внешний URL
+export const getBaseUrl = (): string => {
+	// На сервере (SSR) используем внутренний URL из переменной окружения
+	if (typeof window === 'undefined') {
+		// Проверяем переменную для серверных запросов (без NEXT_PUBLIC_)
+		// Если не задана, используем внутренний Docker URL по умолчанию
+		return process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BASE_URL || 'http://molodost-backend:1337';
+	}
+	// На клиенте используем внешний URL
+	return process.env.NEXT_PUBLIC_BASE_URL || 'https://admin.molodost.club';
+};
+
+// Для обратной совместимости
+export const BASE_URL = getBaseUrl();
 
 export const getMediaLink = (path: string): string => {
-	if (!BASE_URL || !path) return '';
-	return `${BASE_URL}${path}`;
+	const baseUrl = getBaseUrl();
+	if (!baseUrl || !path) return '';
+	return `${baseUrl}${path}`;
 };
 
 export const getMediaLinkFromModel = (model: MediaUploadModel | MediaUploadModel['attributes'], size?: MediaUploadFormat): string => {
 	const data = 'url' in model ? model : model.attributes;
+	const baseUrl = getBaseUrl();
 
-	if (!data || !data.url || !BASE_URL) return '';
+	if (!data || !data.url || !baseUrl) return '';
 
 	let url: string;
 	if (!size) {
@@ -20,14 +37,22 @@ export const getMediaLinkFromModel = (model: MediaUploadModel | MediaUploadModel
 		url = data.formats?.[size]?.url || data.url;
 	}
 
-	return `${BASE_URL}${url.startsWith('/') ? '' : '/'}${url}`;
+	return `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`;
 };
 
+// Создаем axios instance с динамическим baseURL
 export const backendApi = axios.create({
-	baseURL: `${BASE_URL}/api/`,
-	timeout: 15000, // Увеличен таймаут до 15 секунд
+	timeout: 30000, // Увеличен таймаут до 30 секунд для стабильности
 	headers: { Accept: 'application/json' },
 	validateStatus: (s) => s < 500,
+	// Используем interceptor для установки правильного baseURL
+});
+
+// Interceptor для установки правильного baseURL перед каждым запросом
+backendApi.interceptors.request.use((config) => {
+	const baseUrl = getBaseUrl();
+	config.baseURL = `${baseUrl}/api/`;
+	return config;
 });
 
 export interface HousesSplit {
