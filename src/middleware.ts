@@ -15,6 +15,27 @@ export function middleware(req: NextRequest) {
 		return new NextResponse(null, { status: 204 });
 	}
 
+	// Защита от path traversal атак (например, /../../../../../../../proc/self/environ)
+	// Нормализуем путь для проверки (убираем лишние слеши и декодируем)
+	const normalizedPath = decodeURIComponent(pathname).replace(/\/+/g, '/');
+	
+	// Блокируем попытки path traversal и доступа к системным файлам
+	const isPathTraversal = pathname.includes('..') || normalizedPath.includes('..') || pathname.includes('//');
+	const isSystemPath = /^\/proc\//i.test(pathname) || 
+		/^\/sys\//i.test(pathname) || 
+		/^\/dev\//i.test(pathname) || 
+		/^\/etc\//i.test(pathname) ||
+		/^\/proc\//i.test(normalizedPath);
+	const isEnvFile = /^\/app\/\.env/i.test(pathname) ||
+		/^\/root\/\.env/i.test(pathname) ||
+		/\/\.env$/i.test(pathname);
+	const isAppRootAccess = /^\/app\//i.test(normalizedPath) && !/^\/app\/_next\//i.test(normalizedPath);
+	const isRootAccess = /^\/root\//i.test(normalizedPath);
+	
+	if (isPathTraversal || isSystemPath || isEnvFile || isAppRootAccess || isRootAccess) {
+		return new NextResponse('Not found', { status: 404, headers: { 'X-Robots-Tag': 'noindex, nofollow' } });
+	}
+
 	if (blockedPaths.some((re) => re.test(pathname))) {
 		return new NextResponse('Not found', { status: 404, headers: { 'X-Robots-Tag': 'noindex, nofollow' } });
 	}
