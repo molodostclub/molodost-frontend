@@ -29,16 +29,16 @@ export const HealthLifestyle = () => (
 		</div>
 		<div className={cn(styles.imagesGrid, indent.mt_6)}>
 			<div className={styles.imageWrapper}>
-				<Image fill src="/images/odissey-card.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+				<Image fill src="/images/odissey-card.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 			</div>
 			<div className={styles.imageWrapper}>
-				<Image fill src="/images/zom/zom2.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+				<Image fill src="/images/zom/zom2.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 			</div>
 			<div className={styles.imageWrapper}>
-				<Image fill src="/images/zom/zom3.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+				<Image fill src="/images/zom/zom3.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 			</div>
 			<div className={styles.imageWrapper}>
-				<Image fill src="/images/zom/zom4.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+				<Image fill src="/images/zom/zom4.jpg" alt="спортивный зал «Одиссей»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 			</div>
 		</div>
 		<div>

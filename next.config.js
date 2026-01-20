@@ -78,6 +78,13 @@ const nextConfig = {
           { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
         ],
       },
+      {
+        source: '/images/:path*',
+        headers: [
+          // Кеширование статических изображений на 1 год (они уже оптимизированы в билде)
+          { key: 'Cache-Control', value: 'public, max-age=31536000, s-maxage=31536000, immutable' },
+        ],
+      },
     ];
   },
 

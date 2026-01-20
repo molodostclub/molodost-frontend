@@ -18,6 +18,7 @@ export const OurIdols: FC = () => {
             alt="Наши кумиры"
             src={isTablet ? '/images/our-symbol.jpg' : '/images/our-symbol-mobile.jpg'}
             className={styles.image}
+            unoptimized
           />
         </div>
         <div className={styles.descriptionWrapper}>
@@ -38,6 +39,7 @@ export const OurIdols: FC = () => {
             alt="Наши кумиры"
             src={isTablet ? '/images/our-idols.jpg' : '/images/our-idols-mobile.jpg'}
             className={styles.image}
+            unoptimized
           />
         </div>
         <div className={styles.descriptionWrapper}>

@@ -11,7 +11,7 @@ export const BaseItems: FC = () => {
         return (
           <div key={item.title} className={styles.item}>
             <div className={styles.itemImageWrapper}>
-              <Image fill alt="" src={item.imageSrc} className={styles.itemImage} />
+              <Image fill alt="" src={item.imageSrc} className={styles.itemImage} unoptimized />
             </div>
             <span className={styles.itemTitle}>{item.title}</span>
             <p className={styles.itemDescription}>{item.description}</p>

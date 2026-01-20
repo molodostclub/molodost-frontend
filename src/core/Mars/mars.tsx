@@ -27,17 +27,17 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 			</Description>
 			<Description className={indent.mt_4}>Здесь есть даже горячий чан, чтобы в&nbsp;разреженном воздухе горной пустыни было откуда любоваться ослепительным звездным небом, и&nbsp;бескрайним простором настоящей тюркской степи.</Description>
 			<div className={cn(indent.tablet_mt_10, indent.mt_6, styles.imageWrapper)}>
-				<Image fill alt="Равнина" src="/images/house-on-mars-cover-new.jpg" className={styles.image} />
+				<Image fill alt="Равнина" src="/images/house-on-mars-cover-new.jpg" className={styles.image} unoptimized />
 			</div>
 			<FlexContainer gap={20} flexDirection="column" desktopFlexDirection="row" desktopJustifyContent="between" desktopGap={20} className={cn(indent.tablet_mt_4, indent.mt_4)}>
 				<div className={styles.halfWidthInTablet}>
 					<div className={styles.imageWrapper}>
-						<Image fill alt="Равнина" src="/images/mars/grid-1.jpg" className={styles.image} />
+						<Image fill alt="Равнина" src="/images/mars/grid-1.jpg" className={styles.image} unoptimized />
 					</div>
 				</div>
 				<div className={styles.halfWidthInTablet}>
 					<div className={styles.imageWrapper}>
-						<Image fill alt="Равнина" src="/images/mars/grid-2.jpg" className={styles.image} />
+						<Image fill alt="Равнина" src="/images/mars/grid-2.jpg" className={styles.image} unoptimized />
 					</div>
 				</div>
 			</FlexContainer>
@@ -49,7 +49,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				<div className={cn(styles.border, indent.tablet_mt_8, indent.mt_6)}>&nbsp;</div>
 			</div>
 			<div className={cn(indent.tablet_mt_16, indent.mt_6, styles.imageWrapper)}>
-				<Image fill alt="Равнина" src="/images/mars/views.jpeg" className={styles.image} />
+				<Image fill alt="Равнина" src="/images/mars/views.jpeg" className={styles.image} unoptimized />
 			</div>
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
 				<SectionHeading>Наш приют</SectionHeading>
@@ -107,7 +107,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 					</ul>
 
 					<div className={styles.imageWrapper}>
-						<Image fill alt="Равнина" src="/images/mars/map.png" className={cn(styles.image, styles.imageContain)} />
+						<Image fill alt="Равнина" src="/images/mars/map.png" className={cn(styles.image, styles.imageContain)} unoptimized />
 					</div>
 				</div>
 			</div>
@@ -115,7 +115,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				<SectionHeading>КОНТОРСКИЙ ДОМ</SectionHeading>
 				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>Общее пространство под названием &laquo;Конторский дом&raquo;, где мы&nbsp;отдыхаем, едим и&nbsp;смотрим фильмы на&nbsp;большом экране.</Description>
 				<div className={cn(indent.tablet_mt_10, indent.mt_6, styles.imageWrapper)}>
-					<Image fill alt="Равнина" src="/images/mars/kont-dom.jpeg" className={styles.image} />
+					<Image fill alt="Равнина" src="/images/mars/kont-dom.jpeg" className={styles.image} unoptimized />
 				</div>
 				<FlexContainer gap={20} flexDirection="column" desktopFlexDirection="row" desktopJustifyContent="between" desktopGap={20} className={cn(indent.tablet_mt_4, indent.mt_4)}>
 					<div className={cn(indent.tablet_mt_10, styles.foodGrid)}>
@@ -170,7 +170,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				<FlexContainer gap={30} flexDirection="column" desktopFlexDirection="row" desktopJustifyContent="between" desktopGap={20} className={cn(indent.tablet_mt_10, indent.mt_6)}>
 					<div className={styles.halfWidthInTablet}>
 						<div className={styles.imageWrapper}>
-							<Image fill alt="Баня" src="/images/mars/bana1.jpeg" className={styles.image} />
+							<Image fill alt="Баня" src="/images/mars/bana1.jpeg" className={styles.image} unoptimized />
 						</div>
 						<div className={cn(styles.foodRowGap, indent.mt_4)}>
 							<p className={styles.foodItemTitle}>Баня</p>
@@ -181,7 +181,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 					</div>
 					<div className={styles.halfWidthInTablet}>
 						<div className={styles.imageWrapper}>
-							<Image fill alt="Чан" src="/images/mars/chan.jpeg" className={styles.image} />
+							<Image fill alt="Чан" src="/images/mars/chan.jpeg" className={styles.image} unoptimized />
 						</div>
 						<div className={cn(styles.foodRowGap, indent.mt_4)}>
 							<p className={styles.foodItemTitle}>Чан</p>
@@ -218,7 +218,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 					&laquo;НА&nbsp;МАРС РАНЬШЕ МАСКА&raquo;
 				</SectionHeading>
 				<div className={cn(indent.tablet_mt_10, indent.mt_6, styles.imageWrapper)}>
-					<Image fill alt="Марс" src="/images/mars/sphere.jpeg" className={styles.image} />
+					<Image fill alt="Марс" src="/images/mars/sphere.jpeg" className={styles.image} unoptimized />
 				</div>
 				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>
 					Если вы&nbsp;ищете уникальные приключения, мы&nbsp;предлагаем вам принять участие в&nbsp;нашем авторском туре <span className={styles.attention}>МИССИЯ НА&nbsp;МАРС</span>.
@@ -258,7 +258,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				<SectionHeading>КАК К НАМ ПОПАСТЬ САМОСТОЯТЕЛЬНО?</SectionHeading>
 				<FlexContainer gap={30} flexDirection="columnReverse" desktopFlexDirection="row" desktopJustifyContent="between" desktopGap={20} className={cn(indent.tablet_mt_10, indent.mt_6)}>
 					<div className={cn(styles.imageWrapper)}>
-						<Image fill alt="Марс" src="/images/mars/auto.jpeg" className={styles.image} />
+						<Image fill alt="Марс" src="/images/mars/auto.jpeg" className={styles.image} unoptimized />
 					</div>
 					<div className={cn(styles.foodItem)}>
 						<Description>Наши двери всегда открыты для гостей и&nbsp;путешественников, независимо от&nbsp;того, отправляются они в&nbsp;путь в&nbsp;одиночку, с&nbsp;семьей, с&nbsp;друзьями или в&nbsp;составе группы.</Description>
@@ -281,7 +281,7 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 				</Description>
 			</div>
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_6, styles.imageWrapper)}>
-				<Image fill alt="Равнина" src="/images/house-on-mars/image-1-new.jpg" className={styles.image} />
+				<Image fill alt="Равнина" src="/images/house-on-mars/image-1-new.jpg" className={styles.image} unoptimized />
 			</div>
 			<div className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
 				<SectionHeading>Аренда приюта</SectionHeading>
@@ -297,24 +297,24 @@ export const Mars: FC<Props> = ({ inHouse, individual }) => {
 			<FlexContainer gap={20} flexDirection="column" desktopFlexDirection="row" desktopJustifyContent="between" desktopGap={20} className={cn(indent.tablet_mt_10, indent.mt_6)}>
 				<div className={styles.halfWidthInTablet}>
 					<div className={styles.imageWrapper}>
-						<Image fill alt="Равнина" src="/images/mars/grid1.jpeg" className={styles.image} />
+						<Image fill alt="Равнина" src="/images/mars/grid1.jpeg" className={styles.image} unoptimized />
 					</div>
 				</div>
 				<div className={styles.halfWidthInTablet}>
 					<div className={styles.imageWrapper}>
-						<Image fill alt="Равнина" src="/images/mars/grid2.jpeg" className={styles.image} />
+						<Image fill alt="Равнина" src="/images/mars/grid2.jpeg" className={styles.image} unoptimized />
 					</div>
 				</div>
 			</FlexContainer>
 			<FlexContainer gap={20} flexDirection="column" desktopFlexDirection="row" desktopJustifyContent="between" desktopGap={20} className={cn(indent.tablet_mt_4, indent.mt_4)}>
 				<div className={styles.halfWidthInTablet}>
 					<div className={styles.imageWrapper}>
-						<Image fill alt="Равнина" src="/images/mars/grid3.jpeg" className={styles.image} />
+						<Image fill alt="Равнина" src="/images/mars/grid3.jpeg" className={styles.image} unoptimized />
 					</div>
 				</div>
 				<div className={styles.halfWidthInTablet}>
 					<div className={styles.imageWrapper}>
-						<Image fill alt="Равнина" src="/images/mars/grid4.jpeg" className={styles.image} />
+						<Image fill alt="Равнина" src="/images/mars/grid4.jpeg" className={styles.image} unoptimized />
 					</div>
 				</div>
 			</FlexContainer>

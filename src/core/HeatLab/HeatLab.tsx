@@ -24,10 +24,10 @@ export const HeatLab: FC = () => {
 				<br />
 				<div className={styles.grid}>
 					<div className={styles.itemImageWrapper}>
-						<Image fill src="/images/blagodat/blagodat-1.jpg" alt="Банный комплекс «БлагодатЪ»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+						<Image fill src="/images/blagodat/blagodat-1.jpg" alt="Банный комплекс «БлагодатЪ»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 					</div>
 					<div className={styles.itemImageWrapper}>
-						<Image fill src="/images/blagodat/blagodat-2.jpg" alt="Банный комплекс в «Молодости»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+						<Image fill src="/images/blagodat/blagodat-2.jpg" alt="Банный комплекс в «Молодости»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 					</div>
 				</div>
 			</div>

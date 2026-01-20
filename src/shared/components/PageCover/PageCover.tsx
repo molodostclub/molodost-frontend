@@ -15,10 +15,15 @@ type Props = {
 export const PageCover: FC<Props> = ({
   src,
   alt = '',
-  unoptimized = false,
+  unoptimized,
   loader,
   mobileMenu = true,
 }) => {
+  // Автоматически отключаем оптимизацию для статических изображений из /images/
+  // Это ускоряет загрузку, так как они уже оптимизированы в билде
+  const isStaticImage = typeof src === 'string' && src.startsWith('/images/');
+  const shouldUnoptimize = unoptimized !== undefined ? unoptimized : isStaticImage;
+
   return (
     <div className={styles.container}>
       {!!src ? (
@@ -27,7 +32,7 @@ export const PageCover: FC<Props> = ({
             priority
             fill
             src={src}
-            unoptimized={unoptimized}
+            unoptimized={shouldUnoptimize}
             loader={loader}
             alt={alt}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw"

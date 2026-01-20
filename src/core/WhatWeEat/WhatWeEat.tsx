@@ -106,7 +106,7 @@ export const WhatWeEat = () => (
       <AdditionalServicesSide />
     </div> */}
 		<div className={styles.imageContainer}>
-			<Image fill src="/images/chto-edim/coffe.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+			<Image fill src="/images/chto-edim/coffe.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 		</div>
 		<h2 className={uikit.titleVaryingSize}>бар &laquo;я догоню&raquo;</h2>
 		<div className={styles.textContent.bottom}>
@@ -123,7 +123,7 @@ export const WhatWeEat = () => (
 		<br />
 		<BarMenu />
 		<div className={styles.imageContainer}>
-			<Image fill src="/images/chto-my-edim-coffe.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} />
+			<Image fill src="/images/chto-my-edim-coffe.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 		</div>
 		<h2 className={styles.titleCoffe}>Кофейня «Трикстер»</h2>
 		<div className={styles.textContent.bottom}>

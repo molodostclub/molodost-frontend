@@ -97,7 +97,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				</div>
 			</FlexContainer>
 			<div className={cn(styles.imageWrapper, indent.tablet_mt_10, indent.mt_6)}>
-				<Image fill alt="Расположение" src="/images/baikal/baikal_map.png" className={styles.image} />
+				<Image fill alt="Расположение" src="/images/baikal/baikal_map.png" className={styles.image} unoptimized />
 			</div>
 			<div id="roomsOnBaikal" className={cn(styles.blockContainer, indent.tablet_mt_16, indent.mt_14)}>
 				<SectionHeading>размещение</SectionHeading>
@@ -168,8 +168,8 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				<SectionHeading>Дом звука</SectionHeading>
 				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>Уютное пространство вместимостью до&nbsp;25&nbsp;человек, идеально подходит для проведения медитаций, духовных практик, йога-ретритов и&nbsp;совместных встреч. Расположен на&nbsp;берегу Байкала, с&nbsp;потрясающим видом на&nbsp;озеро, что создает особую атмосферу спокойствия и&nbsp;гармонии.</Description>
 				<div className={cn(styles.imageWrapperGrid, indent.tablet_mt_10, indent.mt_6)}>
-					<Image fill alt="монгольская юрта" src="/images/baikal/houseSound-2.jpg" className={styles.image} />
-					<Image fill alt="монгольская юрта" src="/images/baikal/houseSound-1.jpg" className={styles.image} />
+					<Image fill alt="монгольская юрта" src="/images/baikal/houseSound-2.jpg" className={styles.image} unoptimized />
+					<Image fill alt="монгольская юрта" src="/images/baikal/houseSound-1.jpg" className={styles.image} unoptimized />
 				</div>
 			</div>
 

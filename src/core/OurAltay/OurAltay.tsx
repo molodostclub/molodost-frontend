@@ -34,7 +34,7 @@ export const OurAltay: FC = () => {
 				</div>
 				{/* Second Letter */}
 				<div id="aleksey-karahan" className={styles.imageWrap}>
-					<Image fill alt="Александра Лекомцева" src="/images/our-altay-letter.jpg" className={styles.image} />
+					<Image fill alt="Александра Лекомцева" src="/images/our-altay-letter.jpg" className={styles.image} unoptimized />
 				</div>
 
 				<div className={styles.authorContainer}>
