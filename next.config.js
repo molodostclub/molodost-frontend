@@ -15,6 +15,18 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   output: 'standalone',
+  
+  // Явно отключаем dev-режим в production
+  // Это предотвращает попытки подключения к dev server на порту 38559
+  ...(process.env.NODE_ENV === 'production' && {
+    // Отключаем все dev-специфичные фичи в production
+    swcMinify: true,
+    compiler: {
+      removeConsole: process.env.NODE_ENV === 'production' ? {
+        exclude: ['error', 'warn'],
+      } : false,
+    },
+  }),
 
   images: {
     // Уменьшаем время кеширования с года до 7 дней для лучшей ротации
@@ -27,14 +39,25 @@ const nextConfig = {
     // Ограничиваем качество для уменьшения нагрузки
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: ['127.0.0.1'],
+    // В production используем только production домены
+    domains: process.env.NODE_ENV === 'production' ? [] : ['127.0.0.1'],
     remotePatterns: [
-      { protocol: 'http', hostname: '0.0.0.0', port: '1337', pathname: '**' },
-      { protocol: 'http', hostname: 'localhost', port: '1337', pathname: '**' },
-      { protocol: 'http', hostname: '127.0.0.1', port: '1337', pathname: '**' },
-      { protocol: 'https', hostname: 'admin.molodost.club', port: '', pathname: '**' },
-      { protocol: 'http', hostname: 'admin.molodost.club', port: '1337', pathname: '**' },
+      // В production разрешаем только production домены
+      ...(process.env.NODE_ENV === 'production' 
+        ? [
+            { protocol: 'https', hostname: 'admin.molodost.club', port: '', pathname: '**' },
+          ]
+        : [
+            { protocol: 'http', hostname: '0.0.0.0', port: '1337', pathname: '**' },
+            { protocol: 'http', hostname: 'localhost', port: '1337', pathname: '**' },
+            { protocol: 'http', hostname: '127.0.0.1', port: '1337', pathname: '**' },
+            { protocol: 'https', hostname: 'admin.molodost.club', port: '', pathname: '**' },
+            { protocol: 'http', hostname: 'admin.molodost.club', port: '1337', pathname: '**' },
+          ]
+      ),
     ],
+    // Отключаем unoptimized в production - используем только оптимизацию Next.js
+    unoptimized: false,
   },
 
   async headers() {

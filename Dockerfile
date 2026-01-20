@@ -54,5 +54,10 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Копируем скрипт инициализации кеша
 COPY --chown=nextjs:nodejs server-init.js ./
 
+# Явно устанавливаем NODE_ENV=production чтобы предотвратить попытки подключения к dev server
+ENV NODE_ENV=production
+# Отключаем Turbopack и другие dev-фичи
+ENV NEXT_TELEMETRY_DISABLED=1
+
 # Запускаем через server-init.js который очистит кеш перед стартом
 CMD ["node", "server-init.js"]

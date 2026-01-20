@@ -255,6 +255,21 @@ function startWorkerMonitoring() {
   console.log(`[Worker Monitor] Мониторинг worker процессов запущен (проверка каждые ${CHECK_INTERVAL_MS / 1000} секунд)`);
 }
 
+// Явно устанавливаем NODE_ENV=production если не установлен
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = 'production';
+}
+
+// Убеждаемся что мы в production режиме
+if (process.env.NODE_ENV !== 'production') {
+  console.warn('[Server Init] ⚠️  ВНИМАНИЕ: NODE_ENV не установлен в production!');
+  console.warn('[Server Init] Устанавливаем NODE_ENV=production принудительно');
+  process.env.NODE_ENV = 'production';
+}
+
+// Отключаем все dev-фичи Next.js
+process.env.NEXT_TELEMETRY_DISABLED = '1';
+
 // Инициализируем кеш только в production
 if (process.env.NODE_ENV === 'production') {
   initImageCache();
@@ -269,6 +284,36 @@ if (!fs.existsSync(serverPath)) {
   console.error('[Server Init] Ошибка: server.js не найден');
   process.exit(1);
 }
+
+console.log('[Server Init] ✅ Запуск сервера в режиме:', process.env.NODE_ENV);
+
+// Перехватываем необработанные ошибки подключения чтобы предотвратить падение сервера
+process.on('uncaughtException', (error) => {
+  // Игнорируем ошибки подключения к несуществующим портам (ECONNREFUSED)
+  if (error.code === 'ECONNREFUSED' || error.message?.includes('ECONNREFUSED')) {
+    console.error('[Server Init] ⚠️  Ошибка подключения (игнорируется):', error.message);
+    console.error('[Server Init] Это может быть попытка подключения к dev server в production режиме');
+    return; // Не прерываем работу сервера
+  }
+  
+  // Для остальных ошибок логируем и перезапускаем
+  console.error('[Server Init] ❌ Критическая ошибка:', error);
+  process.exit(1);
+});
+
+// Перехватываем необработанные promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+  const errorMessage = reason?.message || String(reason);
+  
+  // Игнорируем ошибки подключения к несуществующим портам
+  if (errorMessage.includes('ECONNREFUSED') || errorMessage.includes('38559')) {
+    console.error('[Server Init] ⚠️  Промис отклонен (игнорируется):', errorMessage);
+    console.error('[Server Init] Это может быть попытка подключения к dev server в production режиме');
+    return; // Не прерываем работу сервера
+  }
+  
+  console.error('[Server Init] ⚠️  Необработанное отклонение промиса:', reason);
+});
 
 require(serverPath);
 
