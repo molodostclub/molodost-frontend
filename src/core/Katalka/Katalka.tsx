@@ -13,7 +13,7 @@ export const Katalka: FC = () => {
 				<p className={styles.textRed55}>«ТЁПЛЫЙ ПРИЁМ В&nbsp;ХОЛОДНОМ МЕСТЕ»</p>
 				<p className={styles.textBlack55}>ЛЕТЕТЬ КАК ДО СОЧИ</p>
 				<div className={styles.paragraph}>
-					<p className={styles.textBlack36}>C&nbsp;13&nbsp;ФЕВРАЛЯ по&nbsp;10&nbsp;марта 2026&nbsp;ГОДА</p>
+					<p className={styles.textBlack36}>C&nbsp;10&nbsp;ФЕВРАЛЯ по&nbsp;15&nbsp;марта 2026&nbsp;ГОДА</p>
 					{/* <p className={styles.textRed36}>ЛУЧШАЯ КАТАЛКА НА АЛТАЕ</p> */}
 				</div>
 
@@ -77,9 +77,9 @@ export const Katalka: FC = () => {
 					<p className={styles.textBlack36}>
 						<span className={styles.katalkaPriceRedHighlight}>СТОИМОСТЬ</span>
 						<br />
-						<span className={styles.accentText}>28&nbsp;000&nbsp;₽*</span> В СУТКИ НА&nbsp;ОДНОГО
+						<span className={styles.accentText}>34&nbsp;567&nbsp;₽*</span> В СУТКИ НА&nbsp;ОДНОГО
 						<br />
-						<span className={styles.accentText}>40&nbsp;000&nbsp;₽*</span> В СУТКИ ЗА&nbsp;ДВОИХ
+						<span className={styles.accentText}>+&nbsp;12&nbsp;345&nbsp;₽*</span> ВТОРОЙ ВЗРОСЛЫЙ
 						<br />
 						5-12&nbsp;ЛЕТ <span className={styles.accentText}>+6&nbsp;000&nbsp;₽</span> В СУТКИ
 						<br />
