@@ -1,18 +1,22 @@
 import axios from 'axios';
 import { HouseModel, MediaUploadFormat, MediaUploadModel, TripModel } from '@shared/types';
 
+const PUBLIC_BACKEND_URL = 'https://admin.molodost.club';
+const DOCKER_BACKEND_URL = 'http://molodost-backend:1337';
+
 // Функция для получения BASE_URL (вызывается каждый раз, чтобы получить актуальное значение)
-// Для серверных запросов (SSR) используем внутренний Docker URL
-// Для клиентских запросов используем внешний URL
+// В dev / на localhost запросы идут по домену (публичный URL), в production в Docker — по внутреннему URL
 export const getBaseUrl = (): string => {
-	// На сервере (SSR) используем внутренний URL из переменной окружения
+	const fromEnv = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BASE_URL;
+	if (fromEnv) return fromEnv;
+
+	// На сервере (SSR): в dev или при локальном запуске используем публичный домен (molodost-backend на localhost не резолвится)
 	if (typeof window === 'undefined') {
-		// Проверяем переменную для серверных запросов (без NEXT_PUBLIC_)
-		// Если не задана, используем внутренний Docker URL по умолчанию
-		return process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BASE_URL || 'http://molodost-backend:1337';
+		const isDev = process.env.NODE_ENV === 'development';
+		return isDev ? PUBLIC_BACKEND_URL : DOCKER_BACKEND_URL;
 	}
-	// На клиенте используем внешний URL
-	return process.env.NEXT_PUBLIC_BASE_URL || 'https://admin.molodost.club';
+	// На клиенте всегда внешний URL
+	return PUBLIC_BACKEND_URL;
 };
 
 // Для обратной совместимости
@@ -86,6 +90,7 @@ export const getHousesSplit = async (): Promise<HousesSplit> => {
 		try {
 			const { data } = await backendApi.get(`houses`, {
 				params: { populate: '*' },
+				timeout: 15000,
 			});
 			const houses: HouseModel[] = data?.data || [];
 			const result = {
@@ -135,6 +140,7 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 		try {
 			const { data } = await backendApi.get('trips', {
 				params: { populate: '*' },
+				timeout: 15000,
 			});
 			const trips: TripModel[] = data?.data || [];
 			const result = {
@@ -147,7 +153,7 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 		} catch (error) {
 			console.error('❌ Ошибка в getTripsSplit:', error);
 			return {
-				allDay: [], 
+				allDay: [],
 				notAllDay: [],
 			};
 		} finally {
@@ -155,4 +161,10 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 		}
 	})();
 	return tripsPromise;
+};
+
+/** Список всех поездок (из кэша getTripsSplit) для getStaticPaths */
+export const getTripsList = async (): Promise<TripModel[]> => {
+	const { allDay, notAllDay } = await getTripsSplit();
+	return [...allDay, ...notAllDay];
 };

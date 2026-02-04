@@ -42,7 +42,7 @@ export const GallerySlider = () => {
 			<Swiper modules={[Navigation, Pagination]} onSwiper={setSwiperInstance} loop spaceBetween={30} slidesPerView={1} className={styles.mySwiper}>
 				{photos.map((src, i) => (
 					<SwiperSlide key={i} className={styles.mySwiperSlide}>
-						<img src={src} alt={`Фото ${i + 1}`} className={styles.slideImage} />
+						<Image src={src} alt={`Фото ${i + 1}`} width={1200} height={800} className={styles.slideImage} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -122,18 +122,18 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				<SectionHeading>ДОМ приемов</SectionHeading>
 				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>Здесь мы&nbsp;едим, пьем, отдыхаем и&nbsp;смотрим кино. Все основные продукты нам поставляют местные фермеры. Еда подается в&nbsp;формате общего стола.</Description>
 				<div className={cn(indent.tablet_mt_10, indent.mt_6)}>
-					<img src="/images/baikal/grid-top.jpg" alt="" className={cn(styles.fullWidthPhoto, indent.mb_4, indent.tablet_mb_0)} />
+					<Image src="/images/baikal/grid-top.jpg" alt="" width={1200} height={600} className={cn(styles.fullWidthPhoto, indent.mb_4, indent.tablet_mb_0)} />
 					<div className={cn(styles.gridContainer, indent.tablet_mt_4, indent.tablet_mb_4)}>
 						<div className={styles.column}>
-							<img src="/images/baikal/grid-top-left.jpg" alt="" className={styles.photo} />
-							<img src="/images/baikal/grid-bottom-left.jpg" alt="" className={cn(styles.photo, styles.mobileHidden)} />
+							<Image src="/images/baikal/grid-top-left.jpg" alt="" width={600} height={400} className={styles.photo} />
+							<Image src="/images/baikal/grid-bottom-left.jpg" alt="" width={600} height={400} className={cn(styles.photo, styles.mobileHidden)} />
 						</div>
 						<div className={styles.column}>
-							<img src="/images/baikal/grid-top-right.jpg" alt="" className={styles.photo} />
-							<img src="/images/baikal/grid-bottom-right.jpg" alt="" className={styles.photo} />
+							<Image src="/images/baikal/grid-top-right.jpg" alt="" width={600} height={400} className={styles.photo} />
+							<Image src="/images/baikal/grid-bottom-right.jpg" alt="" width={600} height={400} className={styles.photo} />
 						</div>
 					</div>
-					<img src="/images/baikal/grid-bottom.jpg" alt="" className={cn(styles.fullWidthPhoto, indent.mt_4, indent.tablet_mt_0)} />
+					<Image src="/images/baikal/grid-bottom.jpg" alt="" width={1200} height={600} className={cn(styles.fullWidthPhoto, indent.mt_4, indent.tablet_mt_0)} />
 				</div>
 			</div>
 
@@ -153,13 +153,13 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				</div>
 				<div className={cn(styles.galleryBlock, indent.tablet_mt_10, indent.mt_6)}>
 					<div className={styles.row}>
-						<img src="/images/baikal/sauna1.jpg" alt="" className={styles.spaPhoto} />
-						<img src="/images/baikal/sauna2.jpg" alt="" className={styles.spaPhoto} />
+						<Image src="/images/baikal/sauna1.jpg" alt="" width={600} height={400} className={styles.spaPhoto} />
+						<Image src="/images/baikal/sauna2.jpg" alt="" width={600} height={400} className={styles.spaPhoto} />
 					</div>
 					<div className={styles.row}>
-						<img src="/images/baikal/sauna3.jpg" alt="" className={styles.spaPhoto} />
-						<img src="/images/baikal/sauna4.jpg" alt="" className={styles.spaPhoto} />
-						<img src="/images/baikal/sauna5.jpg" alt="" className={styles.spaPhoto} />
+						<Image src="/images/baikal/sauna3.jpg" alt="" width={600} height={400} className={styles.spaPhoto} />
+						<Image src="/images/baikal/sauna4.jpg" alt="" width={600} height={400} className={styles.spaPhoto} />
+						<Image src="/images/baikal/sauna5.jpg" alt="" width={600} height={400} className={styles.spaPhoto} />
 					</div>
 				</div>
 			</div>
@@ -179,13 +179,13 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual }) => {
 				<Description className={cn(indent.tablet_mt_5, indent.mt_6)}>Здесь мы&nbsp;купаемся, загораем, наслаждаемся закатными видами Байкала и&nbsp;согреваемся вечерами у&nbsp;костра.</Description>
 				<div className={cn(styles.gridContainer, indent.tablet_mt_10, indent.mt_6)}>
 					<div className={styles.column}>
-						<img src="/images/baikal/beach1.jpg" alt="" className={styles.photo} />
-						<img src="/images/baikal/beach2.jpg" alt="" className={styles.photo} />
-						<img src="/images/baikal/beach3.jpg" alt="" className={styles.photo} />
+						<Image src="/images/baikal/beach1.jpg" alt="" width={600} height={400} className={styles.photo} />
+						<Image src="/images/baikal/beach2.jpg" alt="" width={600} height={400} className={styles.photo} />
+						<Image src="/images/baikal/beach3.jpg" alt="" width={600} height={400} className={styles.photo} />
 					</div>
 					<div className={styles.column}>
-						<img src="/images/baikal/beach4.jpg" alt="" className={styles.photo} />
-						<img src="/images/baikal/beach5.jpg" alt="" className={styles.photo} />
+						<Image src="/images/baikal/beach4.jpg" alt="" width={600} height={400} className={styles.photo} />
+						<Image src="/images/baikal/beach5.jpg" alt="" width={600} height={400} className={styles.photo} />
 					</div>
 				</div>
 			</div>

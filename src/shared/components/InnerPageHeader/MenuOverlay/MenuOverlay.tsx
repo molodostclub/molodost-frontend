@@ -125,7 +125,7 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 													<ul>
 														{item.subItems.map((subItem) => (
 															<li key={subItem.label} className={styles.subMenuItem}>
-																<Link href={subItem.href ?? '#'} onClick={(event) => handleClickMenuItem(event, subItem)} className={styles.subMenuLabel}>
+																<Link href={subItem.href ?? '#'} onClick={(event) => handleClickMenuItem(event, subItem)} className={styles.subMenuLabel} prefetch={false}>
 																	{subItem.label}
 																</Link>
 															</li>
@@ -134,7 +134,7 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 												</div>
 											</>
 										) : (
-											<Link href={item.href ?? '#'} onClick={(event) => handleClickMenuItem(event, item)} className={styles.menuLabel}>
+											<Link href={item.href ?? '#'} onClick={(event) => handleClickMenuItem(event, item)} className={styles.menuLabel} prefetch={false}>
 												{item.label}
 											</Link>
 										)}

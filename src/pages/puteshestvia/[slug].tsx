@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
-import { backendApi, getMediaLinkFromModel } from '@utils';
+import { backendApi, getMediaLinkFromModel, getTripsList } from '@utils';
 import { TripModel } from '@/shared/types';
 import { Trip } from '@/core/Trip';
 
@@ -43,18 +43,16 @@ export const getStaticProps: GetStaticProps<{ trip: TripModel | null }, { slug: 
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	try {
-		const { data } = await backendApi.get(`trips/`);
-		const trips: TripModel[] = data.data;
-
+		const trips = await getTripsList();
 		const paths = trips
-			.filter((t) => !!t.attributes.slug)
+			.filter((t) => !!t.attributes?.slug)
 			.map((trip) => ({
 				params: { slug: trip.attributes.slug },
 			}));
 
 		return { paths, fallback: 'blocking' };
-	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке getStaticPaths для trips:', error.message);
+	} catch (error: unknown) {
+		console.error('🔥 Ошибка при загрузке getStaticPaths для trips:', error instanceof Error ? error.message : error);
 		return {
 			paths: [],
 			fallback: 'blocking',

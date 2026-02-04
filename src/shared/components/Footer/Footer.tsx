@@ -45,8 +45,8 @@ export const Footer: FC = () => {
 					})}
 				</ul>
 				<div className={styles.logoWrapper}>
-					<img className={styles.logoItem} src="/icons/mir.svg" alt="Мир" />
-					<img className={styles.logoItem} src="/icons/sbp-seeklogo.svg" alt="СБП" />
+					<Image className={styles.logoItem} src="/icons/mir.svg" alt="Мир" width={60} height={40} />
+					<Image className={styles.logoItem} src="/icons/sbp-seeklogo.svg" alt="СБП" width={60} height={40} />
 				</div>
 			</footer>
 		</>

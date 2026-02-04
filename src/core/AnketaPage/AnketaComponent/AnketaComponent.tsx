@@ -1,7 +1,7 @@
 import { BaseInput } from '@/shared/components/BaseInput';
 import { Label } from '@/shared/components/Label';
 import { indent } from '@/styles';
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
 import { BaseDatepicker } from '@/shared/components/BaseDatepicker';
 import * as styles from './AnketaComponent.css';
 import cn from 'classnames';
@@ -339,6 +339,13 @@ export function AnketaComponent() {
 	// form state
 	const [StateForm, setStateForm] = useState<number>(FormState.Default);
 
+	const abortRef = useRef<AbortController | null>(null);
+	useEffect(() => {
+		return () => {
+			abortRef.current?.abort();
+		};
+	}, []);
+
 	const onChangeCheckbox = (value: string, checkboxes: Checkbox[], callback: (data: any) => void) => {
 		const copyItem = [...checkboxes];
 		const modifiedData = copyItem.map((item) => {
@@ -417,12 +424,17 @@ export function AnketaComponent() {
 		};
 
 		try {
-			const { status } = await backendApi.post('form-requests', formRequestObject);
+			abortRef.current?.abort();
+			abortRef.current = new AbortController();
+			const { status } = await backendApi.post('form-requests', formRequestObject, {
+				signal: abortRef.current.signal,
+			});
 
 			if (status === 200) {
 				onSuccess();
 			}
 		} catch (e) {
+			if (e instanceof Error && e.name === 'AbortError') return;
 			onError();
 			console.error(e);
 		}

@@ -9,7 +9,7 @@ export const FooterButtons: FC = () => {
       <div className={styles.container.bottom}>
         <div className={styles.linksWrapper}>
           <div>
-            <Link className={styles.footerButton} href="/pravila-zhizni">
+            <Link className={styles.footerButton} href="/pravila-zhizni" prefetch={false}>
               Правила&nbsp;жизни
             </Link>
             <p className={styles.noteBlack}>
@@ -19,7 +19,7 @@ export const FooterButtons: FC = () => {
             </p>
           </div>
           <div>
-            <Link className={styles.footerButton} href="/v-sibir-za-svoy-schet">
+            <Link className={styles.footerButton} href="/v-sibir-za-svoy-schet" prefetch={false}>
               В&nbsp;Сибирь&nbsp;за&nbsp;свой&nbsp;счет
             </Link>
             <p className={styles.noteBlack}>Узнайте все цены на&nbsp;все услуги.</p>

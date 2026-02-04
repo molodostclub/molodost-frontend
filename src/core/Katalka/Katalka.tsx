@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 
 import * as styles from './Katalka.css';
 import cn from 'classnames';
@@ -19,7 +20,7 @@ export const Katalka: FC = () => {
 
 				<div className={styles.katalkaColumnsWide}>
 					<div className={styles.katalkaColumn}>
-						<img alt="Дом в Манжероке" src="/images/katalka/ski.png" className={styles.katalkaImg} />
+						<Image alt="Дом в Манжероке" src="/images/katalka/ski.png" width={800} height={600} className={styles.katalkaImg} />
 					</div>
 					<div className={styles.katalkaColumn}>
 						<div className={styles.cardRotated}>
@@ -53,7 +54,7 @@ export const Katalka: FC = () => {
 							<br />
 							<span className={styles.accentText}>А ВОТ КАТАТЬСЯ ВЫ БУДЕТЕ САМИ!)</span>
 						</p>
-						<img alt="Дом в Манжероке" src="/images/katalka/snowboarding.jpg" className={styles.katalkaImgSmall} />
+						<Image alt="Дом в Манжероке" src="/images/katalka/snowboarding.jpg" width={600} height={400} className={styles.katalkaImgSmall} />
 					</div>
 					<div className={styles.katalkaColumn}>
 						<p className={styles.textBlack34}>

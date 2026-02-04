@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 
 import * as styles from './Adults.css';
 import cn from 'classnames';
@@ -53,10 +54,10 @@ export const Adults: FC = () => {
 
 				<div className={styles.katalkaColumns}>
 					<div className={styles.katalkaColumn}>
-						<img alt="Отдых в молодости" src="/images/adults/three.jpg" className={styles.katalkaImg} />
+						<Image alt="Отдых в молодости" src="/images/adults/three.jpg" width={800} height={600} className={styles.katalkaImg} />
 					</div>
 					<div className={styles.katalkaColumn}>
-						<img alt="Турбаза Молодость на Алтае" src="/images/adults/two.JPG" className={styles.katalkaImg} />
+						<Image alt="Турбаза Молодость на Алтае" src="/images/adults/two.JPG" width={800} height={600} className={styles.katalkaImg} />
 					</div>
 				</div>
 				<div className={styles.paragraph}>
@@ -76,7 +77,7 @@ export const Adults: FC = () => {
 					</div>
 					<div className={styles.katalkaColumn}>
 						<p className={cn(styles.textBlack40Medium, styles.textCenter)}>&laquo;ПЛАН НА&nbsp;ЗАВТРА ВЫ&nbsp;УЗНАЕТЕ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ЗАВТРА&raquo;</p>
-						<img src="/images/katalka/author.png" alt="А.Карахан, худрук на базе Молодость на Алтае" className={styles.authorImg} />
+						<Image src="/images/katalka/author.png" alt="А.Карахан, худрук на базе Молодость на Алтае" width={200} height={200} className={styles.authorImg} />
 					</div>
 				</div>
 

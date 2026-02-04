@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text */
 import { Html, Head, Main, NextScript } from 'next/document';
 
 import { themeClass } from '@styles';
@@ -63,7 +64,7 @@ export default function Document() {
           }}
         />
 
-        <noscript><div><img src="https://mc.yandex.ru/watch/87735647" style={{ position:'absolute', left:'-9999px' }} /></div></noscript>
+        <noscript><div><img src="https://mc.yandex.ru/watch/87735647" alt="" style={{ position:'absolute', left:'-9999px' }} /></div></noscript>
         
       </body>
     </Html>
