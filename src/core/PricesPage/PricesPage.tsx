@@ -68,9 +68,9 @@ export const ProzhivanieSide: FC<ProzhivanieSideProps> = ({ showExtraPerson = tr
 			<>
 				<p className={styles.sideTitle}>Дополнительный человек:</p>
 				<p className={styles.sideText}>
-					взрослый 6&nbsp;000&nbsp;₽/СУТКИ
+					взрослый 12&nbsp;000&nbsp;₽/СУТКИ
 					<br />
-					ребёнок (от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет) 4&nbsp;000&nbsp;₽/СУТКИ
+					ребёнок (от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет) 5&nbsp;000&nbsp;₽/СУТКИ
 				</p>
 			</>
 		)}

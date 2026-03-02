@@ -53,79 +53,73 @@ export const PROZHIVANIE_PRICES: PricesModel[] = [
 	{
 		title: 'хорошая спальня',
 		twoCol: '1',
-		price: 12_345,
-		priceHigh: 15_000,
+		price: 18_000,
+		priceHigh: 23_000,
 	},
 	{
 		title: 'замечательная спальня',
 		twoCol: '1',
-		price: 16_000,
-		priceHigh: 19_000,
+		price: 26_000,
+		priceHigh: 31_000,
 	},
 	{
 		title: 'потрясающая спальня',
 		twoCol: '1',
-		price: 19_000,
-		priceHigh: 23_000,
+		price: 33_000,
+		priceHigh: 38_000,
 	},
 	{
 		title: 'семейный номер',
-		twoCol: '2',
-		price: 35_000,
-		priceHigh: 40_000,
+		twoCol: 'до 4',
+		price: 45_000,
+		priceHigh: 45_000,
 	},
 	{
 		title: 'дом с печкой',
-		twoCol: '3',
-		price: 35_000,
-		priceHigh: 40_000,
+		twoCol: 'до 4',
+		price: 45_000,
+		priceHigh: 45_000,
 	},
 	{
 		title: 'барнхаус',
-		twoCol: '3',
-		price: 40_000,
+		twoCol: 'до 4',
+		price: 50_000,
 		priceHigh: 50_000,
 	},
 	{
 		title: 'лохматый дом',
-		twoCol: '2',
-		price: 35_000,
-		priceHigh: 40_000,
+		twoCol: 'до 2',
+		price: 45_000,
+		priceHigh: 45_000,
 	},
 	{
 		title: 'семейный дом',
-		twoCol: '6',
-		price: 47_000,
-		priceHigh: 50_000,
+		twoCol: 'до 8',
+		price: 60_000,
+		priceHigh: 60_000,
 	},
-	// {
-	// 	title: 'дом птица',
-	// 	twoCol: '4',
-	// 	price: 40_000,
-	// 	priceHigh: 50_000,
-	// },
 	{
 		title: 'малый шукшинский дом',
-		twoCol: '3',
-		price: 50_000,
+		twoCol: 'до 4',
+		price: 60_000,
 		priceHigh: 60_000,
 	},
 	{
 		title: 'дом на холме (4 спальни)',
-		twoCol: '8',
-		price: 65_000,
-		priceHigh: 75_000,
+		twoCol: 'до 8',
+		price: 90_000,
+		priceHigh: 90_000,
 	},
 	{
 		title: 'большой шукшинский дом',
-		twoCol: '8',
-		price: 70_000,
-		priceHigh: 80_000,
+		twoCol: 'до 8',
+		price: 90_000,
+		priceHigh: 90_000,
 	},
 	{
 		title: 'карахаус',
-		twoCol: '6',
-		price: 70_000,
+		twoCol: 'до 6',
+		price: 80_000,
 		priceHigh: 80_000,
 	},
 ];
@@ -133,13 +127,14 @@ export const PROZHIVANIE_PRICES: PricesModel[] = [
 export const ADDITIONAL_PRICES: PricesModel[] = [
 	{
 		title: 'Room service',
+		subtitle: '(в\u00A0дом или в\u00A0баню)',
 		twoCol: '1\u00A0доставка',
 		price: 1_000,
 	},
 	{
-		title: 'прачечная стирка+сушка',
+		title: 'Прачечная (стирка+сушка)',
 		twoCol: '1\u00A0загрузка',
-		price: 4_000,
+		price: 2_000,
 	},
 	{
 		title: 'Глажка вещей',
@@ -149,7 +144,7 @@ export const ADDITIONAL_PRICES: PricesModel[] = [
 	{
 		title: 'индивидуальные услуги няни',
 		twoCol: '8 часов',
-		price: 15_000,
+		price: 12_000,
 	},
 	{
 		title: 'доставка «бывалый рейнджер»',
@@ -160,7 +155,7 @@ export const ADDITIONAL_PRICES: PricesModel[] = [
 	{
 		title: 'доставка «бывалый рейнджер»',
 		twoCol: 'прямо сейчас',
-		price: 7_000,
+		price: 5_000,
 		note: '+\u00A0сумма чека',
 	},
 ];
@@ -174,15 +169,23 @@ export const GASTRO_TRAKTIR_FESTIVAL: PricesModel[] = [
 		title: 'обед',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 3_000,
+		price: 3_500,
 		priceChild: 2_000,
 	},
 	{
 		title: 'УЖИН',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 5_000,
+		price: 4_500,
 		priceChild: 3_000,
+	},
+	{
+		title: 'Съедобное бревно',
+		subtitle: '(обед+ужин)',
+		twoCol: 'взрослый',
+		twoColChild: 'ребёнок (до 12 лет)',
+		price: 8_000,
+		priceChild: 5_000,
 	},
 ];
 export const GASTRO_TRAKTIR_QUIET: PricesModel[] = [
@@ -194,15 +197,23 @@ export const GASTRO_TRAKTIR_QUIET: PricesModel[] = [
 		title: 'обед',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 2_000,
-		priceChild: 1_400,
+		price: 3_500,
+		priceChild: 2_000,
 	},
 	{
 		title: 'УЖИН',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 3_000,
-		priceChild: 2_100,
+		price: 4_500,
+		priceChild: 3_000,
+	},
+	{
+		title: 'Съедобное бревно',
+		subtitle: '(обед+ужин)',
+		twoCol: 'взрослый',
+		twoColChild: 'ребёнок (до 12 лет)',
+		price: 8_000,
+		priceChild: 5_000,
 	},
 ];
 
@@ -212,21 +223,21 @@ export const GASTRO_TRAKTIR_FESTIVAL_FOR_NON_GUESTS: PricesModel[] = [
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
 		price: 3_000,
-		priceChild: 1_500,
+		priceChild: 2_000,
 	},
 	{
 		title: 'обед',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 3_000,
-		priceChild: 2_000,
+		price: 5_000,
+		priceChild: 2_500,
 	},
 	{
 		title: 'УЖИН',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 5_000,
-		priceChild: 3_000,
+		price: 10_000,
+		priceChild: 6_000,
 	},
 ];
 export const GASTRO_TRAKTIR_QUIET_FOR_NON_GUESTS: PricesModel[] = [
@@ -234,22 +245,22 @@ export const GASTRO_TRAKTIR_QUIET_FOR_NON_GUESTS: PricesModel[] = [
 		title: 'Завтрак',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 3_750,
-		priceChild: 2_250,
+		price: 3_000,
+		priceChild: 2_000,
 	},
 	{
 		title: 'обед',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 4_500,
-		priceChild: 3_000,
+		price: 3_500,
+		priceChild: 2_000,
 	},
 	{
 		title: 'УЖИН',
 		twoCol: 'взрослый',
 		twoColChild: 'ребёнок (до 12 лет)',
-		price: 7_500,
-		priceChild: 4_500,
+		price: 4_500,
+		priceChild: 3_000,
 	},
 ];
 
@@ -257,13 +268,7 @@ export const TRAKTIR_MENU: PricesModel[] = [
 	{
 		title: 'Стейк Рибай',
 		twoCol: '',
-		price: 4_000,
-	},
-	{
-		title: 'Хариус',
-		subtitle: 'жареный / на\u00A0пару',
-		twoCol: '',
-		price: 2_000,
+		price: 5_000,
 	},
 	{
 		title: 'Сырно медовая тарелка',
@@ -272,7 +277,7 @@ export const TRAKTIR_MENU: PricesModel[] = [
 		price: 3_000,
 	},
 	{
-		title: 'Ланч бокс',
+		title: 'Ланч-бокс',
 		twoCol: '',
 		price: 2_000,
 	},
@@ -284,7 +289,7 @@ export const BAR_MENU: PricesModel[] = [
 		subtitle: 'игристого / белого / красного',
 		twoCol: '',
 		pricePrefix: 'от ',
-		price: 1500,
+		price: 1_000,
 	},
 	{
 		title: 'Крепкий алкоголь',
@@ -325,15 +330,15 @@ export const BAR_MENU: PricesModel[] = [
 		title: 'Коктейли алкогольные',
 		subtitle: 'Джин-тоник / Негрони / Б-52 / Куба-либре / Виски-кола / Апероль-шпритц / Кровая мэри / Маргарита',
 		twoCol: '',
-		pricePrefix: '',
-		price: 1_500,
+		pricePrefix: 'от ',
+		price: 1_000,
 	},
-	// {
-	//   title: 'Пиво и\u00A0медовуха',
-	//   subtitle: '500 мл',
-	//   twoCol: '',
-	//   price: 700,
-	// },
+	{
+		title: 'Пиво и\u00A0медовуха',
+		subtitle: '0,33',
+		twoCol: '',
+		price: 500,
+	},
 	{
 		title: 'Пробковый сбор',
 		subtitle: 'слабый алкоголь',
@@ -355,31 +360,43 @@ export const TRIKSTER_MENU: PricesModel[] = [
 		title: 'Эспрессо / Фильтр кофе / Американо',
 		subtitle: 'во время завтрака 1 напиток входит в стоимость',
 		twoCol: '',
-		price: 350,
+		price: 450,
 	},
 	{
 		title: 'Эспрессо-тоник',
 		subtitle: '',
 		twoCol: '',
-		price: 500,
+		price: 550,
 	},
 	{
 		title: 'Бамбл кофе',
 		subtitle: '',
 		twoCol: '',
-		price: 500,
+		price: 550,
 	},
 	{
-		title: 'Капучино / Латте / Флэт уайт / Раф',
-		subtitle: '400 мл',
+		title: 'Капучино / Латте / Флэт уайт',
+		subtitle: '',
+		twoCol: '',
+		price: 550,
+	},
+	{
+		title: 'Какао',
+		subtitle: '',
+		twoCol: '',
+		price: 550,
+	},
+	{
+		title: 'Матча',
+		subtitle: '',
 		twoCol: '',
 		price: 500,
 	},
 	{
-		title: 'Чай зелёный / чёрный',
-		subtitle: 'во время завтрака входит в стоимость (чайник)',
+		title: 'Чай травяной/зелёный/чёрный',
+		subtitle: '500 мл',
 		twoCol: '',
-		price: 600,
+		price: 700,
 	},
 	{
 		title: 'Алтайский травяной чай',
@@ -388,10 +405,16 @@ export const TRIKSTER_MENU: PricesModel[] = [
 		price: 0,
 	},
 	{
+		title: 'Авторский чай',
+		subtitle: 'облепиховый, имбирный, брусничный (500 мл)',
+		twoCol: '',
+		price: 1_000,
+	},
+	{
 		title: 'Чай Mariage чёрный ENGLISH\u00A0BREAKFAST TEA',
 		subtitle: 'насыщенный, утренний купаж (чайник)',
 		twoCol: '',
-		price: 1000,
+		price: 1_000,
 	},
 	{
 		title: 'ЧАЙ WEDDING IMPÉRIAL',
@@ -414,18 +437,6 @@ export const TRIKSTER_MENU: PricesModel[] = [
 	{
 		title: 'ЧАЙ CHAI PARISIEN',
 		subtitle: 'пряный, с\u00A0мягкими фруктовыми нотами',
-		twoCol: '',
-		price: 1000,
-	},
-	{
-		title: 'Матча / Какао',
-		subtitle: '400 мл',
-		twoCol: '',
-		price: 500,
-	},
-	{
-		title: 'Авторский чай',
-		subtitle: 'облепиховый / имбирный / брусничный (400 мл)',
 		twoCol: '',
 		price: 1000,
 	},
@@ -627,13 +638,13 @@ export const TOUR_GROUPS: PricesModel[] = [
 	{
 		title: 'Краеугольный камень',
 		twoCol: 'весь день',
-		price: 9_000,
+		price: 10_000,
 		priceChild: 6_500,
 	},
 	{
 		title: 'Стоянка Чёрного хана',
 		twoCol: 'весь день',
-		price: 9_000,
+		price: 10_000,
 		priceChild: 6_500,
 	},
 	{
@@ -681,8 +692,8 @@ export const TOUR_GROUPS: PricesModel[] = [
 		title: 'Вода-вода (Телецкое озеро)',
 		subtitle: 'Поездка проводится от 4-х гостей. В стоимость поездки входит ланчбокс. Мы можем сделать остановку в ресторане, где питание гость оплачивает самостоятельно.',
 		twoCol: 'Весь день',
-		price: 30_000,
-		priceChild: 25_000,
+		price: 50_000,
+		priceChild: 30_000,
 	},
 	{
 		title: 'Чуйский тракт - 1/2',
@@ -712,7 +723,7 @@ export const TOUR_GROUPS: PricesModel[] = [
 	},
 	{
 		title: 'Манжерок',
-		subtitle: 'Поездка в сопровождении следопыта, с подъемом на канатной дороге (не входит в стоимость поездки и оплачивается дополнительно) и хайкингом по эко-тропам.',
+		subtitle: 'поездка в сопровождении следопыта с подъемом на канатной дороге и хайкингом по эко-тропам (билет на КД оплачивается отдельно)',
 		twoCol: '3 часа',
 		price: 3_000,
 		priceChild: 2_000,
@@ -733,9 +744,16 @@ export const TOUR_GROUPS: PricesModel[] = [
 	},
 	{
 		title: 'Зубровый питомник+ботанический сад',
-		twoCol: '4 часа',
+		subtitle: 'групповой',
+		twoCol: '3 часа',
 		price: 6_000,
-		priceChild: 4_000,
+		priceChild: 3_500,
+	},
+	{
+		title: 'Карым',
+		twoCol: '',
+		price: 5_000,
+		priceChild: 3_500,
 	},
 ];
 
@@ -781,49 +799,54 @@ export const TOUR_HIKINGS: PricesModel[] = [
 export const TOUR_INDIVIDUAL: HeatLabModel[] = [
 	{
 		title: 'Миссия на Марс на одну ночь при двухместном размещении',
-		duration: '1\u00A0человек',
-		pricePrefix: 'от ',
-		price: 122_000,
+		duration: 'до\u00A02\u00A0чел',
+		pricePrefix: '',
+		price: 110_000,
+	},
+	{
+		title: 'доп человек (номер)',
+		duration: '',
+		clients: '',
+		price: 30_000,
 	},
 	{
 		title: 'Золотое кольцо',
-		subtitle: 'путешествие по\u00A0основным достопримечательностям Алтая.',
+		subtitle: 'путешествие по\u00A0основным достопримечательностям Алтая',
 		duration: 'от\u00A03-х\u00A0дней',
-		priceText: 'РАССЧИТЫВАЕТСЯ ИНДИВИДУАЛЬНО',
+		pricePrefix: 'от ',
+		price: 300_000,
 	},
 	{
-		title: 'Проход в Шамбалу с вертолётом',
-		duration: '2\u00A0дня / 1\u00A0ночь',
-		priceText: 'РАССЧИТЫВАЕТСЯ ИНДИВИДУАЛЬНО',
+		title: 'Проход в Шамбалу',
+		subtitle: 'партнёрская поездка в We are Altay',
+		duration: '3\u00A0дня / 2\u00A0ночи',
+		pricePrefix: 'от ',
+		price: 150_000,
 	},
 	{
-		title: 'Обед в We are Altay с вертолётом',
-		duration: '1\u00A0день',
-		priceText: 'РАССЧИТЫВАЕТСЯ ИНДИВИДУАЛЬНО',
+		title: 'Вертолётная экскурсия на Белуху с обедом',
+		duration: 'до\u00A05\u00A0чел',
+		pricePrefix: 'от ',
+		price: 1_000_000,
 	},
 	{
-		title: 'Телецкое озеро',
-		subtitle: 'индивидуальная поездка',
-		duration: '1\u00A0день',
-		priceText: 'от\u00A080\u00A0000\u00A0₽ на\u00A0одного человека с\u00A0учетом катера и\u00A0нашей комиссии',
+		title: 'Вода-Вода (Телецкое озеро)',
+		subtitle: 'от 4 гостей, ланч-боксы включены',
+		duration: 'весь день',
+		priceText: 'от\u00A050\u00A0000\u00A0₽ / 30\u00A0000\u00A0₽',
 	},
 ];
 
 export const DRIVERS: HeatLabModel[] = [
 	{
-		title: 'Следопыт',
+		title: 'Следопыт/Попутчик',
 		duration: '1 час',
-		price: 4_000,
-	},
-	{
-		title: 'Попутчик',
-		duration: '1 час',
-		price: 3_500,
+		price: 3_000,
 	},
 	{
 		title: 'водитель',
 		duration: '1 час',
-		price: 2_500,
+		price: 2_000,
 	},
 ];
 
@@ -880,19 +903,19 @@ export const AUTO_RENT: PricesModel[] = [
 
 export const TRANSFER: PricesModel[] = [
 	{
-		title: 'Встреча в аэропорту, Tank\u00A0300',
+		title: 'Встреча в\u00A0аэропорту, Tank\u00A0300',
 		twoCol: 'в\u00A0одну сторону, за\u00A0машину до\u00A03\u00A0человек',
-		price: 6_000,
+		price: 9_000,
 	},
 	{
 		title: 'Встреча в\u00A0аэропорту, Mercedes\u00A0Viano',
 		twoCol: 'в\u00A0одну сторону, за\u00A0машину до\u00A05\u00A0человек',
-		price: 8_000,
+		price: 11_000,
 	},
 	{
-		title: 'Встреча в\u00A0аэропорту на\u00A0 групповом трансфере, доп\u00A0человек/проводы',
-		twoCol: 'в\u00A0одну \u00A0сторону',
-		priceText: '2\u00A0500\u00A0₽ / 2\u00A0000\u00A0₽',
+		title: 'Групповой трансфер в\u00A0аэропорт',
+		twoCol: 'в\u00A0одну сторону',
+		price: 3_500,
 	},
 	{
 		title: 'Бизнес зал\u00A0прилет',
@@ -909,7 +932,7 @@ export const TRANSFER: PricesModel[] = [
 	{
 		title: 'индивидуальный трансфер в\u00A0любую сторону',
 		subtitle: '1 час',
-		priceText: '3\u00A0000\u00A0₽ +\u00A0бензин 15\u00A0руб/км',
+		priceText: '4\u00A0000\u00A0₽ +\u00A0бензин 15\u00A0руб/км',
 	},
 ];
 
@@ -1430,8 +1453,8 @@ export const TO_MARS: PricesModel[] = [
 
 export const ADDITIONAL_SERVICES: PricesModel[] = [
 	{
-		title: 'завтрак (для не живущих на базе)',
-		twoCol: '1 человек',
+		title: 'Завтрак (для внешних гостей)',
+		twoCol: 'человек',
 		price: 2_000,
 	},
 	{
