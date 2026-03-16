@@ -48,7 +48,7 @@ interface ProzhivanieGridProps {
 	items: import('./PricesPage.constants').AccommodationItem[];
 }
 
-const ProzhivanieGrid: FC<ProzhivanieGridProps> = ({ items }) => (
+export const ProzhivanieGrid: FC<ProzhivanieGridProps> = ({ items }) => (
 	<div className={styles.accommodationGrid}>
 		{items.map((item, index) => (
 			<div className={styles.accommodationCard} key={index}>
