@@ -239,6 +239,206 @@ export const COMFORT = {
 	] as DrinkMenuItem[],
 } as const;
 
+/** Элемент поездки 3–5 ч / на целый день: название + цена взрослый/ребёнок или priceText */
+export type PoezdkiTripItem = {
+	title: string;
+	priceText?: string;
+	priceAdult?: number;
+	priceChild?: number;
+};
+
+/** Элемент партнёрской активности: название, продолжительность/условие, цена */
+export type PoezdkiPartnerItem = {
+	title: string;
+	duration?: string;
+	condition?: string;
+	priceText?: string;
+	priceAdult?: number;
+	priceChild?: number;
+	pricePrefix?: string;
+	price?: number;
+};
+
+/** Элемент автопроката/трансфера: название, примечание, цены за час/сутки или одна цена */
+export type PoezdkiCarItem = {
+	title: string;
+	note?: string;
+	pricePerHour?: number;
+	pricePerDay?: number;
+	price?: number;
+	priceNote?: string;
+};
+
+/** Элемент блока гидов: название, описание, цена за час */
+export type PoezdkiGuideItem = {
+	title: string;
+	description?: string;
+	pricePerHour: number;
+};
+
+/** Блок «Поездки» — по скриншоту: 3–5 ч, целый день, партнёрские активности, автопрокат */
+export const POEZDKI = {
+	title: 'ПОЕЗДКИ',
+	trips35: {
+		sectionTitle: 'ПОЕЗДКИ НА 3-5 ЧАСОВ',
+		leftColumn: [
+			{ title: 'ЗА МУЗЕЙ', priceText: 'КОМПЛИМЕНТ' },
+			{ title: 'ЗАЯЧИЙ ОСТРОВ', priceAdult: 7_000, priceChild: 4_500 },
+			{ title: 'ТЕНЬ НА ПЛЕТЕНЬ', priceAdult: 7_000, priceChild: 5_500 },
+			{ title: 'ЗУБРОВЫЙ ПИТОМНИК + БОТАНИЧЕСКИЙ САД', priceAdult: 6_000, priceChild: 3_500 },
+		] as PoezdkiTripItem[],
+		rightColumn: [
+			{ title: 'ВСЕСЕЗОННЫЙ КУРОРТ МАНЖЕРОК', priceAdult: 3_000, priceChild: 2_000 },
+			{ title: 'ПАСЕКА «МЕДОМ В УХО»', priceAdult: 3_000, priceChild: 2_000 },
+			{ title: 'ПАЛЕОПАРК И ЛОХМАТАЯ ФЕРМА', priceAdult: 7_000, priceChild: 5_000 },
+			{ title: 'КАРЫМ', priceAdult: 5_000, priceChild: 3_500 },
+		] as PoezdkiTripItem[],
+	},
+	fullDay: {
+		sectionTitle: 'ПОЕЗДКИ НА ЦЕЛЫЙ ДЕНЬ',
+		leftColumn: [
+			{ title: 'КРАЕУГОЛЬНЫЙ КАМЕНЬ', priceAdult: 10_000, priceChild: 6_500 },
+			{ title: 'СТОЯНКА ЧЕРНОГО ХАНА', priceAdult: 10_000, priceChild: 6_500 },
+			{ title: 'ТЕНЬ НА ПЛЕТЕНЬ (АВТОРСКОЕ ПРИКЛЮЧЕНИЕ)', priceAdult: 10_000, priceChild: 7_000 },
+		] as PoezdkiTripItem[],
+		rightColumn: [
+			{ title: 'СТЕПНЯК НА СТОЯНКЕ ЧЕРНОГО ХАНА', priceAdult: 15_000, priceChild: 10_500 },
+			{ title: 'АЛТАЙСКИЙ ТРИПТИХ (ЗУБРЫ+БОТАНИЧЕСКИЙ САД+МОТОРАФТИНГ)', priceAdult: 10_500, priceChild: 8_500 },
+			{ title: 'ЧУЙСКИЙ ТРАКТ 1/2', priceAdult: 15_000, priceChild: 10_500 },
+		] as PoezdkiTripItem[],
+	},
+	partner: {
+		sectionTitle: 'ПАРТНЁРСКИЕ АКТИВНОСТИ',
+		items: [
+			{ title: 'КОННЫЕ ПРОГУЛКИ', duration: '2 ЧАСА', priceAdult: 6_000, priceChild: 4_500 },
+			{ title: 'ПОЕЗДКИ НА БОЛОТОХОДАХ И КВАДРОЦИКЛАХ', condition: 'ПРОВОДИТСЯ ОТ 3 ЧЕЛОВЕК', priceText: '12 000 ₽ / ЧАС' },
+			{ title: 'РАФТИНГ', condition: 'ПРОВОДИТСЯ ОТ 6 ЧЕЛОВЕК', priceText: '7 000 ₽ / ЧЕЛ' },
+			{ title: 'ВЕРТОЛЁТНЫЕ ТУРЫ', condition: 'ПРИ ПОЛНОЙ ЗАГРУЗКЕ ВЕРТОЛЕТА', pricePrefix: 'ОТ ', price: 1_000_000 },
+		] as PoezdkiPartnerItem[],
+	},
+	carRental: {
+		sectionTitle: 'АВТОПРОКАТ «БЫВАЛЫЙ РЕЙНДЖЕР»',
+		leftColumn: [
+			{ title: 'TANK 300', note: '+15 руб./км топливо', pricePerHour: 3_000, pricePerDay: 20_000 },
+			{ title: 'MERCEDES VIANO', note: '+15 руб./км топливо', pricePerHour: 3_500, pricePerDay: 25_000 },
+		] as PoezdkiCarItem[],
+		rightColumn: [
+			{ title: 'ВСТРЕЧА В/ИЗ АЭРОПОРТ TANK 300', note: 'в одну сторону за машину / до 3 человек', price: 9_000 },
+			{ title: 'ВСТРЕЧА В/ИЗ АЭРОПОРТ MERCEDES VIANO', note: 'в одну сторону за машину / до 5 человек', price: 11_000 },
+			{ title: 'ИНДИВИДУАЛЬНЫЙ ТРАНСФЕР', price: 4_000, priceNote: 'час' },
+			{ title: 'ГРУППОВОЙ ТРАНСФЕР В/ИЗ АЭРОПОРТА', note: 'в одну сторону', price: 3_500 },
+			{ title: 'ДОСТАВКА', note: 'в течение дня', price: 2_500, priceNote: '+ СУММА ЧЕКА' },
+			{ title: 'ДОСТАВКА', note: 'прямо сейчас', price: 5_000, priceNote: '+ СУММА ЧЕКА' },
+		] as PoezdkiCarItem[],
+	},
+	guides: {
+		sectionTitle: 'ГИДЫ-СЛЕДОПЫТЫ И ВОДИТЕЛИ',
+		subheading: 'СОПРОВОЖДАЮЩИЕ',
+		leftColumn: [
+			{
+				title: 'ПОПУТЧИК',
+				description: 'один из членов нашей команды, который знает детали маршрута, составит вам компанию и поговорит о том о сем',
+				pricePerHour: 3_000,
+			},
+			{ title: 'ВОДИТЕЛЬ', pricePerHour: 2_000 },
+		] as PoezdkiGuideItem[],
+		rightColumn: [
+			{
+				title: 'СЛЕДОПЫТ',
+				description: 'подготовленный гид, который знает маршруты, рассказывает интересные факты по маршруту и в целом про алтай и может вести автомобиль',
+				pricePerHour: 3_000,
+			},
+		] as PoezdkiGuideItem[],
+	},
+} as const;
+
+/** Элемент правой колонки блока «Путешествия» — подпись (чёрная) или ценник (красный) */
+export type PuteshestviyaRightItem = {
+	text: string;
+	isPrice?: boolean;
+};
+
+/** Одно путешествие: красный подзаголовок, описание, правый столбец (подписи + цены) */
+export type PuteshestviyaItem = {
+	title: string;
+	description: string;
+	rightItems: PuteshestviyaRightItem[];
+};
+
+/** Блок «Путешествия» — индивидуальные авторские приключения */
+export const PUTESHESTVIYA = {
+	title: 'ПУТЕШЕСТВИЯ',
+	mainHeading: 'ИНДИВИДУАЛЬНЫЕ АВТОРСКИЕ ПРИКЛЮЧЕНИЯ',
+	items: [
+		{
+			title: 'ПРОХОД В ШАМБАЛУ',
+			description:
+				'Путешествие к горе Белуха с посещением мест Рериха с обедом или ночевкой в люкспенге наших друзей «We are Altay». У нас есть разные варианты посещения этих мест с полетом на вертолете, поездкой на машине через самые красивые места Алтая и 8 часовым пешим переходом, который позволит вам совершить «средний алтайский круг».',
+			rightItems: [
+				{ text: 'ПОЕЗДКА БРОНИРУЕТСЯ ЗА' },
+				{ text: 'ТРИ ДНЯ' },
+				{ text: 'ОТ 150 000 Р НА ЧЕЛОВЕКА', isPrice: true },
+				{ text: 'ПУТЕШЕСТВИЕ ЗАНИМАЕТ' },
+				{ text: 'НЕ МЕНЕЕ 3 ДНЕЙ И 2 НОЧЕЙ.' },
+				{ text: 'ПОЕЗДКА БРОНИРУЕТСЯ ЗА' },
+				{ text: '14 ДНЕЙ.' },
+			],
+		},
+		{
+			title: 'АЛТАЙСКОЕ КОЛЬЦО',
+			description:
+				'Большое путешествие по всему Алтаю, которое позволяет рассмотреть все самые главные ландшафты и пейзажи, проехать по всему Чуйскому тракту до границы с Монголией, побывать на Марсе, увидеть скифские курганы в Чулышманской долине и переправиться через Телецкое озеро.',
+			rightItems: [
+				{ text: 'ОТ 300 000 Р НА ЧЕЛОВЕКА', isPrice: true },
+				{ text: 'ПУТЕШЕСТВИЕ ЗАНИМАЕТ ОТ' },
+				{ text: '3-Х ДНЕЙ.' },
+				{ text: 'ПОЕЗДКА БРОНИРУЕТСЯ ЗА 3 ДНЯ' },
+			],
+		},
+		{
+			title: 'ВОДА-ВОДА',
+			description:
+				'Поездка на целый день на Телецкое озеро, которое входит в список наследия ЮНЕСКО. Озеро находится на высоте 434 м над уровнем моря, его длина составляет 78 км. Посещение озера включает прогулку на катерах от северного до южного берега, где вода прогревается достаточно, чтобы можно было купаться. Дополнительно можно сделать остановку на ночь в отеле.',
+			rightItems: [
+				{
+					text: 'ОТ 50 000 Р НА ЧЕЛОВЕКА, С УЧЕТОМ ПЛАВАНИЯ ЧЕРЕЗ ВСЕ ОЗЕРО, НОЧЬ В ОТЕЛЕ ОПЛАЧИВАЕТСЯ ОТДЕЛЬНО',
+					isPrice: true,
+				},
+				{ text: 'ПОЕЗДКА ЗАНИМАЕТ ЦЕЛЫЙ' },
+				{ text: 'ДЕНЬ' },
+			],
+		},
+		{
+			title: 'МИССИЯ НА МАРС',
+			description:
+				'Поездка по Чуйскому тракту, одной из самых красивых дорог в мире по версии National Geographic. Дорожное путешествие с остановками на уникальных природных и исторических достопримечательностях: Каракольская долина с курганами, перевалы Семинский и Чике-Таман, гейзерово озеро. Вишенкой на торте этой поездки является хайкинг в горном районе Марс на границе с Монголией.',
+			rightItems: [{ text: 'ОТ 110 000 Р НА ЧЕЛОВЕКА', isPrice: true }],
+		},
+	] as PuteshestviyaItem[],
+} as const;
+
+/** Блок «Для детей» */
+export const DLYA_DETEY = {
+	title: 'ДЛЯ ДЕТЕЙ',
+	paragraph: 'Дети в «Молодости» считаются от 5 до 12 лет.',
+	intro: 'На территории базы есть:',
+	listItems: [
+		'Детская площадка имени Дамблдора',
+		'Домашний и уличный кинотеатры',
+		'Спортивные игры',
+		'Услуги няни (8 часов 12 000 ₽)',
+	],
+} as const;
+
+/** Блок «Concept Store» + призыв к действию */
+export const CONCEPT_STORE = {
+	title: 'CONCEPT STORE',
+	paragraph:
+		'А еще не забудьте заглянуть в наш Concept Store, в котором собраны брендированный мерч «Молодости» и премиальные алтайские сувениры.',
+	ctaText:
+		'Если вам что-то хочется, а мы об этом еще не подумали — скажите нам, и мы вместе решим сколько это будет стоить.',
+} as const;
+
 /** Блок «Банно-оздоровительный комплекс Благодать» — сетка с ценами, 2 колонки */
 export const BLAGODAT_SAUNA = {
 	title: 'БАННО-ОЗДОРОВИТЕЛЬНЫЙ КОМПЛЕКС «БЛАГОДАТЬ»',

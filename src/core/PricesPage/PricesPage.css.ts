@@ -66,6 +66,18 @@ export const subsectionHeading = style({
 	marginBottom: 20,
 });
 
+/** Подзаголовок секции — красный (brand), 27px */
+export const subsectionHeadingBrand = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 27,
+	lineHeight: 1.2,
+	color: vars.color.brand,
+	textTransform: 'uppercase',
+	marginTop: 32,
+	marginBottom: 20,
+});
+
 export const whatWeEatGastropubHeading = style({
 	fontFamily: vars.font.CeraCondensedCYBold,
 	fontWeight: 'bold',
@@ -356,6 +368,159 @@ export const tableHeaderCol = style([
 	}),
 ]);
 
+/** Заголовки колонок таблицы «Партнёрские активности» — красные, 18px. УСЛУГА и ПРОДОЛЖИТЕЛЬНОСТЬ влево, ЦЕНА вправо */
+export const partnerTableHeaderCol = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	color: vars.color.brand,
+	lineHeight: 1,
+	textTransform: 'uppercase',
+	selectors: {
+		'&:first-of-type': { textAlign: 'left' },
+		'&:nth-of-type(2)': { textAlign: 'left' },
+		'&:last-of-type': { textAlign: 'right' },
+	},
+});
+
+/** Ячейка «Продолжительность» в таблице партнёрских активностей — красный текст, 18px, по левому краю колонки */
+export const partnerTableDuration = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	lineHeight: 1,
+	textAlign: 'left',
+	color: vars.color.brand,
+	textTransform: 'uppercase',
+});
+
+/** Подпись условия в строке партнёрских активностей — ApercuPro, 18px, чёрный */
+export const partnerTableCondition = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 18,
+	lineHeight: 1.2,
+	color: vars.color.black,
+	textTransform: 'uppercase',
+});
+
+/** Подпись «взрослый»/«детский» у цены в партнёрских активностях — серый */
+export const partnerTablePriceLabel = style({
+	fontFamily: vars.font.CeraCondensedCYRegular,
+	fontSize: 12,
+	lineHeight: 1.2,
+	color: vars.color.gray,
+});
+
+/** Название услуги в таблице партнёрских активностей — CeraCondensed Bold, 20px, чёрный */
+export const partnerTableServiceTitle = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 20,
+	lineHeight: 1,
+	textTransform: 'uppercase',
+	color: vars.color.black,
+	maxWidth: '80%',
+});
+
+/** Ячейка колонки «Продолжительность» — выравнивание по левому краю */
+export const partnerTableColLeft = style({
+	textAlign: 'left',
+});
+
+/** Ячейка колонки «Цена» — выравнивание вправо */
+export const partnerTableColRight = style({
+	textAlign: 'right',
+});
+
+/** Красный подзаголовок в блоке «Путешествия» — без верхнего отступа */
+export const travelsSubheading = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 27,
+	lineHeight: 1.2,
+	color: vars.color.brand,
+	textTransform: 'uppercase',
+	marginTop: 0,
+	marginBottom: 20,
+});
+
+/** Красный подзаголовок с отступом сверху 80px (между ЗОЖ и ЗОМ и Групповые хайкинги) */
+export const travelsSubheadingWithGap = style([
+	travelsSubheading,
+	{ marginTop: 80 },
+]);
+
+/** Блок «Путешествия» — обёртка строк */
+export const travelsWrap = style({
+	marginTop: 20,
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 40,
+});
+
+/** Одна строка путешествия — две колонки ~65% / 35%, gap 40px */
+export const travelsRow = style([
+	{
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		gap: 24,
+		alignItems: 'start',
+	},
+	tablet({
+		gridTemplateColumns: '65% 1fr',
+		gap: 40,
+	}),
+]);
+
+/** Текст описания в левой колонке «Путешествия» — ApercuPro bold 20px, line-height 1.1, чёрный */
+export const travelsLeftText = style({
+	fontFamily: vars.font.ApercuProBold,
+	fontSize: 20,
+	lineHeight: 1.1,
+	color: vars.color.black,
+	margin: 0,
+});
+
+/** Список в блоках «Для детей» / «Concept Store» — тот же шрифт что travelsLeftText */
+export const travelsList = style({
+	fontFamily: vars.font.ApercuProBold,
+	fontSize: 20,
+	lineHeight: 1.1,
+	color: vars.color.black,
+	margin: '0 0 0 20px',
+	padding: 0,
+	listStylePosition: 'outside',
+});
+
+export const travelsListItem = style({
+	marginBottom: 8,
+	selectors: { '&:last-child': { marginBottom: 0 } },
+});
+
+/** Подпись в правой колонке «Путешествия» — CeraCondensed medium 18px, чёрный */
+export const travelsRightLabel = style({
+	fontFamily: vars.font.CeraCondensedCYMedium,
+	fontSize: 18,
+	lineHeight: 1.2,
+	color: vars.color.black,
+	textTransform: 'uppercase',
+	margin: 0,
+});
+
+/** Ценник в правой колонке «Путешествия» — CeraCondensed bold 18px, красный */
+export const travelsRightPrice = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	lineHeight: 1.2,
+	color: vars.color.brand,
+	textTransform: 'uppercase',
+	margin: 0,
+});
+
+/** Группа правой колонки для одного путешествия */
+export const travelsRightGroup = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 4,
+});
+
 export const tableHeaderColWide = style([
 	{
 		fontFamily: vars.font.CeraCondensedCYBold,
@@ -376,6 +541,18 @@ export const tableHeaderColWide = style([
 ]);
 
 export const priceRow = style([
+	{
+		display: 'grid',
+		gridTemplateColumns: '1fr 1fr 1fr',
+		alignItems: 'center',
+	},
+	tablet({
+		gridTemplateColumns: '3fr 2fr 1.5fr',
+	}),
+]);
+
+/** Строка заголовка таблицы «Партнёрские активности» (3 колонки) */
+export const partnerTableHeaderRow = style([
 	{
 		display: 'grid',
 		gridTemplateColumns: '1fr 1fr 1fr',

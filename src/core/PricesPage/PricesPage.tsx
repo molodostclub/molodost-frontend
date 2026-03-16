@@ -10,6 +10,10 @@ import {
 	BLAGODAT_SAUNA,
 	COMFORT,
 	GROUP_HIKINGS,
+	POEZDKI,
+	PUTESHESTVIYA,
+	DLYA_DETEY,
+	CONCEPT_STORE,
 	PROZHIVANIE_HOUSES,
 	PROZHIVANIE_ROOMS,
 	WHAT_WE_DRINK,
@@ -38,6 +42,7 @@ import {
 	HEAT_LAB_SERVICE,
 	ZOZH_ZOM,
 } from './PricesPage.constants';
+import type { PoezdkiCarItem, PoezdkiGuideItem, PoezdkiPartnerItem, PoezdkiTripItem } from './PricesPage.constants';
 
 interface ProzhivanieGridProps {
 	items: import('./PricesPage.constants').AccommodationItem[];
@@ -272,16 +277,16 @@ const WhatWeEatBlock: FC = () => {
 						<div className={styles.whatWeEatItem} key={i}>
 							<div className={styles.whatWeEatItemLeft}>
 								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
-								{item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
+								{'description' in item && item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
 							</div>
 							<div className={styles.whatWeEatItemRight}>
-								{item.note && <span className={styles.whatWeEatItemNote}>{item.note}</span>}
-								{item.price !== undefined && <span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>}
-								{item.priceAdult !== undefined && (
+								{'note' in item && item.note && <span className={styles.whatWeEatItemNote}>{item.note}</span>}
+								{'price' in item && item.price !== undefined && <span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>}
+								{'priceAdult' in item && 'priceChild' in item && item.priceAdult !== undefined && item.priceChild !== undefined && (
 									<>
 										<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
 										<br />
-										<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild!)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+										<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
 									</>
 								)}
 							</div>
@@ -330,9 +335,7 @@ const WhatWeDrinkBlock: FC = () => {
 	return (
 		<>
 			<h3 className={styles.subsectionHeading}>{coffeeShop.name}</h3>
-			<div className={styles.whatWeEatDivider} />
 			<p className={styles.additionalPersonNote}>{coffeeShop.description}</p>
-			<div className={styles.whatWeEatDivider} />
 			<h4 className={styles.whatWeDrinkAccentSubheading}>{coffeeShop.subheading}</h4>
 			<div className={styles.whatWeEatColumns}>
 				<div className={styles.whatWeEatColumn}>
@@ -356,7 +359,6 @@ const WhatWeDrinkBlock: FC = () => {
 				</div>
 				<div className={styles.whatWeEatColumn} />
 			</div>
-			<div className={styles.whatWeEatDivider} />
 			<p className={styles.additionalPersonNote}>{corkage}</p>
 		</>
 	);
@@ -373,19 +375,250 @@ const ComfortBlock: FC = () => (
 	</div>
 );
 
-const ZozhZomBlock: FC = () => (
-	<div className={styles.whatWeEatColumns}>
-		<div className={styles.whatWeEatColumn}>
-			{ZOZH_ZOM.leftColumn.map((item, i) => (
-				<DrinkPriceRow item={item} key={i} />
-			))}
+const PoezdkiTripRow: FC<{ item: PoezdkiTripItem }> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			<span className={styles.whatWeEatItemTitle}>{item.title}</span>
 		</div>
-		<div className={styles.whatWeEatColumn}>
-			{ZOZH_ZOM.rightColumn.map((item, i) => (
-				<DrinkPriceRow item={item} key={i} />
-			))}
+		<div className={styles.whatWeEatItemRight}>
+			{item.priceText ? (
+				<span className={styles.whatWeEatItemPrice}>{item.priceText}</span>
+			) : (
+				<>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult!)}</span>{' '}
+					<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+					<br />
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild!)}</span>{' '}
+					<span className={styles.whatWeEatItemDescriptor}>детский</span>
+				</>
+			)}
 		</div>
 	</div>
+);
+
+const PoezdkiPartnerTableRow: FC<{ item: PoezdkiPartnerItem }> = ({ item }) => (
+	<div className={styles.priceRow}>
+		<div>
+			<p className={styles.partnerTableServiceTitle}>{item.title}</p>
+			{item.condition && <p className={styles.partnerTableCondition}>{item.condition}</p>}
+		</div>
+		<div className={styles.partnerTableColLeft}>
+			<p className={styles.partnerTableDuration}>{item.duration ?? ''}</p>
+		</div>
+		<div className={styles.partnerTableColRight}>
+			{item.priceText && <p className={styles.priceNum}>{item.priceText}</p>}
+			{item.price !== undefined && (
+				<p className={styles.priceNum}>
+					{item.pricePrefix}
+					{formatPriceWithSign(item.price)}
+				</p>
+			)}
+			{item.priceAdult !== undefined && (
+				<>
+					<p className={styles.priceNum}>
+						<span>{formatPriceWithSign(item.priceAdult)}</span>{' '}
+						<span className={styles.partnerTablePriceLabel}>взрослый</span>
+					</p>
+					<p className={styles.priceNum}>
+						<span>{formatPriceWithSign(item.priceChild!)}</span>{' '}
+						<span className={styles.partnerTablePriceLabel}>детский</span>
+					</p>
+				</>
+			)}
+		</div>
+	</div>
+);
+
+const PoezdkiCarRow: FC<{ item: PoezdkiCarItem }> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+			{item.note && <span className={styles.whatWeEatItemDescription}>{item.note}</span>}
+		</div>
+		<div className={styles.whatWeEatItemRight}>
+			{item.pricePerHour !== undefined && (
+				<>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span>{' '}
+					<span className={styles.whatWeEatItemDescriptor}>час</span>
+					<br />
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerDay!)}</span>{' '}
+					<span className={styles.whatWeEatItemDescriptor}>сутки</span>
+				</>
+			)}
+			{item.price !== undefined && (
+				<>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>
+					{item.priceNote && <span className={styles.whatWeEatItemDescriptor}> {item.priceNote}</span>}
+				</>
+			)}
+		</div>
+	</div>
+);
+
+const PoezdkiGuideRow: FC<{ item: PoezdkiGuideItem }> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+			{item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
+		</div>
+		<div className={styles.whatWeEatItemRight}>
+			<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span>{' '}
+			<span className={styles.whatWeEatItemDescriptor}>час</span>
+		</div>
+	</div>
+);
+
+const PoezdkiBlock: FC = () => {
+	const { trips35, fullDay, partner, carRental, guides } = POEZDKI;
+	return (
+		<>
+			<h3 className={styles.subsectionHeading}>{trips35.sectionTitle}</h3>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{trips35.leftColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{trips35.rightColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeading}>{fullDay.sectionTitle}</h3>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{fullDay.leftColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{fullDay.rightColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeadingBrand}>{partner.sectionTitle}</h3>
+			<div className={styles.priceTable}>
+				<div className={styles.partnerTableHeaderRow}>
+					<span className={styles.partnerTableHeaderCol}>УСЛУГА</span>
+					<span className={styles.partnerTableHeaderCol}>ПРОДОЛЖИТЕЛЬНОСТЬ</span>
+					<span className={styles.partnerTableHeaderCol}>ЦЕНА, РУБ.</span>
+				</div>
+				{partner.items.map((item, i) => (
+					<PoezdkiPartnerTableRow item={item} key={i} />
+				))}
+			</div>
+			<h3 className={styles.subsectionHeading}>{carRental.sectionTitle}</h3>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{carRental.leftColumn.map((item, i) => (
+						<PoezdkiCarRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{carRental.rightColumn.map((item, i) => (
+						<PoezdkiCarRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeading}>{guides.sectionTitle}</h3>
+			<h4 className={styles.whatWeDrinkAccentSubheading}>{guides.subheading}</h4>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{guides.leftColumn.map((item, i) => (
+						<PoezdkiGuideRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{guides.rightColumn.map((item, i) => (
+						<PoezdkiGuideRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+		</>
+	);
+};
+
+const PuteshestviyaBlock: FC = () => {
+	const { mainHeading, items } = PUTESHESTVIYA;
+	return (
+		<>
+			<h3 className={styles.subsectionHeading}>{mainHeading}</h3>
+			<div className={styles.travelsWrap}>
+				{items.map((item, i) => (
+					<div key={i} className={styles.travelsRow}>
+						<div>
+							<h4 className={styles.travelsSubheading}>{item.title}</h4>
+							<p className={styles.travelsLeftText}>{item.description}</p>
+						</div>
+						<div className={styles.travelsRightGroup}>
+							{item.rightItems.map((rightItem, j) =>
+								rightItem.isPrice ? (
+									<p key={j} className={styles.travelsRightPrice}>
+										{rightItem.text}
+									</p>
+								) : (
+									<p key={j} className={styles.travelsRightLabel}>
+										{rightItem.text}
+									</p>
+								),
+							)}
+						</div>
+					</div>
+				))}
+			</div>
+		</>
+	);
+};
+
+const DlyaDeteyBlock: FC = () => {
+	const { paragraph, intro, listItems } = DLYA_DETEY;
+	return (
+		<div className={styles.travelsRow}>
+			<div>
+				<p className={styles.travelsLeftText}>{paragraph}</p>
+				<p className={styles.travelsLeftText}>{intro}</p>
+				<ul className={styles.travelsList}>
+					{listItems.map((item, i) => (
+						<li key={i} className={styles.travelsListItem}>
+							{item}
+						</li>
+					))}
+				</ul>
+			</div>
+			<div />
+		</div>
+	);
+};
+
+const ConceptStoreBlock: FC = () => {
+	const { paragraph, ctaText } = CONCEPT_STORE;
+	return (
+		<>
+			<p className={styles.travelsLeftText}>{paragraph}</p>
+			<p className={styles.additionalPersonNote}>{ctaText}</p>
+		</>
+	);
+};
+
+const ZozhZomBlock: FC = () => (
+	<>
+		<div className={styles.whatWeEatColumns}>
+			<div className={styles.whatWeEatColumn}>
+				{ZOZH_ZOM.leftColumn.map((item, i) => (
+					<DrinkPriceRow item={item} key={i} />
+				))}
+			</div>
+			<div className={styles.whatWeEatColumn}>
+				{ZOZH_ZOM.rightColumn.map((item, i) => (
+					<DrinkPriceRow item={item} key={i} />
+				))}
+			</div>
+		</div>
+		<h4 className={styles.travelsSubheadingWithGap}>{GROUP_HIKINGS.title}</h4>
+		<GroupHikingsBlock />
+	</>
 );
 
 const GroupHikingsBlock: FC = () => (
@@ -1177,62 +1410,21 @@ export const PricesPage: FC = () => {
 			<AccordionSection title={BLAGODAT_SAUNA.title}>
 				<BlagodatSaunaBlock />
 			</AccordionSection>
-			<AccordionSection title="ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;">
-				<div className={styles.grid}>
-					<AdditionalServices />
-					<AdditionalServicesSide />
-				</div>
-			</AccordionSection>
-			<div className={styles.separator}></div>
-			<AccordionSection title="&laquo;СЧАСТЛИВЫЙ ДРАКОН&raquo; Бар-Буфет">
-				<div className={styles.grid}>
-					<BarMenu />
-					<BarSide />
-				</div>
-			</AccordionSection>
-			<AccordionSection title="&laquo;ТРИКСТЕР&raquo; Кафе и&nbsp;лавка">
-				<div className={styles.grid}>
-					<TriksterMenu />
-				</div>
-			</AccordionSection>
-			<AccordionSection title="Лаборатория тепла &laquo;БлагодатЪ&raquo;">
-				<br />
-				<HeatLabSibir />
-			</AccordionSection>
 			<AccordionSection title={ZOZH_ZOM.title}>
 				<ZozhZomBlock />
 			</AccordionSection>
-			<div className={styles.separator}></div>
-			<AccordionSection title={GROUP_HIKINGS.title}>
-				<GroupHikingsBlock />
+			<AccordionSection title={POEZDKI.title}>
+				<PoezdkiBlock />
 			</AccordionSection>
-			<AccordionSection title="ТУРБЮРО &laquo;АЛТАЙСКИЙ ТРАКТАТ&raquo;">
-				<br />
-				<TourBureau />
+			<AccordionSection title={PUTESHESTVIYA.title}>
+				<PuteshestviyaBlock />
 			</AccordionSection>
-			<div className={styles.separator}></div>
-			<AccordionSection title="АВТОПРОКАТ &laquo;БЫВАЛЫЙ РЕЙНДЖЕР&raquo;">
-				<AutoRent />
+			<AccordionSection title={DLYA_DETEY.title}>
+				<DlyaDeteyBlock />
 			</AccordionSection>
-			<AccordionSection title="ТРАНСФЕР"><Transfer /></AccordionSection>
-			<div className={styles.separator}></div>
-			<AccordionSection title="КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo; ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ">
-				<CorporativeNonGuests />
+			<AccordionSection title={CONCEPT_STORE.title}>
+				<ConceptStoreBlock />
 			</AccordionSection>
-			{/* <h2 className={styles.subtitle}>
-				ПРОЖИВАНИЕ <br />
-				ПРИЮТ &laquo;НА МАРСЕ&raquo;
-			</h2>
-			<ToMars />
-			 */}
-			<div className={styles.navButtonsBottom}>
-				<Link href="/v-sibir-za-svoy-schet" className={cn(styles.navButton, styles.navButtonActive)} prefetch={false}>
-					В&nbsp;Сибирь за&nbsp;свой счёт Алтай
-				</Link>
-				<Link href="/v-sibir-za-svoy-schet-baikal" className={styles.navButton} prefetch={false}>
-					В&nbsp;Сибирь за&nbsp;свой счёт Байкал
-				</Link>
-			</div>
 		</main>
 	);
 };
