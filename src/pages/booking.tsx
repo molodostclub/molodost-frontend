@@ -1,6 +1,6 @@
 
 import { Booking } from '@core/Booking';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function KakPopast() {
   return (
@@ -8,6 +8,7 @@ export default function KakPopast() {
       <PageMeta title="Забронировать проживание" />
       <InnerPageHeader />
       <PageCover src="/images/booking/main.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Забронировать' }]} />
       <Booking />
       <Footer />
     </>

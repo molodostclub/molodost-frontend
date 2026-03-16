@@ -1,0 +1,1 @@
+export { AnketaThanks } from './AnketaThanks';

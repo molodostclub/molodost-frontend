@@ -14,8 +14,10 @@ export const LegalDocuments: FC = () => (
 
 			<div className={styles.textContent}>
 				<Description>
-					КАРТОЧКА ОРГАНИЗАЦИИ: <br />
-					Общество с ограниченной ответственностью «Молодость» (ООО «Молодость»)
+					<strong>Услуги предоставляет:</strong> <br />
+					Общество с&nbsp;ограниченной ответственностью &laquo;Молодость&raquo;
+					<br />
+					(ООО &laquo;Молодость&raquo;)
 				</Description>
 				<br />
 				<br />
@@ -26,62 +28,39 @@ export const LegalDocuments: FC = () => (
 					<br />
 					КПП 040001001
 					<br />
+					БИК 044525823
 				</Description>
 				<br />
 				<br />
 				<Description>
-					Юридический и фактический адрес: <br />
-					649115, Республика Алтай, Майминский район, с. Соузга, тер. Молодость, зд. 1
+					<strong>Юридический и&nbsp;фактический адрес:</strong> <br />
+					649115, Республика Алтай, Майминский район, с.&nbsp;Соузга, тер. Молодость, зд.&nbsp;1
 				</Description>
 				<br />
 				<br />
 				<Description>
-					Почтовый адрес: <br />
-					649100, Республика Алтай, Майминский район, с. Майма, ул. Ленина, 4 а/я 23
-				</Description>
-				<br />
-				<br />
-				<br />
-				<Description colorBrand>Альфа Банк</Description>
-				<br />
-				<Description>
-					р/с 40702810323620000248
+					р/с 40702810600000236505
 					<br />
-					к/с 30101810600000000774
-					<br />
-					БИК 045004774
+					к/с 30101810200000000823
 				</Description>
 				<br />
-				<Description>В&nbsp;Филиал &laquo;Новосибирский&raquo; АО&nbsp;&laquo;АЛЬФА-БАНК&raquo;</Description>
+				<Description>Банк ГПБ (АО)</Description>
 				<br />
-				<br />
-				<br />
-				{/* <Description colorBrand>ООО "Банк Точка"</Description>
 				<br />
 				<Description>
-					р/с 40702810620000154461
-					<br />
-					к/с 30101810745374525104
-					<br />
-					БИК 044525104
-				</Description>
-				<br />
-				<br /> */}
-				<Description>
-					Генеральный директор: <br />
+					<strong>Генеральный директор:</strong> <br />
 					Лампарадзе Роман Нугзарович
 				</Description>
 				<br />
 				<br />
-				<Description>Тел.:</Description>
+				<Description>Тел.:</Description>{' '}
 				<a href="tel:+79151479777">
 					<Description colorBrand inlineBlock>
 						+7 (915) 147 97 77
 					</Description>
 				</a>
-				<br />
-				<br />
-				<Description>Email:</Description>
+				<span style={{ display: 'inline-block', width: 40 }} />
+				<Description>Email:</Description>{' '}
 				<a href="mailto:rl@clubmolodost.ru">
 					<Description colorBrand inlineBlock>
 						rl@clubmolodost.ru

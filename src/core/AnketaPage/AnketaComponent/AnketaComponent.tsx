@@ -1,5 +1,6 @@
 import { BaseInput } from '@/shared/components/BaseInput';
 import { Label } from '@/shared/components/Label';
+import { PackageBlock, SiberiaNavButtons } from '@shared/components';
 import { indent } from '@/styles';
 import { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
 import { BaseDatepicker } from '@/shared/components/BaseDatepicker';
@@ -10,7 +11,6 @@ import { Checkbox } from '@/shared/components/BaseCheckbox/types';
 import { FormState, backendApi } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
-import { style } from '@vanilla-extract/css';
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
@@ -36,9 +36,9 @@ export function AnketaComponent() {
 	];
 
 	const checkboxesPriority: Checkbox[] = [
-		{ label: 'Быть за рулем самому (от 20 000 ₽)', value: '1', checked: false },
+		{ label: 'Быть за рулем самому (от 20 000 р)', value: '1', checked: false },
 		{
-			label: 'Ездить с водителем или следопытом (от 35 000 ₽)',
+			label: 'Ездить с водителем или следопытом (от 2 000 р/час)',
 			value: '2',
 			checked: false,
 		},
@@ -49,19 +49,27 @@ export function AnketaComponent() {
 		},
 	];
 
+	const checkboxesPackageSelect: Checkbox[] = [
+		{
+			label: 'Супер, я выбираю пакет',
+			value: '1',
+			checked: false,
+		},
+	];
+
 	const checkboxesHouses: Checkbox[] = [
 		{
-			label: 'Хорошая спальня 12 345 р / в день',
+			label: 'Хорошая спальня от 18 000 р/в день',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Замечательная спальня 16 000 ₽ / в день',
+			label: 'Замечательная спальня от 26 000 р/в день',
 			value: '2',
 			checked: false,
 		},
 		{
-			label: 'Свой дом от 35 000 ₽ / в день',
+			label: 'Свой дом от 45 000 р/в день',
 			value: '3',
 			checked: false,
 		},
@@ -69,31 +77,46 @@ export function AnketaComponent() {
 
 	const checkboxesHouses2: Checkbox[] = [
 		{
-			label: 'Семейный номер 35 000 ₽ / в день за 3 человека',
+			label: 'Семейный номер от 45 000 р/в день',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Большой дом на компанию или семью от 47 000 ₽ в день за 4 человек',
+			label: 'Потрясающая спальня от 31 000 р/в день',
 			value: '2',
+			checked: false,
+		},
+		{
+			label: 'Большой дом на компанию или семью от 60 000 р/в день',
+			value: '3',
 			checked: false,
 		},
 	];
 
 	const checkboxesAirport: Checkbox[] = [
 		{ label: 'Да', value: '1', checked: false },
-		{ label: 'Не надо', value: '2', checked: false },
+		{ label: 'Не знаю', value: '2', checked: false },
 	];
 
 	const checkboxesPlany: Checkbox[] = [
 		{
-			label: 'Вы хотите полететь на вертолете до Белухи (стоимость от 150 000 ₽ с человека)',
+			label: 'Вы хотите полететь на вертолете до Белухи (от 200 000 р/чел)',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Вы хотите путешествовать на катере по Телецкому озеру (стоимость от 25 000 ₽ с человека)',
+			label: 'Вы хотите путешествовать на катере по Телецкому озеру (от 50 000 р/чел)',
 			value: '2',
+			checked: false,
+		},
+		{
+			label: 'Покататься на лошадях (от 6 000 р)',
+			value: '3',
+			checked: false,
+		},
+		{
+			label: 'Покататься на квадроциклах (от 12 000 р)',
+			value: '4',
 			checked: false,
 		},
 	];
@@ -312,6 +335,7 @@ export function AnketaComponent() {
 	const [childrenAge3, setChildren3Age] = useState<string>('');
 	const [childrenAge4, setChildren4Age] = useState<string>('');
 	const [nanny, setNanny] = useState<Checkbox[]>(checkboxesNanny);
+	const [packageSelect, setPackageSelect] = useState<Checkbox[]>(checkboxesPackageSelect);
 	const [apartments, setApartments] = useState<Checkbox[]>(checkboxesHouses);
 	const [apartments2, setApartments2] = useState<Checkbox[]>(checkboxesHouses2);
 	const [howToFood, setFoodMethod] = useState<Checkbox[]>(checkboxesFood);
@@ -397,8 +421,9 @@ export function AnketaComponent() {
 			childrenAge3,
 			childrenAge4,
 			nanny: checkedTypes(checkboxesNanny),
-			apartments: checkedTypes(checkboxesHouses),
-			apartments2: checkedTypes(checkboxesHouses2),
+			packageSelect: checkedTypes(packageSelect),
+			apartments: checkedTypes(apartments),
+			apartments2: checkedTypes(apartments2),
 			howToFood: checkedTypes(checkboxesFood),
 			coffee: checkedTypes(checkboxesCoffee),
 			alko: checkedTypes(checkboxesAlko),
@@ -444,26 +469,27 @@ export function AnketaComponent() {
 		<>
 			{StateForm === FormState.Default && (
 				<>
-					<br />
-					<p className={styles.accentText} style={{ textTransform: 'none', fontWeight: 400 }}>
-						Заполните эту анкету и&nbsp;считайте, что ваше бронирование практически подтверждено.
-						<br />
-						<br />
-						Мы&nbsp;спрашиваем гораздо больше вещей, чем принято обычно, потому что мы&nbsp;занимаемся не&nbsp;только проживанием, но&nbsp;и&nbsp;всеми вашими поездками и&nbsp;другими развлечениями на&nbsp;Алтае.
-						<br />
-						<br />
-						И&nbsp;мы&nbsp;хотим убедиться, что вам у&nbsp;нас будет хорошо.
-					</p>
-					<br />
+					<div className={styles.introBlock} style={{ marginBottom: 24 }}>
+						<p className={styles.introBold}>
+							Заполните анкету и&nbsp;считайте, что ваше бронирование практически подтверждено.
+						</p>
+						<p className={styles.introRegular}>
+							Мы&nbsp;спрашиваем гораздо больше вещей, чем принято обычно, потому что мы&nbsp;занимаемся не&nbsp;только проживанием, но&nbsp;и&nbsp;всеми вашими поездками и&nbsp;другими развлечениями на&nbsp;Алтае.
+						</p>
+						<p className={styles.introRegular} style={{ marginBottom: 0 }}>
+							И&nbsp;мы&nbsp;хотим убедиться, что вам у&nbsp;нас будет хорошо.
+						</p>
+					</div>
 					<form onSubmit={onSubmit}>
 						<div>
 							<div className={indent.mt_4}>
 								<div className={styles.redBorder}>
-									<p className={styles.description} style={{ textTransform: 'none' }}>
-										Я&nbsp;ничего не&nbsp;хочу заполнять, просто напишите мне. <br />
-										<br /> Мы&nbsp;договоримся об&nbsp;удобном для меня времени и&nbsp;все обсудим.
+									<p className={styles.contactFormIntro}>
+										Я&nbsp;ничего не&nbsp;хочу заполнять, просто напишите мне.
 									</p>
-									<br />
+									<p className={styles.contactFormIntro} style={{ marginTop: 0 }}>
+										Мы&nbsp;договоримся об&nbsp;удобном для меня времени и&nbsp;все обсудим.
+									</p>
 									<div className={styles.formRow}>
 										<div className={styles.fromCol}>
 											<Label caption="Ваше имя">
@@ -471,20 +497,19 @@ export function AnketaComponent() {
 											</Label>
 										</div>
 										<div className={styles.fromCol}>
-											<Label caption="WhatsApp">
+											<Label caption="Ваш номер">
 												<BaseInput type="text" placeholder="+7 999 999 99 99" value={whatsapp} regExp={/[^+\s\d]/gi} required={false} onChange={(e: InputEvent) => setWhatsapp(e.target.value)} />
 											</Label>
 										</div>
-										{/* <p className={styles.noteBlack}>или</p> */}
 										<div className={styles.fromCol}>
 											<Label caption="Ваша почта">
-												<BaseInput type="email" placeholder="email@email.ru" value={email} required={true} onChange={(e: InputEvent) => setEmail(e.target.value)} />
+												<BaseInput type="email" placeholder="example@mail.ru" value={email} required={true} onChange={(e: InputEvent) => setEmail(e.target.value)} />
 											</Label>
 										</div>
 									</div>
-									<a className={cn(styles.ctaBtn, styles.linkButton)} href="#sendForm">
-										Свяжитесь со мной
-									</a>
+									<button type="submit" className={cn(styles.ctaBtn, styles.contactFormCta)}>
+										СВЯЖИТЕСЬ СО&nbsp;МНОЙ
+									</button>
 								</div>
 							</div>
 							<br />
@@ -493,7 +518,7 @@ export function AnketaComponent() {
 							<p className={styles.pageTitle}>Анкета</p>
 							<br />
 							<br />
-							<p className={styles.description}>Вы&nbsp;можете заполнять только те&nbsp;поля, которые кажутся вам важными для вас самих.</p>
+							<p className={styles.description}>Вы&nbsp;сможете заполнять только те&nbsp;поля, которые кажутся вам важными для вас самих.</p>
 							<br />
 							{/* kak zovut */}
 							<div className={indent.mt_4}>
@@ -516,14 +541,14 @@ export function AnketaComponent() {
 							<div className={indent.mt_4}>
 								<div className={styles.formRow}>
 									<div className={styles.fromCol}>
-										<Label caption="WhatsApp">
+										<Label caption="MAX / Telegram">
 											<BaseInput type="text" placeholder="+7 999 999 99 99" value={whatsapp} regExp={/[^+\s\d]/gi} required={false} onChange={(e: InputEvent) => setWhatsapp(e.target.value)} />
 										</Label>
 									</div>
 									<p className={styles.noteBlack}>или</p>
 									<div className={styles.fromCol}>
 										<Label caption="Ваша почта">
-											<BaseInput type="email" placeholder="email@email.ru" value={email} required={true} onChange={(e: InputEvent) => setEmail(e.target.value)} />
+											<BaseInput type="email" placeholder="example@mail.ru" value={email} required={true} onChange={(e: InputEvent) => setEmail(e.target.value)} />
 										</Label>
 									</div>
 								</div>
@@ -635,12 +660,21 @@ export function AnketaComponent() {
 								</div>
 							</div>
 						</div>
-						<h2 className={styles.separatorText}>Проживание и&nbsp;питание</h2>
-						<br />
-						<div>
-							{/* Varianty prozhivania */}
-							<div className={indent.mt_4}>
-								<Label caption="Варианты проживания на&nbsp;1&nbsp;&mdash; 3&nbsp;человека:" />
+					<h2 className={styles.sectionHeading}>Проживание и&nbsp;питание</h2>
+					<br />
+					<PackageBlock />
+					<div className={indent.mt_4}>
+						{packageSelect.map((item, i) => (
+							<div key={i}>
+								<BaseCheckbox name="packageSelect" item={item} required={false} onChange={() => onChangeCheckbox(item.value, packageSelect, (data) => setPackageSelect(data))} />
+							</div>
+						))}
+					</div>
+					<p className={styles.noteBlack}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
+					<div>
+						{/* Varianty prozhivania */}
+						<div className={indent.mt_4}>
+							<Label caption="Варианты проживания на&nbsp;1&nbsp;&mdash; 3&nbsp;человека:" />
 							</div>
 							{apartments.map((item, i) => (
 								<div key={i} className={indent.mt_2}>
@@ -648,7 +682,7 @@ export function AnketaComponent() {
 								</div>
 							))}
 							<br />
-							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне: 6&nbsp;000 &nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, 4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
+							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне: от&nbsp;7000&nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, от&nbsp;4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
 							<br />
 							<div className={indent.mt_4}>
 								<Label caption="Для больших семей и&nbsp;компаний есть много вариантов размещения:" />
@@ -663,7 +697,7 @@ export function AnketaComponent() {
 							<br />
 							{/* Eda */}
 							<div className={indent.mt_4}>
-								<Label caption="Мы&nbsp;кормим целый день завтраком, обедом и&nbsp;ужином взрослых за&nbsp;8&nbsp;000&nbsp;₽, детей с&nbsp;5&nbsp;до&nbsp;14&nbsp;лет за&nbsp;5&nbsp;6 00&nbsp;₽:" />
+								<Label caption="Мы&nbsp;кормим целый день завтраком, обедом и&nbsp;ужином взрослых за&nbsp;8&nbsp;000&nbsp;₽, детей с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет за&nbsp;5&nbsp;000&nbsp;₽:" />
 							</div>
 							{howToFood.map((item, i) => (
 								<div key={i} className={indent.mt_2}>
@@ -677,7 +711,7 @@ export function AnketaComponent() {
 							{/* Allergiya */}
 							<br />
 							<div className={indent.mt_4}>
-								<Label caption="Скажите нам, есть ли у вас аллергия или специальные пожелания по еде:">
+								<Label caption="Скажите нам, если у вас аллергия или специальные пожелания по еде:">
 									<BaseInput value={allergy} required={false} onChange={(e: InputEvent) => setAllergy(e.target.value)} />
 								</Label>
 							</div>
@@ -930,22 +964,25 @@ export function AnketaComponent() {
 						<div className={indent.mt_4}>
 							<BaseCheckbox name="personalAgreement" item={personalAgreement[0]} required={true} onChange={() => onChangeCheckbox(personalAgreement[0].value, personalAgreement, (data) => setPersonalAgreement(data))} />
 						</div>
-						<button onClick={() => onSubmit} className={cn(styles.ctaBtn, indent.mt_4)} id="sendForm">
+						<button type="submit" className={cn(styles.ctaBtn, indent.mt_4)} id="sendForm">
 							ОСТАВИТЬ ЗАЯВКУ
 						</button>
-						<div className={indent.mt_4}>
-							<small className={styles.noteBlack}>Мы&nbsp;свяжемся с&nbsp;вами в&nbsp;течение 24&nbsp;часов, чтобы мы&nbsp;смогли ответить на&nbsp;все оставшиеся вопросы ваши к&nbsp;нам и&nbsp;наши к&nbsp;вам.</small>
-						</div>
-					</form>
+					<div className={indent.mt_4}>
+						<small className={styles.noteBlack}>Мы&nbsp;свяжемся с&nbsp;вами в&nbsp;течение 24&nbsp;часов, чтобы мы&nbsp;смогли ответить на&nbsp;все оставшиеся вопросы ваши к&nbsp;нам и&nbsp;наши к&nbsp;вам.</small>
+					</div>
+					<SiberiaNavButtons />
+				</form>
 				</>
 			)}
 			{StateForm === FormState.Success && (
 				<>
 					<SectionHeading bold color="brand" size="S">
-						Спасибо!
+						СПАСИБО ЗА ОТВЕТЫ!!
 					</SectionHeading>
 					<div className={indent.mt_4}>
-						<Description>Мы приняли вашу заявку и свяжемся с вами в ближайшее время</Description>
+						<Description>
+							{name ? `${name}, ` : ''}мы свяжемся с вами в течение 24 часов, чтобы мы смогли ответить на все оставшиеся вопросы ваши к нам и наши к вам.
+						</Description>
 					</div>
 				</>
 			)}

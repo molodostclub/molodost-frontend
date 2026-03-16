@@ -1,10 +1,19 @@
 import { FC } from 'react';
+import Link from 'next/link';
+import cn from 'classnames';
 
 import { Description, PageHeading } from '@uikit';
+import { AccordionSection, PackageBlock } from '@shared/components';
 import * as styles from './PricesPage.css';
 import { formatPriceWithSign } from '@utils';
 import {
-	PROZHIVANIE_PRICES,
+	BLAGODAT_SAUNA,
+	COMFORT,
+	GROUP_HIKINGS,
+	PROZHIVANIE_HOUSES,
+	PROZHIVANIE_ROOMS,
+	WHAT_WE_DRINK,
+	WHAT_WE_EAT,
 	ADDITIONAL_PRICES,
 	TRAKTIR_MENU,
 	GASTRO_TRAKTIR_FESTIVAL,
@@ -13,7 +22,6 @@ import {
 	TRIKSTER_MENU,
 	HEAT_LAB,
 	TOUR_GROUPS,
-	TOUR_HIKINGS,
 	TOUR_INDIVIDUAL,
 	TOUR_PARTNERS,
 	AUTO_RENT,
@@ -31,33 +39,34 @@ import {
 	ZOZH_ZOM,
 } from './PricesPage.constants';
 
-const Prozhivanie: FC = () => {
-	return (
-		<div className={styles.priceTable}>
-			<div className={styles.priceRowFour}>
-				<div className={styles.tableHeaderCol}></div>
-				<div className={styles.tableHeaderCol}>
-					кол-во <br />
-					человек
-				</div>
-				<div className={styles.tableHeaderCol}>Стоимость в&nbsp;низкий сезон, руб/сутки</div>
-				<div className={styles.tableHeaderCol}>Стоимость в&nbsp;высокий сезон, руб/сутки</div>
-			</div>
+interface ProzhivanieGridProps {
+	items: import('./PricesPage.constants').AccommodationItem[];
+}
 
-			{PROZHIVANIE_PRICES.map((item, index) => (
-				<div className={styles.priceRowFour} key={index}>
-					<p className={styles.priceTitle}>{item.title}</p>
-					<p className={styles.twoCol}>{item.twoCol}</p>
-					<div>
-						<p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p>
-						{item.note && <p className={styles.priceNote}>{item.note}</p>}
-					</div>
-					<p className={styles.priceNum}>{formatPriceWithSign(item.priceHigh)}</p>
+const ProzhivanieGrid: FC<ProzhivanieGridProps> = ({ items }) => (
+	<div className={styles.accommodationGrid}>
+		{items.map((item, index) => (
+			<div className={styles.accommodationCard} key={index}>
+				<div className={styles.accommodationCardHeader}>
+					<h4 className={styles.accommodationCardTitle}>{item.title}</h4>
+					<span className={styles.accommodationCardPrice}>
+						ОТ&nbsp;{formatPriceWithSign(item.price)}
+					</span>
 				</div>
-			))}
-		</div>
-	);
-};
+				<div className={styles.accommodationCardMeta}>
+					{/* eslint-disable-next-line @next/next/no-img-element */}
+					<img src="/icons/user.svg" alt="" width={14} height={14} className={styles.accommodationCardIcon} />
+					<span>{item.capacity}</span>
+					<span>{item.area}</span>
+				</div>
+				{item.description && (
+					<p className={styles.accommodationCardDescription}>{item.description}</p>
+				)}
+			</div>
+		))}
+	</div>
+);
+
 interface ProzhivanieSideProps {
 	showExtraPerson?: boolean; // Флаг для отображения информации о дополнительном человеке
 }
@@ -241,6 +250,174 @@ export const TraktirMealsForNonGuests: FC = () => (
 		))}
 	</div>
 );
+const WhatWeEatBlock: FC = () => {
+	const { gastropub, guestsStaying, guestsNotStaying } = WHAT_WE_EAT;
+	return (
+		<>
+			<div className={styles.whatWeEatGastropubLayout}>
+				<div className={styles.whatWeEatMealTimes}>
+					<h3 className={styles.whatWeEatGastropubHeading}>{gastropub.name}</h3>
+					{gastropub.mealTimes.map((m, i) => (
+						<div className={styles.whatWeEatMealTimeRow} key={i}>
+							{m.name}: {m.time}
+						</div>
+					))}
+				</div>
+				<p className={styles.whatWeEatDescription}>{gastropub.description}</p>
+			</div>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					<h4 className={styles.whatWeEatColumnHeading}>{guestsStaying.title}</h4>
+					{guestsStaying.items.map((item, i) => (
+						<div className={styles.whatWeEatItem} key={i}>
+							<div className={styles.whatWeEatItemLeft}>
+								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+								{item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
+							</div>
+							<div className={styles.whatWeEatItemRight}>
+								{item.note && <span className={styles.whatWeEatItemNote}>{item.note}</span>}
+								{item.price !== undefined && <span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>}
+								{item.priceAdult !== undefined && (
+									<>
+										<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+										<br />
+										<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild!)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+									</>
+								)}
+							</div>
+						</div>
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					<h4 className={styles.whatWeEatColumnHeading}>{guestsNotStaying.title}</h4>
+					{guestsNotStaying.items.map((item, i) => (
+						<div className={styles.whatWeEatItem} key={i}>
+							<div className={styles.whatWeEatItemLeft}>
+								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+							</div>
+							<div className={styles.whatWeEatItemRight}>
+								<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+								<br />
+								<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</>
+	);
+};
+
+const DrinkPriceRow: FC<{
+	item: { title?: string; price?: number; priceText?: string; pricePrefix?: string; description?: string; unit?: string };
+}> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			{item.title && <span className={styles.whatWeEatItemTitle}>{item.title}</span>}
+			{item.description && <span className={item.title ? styles.whatWeEatItemDescription : styles.whatWeEatItemTitle}>{item.description}</span>}
+		</div>
+		<div className={styles.whatWeEatItemRight}>
+			<span className={styles.whatWeEatItemPrice}>
+				{item.priceText ?? (item.price != null ? `${item.pricePrefix ?? ''}${formatPriceWithSign(item.price)}` : '')}
+			</span>
+			{item.unit && <span className={styles.whatWeEatItemDescriptor}> {item.unit}</span>}
+		</div>
+	</div>
+);
+
+const WhatWeDrinkBlock: FC = () => {
+	const { coffeeShop, bar, corkage } = WHAT_WE_DRINK;
+	return (
+		<>
+			<h3 className={styles.subsectionHeading}>{coffeeShop.name}</h3>
+			<div className={styles.whatWeEatDivider} />
+			<p className={styles.additionalPersonNote}>{coffeeShop.description}</p>
+			<div className={styles.whatWeEatDivider} />
+			<h4 className={styles.whatWeDrinkAccentSubheading}>{coffeeShop.subheading}</h4>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{coffeeShop.leftColumn.map((item, i) => (
+						<DrinkPriceRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{coffeeShop.rightColumn.map((item, i) => (
+						<DrinkPriceRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeading}>{bar.name}</h3>
+			<p className={styles.whatWeDrinkBarDescription}>{bar.description}</p>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{bar.items.map((item, i) => (
+						<DrinkPriceRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn} />
+			</div>
+			<div className={styles.whatWeEatDivider} />
+			<p className={styles.additionalPersonNote}>{corkage}</p>
+		</>
+	);
+};
+
+const ComfortBlock: FC = () => (
+	<div className={styles.whatWeEatColumns}>
+		<div className={styles.whatWeEatColumn}>
+			{COMFORT.items.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+		<div className={styles.whatWeEatColumn} />
+	</div>
+);
+
+const ZozhZomBlock: FC = () => (
+	<div className={styles.whatWeEatColumns}>
+		<div className={styles.whatWeEatColumn}>
+			{ZOZH_ZOM.leftColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+		<div className={styles.whatWeEatColumn}>
+			{ZOZH_ZOM.rightColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+	</div>
+);
+
+const GroupHikingsBlock: FC = () => (
+	<div className={styles.whatWeEatColumns}>
+		<div className={styles.whatWeEatColumn}>
+			{GROUP_HIKINGS.leftColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+		<div className={styles.whatWeEatColumn}>
+			{GROUP_HIKINGS.rightColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+	</div>
+);
+
+const BlagodatSaunaBlock: FC = () => (
+	<div className={styles.whatWeEatColumns}>
+		<div className={styles.whatWeEatColumn}>
+			{BLAGODAT_SAUNA.leftColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+		<div className={styles.whatWeEatColumn}>
+			{BLAGODAT_SAUNA.rightColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+	</div>
+);
+
 const TraktirSide: FC = () => (
 	<div>
 		<p className={styles.sideTitle}>Режим работы</p>
@@ -576,37 +753,6 @@ const TourBureau: FC = () => {
 								</p>
 							</div>
 						)}
-					</div>
-				))}
-			</div>
-
-			{/* ГРУППОВЫЕ ХАЙКИНГИ */}
-			<div>
-				<br />
-				<br />
-				<br />
-				<p className={styles.groupTitle}>ГРУППОВЫЕ ХАЙКИНГИ</p>
-				<br />
-			</div>
-			<div className={styles.priceTable}>
-				<div className={styles.priceRow}>
-					<div className={styles.tableHeaderCol}>услуга</div>
-					<div className={styles.tableHeaderCol}>про&shy;дол&shy;жи&shy;тель&shy;ность</div>
-					<div className={styles.tableHeaderCol}>цена, руб</div>
-				</div>
-
-				{TOUR_HIKINGS.map((item, index) => (
-					<div className={styles.priceRow} key={index}>
-						{item.subtitle ? (
-							<p className={styles.priceTitle}>
-								{item.title} <br />
-								<span className={styles.priceSubtitle}>{item.subtitle}</span>
-							</p>
-						) : (
-							<p className={styles.priceTitle}>{item.title}</p>
-						)}
-						<p className={styles.twoCol}>{item.twoCol}</p>
-						{item.price ? <p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p> : <p className={styles.priceNum}>{item.priceText}</p>}
 					</div>
 				))}
 			</div>
@@ -1001,155 +1147,92 @@ const ToMars: FC = () => (
 	</>
 );
 
-export const ZozhZom: FC = () => (
-	<div className={styles.priceTable}>
-		{/* Заголовок таблицы */}
-		<div className={styles.priceRowWide}>
-			<div className={styles.tableHeaderColWide}>услуга</div>
-			<div className={styles.tableHeaderColWide}>дли&shy;тель&shy;ность</div>
-			<div className={styles.tableHeaderColWide}>кол-во, чел.</div>
-			<div className={styles.tableHeaderColWide}>цена, руб</div>
-		</div>
-
-		{/* Данные из HEAT_LAB */}
-		{ZOZH_ZOM.map((item, itemIndex) => (
-			<div key={itemIndex} className={styles.priceRowWide}>
-				<div>
-					<p className={styles.priceTitle}>{item.title}</p>
-					{!!item.subtitle && (
-						<>
-							<p className={styles.priceSubtitle}>{item.subtitle}</p>
-							<p className={styles.priceListTitle}>{item.listTitle}</p>
-							{!!item.list && (
-								<ul className={styles.priceList}>
-									{item.list.map((listItem, listIndex) => (
-										<li key={listIndex}>{listItem}</li>
-									))}
-								</ul>
-							)}
-						</>
-					)}
-				</div>
-				<p className={styles.priceNumList}>{item.duration}</p>
-				<p className={styles.priceNumList}>{item.clients}</p>
-				<p className={styles.priceNumList}>
-					{formatPriceWithSign(item.price)}
-					{!!item.note && (
-						<>
-							<br />
-							<span className={styles.priceNote}>{item.note}</span>
-						</>
-					)}
-				</p>
-			</div>
-		))}
-	</div>
-);
+export const ZozhZom: FC = () => <ZozhZomBlock />;
 
 export const PricesPage: FC = () => {
 	return (
 		<main className={styles.content} id="vsibirzasvoyschet">
-			<PageHeading>ТАРИФ НА&nbsp;ПРОЖИВАНИЕ И&nbsp;УСЛУГИ НА&nbsp;БАЗЕ И&nbsp;В&nbsp;РАМКАХ ЭКОСИСТЕМЫ МОЛОДОСТЬ НА&nbsp;АЛТАЕ</PageHeading>
+			<PageHeading>В&nbsp;СИБИРЬ ЗА&nbsp;СВОЙ СЧЁТ&nbsp;&mdash; АЛТАЙ</PageHeading>
 			<br />
-			{/* <Description>
-				<br />
-				<br />
-				Если по&nbsp;итогу отдыха вы&nbsp;захотите оставить чаевые, мы&nbsp;с&nbsp;благодарностью включим их&nbsp;в&nbsp;счет в&nbsp;размере 5-10%.
-			</Description> */}
-			<h2 className={styles.subtitle}>
-				ПРОЖИВАНИЕ
-				<br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
-			</h2>
-			<div className={styles.grid}>
-				<Prozhivanie />
-				<ProzhivanieSide showExtraPerson={true} />
-			</div>
-			<h2 className={styles.subtitle}>
-				ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
-				<br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
-			</h2>
-			<div className={styles.grid}>
-				<AdditionalServices />
-				<AdditionalServicesSide />
-			</div>
-			<h2 className={styles.subtitle}>Питание для&nbsp;гостей проживающих на&nbsp;базе</h2>
-			<br />
-			<br />
-			<div className={styles.grid}>
-				<TraktirMeals />
-				<TraktirSide />
-			</div>
-			<br />
-			<br />
-			<h2 className={styles.subtitle}>Питание для гостей не&nbsp;проживающих на&nbsp;базе</h2>
-			<div className={styles.grid}>
-				<TraktirMealsForNonGuests />
-			</div>
+			<AccordionSection title="ПРОЖИВАНИЕ">
+				<PackageBlock />
+				<p className={styles.separatorNote}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
+				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В&nbsp;НОМЕРАХ</h3>
+				<ProzhivanieGrid items={PROZHIVANIE_ROOMS} />
+				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В&nbsp;ОТДЕЛЬНО СТОЯЩИХ ДОМАХ</h3>
+				<ProzhivanieGrid items={PROZHIVANIE_HOUSES} />
+				<p className={styles.additionalPersonNote}>
+					Каждый дополнительный человек в&nbsp;спальне и&nbsp;доме: от&nbsp;+7&nbsp;000&nbsp;₽ взрослый; от&nbsp;+4&nbsp;000&nbsp;₽ ребёнок от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети до&nbsp;5&nbsp;лет&nbsp;&mdash; комплиментарно.
+				</p>
+			</AccordionSection>
+			<AccordionSection title={WHAT_WE_EAT.title}>
+				<WhatWeEatBlock />
+			</AccordionSection>
+			<AccordionSection title={WHAT_WE_DRINK.title}>
+				<WhatWeDrinkBlock />
+			</AccordionSection>
+			<AccordionSection title={COMFORT.title}>
+				<ComfortBlock />
+			</AccordionSection>
+			<AccordionSection title={BLAGODAT_SAUNA.title}>
+				<BlagodatSaunaBlock />
+			</AccordionSection>
+			<AccordionSection title="ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;">
+				<div className={styles.grid}>
+					<AdditionalServices />
+					<AdditionalServicesSide />
+				</div>
+			</AccordionSection>
 			<div className={styles.separator}></div>
-			<h2 className={styles.subtitle}>
-				&laquo;СЧАСТЛИВЫЙ ДРАКОН&raquo;
+			<AccordionSection title="&laquo;СЧАСТЛИВЫЙ ДРАКОН&raquo; Бар-Буфет">
+				<div className={styles.grid}>
+					<BarMenu />
+					<BarSide />
+				</div>
+			</AccordionSection>
+			<AccordionSection title="&laquo;ТРИКСТЕР&raquo; Кафе и&nbsp;лавка">
+				<div className={styles.grid}>
+					<TriksterMenu />
+				</div>
+			</AccordionSection>
+			<AccordionSection title="Лаборатория тепла &laquo;БлагодатЪ&raquo;">
 				<br />
-				Бар-Буфет
-			</h2>
-			<div className={styles.grid}>
-				<BarMenu />
-				<BarSide />
-			</div>
-			<h2 className={styles.subtitle}>
-				&laquo;ТРИКСТЕР&raquo;
-				<br />
-				Кафе и&nbsp;лавка
-			</h2>
-			<div className={styles.grid}>
-				<TriksterMenu />
-			</div>
-			<h2 className={styles.subtitle}>
-				Лаборатория тепла
-				<br />
-				&laquo;БлагодатЪ&raquo;
-			</h2>
-			<br />
-			<HeatLabSibir />
-			<h2 className={styles.subtitle}>ЗОЖ и ЗОМ</h2>
-			<br />
-			<ZozhZom />
+				<HeatLabSibir />
+			</AccordionSection>
+			<AccordionSection title={ZOZH_ZOM.title}>
+				<ZozhZomBlock />
+			</AccordionSection>
 			<div className={styles.separator}></div>
-			<h2 className={styles.subtitle}>
-				ТУРБЮРО
+			<AccordionSection title={GROUP_HIKINGS.title}>
+				<GroupHikingsBlock />
+			</AccordionSection>
+			<AccordionSection title="ТУРБЮРО &laquo;АЛТАЙСКИЙ ТРАКТАТ&raquo;">
 				<br />
-				&laquo;АЛТАЙСКИЙ ТРАКТАТ&raquo;
-			</h2>
-			<br />
-			<TourBureau />
+				<TourBureau />
+			</AccordionSection>
 			<div className={styles.separator}></div>
-			<h2 className={styles.subtitle}>
-				АВТОПРОКАТ
-				<br />
-				&laquo;БЫВАЛЫЙ РЕЙНДЖЕР&raquo;
-			</h2>
-			<AutoRent />
-			<h2 className={styles.subtitle}>&nbsp;</h2>
-			<Transfer />
+			<AccordionSection title="АВТОПРОКАТ &laquo;БЫВАЛЫЙ РЕЙНДЖЕР&raquo;">
+				<AutoRent />
+			</AccordionSection>
+			<AccordionSection title="ТРАНСФЕР"><Transfer /></AccordionSection>
 			<div className={styles.separator}></div>
-			{/* <h2 className={styles.subtitle}>
-				КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ <br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
-			</h2>
-			<Corporative /> */}
-			<h2 className={styles.subtitle}>
-				КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ <br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo; <br />
-				ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ
-			</h2>
-			<CorporativeNonGuests />
+			<AccordionSection title="КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo; ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ">
+				<CorporativeNonGuests />
+			</AccordionSection>
 			{/* <h2 className={styles.subtitle}>
 				ПРОЖИВАНИЕ <br />
 				ПРИЮТ &laquo;НА МАРСЕ&raquo;
 			</h2>
 			<ToMars />
 			 */}
+			<div className={styles.navButtonsBottom}>
+				<Link href="/v-sibir-za-svoy-schet" className={cn(styles.navButton, styles.navButtonActive)} prefetch={false}>
+					В&nbsp;Сибирь за&nbsp;свой счёт Алтай
+				</Link>
+				<Link href="/v-sibir-za-svoy-schet-baikal" className={styles.navButton} prefetch={false}>
+					В&nbsp;Сибирь за&nbsp;свой счёт Байкал
+				</Link>
+			</div>
 		</main>
 	);
 };

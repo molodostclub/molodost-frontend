@@ -21,7 +21,7 @@ export const marginTop = style([
 export const titleWrapper = style([
 	pageContent,
 	tablet({
-		maxWidth: 825,
+		maxWidth: 746,
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	}),

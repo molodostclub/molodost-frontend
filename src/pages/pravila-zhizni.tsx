@@ -1,5 +1,5 @@
 import { PravilaZhizni } from '@/core/PravilaZhizni';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function PravilaKolivinga() {
   return (
@@ -7,6 +7,7 @@ export default function PravilaKolivinga() {
       <PageMeta title="Правила жизни" />
       <InnerPageHeader />
       <PageCover src="/images/pravila-zhizni/pravila_main.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Правила жизни' }]} />
       <PravilaZhizni />
       <Footer />
     </>

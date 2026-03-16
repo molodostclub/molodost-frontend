@@ -9,3 +9,8 @@ export { Entertainment } from './Entertainment';
 export { OurEcosystem } from './OurEcosystem';
 export { Postscriptum } from './Postscriptum';
 export { Motto } from './Motto';
+export { TurkClubIntro } from './TurkClubIntro';
+export { HowToGetHome } from './HowToGetHome';
+export { BookingTickets } from './BookingTickets';
+export { LoveQuote } from './LoveQuote';
+export { ClosingGallery } from './ClosingGallery';

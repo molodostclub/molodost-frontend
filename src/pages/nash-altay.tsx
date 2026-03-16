@@ -1,5 +1,5 @@
 import { OurAltay } from '@core/OurAltay';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@/shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@/shared/components';
 
 export default function NashAltay() {
   return (
@@ -7,6 +7,7 @@ export default function NashAltay() {
       <PageMeta title="Наш алтай" />
       <InnerPageHeader />
       <PageCover src="/images/our-altay-cover.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Наш Алтай' }]} />
       <OurAltay />
       <Footer />
     </>

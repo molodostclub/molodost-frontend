@@ -9,10 +9,12 @@ globalStyle('.x-tl-booking-widget-container', {
 
 globalStyle('html', {
   scrollBehavior: "smooth",
+  overflowX: "hidden",
 })
 
 globalStyle('body', {
   backgroundColor: vars.color.mainBackground,
+  overflowX: "hidden",
 });
 
 globalFontFace(fonts.ApercuProRegular, {

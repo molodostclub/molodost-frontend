@@ -1,0 +1,1 @@
+export { ClosingGallery } from './ClosingGallery';

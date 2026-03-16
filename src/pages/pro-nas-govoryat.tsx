@@ -1,5 +1,5 @@
 import { TalkAboutUs } from '@/core/TalkAboutUs';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function ChtoMyEdim() {
   return (
@@ -7,6 +7,7 @@ export default function ChtoMyEdim() {
       <PageMeta title="Про нас говорят" />
       <InnerPageHeader />
       <PageCover src="/images/pro-nas-govoryat-cover.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Про нас говорят' }]} />
       <TalkAboutUs />
       <Footer />
     </>

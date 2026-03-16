@@ -5,7 +5,7 @@ import { pageContent, tablet, uikit, vars } from '@styles';
 export const content = style([
 	pageContent,
 	tablet({
-		maxWidth: 825,
+		maxWidth: 830,
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	}),
@@ -26,14 +26,287 @@ export const grid = style([
 ]);
 
 export const subtitle = style([
-	uikit.pageSubtitle,
 	{
-		
+		fontFamily: vars.font.CeraCondensedCYBold,
+		fontSize: 14,
+		lineHeight: 1.2,
+		textTransform: 'uppercase',
+		backgroundColor: vars.color.brand,
+		color: vars.color.white,
+		borderRadius: '40px',
+		padding: '8px 24px',
+		display: 'inline-block',
 		marginBottom: 0,
-		marginTop: 70,
-		fontSize: 26,
+		marginTop: 40,
 	},
+	tablet({
+		fontSize: 16,
+	}),
 ]);
+
+export const separatorNote = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 20,
+	lineHeight: 1.4,
+	color: vars.color.brand,
+	textTransform: 'uppercase',
+	textAlign: 'center',
+	marginTop: 24,
+	marginBottom: 24,
+});
+
+export const subsectionHeading = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 27,
+	lineHeight: 1.2,
+	color: vars.color.black,
+	textTransform: 'uppercase',
+	marginTop: 32,
+	marginBottom: 20,
+});
+
+export const whatWeEatGastropubHeading = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 27,
+	lineHeight: 1.2,
+	color: vars.color.black,
+	textTransform: 'uppercase',
+	marginTop: 0,
+	marginBottom: 20,
+});
+
+export const whatWeEatColumnHeading = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 20,
+	lineHeight: 1,
+	color: vars.color.black,
+	textTransform: 'uppercase',
+	marginTop: 0,
+	marginBottom: 16,
+});
+
+export const whatWeEatGastropubLayout = style([
+	{
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		gap: 20,
+		marginTop: 16,
+	},
+	tablet({
+		gridTemplateColumns: '1fr 1fr',
+		gap: 40,
+		alignItems: 'flex-start',
+	}),
+]);
+
+export const whatWeEatMealTimes = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 0,
+	minWidth: 0,
+});
+
+export const whatWeEatMealTimeRow = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 14,
+	lineHeight: 20 / 14,
+	letterSpacing: 0,
+	textTransform: 'uppercase',
+});
+
+export const whatWeEatDescription = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 18,
+	lineHeight: 1,
+	letterSpacing: 0,
+	color: vars.color.black,
+	minWidth: 0,
+});
+
+export const whatWeEatColumns = style([
+	{
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		gap: 40,
+		marginTop: 32,
+	},
+	tablet({
+		gridTemplateColumns: '1fr 1fr',
+		gap: 60,
+	}),
+]);
+
+export const whatWeEatColumn = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 16,
+});
+
+export const whatWeEatItem = style({
+	display: 'flex',
+	flexDirection: 'row',
+	justifyContent: 'space-between',
+	alignItems: 'flex-start',
+	gap: 16,
+});
+
+export const whatWeEatItemLeft = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 4,
+	width: 172,
+	flexShrink: 0,
+	textAlign: 'left',
+});
+
+export const whatWeEatItemRight = style({
+	width: 132,
+	flexShrink: 0,
+	textAlign: 'left',
+});
+
+export const whatWeEatItemTitle = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	lineHeight: 1.3,
+	textTransform: 'uppercase',
+	color: vars.color.black,
+});
+
+export const whatWeEatItemPrice = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	color: vars.color.brand,
+});
+
+export const whatWeEatItemDescriptor = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 16,
+	color: vars.color.gray,
+});
+
+export const whatWeEatItemNote = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 16,
+	color: vars.color.brand,
+});
+
+export const whatWeEatItemDescription = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 14,
+	lineHeight: 1.4,
+	color: vars.color.gray,
+});
+
+export const additionalPersonNote = style({
+	fontFamily: vars.font.ApercuProBold,
+	fontSize: 20,
+	lineHeight: 1.2,
+	color: vars.color.brand,
+	marginTop: 24,
+	paddingTop: 20,
+	paddingBottom: 20,
+	borderTop: `2px solid ${vars.color.brand}`,
+	borderBottom: `2px solid ${vars.color.brand}`,
+});
+
+export const whatWeDrinkDivider = style({
+	height: 0,
+	borderTop: `1px solid ${vars.color.brand}`,
+	marginTop: 20,
+	marginBottom: 20,
+});
+
+export const whatWeDrinkBarDescription = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 20,
+	lineHeight: 1.2,
+	color: vars.color.black,
+	marginBottom: 28,
+});
+
+export const whatWeDrinkAccentSubheading = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontWeight: 'bold',
+	fontSize: 27,
+	lineHeight: 1,
+	textTransform: 'uppercase',
+	color: vars.color.brand,
+	marginTop: 54,
+	marginBottom: 16,
+});
+
+export const accommodationGrid = style([
+	{
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		gap: 24,
+		marginTop: 20,
+	},
+	tablet({
+		gridTemplateColumns: '1fr 1fr',
+		gap: 32,
+	}),
+]);
+
+export const accommodationCard = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 8,
+});
+
+export const accommodationCardHeader = style({
+	display: 'flex',
+	justifyContent: 'space-between',
+	alignItems: 'flex-start',
+	gap: 12,
+});
+
+export const accommodationCardTitle = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	lineHeight: 1.3,
+	color: vars.color.black,
+	textTransform: 'uppercase',
+	margin: 0,
+});
+
+export const accommodationCardPrice = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	lineHeight: 1.3,
+	color: vars.color.brand,
+	textTransform: 'uppercase',
+	flexShrink: 0,
+});
+
+export const accommodationCardMeta = style({
+	display: 'flex',
+	alignItems: 'center',
+	gap: 6,
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 14,
+	lineHeight: 1.4,
+	color: vars.color.gray,
+});
+
+export const accommodationCardDescription = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 14,
+	lineHeight: 1.4,
+	color: vars.color.gray,
+	margin: 0,
+});
+
+export const accommodationCardIcon = style({
+	flexShrink: 0,
+	objectFit: 'contain',
+});
 
 const textContentBase = style([
 	tablet({
@@ -352,3 +625,47 @@ export const separator = style({
 	backgroundColor: vars.color.brand,
 	margin: '50px 0',
 });
+
+export const navButtonsBottom = style([
+	{
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '12px',
+		marginTop: 60,
+		marginBottom: 40,
+	},
+	tablet({
+		flexDirection: 'row',
+		gap: '16px',
+	}),
+]);
+
+export const navButton = style([
+	{
+		display: 'inline-block',
+		padding: '14px 28px',
+		borderRadius: '40px',
+		border: `2px solid ${vars.color.brand}`,
+		backgroundColor: 'transparent',
+		fontFamily: vars.font.CeraCondensedCYMedium,
+		fontSize: 14,
+		color: vars.color.brand,
+		textDecoration: 'none',
+		textTransform: 'uppercase',
+		textAlign: 'center',
+		':hover': {
+			backgroundColor: vars.color.brand,
+			color: vars.color.white,
+		},
+	},
+	tablet({
+		fontSize: 16,
+	}),
+]);
+
+export const navButtonActive = style([
+	{
+		backgroundColor: vars.color.brand,
+		color: vars.color.white,
+	},
+]);

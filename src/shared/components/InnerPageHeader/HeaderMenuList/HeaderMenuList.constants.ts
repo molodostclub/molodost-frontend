@@ -13,12 +13,12 @@ export const HEADER_MENU_LIST: HeaderMenuList[] = [
   },
   {
     id: 2,
-    label: 'МАРС',
-    href: '/mars',
+    label: 'БАЙКАЛ',
+    href: '/baikal',
   },
   {
     id: 3,
-    label: 'БАЙКАЛ',
-    href: '/baikal',
+    label: 'КУРИЛЫ',
+    href: '/kurily',
   },
 ];

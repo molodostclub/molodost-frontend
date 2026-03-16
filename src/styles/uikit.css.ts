@@ -22,7 +22,7 @@ export const pageContainer = style([
   },
   tablet({
     width: '100%',
-    maxWidth: 'calc(825px + 60px)',
+    maxWidth: 'calc(746px + 60px)',
   }),
 ]);
 

@@ -22,8 +22,8 @@ export const headingSize = styleVariants({
       lineHeight: '30px',
     },
     tablet({
-      fontSize: 40,
-      lineHeight: '40px',
+      fontSize: 50,
+      lineHeight: '45px',
     })
   ],
   // (M)edium

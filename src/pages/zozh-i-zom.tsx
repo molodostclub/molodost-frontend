@@ -1,5 +1,5 @@
 import { HealthLifestyle } from '@core/HealthLifestyle';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function ZoshIZom() {
   return (
@@ -7,6 +7,7 @@ export default function ZoshIZom() {
       <PageMeta title="ЗОЖ и ЗОМ" />
       <InnerPageHeader />
       <PageCover src="/images/zozh-i-zom-cover.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'ЗОЖ и ЗОМ' }]} />
       <HealthLifestyle />
       <Footer />
     </>

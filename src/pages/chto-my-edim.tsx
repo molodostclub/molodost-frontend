@@ -1,6 +1,6 @@
 import { PageCoverWithVideo } from '@/shared/components/PageCoverWithVideo';
 import { WhatWeEat } from '@core/WhatWeEat';
-import { Footer, InnerPageHeader, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageMeta } from '@shared/components';
 import Head from 'next/head';
 
 export default function ChtoMyEdim() {
@@ -12,6 +12,7 @@ export default function ChtoMyEdim() {
         src="/video/0904_VSCO.mp4"
         poster="/images/chto-my-edim-cover.jpg"
       />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Что мы едим и пьём' }]} />
       <WhatWeEat />
       <Footer />
     </>

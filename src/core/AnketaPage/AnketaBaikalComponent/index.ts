@@ -1,0 +1,1 @@
+export { AnketaBaikalComponent } from './AnketaBaikalComponent';

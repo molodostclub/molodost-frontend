@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Katalka } from '@/core/Katalka';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function AdultsPage() {
   return (
@@ -8,6 +8,7 @@ export default function AdultsPage() {
       <PageMeta title="Каталка" />
       <InnerPageHeader /> 
       <PageCover src="/images/katalka/main_2026.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Каталка' }]} />
       <Katalka />
       <Footer />
     </>

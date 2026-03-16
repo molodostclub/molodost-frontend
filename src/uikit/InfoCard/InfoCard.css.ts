@@ -5,7 +5,7 @@ import { tablet, vars } from '@styles';
 export const container = style({
   position: 'relative',
   width: '100%',
-  maxWidth: 825,
+  maxWidth: 746,
   height: 482,
   borderRadius: 15,
   display: 'flex',

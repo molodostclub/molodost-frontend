@@ -9,11 +9,13 @@ import { CardsCarousel } from '@/shared/components';
 
 type Props = {
 	trips: TripModel[];
+	listClassName?: string;
+	carouselClassName?: string;
 };
 
-export const TripsItems: FC<Props> = ({ trips }) => {
+export const TripsItems: FC<Props> = ({ trips, listClassName, carouselClassName }) => {
 	return (
-		<CardsCarousel itemsCount={trips.length}>
+		<CardsCarousel itemsCount={trips.length} listClassName={listClassName} carouselClassName={carouselClassName}>
 			{trips.map(({ id, attributes }) => {
 				const { pictures, title, slug, isAllDay, durationText, priceAdult, subtitle } = attributes;
 

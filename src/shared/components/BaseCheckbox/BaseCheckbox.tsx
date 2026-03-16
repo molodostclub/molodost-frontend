@@ -29,6 +29,7 @@ export const BaseCheckbox: FC<Props> = (
           required={required}
           onChange={onChange}
         />
+        <span className={styles.checkboxIcon} aria-hidden />
         <span className={styles.checkboxText}>{item.label}{' '}{item.linkText}</span>
       </label>
     </>

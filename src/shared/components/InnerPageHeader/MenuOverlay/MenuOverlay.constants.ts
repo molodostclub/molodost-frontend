@@ -40,13 +40,16 @@ export const APP_ROUTES: MenuItem[] = [
 		],
 	},
 	{
-		label: '«МОЛОДОСТЬ» НА байкале',
+		label: '«МОЛОДОСТЬ» НА БАЙКАЛЕ',
 		subItems: [
 			{ label: '– Наш пляжный курорт', href: '/baikal' },
 			{ label: '– Где мы живем', href: '/baikal#roomsOnBaikal' },
 		],
 	},
-
+	{
+		label: '«МОЛОДОСТЬ» НА КУРИЛАХ',
+		href: '/kurily',
+	},
 	{
 		label: 'Контакты',
 		href: '/nashi-kontakty',

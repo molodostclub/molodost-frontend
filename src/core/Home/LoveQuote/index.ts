@@ -1,0 +1,1 @@
+export { LoveQuote } from './LoveQuote';

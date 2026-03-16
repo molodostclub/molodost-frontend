@@ -39,6 +39,7 @@ deploy/
 
 .env
 /analyze
+.cursor/
 *.conf
 *.sh
 *.md

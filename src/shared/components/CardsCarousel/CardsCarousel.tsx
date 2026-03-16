@@ -1,5 +1,6 @@
 import { Icon } from '@/uikit/icons';
 import { FC, PropsWithChildren, useCallback } from 'react';
+import cn from 'classnames';
 
 import * as styles from './CardsCarousel.css';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -12,7 +13,9 @@ const Arrow: FC<{ dir: 'left' | 'right'; onClick(): void }> = ({ dir, onClick })
   );
 };
 
-export const CardsCarousel: FC<PropsWithChildren<{ itemsCount: number }>> = ({ children, itemsCount }) => {
+export const CardsCarousel: FC<
+	PropsWithChildren<{ itemsCount: number; listClassName?: string; carouselClassName?: string }>
+> = ({ children, itemsCount, listClassName, carouselClassName }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     dragFree: false,
@@ -30,9 +33,9 @@ export const CardsCarousel: FC<PropsWithChildren<{ itemsCount: number }>> = ({ c
   }, [emblaApi]);
 
   return (
-    <div className={styles.carousel}>
+    <div className={cn(styles.carousel, carouselClassName)}>
       {itemsCount > 3 && <Arrow dir="left" onClick={scrollPrev} />}
-      <div ref={emblaRef} className={styles.list}>
+      <div ref={emblaRef} className={cn(styles.list, listClassName)}>
         <div className={styles.listContainer}>
           {children}
         </div>
