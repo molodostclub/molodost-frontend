@@ -313,7 +313,7 @@ const WhatWeEatBlock: FC = () => {
 	);
 };
 
-const DrinkPriceRow: FC<{
+export const DrinkPriceRow: FC<{
 	item: { title?: string; price?: number; priceText?: string; pricePrefix?: string; description?: string; unit?: string };
 }> = ({ item }) => (
 	<div className={styles.whatWeEatItem}>
@@ -429,7 +429,7 @@ const PoezdkiPartnerTableRow: FC<{ item: PoezdkiPartnerItem }> = ({ item }) => (
 	</div>
 );
 
-const PoezdkiCarRow: FC<{ item: PoezdkiCarItem }> = ({ item }) => (
+export const PoezdkiCarRow: FC<{ item: PoezdkiCarItem }> = ({ item }) => (
 	<div className={styles.whatWeEatItem}>
 		<div className={styles.whatWeEatItemLeft}>
 			<span className={styles.whatWeEatItemTitle}>{item.title}</span>
@@ -455,7 +455,7 @@ const PoezdkiCarRow: FC<{ item: PoezdkiCarItem }> = ({ item }) => (
 	</div>
 );
 
-const PoezdkiGuideRow: FC<{ item: PoezdkiGuideItem }> = ({ item }) => (
+export const PoezdkiGuideRow: FC<{ item: PoezdkiGuideItem }> = ({ item }) => (
 	<div className={styles.whatWeEatItem}>
 		<div className={styles.whatWeEatItemLeft}>
 			<span className={styles.whatWeEatItemTitle}>{item.title}</span>

@@ -190,6 +190,12 @@ export const whatWeEatItemTitle = style({
 	color: vars.color.black,
 });
 
+/** Заголовок позиции красным (для блока «Поездки» Байкал и др.) */
+export const whatWeEatItemTitleBrand = style([
+	whatWeEatItemTitle,
+	{ color: vars.color.brand },
+]);
+
 export const whatWeEatItemPrice = style({
 	fontFamily: vars.font.CeraCondensedCYBold,
 	fontSize: 18,
