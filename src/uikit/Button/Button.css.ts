@@ -1,4 +1,4 @@
-import { vars } from '@styles';
+import { tablet, vars } from '@styles';
 
 import { style, styleVariants } from '@vanilla-extract/css';
 
@@ -137,12 +137,18 @@ export const twbSize = styleVariants({
     fontSize: 25,
     lineHeight: '25px',
   },
-  accordion: {
-    fontSize: 32,
-    lineHeight: 1.2,
-    padding: '10px 18px',
-    whiteSpace: 'nowrap',
-  },
+  accordion: [
+    {
+      fontSize: 32,
+      lineHeight: 1.2,
+      padding: '12px 18px',
+      whiteSpace: 'normal',
+      textAlign: 'center',
+    },
+    tablet({
+      whiteSpace: 'nowrap',
+    }),
+  ],
 });
 
 export const twbLogo = style({
