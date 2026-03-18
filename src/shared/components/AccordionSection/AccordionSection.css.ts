@@ -1,8 +1,10 @@
 import { style } from '@vanilla-extract/css';
+import { tablet } from '@styles';
 
-export const section = style({
-	marginTop: 40,
-});
+export const section = style([
+	{ marginTop: 24 },
+	tablet({ marginTop: 40 }),
+]);
 
 export const triggerButton = style({
 	appearance: 'none',
@@ -15,10 +17,10 @@ export const triggerButton = style({
 	textAlign: 'left',
 });
 
-export const content = style({
-	overflow: 'hidden',
-	marginTop: 24,
-});
+export const content = style([
+	{ overflow: 'hidden', marginTop: 16 },
+	tablet({ marginTop: 24 }),
+]);
 
 export const contentHidden = style({
 	display: 'none',
