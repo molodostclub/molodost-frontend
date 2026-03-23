@@ -140,15 +140,36 @@ export const menuItem = style({
 	fontSize: 25,
 	selectors: {
 		'&:not(:first-child)': {
-			marginTop: 20,
-		},
-		'&:nth-of-type(4)': {
-			borderTop: '1px solid rgba(255 255 255 / 0.4)',
-			paddingTop: 20,
-			paddingBottom: 20,
-			borderBottom: '1px solid rgba(255 255 255 / 0.4)',
+			marginTop: 36,
 		},
 	},
+});
+
+export const menuItemRow = style({
+	display: 'flex',
+	alignItems: 'center',
+	gap: 12,
+	width: '100%',
+});
+
+/** Подпись пункта с подменю: ссылка занимает строку, стрелка справа */
+export const menuLabelRowLink = style({
+	flex: 1,
+	minWidth: 0,
+});
+
+export const menuExpandButton = style({
+	flexShrink: 0,
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
+	width: 36,
+	height: 36,
+	padding: 0,
+	border: 'none',
+	background: 'transparent',
+	color: vars.color.white,
+	cursor: 'pointer',
 });
 
 export const menuLabel = style({
@@ -211,7 +232,7 @@ export const subMenuItem = style({
 	marginTop: 12,
 	selectors: {
 		'&:first-child': {
-			marginTop: 20,
+			marginTop: 10,
 		},
 	},
 });

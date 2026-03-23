@@ -11,6 +11,12 @@ export const contentWrapper = style([
 export const contentWrapperManjerok = style({
   margin: '30px 0',
 });
+
+/** Байкал: первая секция после цитаты — без верхнего отступа у заголовка */
+export const contentWrapperBaikalIntro = style({
+  marginTop: 0,
+  marginBottom: 30,
+});
 export const carouselWrapper = style([
   {
     maxWidth: 746,
@@ -23,12 +29,66 @@ export const carouselWrapperManjerok = style({
   maxWidth: 920,
 });
 
+/** Байкал: ряд карточек на всю ширину блока (не карусель Embla по карточкам) */
+export const baikalTripsRowOuter = style({
+  width: '100%',
+  maxWidth: '100%',
+  marginLeft: 0,
+  marginRight: 0,
+  boxSizing: 'border-box',
+});
+
 export const headingsBlockManjerok = style({
   width: '100%',
   maxWidth: 920,
   margin: '0 auto',
   padding: 0,
 });
+
+/** Байкал: заголовки и вступление «Как мы путешествуем» — ширина контента 825px */
+export const headingsBlockBaikal = style({
+  width: '100%',
+  maxWidth: 825,
+  margin: '0 auto',
+  padding: 0,
+  boxSizing: 'border-box',
+});
+
+/** Байкал: обёртка секций (отступы как у Манжерока, без лимита 980) */
+export const tripsBlockBaikal = style([
+  {
+    width: '100%',
+    maxWidth: '100%',
+    margin: '0 auto',
+    paddingLeft: 30,
+    paddingRight: 30,
+    boxSizing: 'border-box',
+  },
+  tablet({
+    paddingLeft: 0,
+    paddingRight: 0,
+  }),
+]);
+
+/** Байкал: ряд карточек поездок — max 932px по макету */
+export const baikalCardsShell = style({
+  width: '100%',
+  maxWidth: 932,
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  boxSizing: 'border-box',
+});
+
+/** Первая секция HowWeTrip на Байкале: без верхнего padding pageSection (зазор задаётся снаружи) */
+export const baikalHowWeTripIntroSection = style([
+  {
+    paddingTop: 0,
+    paddingBottom: 20,
+  },
+  tablet({
+    paddingBottom: 30,
+  }),
+]);
 
 export const carouselListNoPadding = style({
   paddingLeft: 0,
@@ -50,6 +110,20 @@ export const tripsBlockManjerok = style([
   tablet({
     paddingLeft: 0,
     paddingRight: 0,
+  }),
+]);
+
+export const baikalIntro = style([
+  {
+    marginTop: 20,
+    marginBottom: 0,
+    textAlign: 'left',
+    maxWidth: '100%',
+    marginLeft: 0,
+    marginRight: 0,
+  },
+  tablet({
+    marginTop: 24,
   }),
 ]);
 export const attention = style([

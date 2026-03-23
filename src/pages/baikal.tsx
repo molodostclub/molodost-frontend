@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { PageContainer, Postscriptum } from '@core/Home';
+import { PageContainer } from '@core/Home';
 import { Breadcrumb, InnerPageHeader, PageCover, Footer, PageMeta } from '@shared/components';
 import { BaikalPage } from '@/core/Baikal';
 import { HousesSplit } from '@/utils';
@@ -41,7 +41,6 @@ export default function Baikal(pageProps: Props) {
 			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Байкал' }]} />
 			<PageContainer>
 				<BaikalPage {...pageProps} />
-				<Postscriptum />
 			</PageContainer>
 			<Footer variant="baikal" />
 		</>
@@ -61,6 +60,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			props: {
 				individual: [],
 				inHouse: [],
+				luxiping: [],
 			},
 			revalidate: 300,
 		};

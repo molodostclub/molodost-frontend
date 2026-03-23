@@ -32,6 +32,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			props: {
 				individual: [],
 				inHouse: [],
+				luxiping: [],
 				trips: { allDay: [], notAllDay: [] },
 			},
 			revalidate: 300,

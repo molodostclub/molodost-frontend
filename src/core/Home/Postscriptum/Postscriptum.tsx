@@ -28,7 +28,7 @@ export const Postscriptum: FC = () => {
       <p className={styles.text}>
         У&nbsp;нас работает много помощников разных возрастов из&nbsp;соседних деревень и&nbsp;разных
         регионов России, мы&nbsp;считаем важным для себя поддерживать{' '}
-        <span className={styles.brandText}>local community и&nbsp;талантливых ребят со&nbsp;всей страны</span>.
+        <span className={styles.brandText}>местное сообщество и&nbsp;талантливых ребят со&nbsp;всей страны</span>.
       </p>
       <p className={styles.text}>
         Наши сотрудники&nbsp;&mdash; это не&nbsp;роботы, выдрессированные на&nbsp;конкретную сервисную модель,

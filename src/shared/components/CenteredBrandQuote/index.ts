@@ -1,0 +1,1 @@
+export { CenteredBrandQuote } from './CenteredBrandQuote';

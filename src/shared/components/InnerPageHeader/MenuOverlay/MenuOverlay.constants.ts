@@ -6,52 +6,33 @@ export type MenuItem = {
 };
 
 export const APP_ROUTES: MenuItem[] = [
+	{ label: 'НАШ ФЕСТИВАЛЬ', href: '/nash-festival' },
 	{
-		label: '«МОЛОДОСТЬ» НА АЛТАЕ',
+		label: 'ЭКОСИСТЕМА АЛТАЙ',
 		subItems: [
-			{ label: '- Наш Алтай', href: '/nash-altay' },
-			{ label: '- Наша экосистема', href: '/nasha-ekosistema' },
-			{ label: '- Правила жизни', href: '/pravila-zhizni' },
-			{ label: '- В Сибирь за свой счет', href: '/v-sibir-za-svoy-schet' },
-			{ label: '- Про нас говорят', href: '/pro-nas-govoryat' },
-		],
-	},
-	{
-		label: 'ТУРБАЗА «МОЛОДОСТЬ»',
-		subItems: [
-			{ label: '- Как к нам попасть', href: '/kak-popast' },
-			{ label: '- Забронировать', href: '/booking' },
-			{ label: '- КАТАЛКА', href: '/katalka' },
-			{ label: '- ГДЕ МЫ ЖИВЕМ', href: '/rooms' },
-			{ label: '- ЧТО МЫ ЕДИМ И ПЬЕМ', href: '/chto-my-edim' },
-			{ label: '- КАК МЫ ПУТЕШЕСТВУЕМ', href: '/kak-my-puteshevstvuem' },
-			{ label: '- АВТОПРОКАТ', href: '/kak-my-puteshevstvuem#avtoprokat' },
-			{ label: '- ДЕТИ', href: '/deti-v-molodosti' },
-			{ label: '- БАННЫЙ КОМПЛЕКС «БЛАГОДАТЬ»', href: '/laboratoriya-tepla' },
-			{ label: '- ЗОЖ И ЗОМ', href: '/zozh-i-zom' },
-			{ label: '– Мероприятия в «Молодости» ', href: '/molodost-zazhigayet' },
-		],
-	},
-	{
-		label: '«МОЛОДОСТЬ» НА МАРСЕ',
-		subItems: [
-			{ label: '- Наш приют', href: '/mars' },
-			{ label: '- Где мы живем', href: '/mars#roomsOnMars' },
+			{ label: '— «МОЛОДОСТЬ» В МАНЖЕРОКЕ', href: '/manjerok' },
+			{ label: '— ПРИЮТ НА МАРСЕ', href: '/mars' },
+			{ label: '— В СИБИРЬ ЗА СВОЙ СЧЕТ', href: '/v-sibir-za-svoy-schet' },
 		],
 	},
 	{
 		label: '«МОЛОДОСТЬ» НА БАЙКАЛЕ',
 		subItems: [
-			{ label: '– Наш пляжный курорт', href: '/baikal' },
-			{ label: '– Где мы живем', href: '/baikal#roomsOnBaikal' },
+			{ label: '— КАК МЫ ЖИВЕМ', href: '/baikal', anchorId: 'roomsOnBaikal' },
+			{ label: '— КАК МЫ ЕДИМ', href: '/baikal', anchorId: 'baikal-what-we-eat-title' },
+			{ label: '— КУДА МЫ ЕЗДИМ', href: '/baikal', anchorId: 'kak-my-puteshestvuem' },
+			{ label: '— В СИБИРЬ ЗА СВОЙ СЧЕТ', href: '/v-sibir-za-svoy-schet-baikal' },
 		],
 	},
+	{ label: 'КУРИЛЫ', href: '/kurily' },
 	{
-		label: '«МОЛОДОСТЬ» НА КУРИЛАХ',
-		href: '/kurily',
+		label: 'О НАС',
+		subItems: [
+			{ label: '— ТВОРЧЕСКИЙ КООПЕРАТИВ', href: '/o-nas' },
+			{ label: '— О НАС ГОВОРЯТ И ПИШУТ', href: '/pro-nas-govoryat' },
+			{ label: '— ПРАВИЛА ЖИЗНИ', href: '/pravila-zhizni' },
+		],
 	},
-	{
-		label: 'Контакты',
-		href: '/nashi-kontakty',
-	},
+	{ label: 'ЗАБРОНИРОВАТЬ', href: '/booking' },
+	{ label: 'КОНТАКТЫ', href: '/nashi-kontakty' },
 ];

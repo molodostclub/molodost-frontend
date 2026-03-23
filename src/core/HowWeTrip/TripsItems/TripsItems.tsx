@@ -17,14 +17,16 @@ export const TripsItems: FC<Props> = ({ trips, listClassName, carouselClassName 
 	return (
 		<CardsCarousel itemsCount={trips.length} listClassName={listClassName} carouselClassName={carouselClassName}>
 			{trips.map(({ id, attributes }) => {
-				const { pictures, title, slug, isAllDay, durationText, priceAdult, subtitle } = attributes;
+				const { pictures, title, slug, durationText, priceAdult, subtitle, staticCoverPath, priceFooterLines } =
+					attributes;
 
-				const src = pictures?.data?.[0] ? getMediaLinkFromModel(pictures.data[0].attributes, 'medium') : null;
+				const urlFromCms = pictures?.data?.[0]
+					? getMediaLinkFromModel(pictures.data[0].attributes, 'medium')
+					: null;
+				const src = staticCoverPath ?? urlFromCms;
 
-				if (!slug) {
-					console.warn(`⚠️ У поездки "${title}" (ID: ${id}) отсутствует slug — ссылка не будет создана`);
-				} else {
-					console.log(`✅ Trip slug: ${slug}`);
+				if (!slug && !staticCoverPath) {
+					console.warn(`⚠️ У поездки "${title}" (ID: ${id}) нет slug и обложки — проверьте данные`);
 				}
 
 				const content = (
@@ -40,21 +42,33 @@ export const TripsItems: FC<Props> = ({ trips, listClassName, carouselClassName 
 							<div className={styles.itemMainInfo.top}>
 								<div className={styles.title}>{title}</div>
 								<div className={styles.subtitle}>{subtitle}</div>
-								<span className={styles.mustardText}>подробнее →</span>
+								{slug ? <span className={styles.mustardText}>подробнее →</span> : null}
 							</div>
 							<div>
 								<div className={styles.line} />
-								<div className={styles.priceWrapper}>
-									<span className={styles.mustardText}>{durationText}</span>
-									{Boolean(priceAdult && priceAdult !== 0) && <span className={styles.mustardText}>{formatPriceWithSign(priceAdult)}</span>}
-								</div>
+								{priceFooterLines && priceFooterLines.length > 0 ? (
+									<div className={styles.priceFooterStack}>
+										{priceFooterLines.map((line, i) => (
+											<span key={i} className={styles.mustardText}>
+												{line}
+											</span>
+										))}
+									</div>
+								) : (
+									<div className={styles.priceWrapper}>
+										{durationText ? <span className={styles.mustardText}>{durationText}</span> : null}
+										{Boolean(priceAdult && priceAdult !== 0) && (
+											<span className={styles.mustardText}>{formatPriceWithSign(priceAdult)}</span>
+										)}
+									</div>
+								)}
 							</div>
 						</div>
 					</div>
 				);
 
 				return slug ? (
-					<Link key={id} href={`/puteshestvia/${slug}`}>
+					<Link key={id} href={`/puteshestvia/${slug}`} prefetch={false}>
 						{content}
 					</Link>
 				) : (

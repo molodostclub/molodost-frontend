@@ -15,4 +15,5 @@ export { PriceItem } from './PriceItem';
 export { SiberiaNavButtons } from './SiberiaNavButtons';
 export { PackageBlock } from './PackageBlock';
 export { AccordionSection } from './AccordionSection';
+export { CenteredBrandQuote } from './CenteredBrandQuote';
 

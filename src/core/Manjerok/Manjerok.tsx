@@ -7,9 +7,9 @@ import { Entertainment } from '@core/Home/Entertainment';
 import { HowWeTrip } from '@core/HowWeTrip';
 import { WhatWeEat } from '@core/Home/WhatWeEat';
 import { WhereDoWeLive } from '@core/Home/WhereDoWeLive';
-import cx from 'classnames';
 import { useIsTablet } from '@shared/hooks';
 import { BrandLink } from '@uikit';
+import { CenteredBrandQuote } from '@shared/components';
 import { HousesSplit, TripsSplit } from '@/utils';
 import * as styles from './Manjerok.css';
 
@@ -97,18 +97,22 @@ export const Manjerok: FC<Props> = ({ houses, trips }) => {
 				)}
 			</section>
 
-			<blockquote className={styles.quoteBlockChernigovskaya}>
-				<p className={styles.quoteBlockChernigovskayaText}>
-					Тоска по&nbsp;&laquo;Молодости&raquo; одолела сразу по&nbsp;возвращении.
-					На&nbsp;редкость чудесное, тонко и&nbsp;умно устроенное пространство!
-					Не&nbsp;сомневаюсь, что оно будет распухать и&nbsp;улыбаться&hellip;
-				</p>
-				<footer className={styles.quoteBlockChernigovskayaAttribution}>
-					Татьяна Черниговская
-					<br />
-					(мыслитель)
-				</footer>
-			</blockquote>
+			<CenteredBrandQuote
+				quote={
+					<p>
+						Тоска по&nbsp;&laquo;Молодости&raquo; одолела сразу по&nbsp;возвращении.
+						На&nbsp;редкость чудесное, тонко и&nbsp;умно устроенное пространство!
+						Не&nbsp;сомневаюсь, что оно будет распухать и&nbsp;улыбаться&hellip;
+					</p>
+				}
+				attribution={
+					<>
+						Татьяна Черниговская
+						<br />
+						(мыслитель)
+					</>
+				}
+			/>
 
 			<WhereDoWeLive houses={houses} />
 
@@ -130,15 +134,16 @@ export const Manjerok: FC<Props> = ({ houses, trips }) => {
 			<HowWeTrip trips={trips} variant="manjerok" />
 
 			<div className={styles.quoteBlockWrapper}>
-				<blockquote className={cx(styles.quoteBlockChernigovskaya, styles.quoteBlockChernigovskayaNoMargin)}>
-					<p className={styles.quoteBlockChernigovskayaText}>
-						&laquo;Молодость&raquo; это как проход через шкаф в&nbsp;страну Нарнию,
-						которую мне напоминает волшебный Алтай
-					</p>
-					<footer className={styles.quoteBlockChernigovskayaAttribution}>
-						Константин Крюков (звезда)
-					</footer>
-				</blockquote>
+				<CenteredBrandQuote
+					noMarginBottom
+					quote={
+						<p>
+							&laquo;Молодость&raquo; это как проход через шкаф в&nbsp;страну Нарнию,
+							которую мне напоминает волшебный Алтай
+						</p>
+					}
+					attribution="Константин Крюков (звезда)"
+				/>
 			</div>
 
 			<div className={styles.entertainmentSection}>

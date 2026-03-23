@@ -287,7 +287,7 @@ export const PricesPageBaikal: FC = () => {
 		<main className={styles.content} id="vsibirzasvoyschet-baikal">
 			<PageHeading>В&nbsp;СИБИРЬ ЗА&nbsp;СВОЙ СЧЁТ&nbsp;&mdash; БАЙКАЛ</PageHeading>
 			<br />
-			<AccordionSection title="ПРОЖИВАНИЕ">
+			<AccordionSection defaultOpen={false} title="ПРОЖИВАНИЕ">
 				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В ГЭРАХ</h3>
 				<ProzhivanieGrid items={PROZHIVANIE_BAIKAL_GERAH} />
 				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В КУБИКАХ</h3>
@@ -305,28 +305,28 @@ export const PricesPageBaikal: FC = () => {
 			<AccordionSection title={NA_BAZE_BAIKAL.title}>
 				<NaBazeBlock />
 			</AccordionSection>
-			<AccordionSection title={WHAT_WE_DRINK.title}>
+			<AccordionSection defaultOpen={false} title={WHAT_WE_DRINK.title}>
 				<></>
 			</AccordionSection>
-			<AccordionSection title={COMFORT_BAIKAL.title}>
+			<AccordionSection defaultOpen={false} title={COMFORT_BAIKAL.title}>
 				<ComfortBlockBaikal />
 			</AccordionSection>
-			<AccordionSection title={BLAGODAT_BAIKAL.title}>
+			<AccordionSection defaultOpen={false} title={BLAGODAT_BAIKAL.title}>
 				<BlagodatBlockBaikal />
 			</AccordionSection>
-			<AccordionSection title={ZOZH_ZOM_BAIKAL.title}>
+			<AccordionSection defaultOpen={false} title={ZOZH_ZOM_BAIKAL.title}>
 				<ZozhZomBlockBaikal />
 			</AccordionSection>
-			<AccordionSection title={POEZDKI_BAIKAL.title}>
+			<AccordionSection defaultOpen={false} title={POEZDKI_BAIKAL.title}>
 				<PoezdkiBlockBaikal />
 			</AccordionSection>
-			<AccordionSection title={PUTESHESTVIYA_BAIKAL.title}>
+			<AccordionSection defaultOpen={false} title={PUTESHESTVIYA_BAIKAL.title}>
 				<PuteshestviyaBlockBaikal />
 			</AccordionSection>
-			<AccordionSection title={DLYA_DETEY_BAIKAL.title}>
+			<AccordionSection defaultOpen={false} title={DLYA_DETEY_BAIKAL.title}>
 				<DlyaDeteyBlockBaikal />
 			</AccordionSection>
-			<AccordionSection title={CONCEPT_STORE_BAIKAL.title}>
+			<AccordionSection defaultOpen={false} title={CONCEPT_STORE_BAIKAL.title}>
 				<ConceptStoreBlockBaikal />
 			</AccordionSection>
 		</main>

@@ -93,8 +93,15 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 									<li className={styles.menuItem}>
 										{item.subItems ? (
 											<>
-												<button className={cx(styles.menuLabel, styles.menuButton)} onClick={() => toggleMenu(item.label)}>
-													{item.label}{' '}
+												{/* Категория с подменю — только toggle, не ссылка */}
+												<button
+													type="button"
+													className={cx(styles.menuLabel, styles.menuButton)}
+													onClick={() => toggleMenu(item.label)}
+													aria-expanded={openMenu === item.label}
+													aria-label={openMenu === item.label ? 'Свернуть подменю' : 'Развернуть подменю'}
+												>
+													<span>{item.label}</span>
 													{openMenu === item.label ? (
 														<svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 															<g transform="rotate(180, 8, 4.5)">
@@ -123,18 +130,39 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 													})}
 												>
 													<ul>
-														{item.subItems.map((subItem) => (
-															<li key={subItem.label} className={styles.subMenuItem}>
-																<Link href={subItem.href ?? '#'} onClick={(event) => handleClickMenuItem(event, subItem)} className={styles.subMenuLabel} prefetch={false}>
-																	{subItem.label}
-																</Link>
-															</li>
-														))}
+														{item.subItems.map((subItem) => {
+															const subHref = subItem.anchorId
+																? `${subItem.href ?? '#'}#${subItem.anchorId}`
+																: (subItem.href ?? '#');
+															return (
+																<li key={subItem.label} className={styles.subMenuItem}>
+																	<Link
+																		href={subHref}
+																		onClick={(event) => {
+																			handleClickMenuItem(event, { ...subItem, href: subHref });
+																			onClose();
+																		}}
+																		className={styles.subMenuLabel}
+																		prefetch={false}
+																	>
+																		{subItem.label}
+																	</Link>
+																</li>
+															);
+														})}
 													</ul>
 												</div>
 											</>
 										) : (
-											<Link href={item.href ?? '#'} onClick={(event) => handleClickMenuItem(event, item)} className={styles.menuLabel} prefetch={false}>
+											<Link
+												href={item.href ?? '#'}
+												onClick={(event) => {
+													handleClickMenuItem(event, item);
+													onClose();
+												}}
+												className={styles.menuLabel}
+												prefetch={false}
+											>
 												{item.label}
 											</Link>
 										)}

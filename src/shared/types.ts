@@ -52,10 +52,52 @@ export interface NoteModel {
   text: string;
 }
 
+/** Строка футера карточки Байкал: слева услуга / справа цена, со сносками под каждой колонкой */
+export type TripPriceFooterRowTwoCols = {
+  variant: 'twoCols';
+  left: string;
+  leftNote?: string;
+  right: string;
+  rightNote?: string;
+};
+
+/** Заголовок блока цен на всю ширину (жёлтый) */
+export type TripPriceFooterRowPlain = {
+  variant: 'plain';
+  text: string;
+};
+
+/** Три колонки: название | цена | длительность (+ сноски) */
+export type TripPriceFooterRowThreeCols = {
+  variant: 'threeCols';
+  left: string;
+  mid: string;
+  right: string;
+  leftNote?: string;
+  midNote?: string;
+  rightNote?: string;
+  /** Сноска под правой колонкой жёлтая (как «25–27 км» в макете) */
+  rightNoteAccent?: boolean;
+};
+
+export type TripPriceFooterRow =
+  | TripPriceFooterRowTwoCols
+  | TripPriceFooterRowPlain
+  | TripPriceFooterRowThreeCols;
+
 export type TripModel = Entity<
   WithSlug<{
     title: string;
     subtitle: string;
+    /**
+     * Короткая подпись слева под заголовком (макет карточек Байкал: «на байдарках», «(нерпы — здесь!)»).
+     * Вместе с `subtitle` даёт две колонки: слева подпись, справа основной текст.
+     */
+    titleNote?: string;
+    /**
+     * Строка под блоком описания, по правому краю (напр. «Никакого интернета.»).
+     */
+    subtitleClosing?: string;
     description: string;
     priceAdult: number;
     priceChild: number;
@@ -63,6 +105,18 @@ export type TripModel = Entity<
     durationText: string | null;
     notes: NoteModel[];
     pictures: StrapiResponse<MediaUploadModel[] | null>;
+    /** Локальная обложка карточки (`/images/...`) без Strapi */
+    staticCoverPath?: string;
+    /** Несколько кадров — слайдер внутри карточки (Байкал) */
+    staticCoverPaths?: string[];
+    /** Левая часть жёлтого футера («Весь день») */
+    footerDuration?: string;
+    /** Правая часть жёлтого футера (цена строкой) */
+    footerPrice?: string;
+    /** Структурированный футер (колонки и сноски), приоритетнее `priceFooterLines` */
+    priceFooterRows?: TripPriceFooterRow[];
+    /** Многострочный жёлтый футер (простые строки), если нет `priceFooterRows` */
+    priceFooterLines?: string[];
   }>
 >;
 
@@ -82,6 +136,8 @@ export type HouseModel = Entity<
     isIndividual: boolean;
     isMars?: boolean;
     isBaikal?: boolean;
+    /** Люкспинг на Байкале — отдельный блок со слайдером */
+    isLuxiping?: boolean;
   }>
 >;
 

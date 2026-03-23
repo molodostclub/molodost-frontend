@@ -44,12 +44,12 @@ export const getMediaLinkFromModel = (model: MediaUploadModel | MediaUploadModel
 	return `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`;
 };
 
-// Создаем axios instance с динамическим baseURL
+// Создаем axios instance с динамическим baseURL.
+// Strapi с populate=* на houses/trips может отвечать долго — таймаут щедрый.
 export const backendApi = axios.create({
-	timeout: 30000, // Увеличен таймаут до 30 секунд для стабильности
+	timeout: 60_000,
 	headers: { Accept: 'application/json' },
 	validateStatus: (s) => s < 500,
-	// Используем interceptor для установки правильного baseURL
 });
 
 // Interceptor для установки правильного baseURL перед каждым запросом
@@ -62,6 +62,8 @@ backendApi.interceptors.request.use((config) => {
 export interface HousesSplit {
 	individual: HouseModel[];
 	inHouse: HouseModel[];
+	/** Дома-люкспинг (слайдер на странице Байкала) */
+	luxiping: HouseModel[];
 }
 
 // Кэш для хранения результатов запроса
@@ -85,26 +87,35 @@ export const getHousesSplit = async (): Promise<HousesSplit> => {
 		if (!BASE_URL) {
 			console.warn('ℹ️ BACKEND URL не задан, возвращаем пустые дома');
 			housesPromise = null;
-			return { individual: [], inHouse: [] };
+			return { individual: [], inHouse: [], luxiping: [] };
 		}
 		try {
 			const { data } = await backendApi.get(`houses`, {
 				params: { populate: '*' },
-				timeout: 15000,
 			});
 			const houses: HouseModel[] = data?.data || [];
 			const result = {
-				individual: houses.filter((h) => h.attributes.isIndividual),
-				inHouse: houses.filter((h) => !h.attributes.isIndividual),
+				luxiping: houses.filter((h) => h.attributes.isLuxiping === true),
+				individual: houses.filter((h) => h.attributes.isIndividual && !h.attributes.isLuxiping),
+				inHouse: houses.filter((h) => !h.attributes.isIndividual && !h.attributes.isLuxiping),
 			};
 			housesCache = result;
 			housesCacheTime = now;
 			return result;
 		} catch (err) {
-			console.error('❌ Ошибка в getHousesSplit:', err);
+			const isTimeout =
+				axios.isAxiosError(err) && (err.code === 'ECONNABORTED' || err.message?.includes('timeout'));
+			if (isTimeout) {
+				console.warn(
+					'⚠️ getHousesSplit: таймаут или медленный ответ API (houses). Подставлены пустые списки домов. Проверьте сеть или поднимите локальный Strapi (BACKEND_URL).',
+				);
+			} else {
+				console.error('❌ Ошибка в getHousesSplit:', err);
+			}
 			return {
 				individual: [],
 				inHouse: [],
+				luxiping: [],
 			};
 		} finally {
 			housesPromise = null;
@@ -140,7 +151,6 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 		try {
 			const { data } = await backendApi.get('trips', {
 				params: { populate: '*' },
-				timeout: 15000,
 			});
 			const trips: TripModel[] = data?.data || [];
 			const result = {
@@ -151,7 +161,16 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 			tripsCacheTime = now;
 			return result;
 		} catch (error) {
-			console.error('❌ Ошибка в getTripsSplit:', error);
+			const isTimeout =
+				axios.isAxiosError(error) &&
+				(error.code === 'ECONNABORTED' || error.message?.includes('timeout'));
+			if (isTimeout) {
+				console.warn(
+					'⚠️ getTripsSplit: таймаут или медленный ответ API (trips). Подставлены пустые списки поездок.',
+				);
+			} else {
+				console.error('❌ Ошибка в getTripsSplit:', error);
+			}
 			return {
 				allDay: [],
 				notAllDay: [],

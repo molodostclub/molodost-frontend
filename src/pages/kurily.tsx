@@ -6,7 +6,7 @@ export default function KurilyPage() {
     <>
       <PageMeta title="Курилы" />
       <InnerPageHeader />
-      <PageCover src="/images/kurily/kurily-cover.jpg" />
+      <PageCover src="/images/kurily/main.jpg" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Курилы' }]} />
       <Kurily />
       <Footer />
