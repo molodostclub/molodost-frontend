@@ -48,13 +48,15 @@ export const overlay = style([
 		left: 0,
 		top: 0,
 		bottom: 0,
-		width: '70%',
-		background: 'rgba(217, 217, 217, 0.1)',
-		backdropFilter: 'blur(4px)',
-		WebkitBackdropFilter: 'blur(7px)',
+		width: '78%',
+		/* Тёмная подложка под текст (макет): контраст белому шрифту на фото */
+		background:
+			'linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.52) 55%, rgba(0, 0, 0, 0.12) 100%)',
+		backdropFilter: 'blur(2px)',
+		WebkitBackdropFilter: 'blur(4px)',
 		pointerEvents: 'none',
-		WebkitMaskImage: 'linear-gradient(to right, black 0%, black 75%, transparent 100%)',
-		maskImage: 'linear-gradient(to right, black 20%, black 50%, transparent 100%)',
+		WebkitMaskImage: 'linear-gradient(to right, black 0%, black 72%, transparent 100%)',
+		maskImage: 'linear-gradient(to right, black 0%, black 72%, transparent 100%)',
 	}),
 ]);
 

@@ -1387,7 +1387,7 @@ export const PricesPage: FC = () => {
 		<main className={styles.content} id="vsibirzasvoyschet">
 			<PageHeading>В&nbsp;СИБИРЬ ЗА&nbsp;СВОЙ СЧЁТ&nbsp;&mdash; АЛТАЙ</PageHeading>
 			<br />
-			<AccordionSection title="ПРОЖИВАНИЕ">
+			<AccordionSection defaultOpen={false} title="ПРОЖИВАНИЕ">
 				<PackageBlock />
 				<p className={styles.separatorNote}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
 				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В&nbsp;НОМЕРАХ</h3>
@@ -1398,31 +1398,31 @@ export const PricesPage: FC = () => {
 					Каждый дополнительный человек в&nbsp;спальне и&nbsp;доме: от&nbsp;+7&nbsp;000&nbsp;₽ взрослый; от&nbsp;+4&nbsp;000&nbsp;₽ ребёнок от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети до&nbsp;5&nbsp;лет&nbsp;&mdash; комплиментарно.
 				</p>
 			</AccordionSection>
-			<AccordionSection title={WHAT_WE_EAT.title}>
+			<AccordionSection defaultOpen={false} title={WHAT_WE_EAT.title}>
 				<WhatWeEatBlock />
 			</AccordionSection>
-			<AccordionSection title={WHAT_WE_DRINK.title}>
+			<AccordionSection defaultOpen={false} title={WHAT_WE_DRINK.title}>
 				<WhatWeDrinkBlock />
 			</AccordionSection>
-			<AccordionSection title={COMFORT.title}>
+			<AccordionSection defaultOpen={false} title={COMFORT.title}>
 				<ComfortBlock />
 			</AccordionSection>
-			<AccordionSection title={BLAGODAT_SAUNA.title}>
+			<AccordionSection defaultOpen={false} title={BLAGODAT_SAUNA.title}>
 				<BlagodatSaunaBlock />
 			</AccordionSection>
-			<AccordionSection title={ZOZH_ZOM.title}>
+			<AccordionSection defaultOpen={false} title={ZOZH_ZOM.title}>
 				<ZozhZomBlock />
 			</AccordionSection>
-			<AccordionSection title={POEZDKI.title}>
+			<AccordionSection defaultOpen={false} title={POEZDKI.title}>
 				<PoezdkiBlock />
 			</AccordionSection>
-			<AccordionSection title={PUTESHESTVIYA.title}>
+			<AccordionSection defaultOpen={false} title={PUTESHESTVIYA.title}>
 				<PuteshestviyaBlock />
 			</AccordionSection>
-			<AccordionSection title={DLYA_DETEY.title}>
+			<AccordionSection defaultOpen={false} title={DLYA_DETEY.title}>
 				<DlyaDeteyBlock />
 			</AccordionSection>
-			<AccordionSection title={CONCEPT_STORE.title}>
+			<AccordionSection defaultOpen={false} title={CONCEPT_STORE.title}>
 				<ConceptStoreBlock />
 			</AccordionSection>
 		</main>

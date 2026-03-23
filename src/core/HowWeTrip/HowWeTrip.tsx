@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import { SectionHeading } from '@/uikit';
+import { Description, SectionHeading } from '@/uikit';
+import { BaikalTripCards } from '@/core/Baikal/BaikalTripCards';
 import { TripsSplit } from '@/utils';
 import { TripsItems } from './TripsItems';
 import * as styles from './HowWeTrip.css';
@@ -9,26 +10,53 @@ import cn from 'classnames';
 
 type Props = {
 	trips: TripsSplit;
-	variant?: 'manjerok';
+	variant?: 'manjerok' | 'baikal';
+	/** Вступление под заголовком «Как мы путешествуем» (только `variant="baikal"`) */
+	introText?: string;
 };
 
-export const HowWeTrip: FC<Props> = ({ trips: { allDay, notAllDay }, variant }) => {
-	const isManjerok = variant === 'manjerok';
-	const containerClass = isManjerok ? styles.headingsBlockManjerok : pageContainer;
-	const carouselClass = cn(styles.carouselWrapper, isManjerok && styles.carouselWrapperManjerok);
+export const HowWeTrip: FC<Props> = ({ trips: { allDay, notAllDay }, variant, introText }) => {
+	const isBaikal = variant === 'baikal';
+	const isManjerokLayout = variant === 'manjerok' || variant === 'baikal';
+	const containerClass = isBaikal
+		? styles.headingsBlockBaikal
+		: isManjerokLayout
+			? styles.headingsBlockManjerok
+			: pageContainer;
+	const tripsWrapperClass = isBaikal ? styles.tripsBlockBaikal : styles.tripsBlockManjerok;
+	const carouselClass = cn(styles.carouselWrapper, isManjerokLayout && styles.carouselWrapperManjerok);
+	const tripCardsOuterClass = isBaikal ? styles.baikalCardsShell : carouselClass;
+	const TripCards = isBaikal ? BaikalTripCards : TripsItems;
 
 	return (
 		<>
+			{isBaikal && introText ? (
+				<div className={styles.baikalHowWeTripIntroSection}>
+					<div className={tripsWrapperClass}>
+						<div className={containerClass}>
+							<div className={styles.contentWrapperBaikalIntro}>
+								<SectionHeading>Как мы путешествуем</SectionHeading>
+							</div>
+							<Description className={styles.baikalIntro}>{introText}</Description>
+						</div>
+					</div>
+				</div>
+			) : null}
+
 			<div className={pageSection}>
-				{isManjerok ? (
-					<div className={styles.tripsBlockManjerok}>
+				{isManjerokLayout ? (
+					<div className={tripsWrapperClass}>
 						<div className={containerClass}>
 							<div className={styles.contentWrapperManjerok}>
 								<SectionHeading accented>ПОЕЗДКИ НА ЦЕЛЫЙ ДЕНЬ</SectionHeading>
 							</div>
 						</div>
-						<div className={carouselClass}>
-							<TripsItems trips={allDay} listClassName={isManjerok ? styles.carouselListNoPadding : undefined} carouselClassName={isManjerok ? styles.carouselNoMargin : undefined} />
+						<div className={tripCardsOuterClass}>
+							<TripCards
+								trips={allDay}
+								listClassName={isManjerokLayout ? styles.carouselListNoPadding : undefined}
+								carouselClassName={isManjerokLayout ? styles.carouselNoMargin : undefined}
+							/>
 						</div>
 					</div>
 				) : (
@@ -42,22 +70,32 @@ export const HowWeTrip: FC<Props> = ({ trips: { allDay, notAllDay }, variant }) 
 							</div>
 						</div>
 						<div className={carouselClass}>
-							<TripsItems trips={allDay} listClassName={isManjerok ? styles.carouselListNoPadding : undefined} carouselClassName={isManjerok ? styles.carouselNoMargin : undefined} />
+							<TripCards
+								trips={allDay}
+								listClassName={isManjerokLayout ? styles.carouselListNoPadding : undefined}
+								carouselClassName={isManjerokLayout ? styles.carouselNoMargin : undefined}
+							/>
 						</div>
 					</>
 				)}
 			</div>
 
 			<div className={pageSection}>
-				{isManjerok ? (
-					<div className={styles.tripsBlockManjerok}>
+				{isManjerokLayout ? (
+					<div className={tripsWrapperClass}>
 						<div className={containerClass}>
 							<div className={styles.contentWrapperManjerok}>
-								<SectionHeading accented>ПОЕЗДКИ на полдня</SectionHeading>
+								<SectionHeading accented>
+									{isBaikal ? 'ПОЕЗДКИ НА ПОЛ ДНЯ' : 'ПОЕЗДКИ на полдня'}
+								</SectionHeading>
 							</div>
 						</div>
-						<div className={carouselClass}>
-							<TripsItems trips={notAllDay} listClassName={isManjerok ? styles.carouselListNoPadding : undefined} carouselClassName={isManjerok ? styles.carouselNoMargin : undefined} />
+						<div className={tripCardsOuterClass}>
+							<TripCards
+								trips={notAllDay}
+								listClassName={isManjerokLayout ? styles.carouselListNoPadding : undefined}
+								carouselClassName={isManjerokLayout ? styles.carouselNoMargin : undefined}
+							/>
 						</div>
 					</div>
 				) : (
@@ -67,8 +105,12 @@ export const HowWeTrip: FC<Props> = ({ trips: { allDay, notAllDay }, variant }) 
 								<SectionHeading accented>ПОЕЗДКИ на полдня</SectionHeading>
 							</div>
 						</div>
-						<div className={carouselClass}>
-							<TripsItems trips={notAllDay} listClassName={isManjerok ? styles.carouselListNoPadding : undefined} carouselClassName={isManjerok ? styles.carouselNoMargin : undefined} />
+						<div className={tripCardsOuterClass}>
+							<TripCards
+								trips={notAllDay}
+								listClassName={isManjerokLayout ? styles.carouselListNoPadding : undefined}
+								carouselClassName={isManjerokLayout ? styles.carouselNoMargin : undefined}
+							/>
 						</div>
 					</>
 				)}

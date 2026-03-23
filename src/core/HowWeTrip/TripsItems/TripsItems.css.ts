@@ -82,7 +82,9 @@ export const subtitle = style([
   textBase,
   {
     marginTop: 10,
-    maxHeight: 80,
+    maxHeight: 140,
+    overflow: 'auto',
+    whiteSpace: 'pre-line',
   },
 ]);
 
@@ -106,6 +108,14 @@ export const priceWrapper = style([
     marginTop: 8,
   },
 ]);
+
+export const priceFooterStack = style({
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'flex-start',
+	gap: 6,
+	marginTop: 8,
+});
 
 export const shade = style({
   borderRadius: 'inherit',

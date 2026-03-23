@@ -60,6 +60,12 @@ const nextConfig = {
     unoptimized: false,
   },
 
+  async redirects() {
+    return [
+      { source: '/nash-altay', destination: '/manjerok', permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       {

@@ -74,42 +74,6 @@ export const quoteBlockWrapper = style([
 	}),
 ]);
 
-export const quoteBlockChernigovskaya = style({
-	width: '100%',
-	maxWidth: 644,
-	margin: '0 auto 42px',
-	backgroundColor: vars.color.mainBackground,
-	borderRadius: 14,
-	textAlign: 'center',
-	padding: '30px 24px',
-});
-
-export const quoteBlockChernigovskayaText = style({
-	fontFamily: vars.font.CeraCondensedCYBold,
-	fontSize: 35,
-	lineHeight: 1,
-	letterSpacing: 0,
-	textTransform: 'uppercase',
-	textAlign: 'center',
-	color: vars.color.brand,
-	margin: 0,
-});
-
-export const quoteBlockChernigovskayaNoMargin = style({
-	marginBottom: 0,
-});
-
-export const quoteBlockChernigovskayaAttribution = style({
-	fontFamily: vars.font.ApercuProRegular,
-	fontSize: 13,
-	lineHeight: 1,
-	letterSpacing: 0,
-	textAlign: 'center',
-	color: vars.color.brand,
-	marginTop: 24,
-	marginBottom: 0,
-});
-
 export const description = style([
 	{
 		fontFamily: vars.font.ApercuProRegular,

@@ -9,7 +9,7 @@ export const HEADER_MENU_LIST: HeaderMenuList[] = [
   {
     id: 1,
     label: 'АЛТАЙ',
-    href: '/',
+    href: '/manjerok',
   },
   {
     id: 2,

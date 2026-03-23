@@ -5,6 +5,9 @@ import type {
 	PoezdkiGuideItem,
 } from '../PricesPage/PricesPage.constants';
 
+import type { TripModel } from '@/shared/types';
+import type { TripsSplit } from '@/utils';
+
 /** Элемент колонки кофейни — подзаголовок или позиция меню */
 export type NaBazeCoffeeColumnItem = { subheading: string } | DrinkMenuItem;
 
@@ -289,3 +292,182 @@ export const CONCEPT_STORE_BAIKAL = {
 	ctaText:
 		'Если вам что-то хочется, а мы об этом еще не подумали — скажите нам, и мы вместе решим сколько это будет стоить.',
 } as const;
+
+const TRIP_PICTURES_EMPTY = { data: null } as TripModel['attributes']['pictures'];
+
+/** Вступление к блоку «Как мы путешествуем» на странице Байкала */
+export const HOW_WE_TRAVEL_BAIKAL_INTRO =
+	'Все наши поездки очень зависят от погоды и природы, и мы оставляем за собой право все менять в последний момент. Мы соблюдаем правила безопасности в наших поездках и напоминаем, что Вы сами несете ответственность за свою жизнь.';
+
+/**
+ * Карточки поездок для блока «Как мы путешествуем» на `/baikal` (без Strapi).
+ * — `staticCoverPaths`: слайдер внутри карточки (1+ кадров; стрелки при 2+).
+ * — `footerDuration` + `footerPrice`: жёлтая строка «Весь день | цена».
+ * — `titleNote` + `subtitle`: две колонки под заголовком (слева короткая подпись, справа текст).
+ * — `subtitleClosing`: строка под описанием справа (напр. «Никакого интернета.»).
+ * — `priceFooterRows` / `priceFooterLines`: футер с ценами.
+ * В именах файлов с пробелами в URL используйте %20.
+ */
+export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
+	allDay: [
+		{
+			id: 9_101,
+			attributes: {
+				slug: '',
+				title: 'ольхон - север острова',
+				subtitle:
+					'Переходим на катере самую глубокую точку озера Байкал. Едем на УАЗах к самым красивым местам северной части острова и гуляем к мысам «Три брата» и «Хобой». Пробуем омулевую уху и кедровый самогон от местных жителей. Смотрим на скульптуру «Хранитель Байкала» Даши Намдакова.',
+				description: '',
+				priceAdult: 0,
+				priceChild: 0,
+				isAllDay: true,
+				durationText: null,
+				notes: [],
+				pictures: TRIP_PICTURES_EMPTY,
+				staticCoverPaths: ['/images/baikal/olhon/Frame.png', '/images/baikal/olhon/Frame-1.png'],
+				footerDuration: 'Весь день',
+				footerPrice: '50 000 ₽ / чел',
+			},
+		},
+		{
+			id: 9_102,
+			attributes: {
+				slug: '',
+				title: 'чивыркуйский залив (нерпы — здесь!)',
+				titleNote: '',
+				subtitle:
+					'Едем на танках вдоль побережья, идем на хайкинг к селу Катунь, где обедаем домашней картошкой и жареным омулем, катаемся на катере в сторону Ушканьих островов, наблюдаем за нерпами в дикой природе, по желанию расслабляемся в серных горячих источниках.',
+				subtitleClosing: 'Никакого интернета.',
+				description: '',
+				priceAdult: 0,
+				priceChild: 0,
+				isAllDay: true,
+				durationText: null,
+				notes: [],
+				pictures: TRIP_PICTURES_EMPTY,
+				staticCoverPaths: ['/images/baikal/zaliv/Group%2047.jpg'],
+				footerDuration: 'Весь день',
+				footerPrice: '40 000 ₽ / чел',
+			},
+		},
+		{
+			id: 9_103,
+			attributes: {
+				slug: '',
+				title: 'поездка налево и до конца',
+				subtitle:
+					'Едем в село Баргузин (здесь жил и работал Вильгельм Карлович фон Кюхельбекер и его жена), заходим в самобытный школьный музей, отправляемся на север вдоль Баргузинского хребта, заезжаем в местный дацан, где гуляем по лесу до проявленного лика богини Янжимы, гуляем по песчаной дюне посреди долины «Подкова Аргады».',
+				description: '',
+				priceAdult: 0,
+				priceChild: 0,
+				isAllDay: true,
+				durationText: null,
+				notes: [],
+				pictures: TRIP_PICTURES_EMPTY,
+				staticCoverPaths: ['/images/baikal/nalevo/Frame.jpg', '/images/baikal/nalevo/Frame-1.jpg'],
+				footerDuration: 'Весь день',
+				footerPrice: '15 000 ₽ / чел',
+			},
+		},
+	],
+	notAllDay: [
+		{
+			id: 9_104,
+			attributes: {
+				slug: '',
+				title: 'сплав по реке турка',
+				titleNote: 'на байдарках',
+				subtitle:
+					'Едем по спокойной реке с живописными поворотами и островами, наблюдаем цапель, чаек, уток, орланов, коз, лошадей, а если повезет — байкальскую нерпу. Устраиваем обеденный пикник на солнечной поляне.',
+				description: '',
+				priceAdult: 0,
+				priceChild: 0,
+				isAllDay: false,
+				durationText: null,
+				notes: [],
+				pictures: TRIP_PICTURES_EMPTY,
+				staticCoverPaths: ['/images/baikal/turka/image%2030.jpg'],
+				footerDuration: 'Весь день',
+				footerPrice: '8 500 ₽ / чел',
+			},
+		},
+		{
+			id: 9_105,
+			attributes: {
+				slug: '',
+				title: 'улан-удэ + аэропорт',
+				subtitle:
+					'Стартуем с нашей базы, в Улан-Удэ поднимаемся к дацану на вершине Лысой горы — там открывается панорама всего города, смотрим на самую большую в мире голову Ленина, посещаем Иволгинский дацан и погружаемся в буддийскую культуру.',
+				description: '',
+				priceAdult: 0,
+				priceChild: 0,
+				isAllDay: false,
+				durationText: null,
+				notes: [],
+				pictures: TRIP_PICTURES_EMPTY,
+				staticCoverPaths: [
+					'/images/baikal/airport/Frame.png',
+					'/images/baikal/airport/Frame-1.png',
+					'/images/baikal/airport/Frame-2.png',
+					'/images/baikal/airport/Frame-3.png',
+				],
+				priceFooterRows: [
+					{
+						variant: 'twoCols',
+						left: 'ЭКСКУРСИЯ ДАЦАН',
+						right: '5 000 ₽ / чел',
+					},
+					{ variant: 'plain', text: 'ВСТРЕЧА | ПРОВОДЫ:' },
+					{
+						variant: 'twoCols',
+						left: 'TANK',
+						leftNote: 'до 3 чел.',
+						right: '18 000 ₽',
+						rightNote: 'в одну сторону за машину',
+					},
+					{
+						variant: 'twoCols',
+						left: 'МИКРОАВТОБУС',
+						leftNote: 'до 5 чел.',
+						right: '25 000 ₽',
+						rightNote: 'в одну сторону за машину',
+					},
+				],
+			},
+		},
+		{
+			id: 9_106,
+			attributes: {
+				slug: '',
+				title: 'квадроциклы и багги',
+				titleNote: 'по побережью байкала',
+				subtitle:
+					'Едем по хвойному лесу и песчаным дорогам вдоль Байкала, пересекаем пляжи, крутые тропы и живописные участки с видом на озеро.',
+				description: '',
+				priceAdult: 0,
+				priceChild: 0,
+				isAllDay: false,
+				durationText: null,
+				notes: [],
+				pictures: TRIP_PICTURES_EMPTY,
+				staticCoverPaths: ['/images/baikal/kvadro/image%2093.jpg'],
+				priceFooterRows: [
+					{
+						variant: 'threeCols',
+						left: 'КВАДРОЦИКЛЫ',
+						mid: '7 500 ₽',
+						right: '60 мин / чел',
+					},
+					{
+						variant: 'threeCols',
+						left: 'БАГГИ',
+						mid: '11 000 ₽',
+						right: '70 мин / чел',
+						rightNote: '25–27 км',
+						rightNoteAccent: true,
+					},
+				],
+			},
+		},
+	],
+};
