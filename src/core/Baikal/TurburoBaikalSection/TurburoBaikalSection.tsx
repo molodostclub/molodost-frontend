@@ -101,7 +101,7 @@ export const TurburoBaikalSection: FC = () => {
 										<>
 											<td className={styles.priceTableCell} />
 											<td className={styles.priceTableCellAccent}>
-												{formatPriceWithSign(row.price)} ₽{row.priceSuffix ?? ''}
+												{formatPriceWithSign(row.price)} ₽{'priceSuffix' in row ? row.priceSuffix ?? '' : ''}
 												{'priceNote' in row && row.priceNote && (
 													<span className={styles.priceNote}>{row.priceNote}</span>
 												)}
