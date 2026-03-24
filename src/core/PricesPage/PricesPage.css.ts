@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css';
 
 import { pageContent, tablet, uikit, vars } from '@styles';
 
@@ -107,12 +107,16 @@ export const whatWeEatGastropubLayout = style([
 		gap: 20,
 		marginTop: 16,
 	},
-	tablet({
-		gridTemplateColumns: '1fr 1fr',
-		gap: 40,
-		alignItems: 'flex-start',
-	}),
 ]);
+
+/** Строка питания + опционально абзац под ценами («Съедобное бревно») */
+export const whatWeEatItemGroup = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 12,
+	width: '100%',
+	alignItems: 'stretch',
+});
 
 export const whatWeEatMealTimes = style({
 	display: 'flex',
@@ -139,6 +143,14 @@ export const whatWeEatDescription = style({
 	color: vars.color.black,
 	minWidth: 0,
 });
+
+/** Текст пакета под ценами «Съедобное бревно» — без дефолтных отступов у p */
+export const whatWeEatPackageDescription = style([
+	whatWeEatDescription,
+	{
+		margin: 0,
+	},
+]);
 
 export const whatWeEatColumns = style([
 	{
@@ -220,6 +232,23 @@ export const whatWeEatItemDescription = style({
 	lineHeight: 1.4,
 	color: vars.color.gray,
 });
+
+/** Заголовок карточки в блоке «Путешествия» — как whatWeEatItemTitleBrand, без отступов h4 */
+export const puteshestviyaCardHeading = style([
+	whatWeEatItemTitleBrand,
+	{
+		margin: 0,
+		marginBottom: 8,
+	},
+]);
+
+/** Описание в блоке «Путешествия» — как подпись к позициям «Что едим» */
+export const puteshestviyaCardDescription = style([
+	whatWeEatItemDescription,
+	{
+		margin: 0,
+	},
+]);
 
 export const additionalPersonNote = style({
 	fontFamily: vars.font.ApercuProBold,
@@ -398,14 +427,22 @@ export const partnerTableDuration = style({
 	textTransform: 'uppercase',
 });
 
-/** Подпись условия в строке партнёрских активностей — ApercuPro, 18px, чёрный */
-export const partnerTableCondition = style({
-	fontFamily: vars.font.ApercuProRegular,
-	fontSize: 18,
-	lineHeight: 1.2,
-	color: vars.color.black,
-	textTransform: 'uppercase',
-});
+/** Подпись условия в строке партнёрских активностей — на мобиле как whatWeEatItemDescription */
+export const partnerTableCondition = style([
+	{
+		fontFamily: vars.font.ApercuProRegular,
+		fontSize: 14,
+		lineHeight: 1.4,
+		color: vars.color.gray,
+		textTransform: 'none',
+	},
+	tablet({
+		fontSize: 18,
+		lineHeight: 1.2,
+		color: vars.color.black,
+		textTransform: 'uppercase',
+	}),
+]);
 
 /** Подпись «взрослый»/«детский» у цены в партнёрских активностях — серый */
 export const partnerTablePriceLabel = style({
@@ -475,57 +512,31 @@ export const travelsRow = style([
 	}),
 ]);
 
-/** Текст описания в левой колонке «Путешествия» — ApercuPro bold 20px, line-height 1.1, чёрный */
-export const travelsLeftText = style({
-	fontFamily: vars.font.ApercuProBold,
-	fontSize: 20,
-	lineHeight: 1.1,
-	color: vars.color.black,
-	margin: 0,
-});
-
-/** Список в блоках «Для детей» / «Concept Store» — тот же шрифт что travelsLeftText */
-export const travelsList = style({
-	fontFamily: vars.font.ApercuProBold,
-	fontSize: 20,
-	lineHeight: 1.1,
-	color: vars.color.black,
-	margin: '0 0 0 20px',
-	padding: 0,
-	listStylePosition: 'outside',
-});
-
-export const travelsListItem = style({
-	marginBottom: 8,
-	selectors: { '&:last-child': { marginBottom: 0 } },
-});
-
-/** Подпись в правой колонке «Путешествия» — CeraCondensed medium 18px, чёрный */
-export const travelsRightLabel = style({
-	fontFamily: vars.font.CeraCondensedCYMedium,
-	fontSize: 18,
-	lineHeight: 1.2,
-	color: vars.color.black,
-	textTransform: 'uppercase',
-	margin: 0,
-});
-
-/** Ценник в правой колонке «Путешествия» — CeraCondensed bold 18px, красный */
-export const travelsRightPrice = style({
-	fontFamily: vars.font.CeraCondensedCYBold,
-	fontSize: 18,
-	lineHeight: 1.2,
-	color: vars.color.brand,
-	textTransform: 'uppercase',
-	margin: 0,
-});
-
 /** Группа правой колонки для одного путешествия */
 export const travelsRightGroup = style({
 	display: 'flex',
 	flexDirection: 'column',
 	gap: 4,
 });
+
+/** Вертикальный стек абзацев/списков внутри аккордеона */
+export const textStack = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 16,
+});
+
+/** Фирменный магазин — всегда под аккордеонами, без раскрытия */
+export const conceptStoreStatic = style([
+	textStack,
+	{
+		marginTop: 40,
+	},
+]);
+
+globalStyle(`${travelsRightGroup} p`, { margin: 0 });
+globalStyle(`${textStack} p`, { margin: 0 });
+globalStyle(`${conceptStoreStatic} p`, { margin: 0 });
 
 export const tableHeaderColWide = style([
 	{

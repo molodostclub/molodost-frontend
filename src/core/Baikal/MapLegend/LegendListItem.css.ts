@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@styles';
+import { Breakpoint, vars } from '@styles';
 
 const mustard = '#CA8F07';
 
@@ -11,6 +11,13 @@ export const item = style({
 	gap: 12,
 	width: '100%',
 	minWidth: 0,
+	'@media': {
+		[`screen and (max-width: ${Breakpoint.tablet - 1}px)`]: {
+			// сброс инлайн gridColumn/gridRow — на мобиле одна колонка по порядку в DOM
+			gridColumn: 'auto !important',
+			gridRow: 'auto !important',
+		},
+	},
 });
 
 export const badge = style({

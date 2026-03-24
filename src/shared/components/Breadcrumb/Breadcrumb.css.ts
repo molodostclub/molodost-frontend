@@ -15,37 +15,75 @@ export const breadcrumb = style([
 	}),
 ]);
 
-export const link = style({
-	fontFamily: vars.font.ApercuProRegular,
-	fontSize: 24,
-	lineHeight: '45px',
-	letterSpacing: 0,
-	color: vars.color.brand,
-	textTransform: 'uppercase',
-	textDecoration: 'none',
-	fontWeight: 500,
-	':hover': {
-		textDecoration: 'underline',
+export const link = style([
+	{
+		fontFamily: vars.font.ApercuProBold,
+		fontStyle: 'normal',
+		fontWeight: 700,
+		fontSize: 12,
+		lineHeight: '14px',
+		letterSpacing: 0,
+		color: vars.color.brand,
+		textTransform: 'uppercase',
+		textDecoration: 'none',
+		display: 'inline-flex',
+		alignItems: 'center',
 	},
-});
+	tablet({
+		fontFamily: vars.font.ApercuProRegular,
+		fontSize: 24,
+		lineHeight: '45px',
+		fontWeight: 500,
+		display: 'inline',
+	}),
+	{
+		':hover': {
+			textDecoration: 'underline',
+		},
+	},
+]);
 
-export const separator = style({
-	fontFamily: vars.font.ApercuProRegular,
-	fontSize: 24,
-	lineHeight: '45px',
-	letterSpacing: 0,
-	color: vars.color.brand,
-	margin: '0 6px',
-	userSelect: 'none',
-	fontWeight: 500,
-});
+export const separator = style([
+	{
+		fontFamily: vars.font.ApercuProBold,
+		fontStyle: 'normal',
+		fontWeight: 700,
+		fontSize: 12,
+		lineHeight: '14px',
+		letterSpacing: 0,
+		color: vars.color.brand,
+		margin: '0 6px',
+		userSelect: 'none',
+		display: 'inline-flex',
+		alignItems: 'center',
+	},
+	tablet({
+		fontFamily: vars.font.ApercuProRegular,
+		fontSize: 24,
+		lineHeight: '45px',
+		fontWeight: 500,
+		display: 'inline',
+	}),
+]);
 
-export const current = style({
-	fontFamily: vars.font.ApercuProRegular,
-	fontSize: 24,
-	lineHeight: '45px',
-	letterSpacing: 0,
-	color: vars.color.brand,
-	textTransform: 'uppercase',
-	fontWeight: 500,
-});
+export const current = style([
+	{
+		fontFamily: vars.font.ApercuProBold,
+		fontStyle: 'normal',
+		fontWeight: 700,
+		fontSize: 12,
+		lineHeight: '14px',
+		letterSpacing: 0,
+		color: vars.color.brand,
+		textTransform: 'uppercase',
+		display: 'inline-flex',
+		alignItems: 'center',
+	},
+	tablet({
+		fontFamily: vars.font.ApercuProRegular,
+		fontSize: 24,
+		lineHeight: '45px',
+		fontWeight: 500,
+		display: 'inline',
+	}),
+]);

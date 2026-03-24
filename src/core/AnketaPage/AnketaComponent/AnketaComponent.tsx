@@ -952,7 +952,7 @@ export function AnketaComponent() {
 							<span className={styles.noteRed}>
 								<b>&mdash;350&nbsp;₽ с&nbsp;человека</b>
 							</span>{' '}
-							за&nbsp;безлимитное пользование водой petroglyph, эти деньги пойдут на&nbsp;социальные проекты на&nbsp;Алтае.
+							за&nbsp;безлимитное пользование водой Петроглиф, эти деньги пойдут на&nbsp;социальные проекты на&nbsp;Алтае.
 						</p> */}
 						<br />
 						<br />

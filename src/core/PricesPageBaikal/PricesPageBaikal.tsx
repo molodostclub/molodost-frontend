@@ -39,37 +39,41 @@ const NaBazeBlock: FC = () => {
 						</div>
 					))}
 				</div>
-				<p className={styles.whatWeEatDescription}>{gastropub.description}</p>
 			</div>
 			<div className={styles.whatWeEatColumns}>
 				<div className={styles.whatWeEatColumn}>
 					<h4 className={styles.whatWeEatColumnHeading}>{guestsStaying.title}</h4>
 					{guestsStaying.items.map((item, i) => (
-						<div className={styles.whatWeEatItem} key={i}>
-							<div className={styles.whatWeEatItemLeft}>
-								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
-								{'description' in item && item.description && (
-									<span className={styles.whatWeEatItemDescription}>{item.description}</span>
-								)}
-							</div>
-							<div className={styles.whatWeEatItemRight}>
-								{'priceAdult' in item &&
-									item.priceAdult !== undefined &&
-									'priceChild' in item &&
-									item.priceChild !== undefined && (
-										<>
-											<span className={styles.whatWeEatItemPrice}>
-												{formatPriceWithSign(item.priceAdult)}
-											</span>{' '}
-											<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
-											<br />
-											<span className={styles.whatWeEatItemPrice}>
-												{formatPriceWithSign(item.priceChild)}
-											</span>{' '}
-											<span className={styles.whatWeEatItemDescriptor}>ребенок</span>
-										</>
+						<div className={styles.whatWeEatItemGroup} key={i}>
+							<div className={styles.whatWeEatItem}>
+								<div className={styles.whatWeEatItemLeft}>
+									<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+									{'description' in item && item.description && (
+										<span className={styles.whatWeEatItemDescription}>{item.description}</span>
 									)}
+								</div>
+								<div className={styles.whatWeEatItemRight}>
+									{'priceAdult' in item &&
+										item.priceAdult !== undefined &&
+										'priceChild' in item &&
+										item.priceChild !== undefined && (
+											<>
+												<span className={styles.whatWeEatItemPrice}>
+													{formatPriceWithSign(item.priceAdult)}
+												</span>{' '}
+												<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+												<br />
+												<span className={styles.whatWeEatItemPrice}>
+													{formatPriceWithSign(item.priceChild)}
+												</span>{' '}
+												<span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+											</>
+										)}
+								</div>
 							</div>
+							{'packageDescription' in item && item.packageDescription ? (
+								<p className={styles.whatWeEatPackageDescription}>{item.packageDescription}</p>
+							) : null}
 						</div>
 					))}
 				</div>
@@ -255,30 +259,17 @@ const PuteshestviyaBlockBaikal: FC = () => {
 const DlyaDeteyBlockBaikal: FC = () => {
 	const { paragraph, intro, listItems } = DLYA_DETEY_BAIKAL;
 	return (
-		<div className={styles.travelsRow}>
-			<div>
-				<p className={styles.travelsLeftText}>{paragraph}</p>
-				<p className={styles.travelsLeftText}>{intro}</p>
-				<ul className={styles.travelsList}>
-					{listItems.map((item, i) => (
-						<li key={i} className={styles.travelsListItem}>
-							{item}
-						</li>
-					))}
-				</ul>
-			</div>
-			<div />
+		<div className={styles.textStack}>
+			<p className={styles.whatWeEatItemDescription}>{paragraph}</p>
+			<h4 className={styles.whatWeEatColumnHeading}>{intro}</h4>
+			<ul className={styles.list}>
+				{listItems.map((item, i) => (
+					<li key={i} className={styles.listItem}>
+						{item}
+					</li>
+				))}
+			</ul>
 		</div>
-	);
-};
-
-const ConceptStoreBlockBaikal: FC = () => {
-	const { paragraph, ctaText } = CONCEPT_STORE_BAIKAL;
-	return (
-		<>
-			<p className={styles.travelsLeftText}>{paragraph}</p>
-			<p className={styles.additionalPersonNote}>{ctaText}</p>
-		</>
 	);
 };
 
@@ -326,9 +317,10 @@ export const PricesPageBaikal: FC = () => {
 			<AccordionSection defaultOpen={false} title={DLYA_DETEY_BAIKAL.title}>
 				<DlyaDeteyBlockBaikal />
 			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={CONCEPT_STORE_BAIKAL.title}>
-				<ConceptStoreBlockBaikal />
-			</AccordionSection>
+			<div className={styles.conceptStoreStatic}>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE_BAIKAL.paragraph}</p>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE_BAIKAL.ctaText}</p>
+			</div>
 		</main>
 	);
 };

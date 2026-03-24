@@ -88,16 +88,16 @@ export const schedule = style([
 	{
 		marginTop: 40,
 		display: 'grid',
-		gridTemplateColumns: '1fr',
+		gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
 		justifyItems: 'center',
-		rowGap: 28,
-		columnGap: 24,
+		alignItems: 'start',
+		columnGap: 6,
+		rowGap: 0,
 		width: '100%',
 	},
 	tablet({
 		marginTop: 48,
-		gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-		justifyItems: 'center',
+		columnGap: 24,
 		maxWidth: 720,
 		marginLeft: 'auto',
 		marginRight: 'auto',
@@ -109,14 +109,16 @@ export const scheduleItem = style({
 	flexDirection: 'column',
 	alignItems: 'center',
 	textAlign: 'center',
+	minWidth: 0,
+	width: '100%',
 });
 
 export const mealLabel = style([
 	{
 		fontFamily: vars.font.CeraCondensedCYMedium,
 		fontWeight: 500,
-		fontSize: 18,
-		lineHeight: '20px',
+		fontSize: 13,
+		lineHeight: '15px',
 		textTransform: 'uppercase',
 		fontFeatureSettings: feat,
 		color: vars.color.brand,
@@ -129,16 +131,21 @@ export const mealLabel = style([
 
 export const mealTime = style([
 	{
-		marginTop: 8,
+		marginTop: 6,
 		fontFamily: vars.font.CeraCondensedCYRegular,
 		fontWeight: 400,
-		fontSize: 18,
-		lineHeight: '22px',
+		fontSize: 12,
+		lineHeight: '14px',
 		fontFeatureSettings: feat,
 		color: vars.color.black,
+		wordBreak: 'break-word',
+		hyphens: 'auto',
 	},
 	tablet({
+		marginTop: 8,
 		fontSize: 22,
 		lineHeight: '26px',
+		wordBreak: 'normal',
+		hyphens: 'manual',
 	}),
 ]);
