@@ -50,14 +50,22 @@ export const quoteBlock = style({
 	textAlign: 'center',
 });
 
-export const quoteText = style({
-	fontFamily: vars.font.ApercuProRegular,
-	fontSize: 35,
-	lineHeight: 1,
-	textTransform: 'uppercase',
-	color: vars.color.brand,
-	margin: 0,
-});
+export const quoteText = style([
+	{
+		fontFamily: vars.font.ApercuProRegular,
+		fontStyle: 'normal',
+		fontWeight: 400,
+		fontSize: 20,
+		lineHeight: '19px',
+		textTransform: 'uppercase',
+		color: vars.color.brand,
+		margin: 0,
+	},
+	tablet({
+		fontSize: 35,
+		lineHeight: 1,
+	}),
+]);
 
 export const quoteLineBold = style({
 	fontFamily: vars.font.CeraCondensedCYBold,

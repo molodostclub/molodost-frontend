@@ -4,10 +4,10 @@ import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@share
 export default function ChtoMyEdim() {
   return (
     <>
-      <PageMeta title="Про нас говорят" />
+      <PageMeta title="О нас говорят" />
       <InnerPageHeader />
       <PageCover src="/images/pro-nas-govoryat-cover.jpg" />
-      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Про нас говорят' }]} />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'О нас говорят' }]} />
       <TalkAboutUs />
       <Footer />
     </>

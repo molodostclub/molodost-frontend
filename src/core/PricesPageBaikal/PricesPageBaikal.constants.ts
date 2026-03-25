@@ -1,8 +1,9 @@
-import type {
-	AccommodationItem,
-	DrinkMenuItem,
-	PoezdkiCarItem,
-	PoezdkiGuideItem,
+import {
+	WHAT_WE_DRINK,
+	type AccommodationItem,
+	type DrinkMenuItem,
+	type PoezdkiCarItem,
+	type PoezdkiGuideItem,
 } from '../PricesPage/PricesPage.constants';
 
 import type { TripModel } from '@/shared/types';
@@ -48,17 +49,16 @@ export const NA_BAZE_BAIKAL = {
 			{ name: 'ОБЕД', time: '14:00-17:00' },
 			{ name: 'УЖИН', time: '20:00-22:30' },
 		],
-		description:
-			'Круглосуточное питание – обед, ужин, байкальский водопой – безлимитный запас воды «Petroglyph», ланч боксы в путешествия и ночной дозор. Байкальский травяной сбор (чай) весь день – комплиментарно.',
+		mealPackageSummary:
+			'Круглосуточное питание – обед, ужин, байкальский водопой – безлимитный запас воды «Петроглиф», ланч боксы в путешествия и ночной дожор. Байкальский травяной сбор (чай) весь день – комплиментарно.',
 	},
 	guestsStaying: {
 		title: 'ПИТАНИЕ ДЛЯ ГОСТЕЙ ПРОЖИВАЮЩИХ НА БАЗЕ',
 		items: [
-			{ title: 'УСЛУГА «СЪЕДОБНОЕ БРЕВНО»', priceAdult: 8_900, priceChild: 5_500 },
 			{
-				title: 'ЧТО ВХОДИТ:',
-				description:
-					'Круглосуточное питание – обед, ужин, байкальский водопой – безлимитный запас воды «Petroglyph», ланч боксы в путешествия и ночной дозор. Байкальский травяной сбор (чай) весь день – комплиментарно.',
+				title: 'УСЛУГА «СЪЕДОБНОЕ БРЕВНО»',
+				priceAdult: 8_900,
+				priceChild: 5_500,
 			},
 		],
 	},
@@ -70,8 +70,6 @@ export const NA_BAZE_BAIKAL = {
 			{ title: 'УЖИН', priceAdult: 6_000, priceChild: 4_000 },
 		],
 	},
-	vodopoyNote:
-		'Услуга «Водопой» – 500 ₽ в сутки с человека. Безлимитный запас воды «Petroglyph», оплачивается гостями, которые не приобретали услугу «Съедобное бревно».',
 	coffeeShop: {
 		name: 'КОФЕЙНЯ',
 		description:
@@ -93,12 +91,9 @@ export const NA_BAZE_BAIKAL = {
 			{ subheading: 'ЧАЙ В ЧАЙНИКЕ' },
 			{ title: 'ЧАЙ ТРАВЯНОЙ/ЗЕЛЁНЫЙ/ЧЁРНЫЙ', price: 600 },
 			{ title: 'БАЙКАЛЬСКИЙ ИВАН ЧАЙ', price: 600 },
-			{ title: 'ЧАЙ MARIAGE ЧЕРНЫЙ/ЭРЛ ГРЕЙ', price: 1_000 },
+			{ title: 'ЧАЙ МАРЬЯЖ ЧЕРНЫЙ/ЭРЛ ГРЕЙ', price: 1_000 },
 			{ title: 'МАТЧА ГОЛУБАЯ/ЗЕЛЕНАЯ', price: 500 },
 			{ title: 'МАТЧА ТОНИК', price: 600 },
-			{ title: 'МОЛОЧНЫЙ УЛУН', price: 0 },
-			{ title: 'КАДЫН', price: 0 },
-			{ title: 'ЧАЙ ТАЁЖНЫЙ/ЯГОДНЫЙ', price: 0 },
 		] as NaBazeCoffeeColumnItem[],
 	},
 } as const;
@@ -119,9 +114,20 @@ export const COMFORT_BAIKAL = {
 	] as DrinkMenuItem[],
 } as const;
 
-/** Банно-оздоровительный комплекс «Благодать» — Байкал */
+/** Бар и пробковый сбор для «Что пьём» (кофейня — в блоке «На базе»). */
+export const BAR_AND_CORKAGE_BAIKAL = {
+	bar: {
+		name: WHAT_WE_DRINK.bar.name,
+		description:
+			'У нас приличная винная карта и большой выбор крепкого алкоголя. Мы верим, что воздух Байкала пьянит и дурманит сам по себе, поэтому цены в нашем баре специально высокие:',
+		items: WHAT_WE_DRINK.bar.items,
+	},
+	corkage: WHAT_WE_DRINK.corkage,
+} as const;
+
+/** Банный комплекс «Благодать» — Байкал */
 export const BLAGODAT_BAIKAL = {
-	title: 'БАННО-ОЗДОРОВИТЕЛЬНЫЙ КОМПЛЕКС «БЛАГОДАТЬ»',
+	title: 'БАННЫЙ КОМПЛЕКС «БЛАГОДАТЬ»',
 	leftColumn: [
 		{ title: 'ПАРЕНИЕ', description: '90 минут / 1 человек', price: 20_000 },
 		{ title: 'каждый дополнительный час', description: '60 минут / 1 человек', price: 10_000 },
@@ -156,7 +162,7 @@ export const ZOZH_ZOM_BAIKAL = {
 	] as DrinkMenuItem[],
 	rightColumn: [
 		{
-			title: 'ГРУППОВАЯ УТРЕННЯЯ ЗАРЯДКА, ЙОГА И МЕДИТАЦИЯ В ТЕПЛЫЙ СЕЗОН И ФЕСТИВАЛЬНЫЕ ЗАЕЗДЫ',
+			title: 'ГРУППОВАЯ УТРЕННЯЯ ЗАРЯДКА, ЙОГА И МЕДИТАЦИЯ',
 			priceText: 'БЕСПЛАТНО',
 		},
 	] as DrinkMenuItem[],
@@ -284,13 +290,12 @@ export const DLYA_DETEY_BAIKAL = {
 	],
 } as const;
 
-/** Блок «Concept Store» Байкал + призыв внизу страницы */
+/** Текст под аккордеонами: фирменный магазин + призыв (Байкал) */
 export const CONCEPT_STORE_BAIKAL = {
-	title: 'CONCEPT STORE',
 	paragraph:
-		'А еще не забудьте заглянуть в наш Concept Store, в котором представлен брендированный мерч «Молодости»',
+		'А ещё не забудьте заглянуть в наш фирменный магазин: там представлены сувениры и продукция с символикой «Молодости».',
 	ctaText:
-		'Если вам что-то хочется, а мы об этом еще не подумали — скажите нам, и мы вместе решим сколько это будет стоить.',
+		'Если вам что-то хочется, а мы об этом ещё не подумали — скажите нам, и мы вместе решим, сколько это будет стоить.',
 } as const;
 
 const TRIP_PICTURES_EMPTY = { data: null } as TripModel['attributes']['pictures'];

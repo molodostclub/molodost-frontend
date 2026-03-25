@@ -99,7 +99,7 @@ export const ProzhivanieSide: FC<ProzhivanieSideProps> = ({ showExtraPerson = tr
 		<p className={styles.sideText}>Что входит:</p>
 		<ul className={styles.list}>
 			<li className={styles.listItem}>круглосуточное питание&nbsp;- обед, ужин</li>
-			<li className={styles.listItem}>«алтайский водопой» от&nbsp;воды Petroglyph</li>
+			<li className={styles.listItem}>«алтайский водопой» от&nbsp;воды Петроглиф</li>
 			<li className={styles.listItem}>ланчбоксы в&nbsp;путешествия и&nbsp;ночной дожор</li>
 			<li className={styles.listItem}>алтайский травяной сбор (чай) весь день&nbsp;- комплиментарно</li>
 		</ul>
@@ -211,7 +211,7 @@ export const TraktirMeals: FC = () => (
 			))}
 			<br />
 			<br />
-			<p className={styles.sideText}>Услуга &laquo;водопой&raquo; &mdash;&nbsp;500&nbsp;руб.&nbsp;с&nbsp;человека в&nbsp;сутки. Неограниченный запас воды Petroglyph с&nbsp;газом и&nbsp;без оплачивается теми гостями, которые не&nbsp;берут &laquo;съедобное бревно&raquo;.</p>
+			<p className={styles.sideText}>Услуга &laquo;водопой&raquo; &mdash;&nbsp;500&nbsp;руб.&nbsp;с&nbsp;человека в&nbsp;сутки. Неограниченный запас воды Петроглиф с&nbsp;газом и&nbsp;без оплачивается теми гостями, которые не&nbsp;берут &laquo;съедобное бревно&raquo;.</p>
 		</div>
 	</>
 );
@@ -267,29 +267,38 @@ const WhatWeEatBlock: FC = () => {
 							{m.name}: {m.time}
 						</div>
 					))}
+					{gastropub.mealPackageSummary ? (
+						<p className={styles.whatWeEatDescription}>{gastropub.mealPackageSummary}</p>
+					) : null}
 				</div>
-				<p className={styles.whatWeEatDescription}>{gastropub.description}</p>
 			</div>
 			<div className={styles.whatWeEatColumns}>
 				<div className={styles.whatWeEatColumn}>
 					<h4 className={styles.whatWeEatColumnHeading}>{guestsStaying.title}</h4>
 					{guestsStaying.items.map((item, i) => (
-						<div className={styles.whatWeEatItem} key={i}>
-							<div className={styles.whatWeEatItemLeft}>
-								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
-								{'description' in item && item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
+						<div className={styles.whatWeEatItemGroup} key={i}>
+							<div className={styles.whatWeEatItem}>
+								<div className={styles.whatWeEatItemLeft}>
+									<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+									{'description' in item && item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
+								</div>
+								<div className={styles.whatWeEatItemRight}>
+									{'note' in item && item.note && <span className={styles.whatWeEatItemNote}>{item.note}</span>}
+									{'price' in item && item.price !== undefined && <span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>}
+									{'priceAdult' in item && 'priceChild' in item && item.priceAdult !== undefined && item.priceChild !== undefined && (
+										<>
+											<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+											<br />
+											<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+										</>
+									)}
+								</div>
 							</div>
-							<div className={styles.whatWeEatItemRight}>
-								{'note' in item && item.note && <span className={styles.whatWeEatItemNote}>{item.note}</span>}
-								{'price' in item && item.price !== undefined && <span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>}
-								{'priceAdult' in item && 'priceChild' in item && item.priceAdult !== undefined && item.priceChild !== undefined && (
-									<>
-										<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
-										<br />
-										<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
-									</>
-								)}
-							</div>
+							{'packageDescription' in item &&
+							typeof item.packageDescription === 'string' &&
+							item.packageDescription ? (
+								<p className={styles.whatWeEatPackageDescription}>{item.packageDescription}</p>
+							) : null}
 						</div>
 					))}
 				</div>
@@ -549,17 +558,17 @@ const PuteshestviyaBlock: FC = () => {
 				{items.map((item, i) => (
 					<div key={i} className={styles.travelsRow}>
 						<div>
-							<h4 className={styles.travelsSubheading}>{item.title}</h4>
-							<p className={styles.travelsLeftText}>{item.description}</p>
+							<h4 className={styles.puteshestviyaCardHeading}>{item.title}</h4>
+							<p className={styles.puteshestviyaCardDescription}>{item.description}</p>
 						</div>
 						<div className={styles.travelsRightGroup}>
 							{item.rightItems.map((rightItem, j) =>
 								rightItem.isPrice ? (
-									<p key={j} className={styles.travelsRightPrice}>
+									<p key={j} className={styles.whatWeEatItemPrice}>
 										{rightItem.text}
 									</p>
 								) : (
-									<p key={j} className={styles.travelsRightLabel}>
+									<p key={j} className={styles.whatWeEatItemTitle}>
 										{rightItem.text}
 									</p>
 								),
@@ -575,30 +584,17 @@ const PuteshestviyaBlock: FC = () => {
 const DlyaDeteyBlock: FC = () => {
 	const { paragraph, intro, listItems } = DLYA_DETEY;
 	return (
-		<div className={styles.travelsRow}>
-			<div>
-				<p className={styles.travelsLeftText}>{paragraph}</p>
-				<p className={styles.travelsLeftText}>{intro}</p>
-				<ul className={styles.travelsList}>
-					{listItems.map((item, i) => (
-						<li key={i} className={styles.travelsListItem}>
-							{item}
-						</li>
-					))}
-				</ul>
-			</div>
-			<div />
+		<div className={styles.textStack}>
+			<p className={styles.whatWeEatItemDescription}>{paragraph}</p>
+			<h4 className={styles.whatWeEatColumnHeading}>{intro}</h4>
+			<ul className={styles.list}>
+				{listItems.map((item, i) => (
+					<li key={i} className={styles.listItem}>
+						{item}
+					</li>
+				))}
+			</ul>
 		</div>
-	);
-};
-
-const ConceptStoreBlock: FC = () => {
-	const { paragraph, ctaText } = CONCEPT_STORE;
-	return (
-		<>
-			<p className={styles.travelsLeftText}>{paragraph}</p>
-			<p className={styles.additionalPersonNote}>{ctaText}</p>
-		</>
 	);
 };
 
@@ -817,7 +813,7 @@ const TriksterSide: FC = () => (
 			Мы&nbsp;считаем, что вода и&nbsp;воздух на&nbsp;Алтае должны быть бесплатными и&nbsp;не&nbsp;хотим ничего считать.
 			<br />
 			<br />
-			На&nbsp;закупку воды Petroglyph и&nbsp;переработку пластика, который мы&nbsp;возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей. Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 350&nbsp;рублей/день с человека, который идёт на&nbsp;реализацию образовательных
+			На&nbsp;закупку воды Петроглиф и&nbsp;переработку пластика, который мы&nbsp;возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей. Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 350&nbsp;рублей/день с человека, который идёт на&nbsp;реализацию образовательных
 			и&nbsp;экологических проектов на&nbsp;Алтае. А&nbsp;если вы&nbsp;не&nbsp;согласны, то&nbsp;мы&nbsp;не&nbsp;будем включать это в&nbsp;ваш счёт.
 		</p>
 	</div>
@@ -1422,9 +1418,10 @@ export const PricesPage: FC = () => {
 			<AccordionSection defaultOpen={false} title={DLYA_DETEY.title}>
 				<DlyaDeteyBlock />
 			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={CONCEPT_STORE.title}>
-				<ConceptStoreBlock />
-			</AccordionSection>
+			<div className={styles.conceptStoreStatic}>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE.paragraph}</p>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE.ctaText}</p>
+			</div>
 		</main>
 	);
 };

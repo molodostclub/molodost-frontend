@@ -43,12 +43,6 @@ export const twbContainer = style({
   height: HEIGHT,
 });
 
-export const twbContainerAccordion = style({
-  height: 'auto',
-  minHeight: HEIGHT,
-  alignItems: 'center',
-});
-
 export const twbColor = styleVariants({
   brand: {
     borderColor: vars.color.brand,
@@ -137,18 +131,6 @@ export const twbSize = styleVariants({
     fontSize: 25,
     lineHeight: '25px',
   },
-  accordion: [
-    {
-      fontSize: 32,
-      lineHeight: 1.2,
-      padding: '12px 18px',
-      whiteSpace: 'normal',
-      textAlign: 'center',
-    },
-    tablet({
-      whiteSpace: 'nowrap',
-    }),
-  ],
 });
 
 export const twbLogo = style({

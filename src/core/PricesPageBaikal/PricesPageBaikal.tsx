@@ -12,6 +12,7 @@ import {
 import * as styles from '../PricesPage/PricesPage.css';
 import { WHAT_WE_DRINK } from '../PricesPage/PricesPage.constants';
 import {
+	BAR_AND_CORKAGE_BAIKAL,
 	BLAGODAT_BAIKAL,
 	COMFORT_BAIKAL,
 	CONCEPT_STORE_BAIKAL,
@@ -27,7 +28,7 @@ import {
 } from './PricesPageBaikal.constants';
 
 const NaBazeBlock: FC = () => {
-	const { gastropub, guestsStaying, guestsNotStaying, vodopoyNote, coffeeShop } = NA_BAZE_BAIKAL;
+	const { gastropub, guestsStaying, guestsNotStaying, coffeeShop } = NA_BAZE_BAIKAL;
 	return (
 		<>
 			<div className={styles.whatWeEatGastropubLayout}>
@@ -38,37 +39,41 @@ const NaBazeBlock: FC = () => {
 							{m.name} {m.time}
 						</div>
 					))}
+					{gastropub.mealPackageSummary ? (
+						<p className={styles.whatWeEatDescription}>{gastropub.mealPackageSummary}</p>
+					) : null}
 				</div>
-				<p className={styles.whatWeEatDescription}>{gastropub.description}</p>
 			</div>
 			<div className={styles.whatWeEatColumns}>
 				<div className={styles.whatWeEatColumn}>
 					<h4 className={styles.whatWeEatColumnHeading}>{guestsStaying.title}</h4>
 					{guestsStaying.items.map((item, i) => (
-						<div className={styles.whatWeEatItem} key={i}>
-							<div className={styles.whatWeEatItemLeft}>
-								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
-								{'description' in item && item.description && (
-									<span className={styles.whatWeEatItemDescription}>{item.description}</span>
-								)}
-							</div>
-							<div className={styles.whatWeEatItemRight}>
-								{'priceAdult' in item &&
-									item.priceAdult !== undefined &&
-									'priceChild' in item &&
-									item.priceChild !== undefined && (
-										<>
-											<span className={styles.whatWeEatItemPrice}>
-												{formatPriceWithSign(item.priceAdult)}
-											</span>{' '}
-											<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
-											<br />
-											<span className={styles.whatWeEatItemPrice}>
-												{formatPriceWithSign(item.priceChild)}
-											</span>{' '}
-											<span className={styles.whatWeEatItemDescriptor}>ребенок</span>
-										</>
-									)}
+						<div className={styles.whatWeEatItemGroup} key={i}>
+							<div className={styles.whatWeEatItem}>
+								<div className={styles.whatWeEatItemLeft}>
+									<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+									{'description' in item && typeof item.description === 'string' && item.description ? (
+										<span className={styles.whatWeEatItemDescription}>{item.description}</span>
+									) : null}
+								</div>
+								<div className={styles.whatWeEatItemRight}>
+									{'priceAdult' in item &&
+										item.priceAdult !== undefined &&
+										'priceChild' in item &&
+										item.priceChild !== undefined && (
+											<>
+												<span className={styles.whatWeEatItemPrice}>
+													{formatPriceWithSign(item.priceAdult)}
+												</span>{' '}
+												<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+												<br />
+												<span className={styles.whatWeEatItemPrice}>
+													{formatPriceWithSign(item.priceChild)}
+												</span>{' '}
+												<span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+											</>
+										)}
+								</div>
 							</div>
 						</div>
 					))}
@@ -95,7 +100,6 @@ const NaBazeBlock: FC = () => {
 					))}
 				</div>
 			</div>
-			<p className={styles.additionalPersonNote}>{vodopoyNote}</p>
 			<h3 className={styles.subsectionHeading}>{coffeeShop.name}</h3>
 			<p className={styles.additionalPersonNote}>{coffeeShop.description}</p>
 			<div className={styles.whatWeEatColumns}>
@@ -122,6 +126,25 @@ const NaBazeBlock: FC = () => {
 					)}
 				</div>
 			</div>
+		</>
+	);
+};
+
+const WhatWeDrinkBlockBaikal: FC = () => {
+	const { bar, corkage } = BAR_AND_CORKAGE_BAIKAL;
+	return (
+		<>
+			<h3 className={styles.subsectionHeading}>{bar.name}</h3>
+			<p className={styles.whatWeDrinkBarDescription}>{bar.description}</p>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{bar.items.map((item, i) => (
+						<DrinkPriceRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn} />
+			</div>
+			<p className={styles.additionalPersonNote}>{corkage}</p>
 		</>
 	);
 };
@@ -255,30 +278,17 @@ const PuteshestviyaBlockBaikal: FC = () => {
 const DlyaDeteyBlockBaikal: FC = () => {
 	const { paragraph, intro, listItems } = DLYA_DETEY_BAIKAL;
 	return (
-		<div className={styles.travelsRow}>
-			<div>
-				<p className={styles.travelsLeftText}>{paragraph}</p>
-				<p className={styles.travelsLeftText}>{intro}</p>
-				<ul className={styles.travelsList}>
-					{listItems.map((item, i) => (
-						<li key={i} className={styles.travelsListItem}>
-							{item}
-						</li>
-					))}
-				</ul>
-			</div>
-			<div />
+		<div className={styles.textStack}>
+			<p className={styles.whatWeEatItemDescription}>{paragraph}</p>
+			<h4 className={styles.whatWeEatColumnHeading}>{intro}</h4>
+			<ul className={styles.list}>
+				{listItems.map((item, i) => (
+					<li key={i} className={styles.listItem}>
+						{item}
+					</li>
+				))}
+			</ul>
 		</div>
-	);
-};
-
-const ConceptStoreBlockBaikal: FC = () => {
-	const { paragraph, ctaText } = CONCEPT_STORE_BAIKAL;
-	return (
-		<>
-			<p className={styles.travelsLeftText}>{paragraph}</p>
-			<p className={styles.additionalPersonNote}>{ctaText}</p>
-		</>
 	);
 };
 
@@ -286,49 +296,51 @@ export const PricesPageBaikal: FC = () => {
 	return (
 		<main className={styles.content} id="vsibirzasvoyschet-baikal">
 			<PageHeading>В&nbsp;СИБИРЬ ЗА&nbsp;СВОЙ СЧЁТ&nbsp;&mdash; БАЙКАЛ</PageHeading>
-			<br />
-			<AccordionSection defaultOpen={false} title="ПРОЖИВАНИЕ">
-				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В ГЭРАХ</h3>
-				<ProzhivanieGrid items={PROZHIVANIE_BAIKAL_GERAH} />
-				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В КУБИКАХ</h3>
-				<ProzhivanieGrid items={PROZHIVANIE_BAIKAL_CUBES} />
-				<p className={styles.additionalPersonNote}>{PROZHIVANIE_BAIKAL_ADDITIONAL_PERSON}</p>
-				<h3 className={styles.subsectionHeading}>НАША ПРОГРАММА:</h3>
-				<ul className={styles.list}>
-					{PROZHIVANIE_BAIKAL_PROGRAM.map((item, i) => (
-						<li key={i} className={styles.listItem}>
-							{item}
-						</li>
-					))}
-				</ul>
-			</AccordionSection>
-			<AccordionSection title={NA_BAZE_BAIKAL.title}>
-				<NaBazeBlock />
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={WHAT_WE_DRINK.title}>
-				<></>
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={COMFORT_BAIKAL.title}>
-				<ComfortBlockBaikal />
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={BLAGODAT_BAIKAL.title}>
-				<BlagodatBlockBaikal />
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={ZOZH_ZOM_BAIKAL.title}>
-				<ZozhZomBlockBaikal />
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={POEZDKI_BAIKAL.title}>
-				<PoezdkiBlockBaikal />
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={PUTESHESTVIYA_BAIKAL.title}>
-				<PuteshestviyaBlockBaikal />
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={DLYA_DETEY_BAIKAL.title}>
-				<DlyaDeteyBlockBaikal />
-			</AccordionSection>
-			<AccordionSection defaultOpen={false} title={CONCEPT_STORE_BAIKAL.title}>
-				<ConceptStoreBlockBaikal />
-			</AccordionSection>
+			<div className={styles.pricesBaikalAccordionStack}>
+				<AccordionSection defaultOpen={false} title="ПРОЖИВАНИЕ">
+					<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В ГЭРАХ</h3>
+					<ProzhivanieGrid items={PROZHIVANIE_BAIKAL_GERAH} />
+					<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В КУБИКАХ</h3>
+					<ProzhivanieGrid items={PROZHIVANIE_BAIKAL_CUBES} />
+					<p className={styles.additionalPersonNote}>{PROZHIVANIE_BAIKAL_ADDITIONAL_PERSON}</p>
+					<h3 className={styles.subsectionHeading}>НАША ПРОГРАММА:</h3>
+					<ul className={styles.list}>
+						{PROZHIVANIE_BAIKAL_PROGRAM.map((item, i) => (
+							<li key={i} className={styles.listItem}>
+								{item}
+							</li>
+						))}
+					</ul>
+				</AccordionSection>
+				<AccordionSection title={NA_BAZE_BAIKAL.title}>
+					<NaBazeBlock />
+				</AccordionSection>
+				<AccordionSection defaultOpen={false} title={WHAT_WE_DRINK.title}>
+					<WhatWeDrinkBlockBaikal />
+				</AccordionSection>
+				<AccordionSection defaultOpen={false} title={COMFORT_BAIKAL.title}>
+					<ComfortBlockBaikal />
+				</AccordionSection>
+				<AccordionSection defaultOpen={false} title={BLAGODAT_BAIKAL.title}>
+					<BlagodatBlockBaikal />
+				</AccordionSection>
+				<AccordionSection defaultOpen={false} title={ZOZH_ZOM_BAIKAL.title}>
+					<ZozhZomBlockBaikal />
+				</AccordionSection>
+				<AccordionSection defaultOpen={false} title={POEZDKI_BAIKAL.title}>
+					<PoezdkiBlockBaikal />
+				</AccordionSection>
+				<AccordionSection defaultOpen={false} title={PUTESHESTVIYA_BAIKAL.title}>
+					<PuteshestviyaBlockBaikal />
+				</AccordionSection>
+				<AccordionSection defaultOpen={false} title={DLYA_DETEY_BAIKAL.title}>
+					<DlyaDeteyBlockBaikal />
+				</AccordionSection>
+			</div>
+			<div className={styles.conceptStoreStatic}>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE_BAIKAL.paragraph}</p>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE_BAIKAL.ctaText}</p>
+			</div>
 		</main>
 	);
 };

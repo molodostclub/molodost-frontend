@@ -10,7 +10,7 @@ const PHOTO = '/images/baikal/chto-edim5.jpg';
 
 export const WhatWeEatBaikalPricing: FC = () => {
 	const { guestsStaying, guestsNotStaying } = NA_BAZE_BAIKAL;
-	const [bundle, includesEntry] = guestsStaying.items;
+	const bundle = guestsStaying.items[0];
 
 	const priceAdult =
 		bundle && 'priceAdult' in bundle && typeof bundle.priceAdult === 'number' ? bundle.priceAdult : null;
@@ -34,12 +34,6 @@ export const WhatWeEatBaikalPricing: FC = () => {
 								Ребенок (от 5 до 12 лет) {formatPriceWithSign(priceChild)} /день
 							</p>
 						</div>
-					)}
-					{includesEntry && 'title' in includesEntry && 'description' in includesEntry && includesEntry.description && (
-						<>
-							<p className={styles.includesLabel}>{includesEntry.title}</p>
-							<p className={styles.includesText}>{includesEntry.description}</p>
-						</>
 					)}
 				</div>
 
