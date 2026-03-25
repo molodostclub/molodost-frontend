@@ -420,7 +420,7 @@ export const PravilaZhizni: FC = () => {
 						В&nbsp;фестивальные сезоны наше турбюро и&nbsp;&laquo;Лаборатория тепла&raquo; работают только для проживающих на&nbsp;базе.
 					</p>
 					<p className={styles.block6Paragraph}>
-						Мы&nbsp;не&nbsp;верим в&nbsp;надуманные правила жёсткого Check in&nbsp;&amp;&nbsp;Check out, поэтому постараемся <span className={cn(styles.listItemHighlight, styles.listItemLink)}>заселить и&nbsp;выселить вас тогда</span>, когда <span className={cn(styles.listItemHighlight, styles.listItemLink)}>вам будет удобно, без доплаты</span>.
+						Мы&nbsp;не&nbsp;верим в&nbsp;надуманные правила жёсткого времени заезда и&nbsp;выезда, поэтому постараемся <span className={cn(styles.listItemHighlight, styles.listItemLink)}>заселить и&nbsp;выселить вас тогда</span>, когда <span className={cn(styles.listItemHighlight, styles.listItemLink)}>вам будет удобно, без доплаты</span>.
 					</p>
 					<p className={styles.block6Paragraph}>
 						Мы&nbsp;рады помочь вам с&nbsp;багажом и&nbsp;донести вещи от&nbsp;номера до&nbsp;машины, но&nbsp;просим вас проконтролировать, что с&nbsp;ними всё в&nbsp;порядке.

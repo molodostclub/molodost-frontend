@@ -39,16 +39,6 @@ export const titleLine = style({
 	display: 'block',
 });
 
-export const bookingLink = style({
-	color: 'inherit',
-	textDecoration: 'underline',
-	textDecorationThickness: 1,
-	textUnderlineOffset: 3,
-	':hover': {
-		opacity: 0.85,
-	},
-});
-
 export const pill = style([
 	{
 		marginTop: 28,

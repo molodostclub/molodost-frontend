@@ -69,10 +69,6 @@ export const cardSubtitle = style({
   color: vars.color.white,
 });
 
-export const cardBlue = style({
-  backgroundColor: vars.color.blue,
-});
-
 export const cardGreen = style({
   backgroundColor: vars.color.green,
 });

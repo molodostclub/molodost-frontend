@@ -22,11 +22,11 @@ const CENTER_LINKS = [
 	{ label: 'КОНТАКТЫ', href: '/nashi-kontakty', bold: false },
 ];
 
-/** Центральные ссылки для варианта Байкал — контакты ведут на страницу контактов Байкала */
+/** Центральные ссылки для варианта Байкал — «Контакты» ведут на общую страницу контактов */
 const CENTER_LINKS_BAIKAL = [
 	{ label: 'ПРАВИЛА ЖИЗНИ', href: '/pravila-zhizni', bold: false },
 	{ label: 'НАШ ФЕСТИВАЛЬ', href: '/nash-festival', bold: true },
-	{ label: 'КОНТАКТЫ', href: '/nashi-kontakty-baikal', bold: false },
+	{ label: 'КОНТАКТЫ', href: '/nashi-kontakty', bold: false },
 ];
 
 const ADDRESS_DEFAULT =

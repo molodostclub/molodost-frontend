@@ -267,6 +267,9 @@ const WhatWeEatBlock: FC = () => {
 							{m.name}: {m.time}
 						</div>
 					))}
+					{gastropub.mealPackageSummary ? (
+						<p className={styles.whatWeEatDescription}>{gastropub.mealPackageSummary}</p>
+					) : null}
 				</div>
 			</div>
 			<div className={styles.whatWeEatColumns}>
@@ -291,7 +294,9 @@ const WhatWeEatBlock: FC = () => {
 									)}
 								</div>
 							</div>
-							{'packageDescription' in item && item.packageDescription ? (
+							{'packageDescription' in item &&
+							typeof item.packageDescription === 'string' &&
+							item.packageDescription ? (
 								<p className={styles.whatWeEatPackageDescription}>{item.packageDescription}</p>
 							) : null}
 						</div>

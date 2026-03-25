@@ -13,7 +13,7 @@ export const HowToGetHome: FC = () => {
         поэтому бронирований на&nbsp;сайте у&nbsp;нас нет, и&nbsp;для того, чтобы запланировать поездку,{' '}
         <Link href="/nashi-kontakty" className={styles.accentLink}>напишите нам</Link>{' '}
         или{' '}
-        <Link href="/booking" className={styles.accentLink}>заполните анкету</Link>
+        <Link href="/anketa" className={styles.accentLink}>заполните анкету</Link>
       </p>
 
       <div className={styles.cardsRow}>
@@ -53,7 +53,7 @@ export const HowToGetHome: FC = () => {
             варианты, которые подходят именно вам.
           </p>
           <div className={styles.cardButtons}>
-            <Link href="/booking" className={styles.cardButton}>
+            <Link href="/anketa" className={styles.cardButton}>
               <span className={styles.btnMain}>АНКЕТА</span>
               <span className={styles.btnSub}>АЛТАЙ</span>
             </Link>

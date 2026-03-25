@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { telegramHref, telHref, trimTel } from '@/utils';
 
@@ -17,14 +16,8 @@ export const BaikalBookingCta: FC = () => {
 		<div className={styles.root}>
 			<p className={styles.title}>
 				<span className={styles.titleLine}>Чтобы забронировать проживание в</span>
-				<span className={styles.titleLine}>
-					Молодости перейдите{' '}
-					<Link href="/booking" className={styles.bookingLink} prefetch={false}>
-						по ссылке
-					</Link>{' '}
-					или
-				</span>
-				<span className={styles.titleLine}>свяжитесь с нами по телефону</span>
+				<span className={styles.titleLine}>«Молодости», свяжитесь с нами</span>
+				<span className={styles.titleLine}>по телефону или в мессенджерах</span>
 			</p>
 
 			<div className={styles.pill}>

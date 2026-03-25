@@ -9,7 +9,7 @@ export const TalkAboutUs: FC = () => (
 	<>
 		<div className={styles.content}>
 			<div className={uikit.headingWrapper}>
-				<SectionHeading>Про нас пишут</SectionHeading>
+				<SectionHeading>О нас говорят</SectionHeading>
 			</div>
 
 			<div className={styles.textContent}>

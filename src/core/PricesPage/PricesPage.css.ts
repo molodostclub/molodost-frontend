@@ -863,3 +863,15 @@ export const navButtonActive = style([
 		color: vars.color.white,
 	},
 ]);
+
+/** Равномерный шаг между аккордеонами на странице цен (Байкал) */
+export const pricesBaikalAccordionStack = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 40,
+	marginTop: 24,
+});
+
+globalStyle(`${pricesBaikalAccordionStack} > section`, {
+	marginTop: 0,
+});
