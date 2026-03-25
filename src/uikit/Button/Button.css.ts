@@ -1,4 +1,4 @@
-import { vars } from '@styles';
+import { tablet, vars } from '@styles';
 
 import { style, styleVariants } from '@vanilla-extract/css';
 

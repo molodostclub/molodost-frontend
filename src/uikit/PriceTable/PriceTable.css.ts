@@ -1,4 +1,4 @@
-import { vars } from '@styles';
+import { tablet, vars } from '@styles';
 import {
   styleVariants,
   CSSProperties,
@@ -13,8 +13,9 @@ const baseFlex: CSSProperties = {
 };
 
 const cellBase: CSSProperties = {
-  width: 160,
-  // paddingBottom: 15,
+  minWidth: 0,
+  flex: '1 1 80px',
+  maxWidth: '100%',
 };
 
 const fontColorBase = style({
@@ -41,9 +42,11 @@ export const priceTable = styleVariants({
     {
       ...baseFlex,
       width: '100%',
-      marginBottom: 30,
+      marginBottom: 20,
       color: vars.color.brand,
+      flexWrap: 'wrap',
     },
+    tablet({ marginBottom: 30, flexWrap: 'nowrap' }),
   ],
   rowWrapper: [rowWrapperBase],
   rowWrapperWithNote: [
@@ -52,25 +55,43 @@ export const priceTable = styleVariants({
       marginBottom: 30,
     },
   ],
-  row: [baseFlex, fontColorBase],
+  row: [
+    baseFlex,
+    fontColorBase,
+    { flexWrap: 'wrap', gap: 8 },
+    tablet({ flexWrap: 'nowrap', gap: 15 }),
+  ],
   options: [
     {
       ...baseFlex,
-      gap: 15,
+      gap: 8,
+      minWidth: 0,
+      flex: '1 1 100%',
     },
+    tablet({ gap: 15, flex: 'none' }),
   ],
   /**
    * Cell for non-first row item
    */
-  cell: [cellBase],
+  cell: [
+    cellBase,
+    tablet({ width: 160, flex: 'none' }),
+  ],
   cellAccent: [
     {
       ...cellBase,
       color: vars.color.brand,
     },
+    tablet({ width: 160, flex: 'none' }),
   ],
-  titleCell: [{ width: 130, marginRight: 30 }],
-  titleCellLarge: [{ width: 160, marginRight: 15 }],
+  titleCell: [
+    { minWidth: 0, flex: '0 1 100px', marginRight: 12 },
+    tablet({ width: 130, flex: 'none', marginRight: 30 }),
+  ],
+  titleCellLarge: [
+    { minWidth: 0, flex: '0 1 120px', marginRight: 12 },
+    tablet({ width: 160, flex: 'none', marginRight: 15 }),
+  ],
   titleBreak: { wordBreak: 'break-word' },
   accent: [
     {
@@ -84,14 +105,15 @@ export const priceTable = styleVariants({
   ],
   rowNote: [
     {
-      maxWidth: 210,
+      maxWidth: '100%',
       fontFamily: vars.font.CeraCompactCYRegular,
-      fontSize: 13,
+      fontSize: 12,
       lineHeight: '14px',
       alignSelf: 'stretch',
       color: vars.color.brand,
       marginTop: 5,
       textTransform: 'none',
     },
+    tablet({ maxWidth: 210, fontSize: 13 }),
   ],
 });

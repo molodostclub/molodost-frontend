@@ -1,4 +1,4 @@
-import { vars } from '@/styles';
+import { tablet, vars } from '@/styles';
 import { style } from '@vanilla-extract/css';
 
 export const modalOverlay = style([
@@ -26,13 +26,15 @@ export const modalOverlayCenter = style([
 export const modalWrapper = style([
   {
     position: 'relative',
-    maxWidth: 330,
+    maxWidth: 'calc(100vw - 32px)',
     width: '100%',
     height: 'fit-content',
     backgroundColor: '#FFF',
-    padding: '30px 15px',
-    borderRadius: 30,
+    padding: '24px 16px',
+    borderRadius: 20,
+    boxSizing: 'border-box',
   },
+  tablet({ maxWidth: 330, padding: '30px 15px', borderRadius: 30 }),
 ])
 
 const btnSize = 30
