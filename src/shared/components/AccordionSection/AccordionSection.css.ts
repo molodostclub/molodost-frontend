@@ -1,6 +1,4 @@
 import { style } from '@vanilla-extract/css';
-import { tablet } from '@styles';
-
 import { tablet, vars } from '@styles';
 
 export const section = style({
