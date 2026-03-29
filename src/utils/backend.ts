@@ -62,7 +62,7 @@ backendApi.interceptors.request.use((config) => {
 export interface HousesSplit {
 	individual: HouseModel[];
 	inHouse: HouseModel[];
-	/** Дома-люкспинг (слайдер на странице Байкала) */
+	/** Дома-люкспинг (блок на странице Байкала) */
 	luxiping: HouseModel[];
 }
 

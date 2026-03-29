@@ -76,3 +76,21 @@ export const headingAccented = style({
   textTransform: 'uppercase',
   color: vars.color.brand,
 });
+
+export const sectionMoreLink = style({
+  textDecoration: 'none',
+  color: 'inherit',
+  flexShrink: 0,
+  alignSelf: 'flex-start',
+});
+
+export const sectionMoreLabel = style({
+  fontSize: 13,
+  lineHeight: '13px',
+  paddingTop: 6,
+  paddingBottom: 6,
+  paddingLeft: 12,
+  paddingRight: 32,
+  whiteSpace: 'nowrap',
+  color: vars.color.brand,
+});

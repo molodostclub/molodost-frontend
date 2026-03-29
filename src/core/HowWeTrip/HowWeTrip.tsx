@@ -1,12 +1,15 @@
 import { FC } from 'react';
+import Link from 'next/link';
 
-import { Description, SectionHeading } from '@/uikit';
+import { AccordionGraphic } from '@shared/components/AccordionSection';
 import { BaikalTripCards } from '@/core/Baikal/BaikalTripCards';
 import { TripsSplit } from '@/utils';
-import { TripsItems } from './TripsItems';
-import * as styles from './HowWeTrip.css';
+import { Description, SectionHeading } from '@/uikit';
 import { pageContainer, pageSection } from '@/styles/uikit.css';
 import cn from 'classnames';
+
+import { TripsItems } from './TripsItems';
+import * as styles from './HowWeTrip.css';
 
 type Props = {
 	trips: TripsSplit;
@@ -17,6 +20,7 @@ type Props = {
 
 export const HowWeTrip: FC<Props> = ({ trips: { allDay, notAllDay }, variant, introText }) => {
 	const isBaikal = variant === 'baikal';
+	const isManjerokPage = variant === 'manjerok';
 	const isManjerokLayout = variant === 'manjerok' || variant === 'baikal';
 	const containerClass = isBaikal
 		? styles.headingsBlockBaikal
@@ -45,8 +49,33 @@ export const HowWeTrip: FC<Props> = ({ trips: { allDay, notAllDay }, variant, in
 
 			<div className={pageSection}>
 				{isManjerokLayout ? (
-					<div className={tripsWrapperClass}>
+					<div
+						className={cn(
+							tripsWrapperClass,
+							isManjerokPage && styles.manjerokFirstTripsAboveTravel,
+						)}
+					>
 						<div className={containerClass}>
+							{isManjerokPage ? (
+								<div className={styles.manjerokTravelHeroHeading}>
+									<div className={styles.manjerokTravelHeroRow}>
+										<h2 className={styles.manjerokTravelHeroTitle}>КАК МЫ ПУТЕШЕСТВУЕМ</h2>
+										<Link
+											href="/kak-my-puteshevstvuem"
+											className={styles.manjerokTravelHeroMoreLink}
+											prefetch={false}
+										>
+											<AccordionGraphic
+												layout="single"
+												inline
+												titleClassName={styles.manjerokTravelHeroMoreLabel}
+											>
+												Подробнее
+											</AccordionGraphic>
+										</Link>
+									</div>
+								</div>
+							) : null}
 							<div className={styles.contentWrapperManjerok}>
 								<SectionHeading accented>ПОЕЗДКИ НА ЦЕЛЫЙ ДЕНЬ</SectionHeading>
 							</div>

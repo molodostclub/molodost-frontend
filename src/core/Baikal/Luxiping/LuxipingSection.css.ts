@@ -46,18 +46,6 @@ export const row = style([
 	}),
 ]);
 
-export const colSlider = style([
-	{
-		width: '100%',
-		minWidth: 0,
-		flex: '1 1 auto',
-	},
-	tablet({
-		flex: '1 1 0',
-		maxWidth: '50%',
-	}),
-]);
-
 export const colPhoto = style([
 	{
 		width: '100%',
@@ -84,25 +72,8 @@ export const sideImage = style({
 	borderRadius: 'inherit',
 });
 
-export const swiperRoot = style({
-	width: '100%',
-	paddingBottom: 8,
-});
-
-export const housingSlide = style({
-	width: '100%',
-	display: 'flex',
-	justifyContent: 'center',
-});
-
-export const emptySlider = style({
+export const emptyColumn = style({
 	minHeight: 200,
 	borderRadius: 14,
 	backgroundColor: 'rgba(0,0,0,0.04)',
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
-	fontFamily: vars.font.ApercuProRegular,
-	fontSize: 14,
-	color: vars.color.gray,
 });

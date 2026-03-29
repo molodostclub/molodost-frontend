@@ -1,13 +1,19 @@
 import { HouseModel } from '@/shared/types';
 import { FC } from 'react';
-import * as styles from './Housing.css';
-import { formatPriceWithSign } from '@/utils';
+import Image from 'next/image';
+import cn from 'classnames';
+
 import { Icon } from '@/uikit/icons';
-import { HouseCarousel } from './HouseCarousel';
+import { formatPriceWithSign, getMediaLinkFromModel } from '@/utils';
+
 import { carouseled } from '../WhereWeLive.css';
+import { HouseCarousel } from './HouseCarousel';
+import * as styles from './Housing.css';
 
 interface HousingProps {
 	house: HouseModel;
+	/** Одно фото без карусели (блок люкспинга на странице Байкала) */
+	staticCover?: boolean;
 }
 
 const Pricing: FC<{
@@ -61,10 +67,28 @@ export const Housing: FC<HousingProps> = ({
 			isBaikal,
 		},
 	},
+	staticCover = false,
 }) => {
+	const firstPicture = pictures.data?.[0];
+	const showCarousel = !staticCover && !!pictures.data?.length;
+
 	return (
-		<div className={styles.container}>
-			{!!pictures.data?.length && <HouseCarousel pictures={pictures.data} video={video?.data} videoPreview={videoPreview?.data} />}
+		<div className={cn(styles.container, staticCover && styles.containerLuxipingStatic)}>
+			{staticCover && firstPicture ? (
+				<div className={styles.staticCoverWrap}>
+					<Image
+						fill
+						src={getMediaLinkFromModel(firstPicture)}
+						alt={title ? `Фото: ${title}` : ''}
+						className={styles.staticCoverImage}
+						sizes="(max-width: 768px) 100vw, 50vw"
+						unoptimized
+					/>
+				</div>
+			) : null}
+			{showCarousel && pictures.data ? (
+				<HouseCarousel pictures={pictures.data} video={video?.data} videoPreview={videoPreview?.data} />
+			) : null}
 			<div className={carouseled}>
 				<h3 className={styles.title}>{title}</h3>
 				<div className={styles.areaInfo}>

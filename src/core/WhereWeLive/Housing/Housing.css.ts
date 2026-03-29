@@ -12,6 +12,34 @@ export const container = style([
   }),
 ]);
 
+/** Блок люкспинга на Байкале: на всю ширину колонки, без фиксированных 406px */
+export const containerLuxipingStatic = style([
+  {
+    width: '100%',
+    maxWidth: '100%',
+    marginBottom: 0,
+  },
+  tablet({
+    width: '100%',
+    maxWidth: '100%',
+  }),
+]);
+
+/** Одно фото вместо карусели (люкспинг) — как правая статичная картинка в секции */
+export const staticCoverWrap = style({
+  position: 'relative',
+  width: '100%',
+  borderRadius: 14,
+  overflow: 'hidden',
+  boxShadow: '0px 9px 8px rgba(0, 0, 0, 0.1), 0px 24px 24px rgba(0, 0, 0, 0.12)',
+  aspectRatio: '4 / 3',
+});
+
+export const staticCoverImage = style({
+  objectFit: 'cover',
+  borderRadius: 'inherit',
+});
+
 export const content = style({
   position: 'relative',
   display: 'flex',

@@ -113,6 +113,90 @@ export const tripsBlockManjerok = style([
   }),
 ]);
 
+/**
+ * Первая секция поездок на Манжероке: выше блока с оленями/лошадью (у того z-index у слоёв 0–1),
+ * чтобы отрицательный margin и текст/кнопка не оказывались под картинками.
+ */
+export const manjerokFirstTripsAboveTravel = style({
+  position: 'relative',
+  zIndex: 2,
+});
+
+/** Манжерок: «Как мы путешествуем» + «Подробнее» — на планшете визуально заходит на блок с картинками выше */
+export const manjerokTravelHeroHeading = style([
+  {
+    position: 'relative',
+    zIndex: 3,
+    marginTop: 0,
+  },
+  tablet({
+    marginTop: -105,
+  }),
+]);
+
+export const manjerokTravelHeroRow = style([
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: 14,
+    width: '100%',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
+    paddingBottom: 0,
+  },
+  tablet({
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 16,
+  }),
+]);
+
+export const manjerokTravelHeroTitle = style([
+  {
+    fontFamily: vars.font.CeraCondensedCYBold,
+    fontSize: 30,
+    lineHeight: 1.1,
+    textTransform: 'uppercase',
+    color: vars.color.black,
+    margin: 0,
+    maxWidth: '100%',
+    width: '100%',
+    boxSizing: 'border-box',
+  },
+  tablet({
+    fontSize: 50,
+    lineHeight: 1,
+    width: 'auto',
+  }),
+]);
+
+/** На мобиле кнопку не показываем — только заголовок */
+export const manjerokTravelHeroMoreLink = style([
+  {
+    display: 'none',
+  },
+  tablet({
+    display: 'inline-block',
+    textDecoration: 'none',
+    color: 'inherit',
+    alignSelf: 'center',
+    flexShrink: 0,
+    maxWidth: '100%',
+  }),
+]);
+
+export const manjerokTravelHeroMoreLabel = style({
+  fontSize: 13,
+  lineHeight: '13px',
+  paddingTop: 6,
+  paddingBottom: 6,
+  paddingLeft: 12,
+  paddingRight: 32,
+  whiteSpace: 'nowrap',
+});
+
 export const baikalIntro = style([
   {
     marginTop: 20,

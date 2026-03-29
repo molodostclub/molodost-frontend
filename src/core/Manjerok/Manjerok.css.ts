@@ -1,4 +1,4 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { hexToRgba, pageContent, tablet, vars } from '@styles';
 
@@ -226,107 +226,97 @@ export const placeListTablet = style({
 	marginTop: 60,
 });
 
-export const travelBlockWrapper = style({
-	width: '100vw',
-	marginLeft: 'calc(-50vw + 50%)',
-	marginTop: 40,
-	overflow: 'visible',
-});
+export const travelBlockWrapper = style([
+	{
+		position: 'relative',
+		zIndex: 0,
+		width: '100vw',
+		marginLeft: 'calc(-50vw + 50%)',
+		marginTop: 40,
+		overflow: 'visible',
+		height: 300,
+	},
+	tablet({
+		height: 'auto',
+	}),
+]);
 
-export const travelBlock = style({
-	display: 'block',
-	position: 'relative',
-	width: '100%',
-	height: 640,
-	overflow: 'hidden',
-	backgroundColor: vars.color.mainBackground,
-});
+export const travelBlock = style([
+	{
+		display: 'block',
+		position: 'relative',
+		width: '100%',
+		height: '100%',
+		overflow: 'hidden',
+		backgroundColor: vars.color.mainBackground,
+	},
+	tablet({
+		height: 640,
+	}),
+]);
 
-export const travelBlockLeft = style({
-	position: 'absolute',
-	left: 0,
-	top: '50%',
-	bottom: 0,
-	width: '44%',
-	backgroundImage: 'url(/images/manjerok/raindeers1.png)',
-	backgroundSize: 'cover',
-	height: 320,
-	zIndex: 0,
-	transform: 'translateY(-50%)',
-	opacity: 0.3,
-	mixBlendMode: 'multiply',
-});
+export const travelBlockLeft = style([
+	{
+		position: 'absolute',
+		left: 0,
+		top: 0,
+		width: '100%',
+		height: '100%',
+		backgroundImage: 'url(/images/manjerok/raindeers1.png)',
+		backgroundSize: 'cover',
+		zIndex: 0,
+		transform: 'none',
+		opacity: 0.3,
+		mixBlendMode: 'multiply',
+	},
+	tablet({
+		top: '50%',
+		bottom: 0,
+		width: '44%',
+		height: 320,
+		transform: 'translateY(-50%)',
+	}),
+]);
 
 export const travelBlockCenter = style([
 	{
 		position: 'absolute',
-		left: '50%',
-		top: '50%',
-		bottom: 0,
-		width: 200,
-		transform: 'translate(-50%, -50%)',
+		left: 0,
+		top: 0,
+		width: '100%',
+		height: '100%',
+		transform: 'none',
 		zIndex: 1,
 		backgroundImage: 'url(/images/manjerok/horse.png)',
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
 	},
 	tablet({
+		left: '50%',
+		top: '50%',
+		bottom: 0,
 		width: 335,
 		height: 335,
+		transform: 'translate(-50%, -50%)',
 	}),
 ]);
 
-export const travelBlockRight = style({
-	position: 'absolute',
-	right: 0,
-	top: 0,
-	bottom: 0,
-	width: '44%',
-	backgroundImage: 'url(/images/manjerok/raindeers1.png)',
-	backgroundSize: 'cover',
-	zIndex: 0,
-	opacity: 0.3,
-	mixBlendMode: 'multiply',
-});
-
-export const travelBlockContent = style({
-	position: 'absolute',
-	left: '50%',
-	transform: 'translateX(-50%)',
-	bottom: 0,
-	width: 920,
-	display: 'flex',
-	flexDirection: 'row',
-	alignItems: 'center',
-	justifyContent: 'space-between',
-	paddingBottom: 32,
-	gap: 16,
-	zIndex: 2,
-});
-
-globalStyle(`${travelBlockContent} a`, {
-	width: 135,
-	height: 43,
-	display: 'flex',
-	alignItems: 'stretch',
-	justifyContent: 'stretch',
-});
-
-globalStyle(`${travelBlockContent} a > div`, {
-	width: '100%',
-	height: '100%',
-});
-
-globalStyle(`${travelBlockContent} a > div > div:first-of-type`, {
-	flex: 1,
-	minWidth: 0,
-});
-
-export const travelBlockTitle = style({
-	fontFamily: vars.font.CeraCondensedCYBold,
-	fontSize: 50,
-	lineHeight: 1,
-	textTransform: 'uppercase',
-	color: vars.color.black,
-});
+export const travelBlockRight = style([
+	{
+		display: 'none',
+	},
+	tablet({
+		display: 'block',
+		position: 'absolute',
+		right: 0,
+		top: 0,
+		bottom: 0,
+		width: '44%',
+		backgroundImage: 'url(/images/manjerok/raindeers1.png)',
+		backgroundSize: 'cover',
+		zIndex: 0,
+		opacity: 0.3,
+		mixBlendMode: 'multiply',
+	}),
+]);
 

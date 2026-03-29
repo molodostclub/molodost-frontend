@@ -136,7 +136,7 @@ export type HouseModel = Entity<
     isIndividual: boolean;
     isMars?: boolean;
     isBaikal?: boolean;
-    /** Люкспинг на Байкале — отдельный блок со слайдером */
+    /** Люкспинг на Байкале — отдельный блок с карточкой и фото */
     isLuxiping?: boolean;
   }>
 >;

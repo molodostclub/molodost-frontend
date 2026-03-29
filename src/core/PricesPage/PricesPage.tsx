@@ -267,9 +267,6 @@ const WhatWeEatBlock: FC = () => {
 							{m.name}: {m.time}
 						</div>
 					))}
-					{gastropub.mealPackageSummary ? (
-						<p className={styles.whatWeEatDescription}>{gastropub.mealPackageSummary}</p>
-					) : null}
 				</div>
 			</div>
 			<div className={styles.whatWeEatColumns}>
@@ -409,7 +406,7 @@ const PoezdkiPartnerTableRow: FC<{ item: PoezdkiPartnerItem }> = ({ item }) => (
 	<div className={styles.priceRow}>
 		<div>
 			<p className={styles.partnerTableServiceTitle}>{item.title}</p>
-			{item.condition && <p className={styles.partnerTableCondition}>{item.condition}</p>}
+			{item.condition && <p className={styles.whatWeEatItemDescriptor}>{item.condition}</p>}
 		</div>
 		<div className={styles.partnerTableColLeft}>
 			<p className={styles.partnerTableDuration}>{item.duration ?? ''}</p>
@@ -1391,7 +1388,7 @@ export const PricesPage: FC = () => {
 				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В&nbsp;ОТДЕЛЬНО СТОЯЩИХ ДОМАХ</h3>
 				<ProzhivanieGrid items={PROZHIVANIE_HOUSES} />
 				<p className={styles.additionalPersonNote}>
-					Каждый дополнительный человек в&nbsp;спальне и&nbsp;доме: от&nbsp;+7&nbsp;000&nbsp;₽ взрослый; от&nbsp;+4&nbsp;000&nbsp;₽ ребёнок от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети до&nbsp;5&nbsp;лет&nbsp;&mdash; комплиментарно.
+					Каждый дополнительный человек в&nbsp;спальне и&nbsp;доме: от&nbsp;+5&nbsp;000&nbsp;₽ взрослый; от&nbsp;+4&nbsp;000&nbsp;₽ ребёнок от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети до&nbsp;5&nbsp;лет&nbsp;&mdash; комплиментарно.
 				</p>
 			</AccordionSection>
 			<AccordionSection defaultOpen={false} title={WHAT_WE_EAT.title}>

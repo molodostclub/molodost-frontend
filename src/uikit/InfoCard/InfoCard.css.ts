@@ -5,7 +5,6 @@ import { tablet, vars } from '@styles';
 export const container = style({
   position: 'relative',
   width: '100%',
-  maxWidth: 746,
   height: 482,
   borderRadius: 15,
   display: 'flex',
@@ -105,3 +104,17 @@ export const description = style([
     marginBottom: 30,
   }),
 ]);
+
+export const cardMoreGraphic = style({
+  color: vars.color.white,
+});
+
+export const cardMoreLabel = style({
+  fontSize: 13,
+  lineHeight: '13px',
+  paddingTop: 6,
+  paddingBottom: 6,
+  paddingLeft: 12,
+  paddingRight: 32,
+  whiteSpace: 'nowrap',
+});
