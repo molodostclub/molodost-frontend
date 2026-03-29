@@ -1,25 +1,13 @@
 import axios from 'axios';
 import { HouseModel, MediaUploadFormat, MediaUploadModel, TripModel } from '@shared/types';
 
+/** Прод Strapi: API и медиа всегда с этого origin (игнорируем BACKEND_URL / NEXT_PUBLIC_* для единообразия на всех стендах). */
 const PUBLIC_BACKEND_URL = 'https://admin.molodost.club';
 
-// Функция для получения BASE_URL (вызывается каждый раз, чтобы получить актуальное значение)
-// BACKEND_URL / NEXT_PUBLIC_BASE_URL — явная настройка (в Docker на сервере: http://molodost-backend:1337, см. build-and-deploy.yml).
-// Без BACKEND_URL на SSR нельзя подставлять molodost-backend — на IP/вне Docker имя не резолвится, данные с API пустые.
-export const getBaseUrl = (): string => {
-	const fromEnv = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BASE_URL;
-	if (fromEnv) return fromEnv;
+export const getBaseUrl = (): string => PUBLIC_BACKEND_URL;
 
-	if (typeof window === 'undefined') {
-		return PUBLIC_BACKEND_URL;
-	}
-	return PUBLIC_BACKEND_URL;
-};
-
-/** База для картинок/медиа в HTML и в браузере: никогда не внутренний Docker-хост. */
-export const getPublicBaseUrl = (): string => {
-	return process.env.NEXT_PUBLIC_BASE_URL || PUBLIC_BACKEND_URL;
-};
+/** То же, что getBaseUrl: ссылки на /uploads и медиа из Strapi. */
+export const getPublicBaseUrl = (): string => PUBLIC_BACKEND_URL;
 
 function resolveMediaUrl(pathOrUrl: string, publicBase: string): string {
 	if (!pathOrUrl || !publicBase) return '';
@@ -98,11 +86,6 @@ export const getHousesSplit = async (): Promise<HousesSplit> => {
 		return housesPromise;
 	}
 	housesPromise = (async () => {
-		if (!BASE_URL) {
-			console.warn('ℹ️ BACKEND URL не задан, возвращаем пустые дома');
-			housesPromise = null;
-			return { individual: [], inHouse: [], luxiping: [] };
-		}
 		try {
 			const { data } = await backendApi.get(`houses`, {
 				params: { populate: '*' },
@@ -121,7 +104,7 @@ export const getHousesSplit = async (): Promise<HousesSplit> => {
 				axios.isAxiosError(err) && (err.code === 'ECONNABORTED' || err.message?.includes('timeout'));
 			if (isTimeout) {
 				console.warn(
-					'⚠️ getHousesSplit: таймаут или медленный ответ API (houses). Подставлены пустые списки домов. Проверьте сеть или поднимите локальный Strapi (BACKEND_URL).',
+					'⚠️ getHousesSplit: таймаут или медленный ответ API (houses). Подставлены пустые списки домов. Проверьте сеть и доступность admin.molodost.club.',
 				);
 			} else {
 				console.error('❌ Ошибка в getHousesSplit:', err);
@@ -157,11 +140,6 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 		return tripsPromise;
 	}
 	tripsPromise = (async () => {
-		if (!BASE_URL) {
-			console.warn('ℹ️ BACKEND URL не задан, возвращаем пустые поездки');
-			tripsPromise = null;
-			return { allDay: [], notAllDay: [] };
-		}
 		try {
 			const { data } = await backendApi.get('trips', {
 				params: { populate: '*' },
