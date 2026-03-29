@@ -2,20 +2,17 @@ import axios from 'axios';
 import { HouseModel, MediaUploadFormat, MediaUploadModel, TripModel } from '@shared/types';
 
 const PUBLIC_BACKEND_URL = 'https://admin.molodost.club';
-const DOCKER_BACKEND_URL = 'http://molodost-backend:1337';
 
 // Функция для получения BASE_URL (вызывается каждый раз, чтобы получить актуальное значение)
-// В dev / на localhost запросы идут по домену (публичный URL), в production в Docker — по внутреннему URL
+// BACKEND_URL / NEXT_PUBLIC_BASE_URL — явная настройка (в Docker на сервере: http://molodost-backend:1337, см. build-and-deploy.yml).
+// Без BACKEND_URL на SSR нельзя подставлять molodost-backend — на IP/вне Docker имя не резолвится, данные с API пустые.
 export const getBaseUrl = (): string => {
 	const fromEnv = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BASE_URL;
 	if (fromEnv) return fromEnv;
 
-	// На сервере (SSR): в dev или при локальном запуске используем публичный домен (molodost-backend на localhost не резолвится)
 	if (typeof window === 'undefined') {
-		const isDev = process.env.NODE_ENV === 'development';
-		return isDev ? PUBLIC_BACKEND_URL : DOCKER_BACKEND_URL;
+		return PUBLIC_BACKEND_URL;
 	}
-	// На клиенте всегда внешний URL
 	return PUBLIC_BACKEND_URL;
 };
 
