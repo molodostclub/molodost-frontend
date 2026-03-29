@@ -1,8 +1,11 @@
 import { FC, PropsWithChildren } from 'react';
+import Link from 'next/link';
 
 import cn from 'classnames';
+
+import { AccordionGraphic } from '@shared/components/AccordionSection';
+
 import * as styles from './SectionHeading.css';
-import { BrandLink } from '@uikit';
 
 type Props = {
   linkTo?: string;
@@ -50,9 +53,11 @@ export const SectionHeading: FC<PropsWithChildren<Props>> = ({
         </h2>
       )}
       {!!linkTo && (
-        <BrandLink linkTo={linkTo} direction="right" size="small">
-          {linkText}
-        </BrandLink>
+        <Link href={linkTo} className={styles.sectionMoreLink} prefetch={false}>
+          <AccordionGraphic layout="single" inline titleClassName={styles.sectionMoreLabel}>
+            {linkText}
+          </AccordionGraphic>
+        </Link>
       )}
     </div>
   );

@@ -11,7 +11,7 @@ const tel = trimTel(phoneNumber);
 const email = 'reservation@clubmolodost.ru';
 
 const NAV_LINKS = [
-	{ label: 'АЛТАЙ', href: '/' },
+	{ label: 'АЛТАЙ', href: '/nasha-ekosistema' },
 	{ label: 'БАЙКАЛ', href: '/baikal' },
 	{ label: 'КУРИЛЫ', href: '/kurily' },
 ];
@@ -106,7 +106,13 @@ export const Footer: FC<Props> = ({ variant = 'default' }) => {
 
 						<a href={telHref(footerTel)} className={styles.phonePill}>
 							<span className={styles.phoneIcon}>
-								<Image src="/icons/phone-brand.svg" alt="" width={24} height={24} />
+								<Image
+									src="/icons/phone-brand.svg"
+									alt=""
+									width={24}
+									height={24}
+									className={styles.phoneIconImage}
+								/>
 							</span>
 							<span className={styles.phoneLink}>{footerPhoneDisplay}</span>
 						</a>
@@ -149,7 +155,13 @@ export const Footer: FC<Props> = ({ variant = 'default' }) => {
 							rel="noopener noreferrer"
 							className={styles.socialIcon}
 						>
-							<Image src="/icons/Max.png" alt="MAX" width={45} height={45} />
+							<Image
+								src="/icons/Max.png"
+								alt="MAX"
+								width={45}
+								height={45}
+								className={styles.socialIconImage}
+							/>
 						</a>
 						<a
 							href={telegramHref}
@@ -157,7 +169,13 @@ export const Footer: FC<Props> = ({ variant = 'default' }) => {
 							rel="noopener noreferrer"
 							className={styles.socialIcon}
 						>
-							<Image src="/icons/Telegram.png" alt="Telegram" width={45} height={45} />
+							<Image
+								src="/icons/Telegram.png"
+								alt="Telegram"
+								width={45}
+								height={45}
+								className={styles.socialIconImage}
+							/>
 						</a>
 					</div>
 				</div>

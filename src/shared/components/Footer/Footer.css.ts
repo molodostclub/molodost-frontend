@@ -4,7 +4,7 @@ import { style } from '@vanilla-extract/css';
 export const footer = style([
 	{
 		backgroundColor: vars.color.brand,
-		padding: '24px 24px',
+		padding: '12px 10px',
 	},
 	tablet({
 		padding: '28px 40px',
@@ -14,69 +14,112 @@ export const footer = style([
 export const inner = style([
 	{
 		display: 'flex',
-		flexDirection: 'column',
-		gap: 24,
-		margin: '0 auto',
-	},
-	tablet({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'flex-start',
+		gap: 8,
+		margin: '0 auto',
+		maxWidth: '100%',
+		width: '100%',
+		boxSizing: 'border-box',
+	},
+	tablet({
 		maxWidth: 1200,
 		gap: 0,
 	}),
 ]);
 
-export const navColumn = style({
-	display: 'flex',
-	flexDirection: 'column',
-	gap: '4px',
-	margin: 0,
-	padding: 0,
-});
-
-export const navLink = style({
-	fontFamily: vars.font.CeraCondensedCYMedium,
-	fontSize: 26,
-	lineHeight: '26px',
-	color: vars.color.white,
-	textTransform: 'uppercase',
-	textDecoration: 'none',
-	letterSpacing: 0,
-	margin: 0,
-	':hover': {
-		opacity: 0.8,
+export const navColumn = style([
+	{
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '2px',
+		margin: 0,
+		padding: 0,
+		flex: '0 1 auto',
+		minWidth: 0,
+		maxWidth: '26%',
 	},
-});
+	tablet({
+		gap: '4px',
+		maxWidth: 'none',
+	}),
+]);
 
-export const addressText = style({
-	fontFamily: vars.font.CeraCondensedCYRegular,
-	fontSize: 12,
-	lineHeight: '16px',
-	color: vars.color.white,
-	margin: 0,
-	maxWidth: '220px',
-});
-
-export const centerColumn = style({
-	display: 'flex',
-	flexDirection: 'column',
-	gap: 4,
-	alignItems: 'center',
-	alignSelf: 'center',
-});
-
-export const centerLink = style({
-	fontFamily: vars.font.CeraCondensedCYRegular,
-	fontSize: 36,
-	lineHeight: '40px',
-	color: vars.color.white,
-	textTransform: 'uppercase',
-	textDecoration: 'none',
-	':hover': {
-		opacity: 0.8,
+export const navLink = style([
+	{
+		fontFamily: vars.font.CeraCondensedCYMedium,
+		fontSize: 13,
+		lineHeight: '13px',
+		color: vars.color.white,
+		textTransform: 'uppercase',
+		textDecoration: 'none',
+		letterSpacing: 0,
+		margin: 0,
+		':hover': {
+			opacity: 0.8,
+		},
 	},
-});
+	tablet({
+		fontSize: 26,
+		lineHeight: '26px',
+	}),
+]);
+
+export const addressText = style([
+	{
+		fontFamily: vars.font.CeraCondensedCYRegular,
+		fontSize: 8,
+		lineHeight: '10px',
+		color: vars.color.white,
+		margin: 0,
+		marginTop: 6,
+		maxWidth: '100%',
+	},
+	tablet({
+		fontSize: 12,
+		lineHeight: '16px',
+		marginTop: 0,
+		maxWidth: '220px',
+	}),
+]);
+
+export const centerColumn = style([
+	{
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 2,
+		alignItems: 'flex-start',
+		alignSelf: 'flex-start',
+		flex: '0 1 auto',
+		minWidth: 0,
+		maxWidth: '24%',
+	},
+	tablet({
+		gap: 4,
+		alignItems: 'center',
+		alignSelf: 'center',
+		maxWidth: 'none',
+	}),
+]);
+
+export const centerLink = style([
+	{
+		fontFamily: vars.font.CeraCondensedCYRegular,
+		fontSize: 11,
+		lineHeight: '12px',
+		color: vars.color.white,
+		textTransform: 'uppercase',
+		textDecoration: 'none',
+		':hover': {
+			opacity: 0.8,
+		},
+	},
+	tablet({
+		fontSize: 36,
+		lineHeight: '40px',
+	}),
+]);
 
 export const centerLinkBold = style([
 	centerLink,
@@ -88,12 +131,14 @@ export const centerLinkBold = style([
 export const rightColumn = style([
 	{
 		display: 'flex',
-		flexDirection: 'column',
-		gap: 0,
-		alignItems: 'center',
+		flexDirection: 'row',
+		alignItems: 'flex-start',
+		justifyContent: 'flex-end',
+		gap: 6,
+		flex: '1 1 auto',
+		minWidth: 0,
 	},
 	tablet({
-		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
 		gap: 12,
@@ -108,6 +153,9 @@ export const rightContent = style([
 		flexDirection: 'column',
 		alignItems: 'center',
 		gap: 0,
+		flex: '1 1 auto',
+		minWidth: 0,
+		maxWidth: '100%',
 	},
 	tablet({
 		alignItems: 'center',
@@ -115,113 +163,186 @@ export const rightContent = style([
 ]);
 
 /** Wrapper for email - centered per Figma, 10px gap to phone */
-export const emailWrap = style({
-	width: '100%',
-	textAlign: 'center',
-	marginBottom: 10,
-});
-
-export const emailLink = style({
-	fontFamily: vars.font.ApercuProBold,
-	fontSize: 14,
-	lineHeight: '24px',
-	color: vars.color.white,
-	textTransform: 'uppercase',
-	textDecoration: 'underline',
-});
-
-
-/** White pill button: 262×42px, red border, red icon + number (per Figma); 4px gap to legal links */
-export const phonePill = style({
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
-	gap: 12,
-	width: 262,
-	height: 42,
-	backgroundColor: vars.color.white,
-	border: `2px solid ${vars.color.brand}`,
-	borderRadius: 21,
-	padding: '0 20px',
-	flexShrink: 0,
-	textDecoration: 'none',
-	marginBottom: 4,
-	':hover': {
-		opacity: 0.95,
+export const emailWrap = style([
+	{
+		width: '100%',
+		textAlign: 'center',
+		marginBottom: 6,
 	},
-});
+	tablet({
+		marginBottom: 10,
+	}),
+]);
 
-export const phoneIcon = style({
-	width: 24,
-	height: 24,
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
-	flexShrink: 0,
-});
+export const emailLink = style([
+	{
+		fontFamily: vars.font.ApercuProBold,
+		fontSize: 7,
+		lineHeight: '10px',
+		color: vars.color.white,
+		textTransform: 'uppercase',
+		textDecoration: 'underline',
+		wordBreak: 'break-all',
+	},
+	tablet({
+		fontSize: 14,
+		lineHeight: '24px',
+		wordBreak: 'normal',
+	}),
+]);
 
-export const phoneLink = style({
-	fontFamily: vars.font.CeraCondensedCYBold,
-	fontSize: 36,
-	lineHeight: 1,
-	color: vars.color.brand,
-	textDecoration: 'none',
-	whiteSpace: 'nowrap',
-});
+/** White pill button */
+export const phonePill = style([
+	{
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		gap: 6,
+		width: '100%',
+		maxWidth: 200,
+		height: 32,
+		backgroundColor: vars.color.white,
+		border: `2px solid ${vars.color.brand}`,
+		borderRadius: 16,
+		padding: '0 8px',
+		flexShrink: 0,
+		textDecoration: 'none',
+		marginBottom: 4,
+		boxSizing: 'border-box',
+		':hover': {
+			opacity: 0.95,
+		},
+	},
+	tablet({
+		gap: 12,
+		width: 262,
+		maxWidth: 'none',
+		height: 42,
+		borderRadius: 21,
+		padding: '0 20px',
+	}),
+]);
 
-/** Social icons stacked vertically, to the right of entire content block (email + phone + links) */
-export const socialIcons = style({
-	display: 'flex',
-	flexDirection: 'column',
-	gap: 8,
-	flexShrink: 0,
-});
+export const phoneIcon = style([
+	{
+		width: 16,
+		height: 16,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexShrink: 0,
+	},
+	tablet({
+		width: 24,
+		height: 24,
+	}),
+]);
 
-export const socialIcon = style({
-	width: 45,
-	height: 45,
-	borderRadius: '50%',
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
-	overflow: 'hidden',
-});
+/** Next/Image: визуальный размер иконки телефона */
+export const phoneIconImage = style([
+	{
+		width: 16,
+		height: 16,
+		objectFit: 'contain',
+	},
+	tablet({
+		width: 24,
+		height: 24,
+	}),
+]);
 
-/** Two columns of legal links below phone button, with vertical separator */
-export const legalRow = style([
+export const phoneLink = style([
+	{
+		fontFamily: vars.font.CeraCondensedCYBold,
+		fontSize: 13,
+		lineHeight: 1,
+		color: vars.color.brand,
+		textDecoration: 'none',
+		whiteSpace: 'nowrap',
+	},
+	tablet({
+		fontSize: 36,
+	}),
+]);
+
+/** Social icons stacked vertically, to the right of entire content block */
+export const socialIcons = style([
 	{
 		display: 'flex',
 		flexDirection: 'column',
-		gap: 12,
+		gap: 4,
+		flexShrink: 0,
 	},
 	tablet({
-		flexDirection: 'row',
-		alignItems: 'stretch',
-		gap: 0,
-		justifyContent: 'center',
+		gap: 8,
 	}),
 ]);
 
-/** Thin white vertical line between the two legal link columns (visible on desktop) */
+export const socialIcon = style([
+	{
+		width: 30,
+		height: 30,
+		borderRadius: '50%',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		overflow: 'hidden',
+	},
+	tablet({
+		width: 45,
+		height: 45,
+	}),
+]);
+
+export const socialIconImage = style([
+	{
+		width: 30,
+		height: 30,
+		objectFit: 'contain',
+	},
+	tablet({
+		width: 45,
+		height: 45,
+	}),
+]);
+
+/** Two columns of legal links below phone button, with vertical separator */
+export const legalRow = style({
+	display: 'flex',
+	flexDirection: 'row',
+	alignItems: 'stretch',
+	gap: 0,
+	justifyContent: 'center',
+	width: '100%',
+});
+
+/** Thin white vertical line between the two legal link columns */
 export const legalSeparator = style([
 	{
-		display: 'none',
-	},
-	tablet({
 		display: 'block',
 		width: 1,
-		minHeight: 32,
+		minHeight: 24,
 		backgroundColor: vars.color.white,
-		margin: '0 16px',
+		margin: '0 6px',
 		alignSelf: 'stretch',
+		flexShrink: 0,
+	},
+	tablet({
+		minHeight: 32,
+		margin: '0 16px',
 	}),
 ]);
 
-export const legalColumn = style({
-	display: 'flex',
-	flexDirection: 'column',
-	gap: 6,
-});
+export const legalColumn = style([
+	{
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 3,
+	},
+	tablet({
+		gap: 6,
+	}),
+]);
 
 export const legalColumnLeft = style([
 	legalColumn,
@@ -233,14 +354,20 @@ export const legalColumnRight = style([
 	{ textAlign: 'left', alignItems: 'flex-start' },
 ]);
 
-export const legalLink = style({
-	fontFamily: vars.font.CeraCondensedCYRegular,
-	fontSize: 12,
-	lineHeight: '14px',
-	color: vars.color.white,
-	textTransform: 'uppercase',
-	textDecoration: 'none',
-	':hover': {
-		textDecoration: 'underline',
+export const legalLink = style([
+	{
+		fontFamily: vars.font.CeraCondensedCYRegular,
+		fontSize: 7,
+		lineHeight: '9px',
+		color: vars.color.white,
+		textTransform: 'uppercase',
+		textDecoration: 'none',
+		':hover': {
+			textDecoration: 'underline',
+		},
 	},
-});
+	tablet({
+		fontSize: 12,
+		lineHeight: '14px',
+	}),
+]);

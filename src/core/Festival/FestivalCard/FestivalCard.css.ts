@@ -134,7 +134,7 @@ export const description = style([
 		fontSize: 20,
 		lineHeight: '24px',
 		color: vars.color.white,
-		maxWidth: '90%',
+		maxWidth: '50%',
 	}),
 ]);
 

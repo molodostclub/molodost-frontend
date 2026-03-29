@@ -43,6 +43,9 @@ export default function MarsPage(pageProps: Props) {
 				<Mars {...pageProps} />
 				<Postscriptum />
 			</PageContainer>
+			<br />
+			<br />
+			<br />
 			<Footer />
 		</>
 	);

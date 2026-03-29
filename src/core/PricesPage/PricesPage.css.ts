@@ -218,6 +218,7 @@ export const whatWeEatItemDescriptor = style({
 	fontFamily: vars.font.ApercuProRegular,
 	fontSize: 16,
 	color: vars.color.gray,
+	textTransform: 'lowercase',
 });
 
 export const whatWeEatItemNote = style({

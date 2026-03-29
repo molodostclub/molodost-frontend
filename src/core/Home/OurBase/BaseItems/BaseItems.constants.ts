@@ -21,10 +21,10 @@ export const OUR_BASE_ITEMS = [
       '2 кедровые бани с печами из нефрита и спа-центр с массажными кабинетами.',
   },
   {
-    imageSrc: '/images/baza/baza3.jpg',
-    title: 'Терраса для йоги',
+    imageSrc: '/images/manjerok/teplica.jpg',
+    title: 'Творческая мастерская “теплица”',
     description:
-      'Место с лучшим видом на базе, где мы проводим зарядки, читаем книги и медитируем.',
+      'Пространство для творчества, уюта и уединения.',
   },
   {
     imageSrc: '/images/odissey-card.jpg',

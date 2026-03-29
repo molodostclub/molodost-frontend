@@ -357,7 +357,7 @@ export const attentionRed = style([
 	tablet({}),
 ]);
 
-/** Финальный блок — партнёры, телефон, 2 ссылки */
+/** Финальный блок — партнёры, телефон, ссылка на реквизиты */
 export const finalBlock = style({
 	width: '100%',
 });
@@ -383,19 +383,17 @@ export const finalBlockText = style([
 
 export const finalBlockLinks = style([
 	{
-		display: 'grid',
-		gridTemplateColumns: '1fr',
-		gap: 20,
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
 		marginTop: 24,
 	},
 	tablet({
-		gridTemplateColumns: '1fr 1fr',
-		gap: 0,
 		marginTop: 32,
 	}),
 ]);
 
-/** Ссылки НАШИ РЕКВИЗИТЫ / КОНТАКТЫ — mobile 22px, tablet 30px */
+/** Ссылка НАШИ РЕКВИЗИТЫ — mobile 22px, tablet 30px */
 export const finalBlockLink = style([
 	{
 		display: 'flex',

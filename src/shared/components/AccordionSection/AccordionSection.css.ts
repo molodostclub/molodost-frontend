@@ -25,6 +25,14 @@ export const accordionGraphic = style({
 	color: vars.color.brand,
 });
 
+/** Узкая обводка (кнопка «Подробнее» и т.п.), не на всю ширину */
+export const accordionGraphicInline = style({
+	position: 'relative',
+	display: 'inline-block',
+	width: 'auto',
+	color: vars.color.brand,
+});
+
 export const accordionSvg = style({
 	position: 'absolute',
 	left: 0,
@@ -54,6 +62,16 @@ export const accordionSvgSingle = style([
 		display: 'block',
 	}),
 ]);
+
+/** Только многострочный path (без переключения брейкпоинта) */
+export const accordionSvgMultilineOnly = style({
+	display: 'block',
+});
+
+/** Только однострочный path */
+export const accordionSvgSingleOnly = style({
+	display: 'block',
+});
 
 export const accordionTitle = style([
 	{

@@ -140,7 +140,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 				<div className={cn(indent.tablet_mt_10, indent.mt_6)}>
 					<p className={styles.flatsTitle}>люкспинг</p>
 					<LuxipingSection houses={filteredLuxiping} />
-					<BaikalBookingCta />
+					<BaikalBookingCta />	
 				</div>
 				</div>
 			</div>
@@ -200,7 +200,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 				<div className={cn(styles.blagodatPricing, indent.tablet_mt_5, indent.mt_6)}>
 					<div className={styles.blagodatPricingItem}>
 						<span className={styles.blagodatPricingLabel}>ЦЕРЕМОНИЯ МОЛОДОСТЬ</span>
-						<span className={styles.blagodatPricingPrice}>ОТ&nbsp;30&nbsp;000&nbsp;₽</span>
+						<span className={styles.blagodatPricingPrice}>ОТ&nbsp;20&nbsp;000&nbsp;₽</span>
 						<span className={styles.blagodatPricingNote}>с человека</span>
 					</div>
 					<div className={styles.blagodatPricingItem}>
@@ -380,10 +380,6 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 					<Link href="/pravovie-documenti-baikal" className={styles.finalBlockLink} prefetch={false}>
 						<span>НАШИ</span>
 						<span>РЕКВИЗИТЫ</span>
-					</Link>
-					<Link href="/nashi-kontakty-baikal" className={styles.finalBlockLink} prefetch={false}>
-						<span>НАШИ</span>
-						<span>КОНТАКТЫ</span>
 					</Link>
 				</div>
 				</div>

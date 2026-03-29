@@ -131,7 +131,6 @@ export const BLAGODAT_BAIKAL = {
 	leftColumn: [
 		{ title: 'ПАРЕНИЕ', description: '90 минут / 1 человек', price: 20_000 },
 		{ title: 'каждый дополнительный час', description: '60 минут / 1 человек', price: 10_000 },
-		{ title: 'ГРУППОВОЕ ПАРЕНИЕ', description: '120 минут / от 6 человек', price: 120_000 },
 		{
 			title: 'ДЕТСКАЯ БАННАЯ ЦЕРЕМОНИЯ «СВЕТЛЫЙ ПАР»',
 			description: '30-45 минут / 1 человек',
@@ -392,7 +391,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				notes: [],
 				pictures: TRIP_PICTURES_EMPTY,
 				staticCoverPaths: ['/images/baikal/turka/image%2030.jpg'],
-				footerDuration: 'Весь день',
+				footerDuration: '',
 				footerPrice: '8 500 ₽ / чел',
 			},
 		},

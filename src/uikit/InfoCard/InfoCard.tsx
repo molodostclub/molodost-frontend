@@ -2,9 +2,11 @@ import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import * as styles from './InfoCard.css';
-import { ArrowButton } from '@uikit/Button';
 import cn from 'classnames';
+
+import { AccordionGraphic } from '@shared/components/AccordionSection';
+
+import * as styles from './InfoCard.css';
 
 export type InfoCardProps = {
   image: string;
@@ -43,9 +45,14 @@ export const InfoCard: FC<InfoCardProps> = ({
         {!!text && <span className={styles.description}>{text}</span>}
         <div>
           {!!linkTo && (
-            <ArrowButton direction="right" size="small">
+            <AccordionGraphic
+              layout="single"
+              inline
+              graphicClassName={styles.cardMoreGraphic}
+              titleClassName={styles.cardMoreLabel}
+            >
               Подробнее
-            </ArrowButton>
+            </AccordionGraphic>
           )}
         </div>
       </div>

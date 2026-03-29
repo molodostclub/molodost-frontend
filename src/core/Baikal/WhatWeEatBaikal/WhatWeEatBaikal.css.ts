@@ -28,7 +28,7 @@ export const sectionLabel = style([
 		textAlign: 'left',
 	},
 	tablet({
-		fontSize: 23,
+		fontSize: 40,
 		lineHeight: '23px',
 	}),
 ]);

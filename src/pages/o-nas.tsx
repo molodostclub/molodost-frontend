@@ -6,8 +6,10 @@ export default function AboutPage() {
 		<>
 			<PageMeta title="О нас" />
 			<InnerPageHeader />
-			<PageCover src="/images/about/about-cover.jpg" />
-			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'О нас' }]} />
+			<PageCover src="/images/o-nas.jpg" />
+			<Breadcrumb
+				items={[{ label: 'Главная', href: '/' }, { label: 'О нас' }]}
+			/>
 			<AboutUs />
 			<Footer />
 		</>
