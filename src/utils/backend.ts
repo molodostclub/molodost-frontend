@@ -16,20 +16,37 @@ export const getBaseUrl = (): string => {
 	return PUBLIC_BACKEND_URL;
 };
 
+/** База для картинок/медиа в HTML и в браузере: никогда не внутренний Docker-хост. */
+export const getPublicBaseUrl = (): string => {
+	return process.env.NEXT_PUBLIC_BASE_URL || PUBLIC_BACKEND_URL;
+};
+
+function resolveMediaUrl(pathOrUrl: string, publicBase: string): string {
+	if (!pathOrUrl || !publicBase) return '';
+	const base = publicBase.replace(/\/$/, '');
+	if (/^https?:\/\//i.test(pathOrUrl)) {
+		try {
+			const { pathname, search, hash } = new URL(pathOrUrl);
+			return `${base}${pathname}${search}${hash}`;
+		} catch {
+			return pathOrUrl;
+		}
+	}
+	return `${base}${pathOrUrl.startsWith('/') ? '' : '/'}${pathOrUrl}`;
+}
+
 // Для обратной совместимости
 export const BASE_URL = getBaseUrl();
 
 export const getMediaLink = (path: string): string => {
-	const baseUrl = getBaseUrl();
-	if (!baseUrl || !path) return '';
-	return `${baseUrl}${path}`;
+	return resolveMediaUrl(path, getPublicBaseUrl());
 };
 
 export const getMediaLinkFromModel = (model: MediaUploadModel | MediaUploadModel['attributes'], size?: MediaUploadFormat): string => {
 	const data = 'url' in model ? model : model.attributes;
-	const baseUrl = getBaseUrl();
+	const publicBase = getPublicBaseUrl();
 
-	if (!data || !data.url || !baseUrl) return '';
+	if (!data?.url || !publicBase) return '';
 
 	let url: string;
 	if (!size) {
@@ -38,7 +55,7 @@ export const getMediaLinkFromModel = (model: MediaUploadModel | MediaUploadModel
 		url = data.formats?.[size]?.url || data.url;
 	}
 
-	return `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`;
+	return resolveMediaUrl(url, publicBase);
 };
 
 // Создаем axios instance с динамическим baseURL.
