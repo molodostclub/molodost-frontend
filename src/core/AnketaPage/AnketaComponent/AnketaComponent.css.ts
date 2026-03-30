@@ -221,6 +221,15 @@ export const descriptionAttention = style([
   tablet({}),
 ]);
 
+export const descriptionAttentionTwo = style([
+  {
+    fontSize: 24,
+    color: vars.color.brand,
+    fontFamily: vars.font.ApercuProRegular,
+  },
+  tablet({}),
+]);
+
 export const checkBoxNote = style([
   {
     fontSize: 20,

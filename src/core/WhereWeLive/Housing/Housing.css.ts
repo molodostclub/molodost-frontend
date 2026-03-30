@@ -5,10 +5,13 @@ export const container = style([
   {
     width: '100%',
     marginBottom: 30,
+    display: 'flex',
+    flexDirection: 'column',
   },
   tablet({
     width: 406,
     marginBottom: 0,
+    height: '100%',
   }),
 ]);
 
@@ -33,6 +36,7 @@ export const staticCoverWrap = style({
   overflow: 'hidden',
   boxShadow: '0px 9px 8px rgba(0, 0, 0, 0.1), 0px 24px 24px rgba(0, 0, 0, 0.12)',
   aspectRatio: '4 / 3',
+  flexShrink: 0,
 });
 
 export const staticCoverImage = style({
@@ -40,9 +44,19 @@ export const staticCoverImage = style({
   borderRadius: 'inherit',
 });
 
+/** Текст под каруселью: растягивается по высоте карточки, цена прижата вниз */
+export const cardContent = style({
+  display: 'flex',
+  flexDirection: 'column',
+  flex: 1,
+  minHeight: 0,
+  width: '100%',
+});
+
 export const content = style({
   position: 'relative',
   display: 'flex',
+  flexShrink: 0,
 });
 
 export const ImageSize = {
@@ -105,6 +119,7 @@ export const carousel = styleVariants({
     justifyContent: 'center',
     gap: 10,
     margin: '12px auto 14px',
+    flexShrink: 0,
   },
 });
 
@@ -132,11 +147,15 @@ export const title = style({
 export const parameters = style([
   {
     display: 'flex',
-    flexDirection: "column",
-    maxWidth: "80%",
+    flexDirection: 'column',
+    maxWidth: '80%',
     marginTop: 20,
     gap: 20,
   },
+  tablet({
+    marginTop: 'auto',
+    paddingTop: 20,
+  }),
 ]);
 
 export const parameter = style([
@@ -173,7 +192,8 @@ export const description = style([
   dtBase,
   {
     whiteSpace: 'pre-wrap',
-    width: 262,
+    width: '100%',
+    maxWidth: '100%',
     marginTop: 12,
   },
 ]);

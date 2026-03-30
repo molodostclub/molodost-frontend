@@ -550,7 +550,7 @@ export const serviceModelListItem = style([
 		fontSize: 20,
 		lineHeight: 1.3,
 		color: vars.color.black,
-		marginBottom: 40,
+		marginBottom: 27,
 	}),
 ]);
 

@@ -21,10 +21,9 @@ export const Festival: FC = () => (
 
 		<p className={styles.paragraph}>
 			Турбаза на Алтае работает практически круглогодично, а на Байкале с июня по октябрь.
-		</p>
-
-		<p className={styles.subheading}>
-			<strong className={styles.bold}>Фестиваль</strong> — это особое время в нашем Турклубе, когда мы:
+			<br /><br />
+			<b>Фестиваль</b> — это особое время в нашем Турклубе, когда мы:
+			<br /><br />
 		</p>
 
 		<ul className={styles.list}>

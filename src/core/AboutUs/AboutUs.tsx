@@ -31,7 +31,7 @@ export const AboutUs: FC = () => {
 					ПРАВИЛА ЖИЗНИ
 				</Link>
 				<Link href="/pro-nas-govoryat" className={styles.navButton} prefetch={false}>
-					ПРО НАС ПИШУТ
+					О НАС ГОВОРЯТ
 				</Link>
 			</div>
 			<PageHeading>СЛОВО ХУДРУКУ</PageHeading>

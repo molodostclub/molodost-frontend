@@ -18,7 +18,7 @@ export const OurEcosystem: FC<Props> = ({ ecosystemEntries }) => {
       <div className={styles.navButtonsWrapper}>
         <div className={styles.navButtons}>
           <Link href="/manjerok" className={styles.navButton} prefetch={false}>
-            МОЛОДОСТЬ В МАНЖЕРОКЕ
+            МОЛОДОСТЬ В&nbsp;МАНЖЕРОКЕ
           </Link>
           <Link href="/mars" className={styles.navButton} prefetch={false}>
             ПРИЮТ НА МАРСЕ

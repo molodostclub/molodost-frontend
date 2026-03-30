@@ -19,12 +19,11 @@ export const content = style([
   }),
 ]);
 
-export const carouseled = style([
-  { margin: '0 30px' },
-  tablet({
-    margin: '0 auto',
-  }),
-]);
+/** Только в Housing; боковые отступы у карточки не нужны — ширина задаётся контейнером */
+export const carouseled = style({
+  margin: 0,
+  width: '100%',
+});
 
 export const gridTop = style([
   {

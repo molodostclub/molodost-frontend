@@ -670,7 +670,9 @@ export function AnketaComponent() {
 							</div>
 						))}
 					</div>
-					<p className={styles.noteBlack}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
+					<br />
+					<br />
+					<p className={styles.descriptionAttentionTwo}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
 					<div>
 						{/* Varianty prozhivania */}
 						<div className={indent.mt_4}>
@@ -682,7 +684,7 @@ export function AnketaComponent() {
 								</div>
 							))}
 							<br />
-							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне: от&nbsp;7000&nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, от&nbsp;4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
+							<small className={styles.note}>Каждый дополнительный человек в&nbsp;спальне: от&nbsp;5000&nbsp;₽ в&nbsp;сутки за&nbsp;взрослого, от&nbsp;4&nbsp;000&nbsp;₽ в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</small>
 							<br />
 							<div className={indent.mt_4}>
 								<Label caption="Для больших семей и&nbsp;компаний есть много вариантов размещения:" />

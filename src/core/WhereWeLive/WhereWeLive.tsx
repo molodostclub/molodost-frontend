@@ -15,7 +15,7 @@ const PricingInfo: FC = () => (
 			<div className={styles.border} />
 			<div className={styles.pricingInfoContainer}>
 				<div>
-					<p className={styles.priceText}>{formatPriceWithSign(6000)}</p>
+					<p className={styles.priceText}>{formatPriceWithSign(5000)}</p>
 					<p className={styles.pricingInfoText}>доплата за&nbsp;взрослого</p>
 				</div>
 				<div>
@@ -95,7 +95,6 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
 					</div>
 					<br />
 					<br />
-					<Description>ИЮЛЬ - АВГУСТ ВЫСОКИЙ СЕЗОН</Description>
 
 					<h2 className={styles.heading}>размещение в&nbsp;номерах</h2>
 				</div>
