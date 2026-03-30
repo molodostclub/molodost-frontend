@@ -54,9 +54,7 @@ export const ProzhivanieGrid: FC<ProzhivanieGridProps> = ({ items }) => (
 			<div className={styles.accommodationCard} key={index}>
 				<div className={styles.accommodationCardHeader}>
 					<h4 className={styles.accommodationCardTitle}>{item.title}</h4>
-					<span className={styles.accommodationCardPrice}>
-						ОТ&nbsp;{formatPriceWithSign(item.price)}
-					</span>
+					<span className={styles.accommodationCardPrice}>ОТ&nbsp;{formatPriceWithSign(item.price)}</span>
 				</div>
 				<div className={styles.accommodationCardMeta}>
 					{/* eslint-disable-next-line @next/next/no-img-element */}
@@ -64,9 +62,7 @@ export const ProzhivanieGrid: FC<ProzhivanieGridProps> = ({ items }) => (
 					<span>{item.capacity}</span>
 					<span>{item.area}</span>
 				</div>
-				{item.description && (
-					<p className={styles.accommodationCardDescription}>{item.description}</p>
-				)}
+				{item.description && <p className={styles.accommodationCardDescription}>{item.description}</p>}
 			</div>
 		))}
 	</div>
@@ -255,7 +251,8 @@ export const TraktirMealsForNonGuests: FC = () => (
 		))}
 	</div>
 );
-const WhatWeEatBlock: FC = () => {
+/** Те же цены и вёрстка, что в аккордеоне «Что едим» на /v-sibir-za-svoy-schet */
+export const WhatWeEatBlock: FC = () => {
 	const { gastropub, guestsStaying, guestsNotStaying } = WHAT_WE_EAT;
 	return (
 		<>
@@ -291,11 +288,7 @@ const WhatWeEatBlock: FC = () => {
 									)}
 								</div>
 							</div>
-							{'packageDescription' in item &&
-							typeof item.packageDescription === 'string' &&
-							item.packageDescription ? (
-								<p className={styles.whatWeEatPackageDescription}>{item.packageDescription}</p>
-							) : null}
+							{'packageDescription' in item && typeof item.packageDescription === 'string' && item.packageDescription ? <p className={styles.whatWeEatPackageDescription}>{item.packageDescription}</p> : null}
 						</div>
 					))}
 				</div>
@@ -328,15 +321,14 @@ export const DrinkPriceRow: FC<{
 			{item.description && <span className={item.title ? styles.whatWeEatItemDescription : styles.whatWeEatItemTitle}>{item.description}</span>}
 		</div>
 		<div className={styles.whatWeEatItemRight}>
-			<span className={styles.whatWeEatItemPrice}>
-				{item.priceText ?? (item.price != null ? `${item.pricePrefix ?? ''}${formatPriceWithSign(item.price)}` : '')}
-			</span>
+			<span className={styles.whatWeEatItemPrice}>{item.priceText ?? (item.price != null ? `${item.pricePrefix ?? ''}${formatPriceWithSign(item.price)}` : '')}</span>
 			{item.unit && <span className={styles.whatWeEatItemDescriptor}> {item.unit}</span>}
 		</div>
 	</div>
 );
 
-const WhatWeDrinkBlock: FC = () => {
+/** Те же цены, что в аккордеоне «Что пьём» на /v-sibir-za-svoy-schet */
+export const WhatWeDrinkBlock: FC = () => {
 	const { coffeeShop, bar, corkage } = WHAT_WE_DRINK;
 	return (
 		<>
@@ -391,11 +383,9 @@ const PoezdkiTripRow: FC<{ item: PoezdkiTripItem }> = ({ item }) => (
 				<span className={styles.whatWeEatItemPrice}>{item.priceText}</span>
 			) : (
 				<>
-					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult!)}</span>{' '}
-					<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult!)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
 					<br />
-					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild!)}</span>{' '}
-					<span className={styles.whatWeEatItemDescriptor}>детский</span>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild!)}</span> <span className={styles.whatWeEatItemDescriptor}>детский</span>
 				</>
 			)}
 		</div>
@@ -422,12 +412,10 @@ const PoezdkiPartnerTableRow: FC<{ item: PoezdkiPartnerItem }> = ({ item }) => (
 			{item.priceAdult !== undefined && (
 				<>
 					<p className={styles.priceNum}>
-						<span>{formatPriceWithSign(item.priceAdult)}</span>{' '}
-						<span className={styles.partnerTablePriceLabel}>взрослый</span>
+						<span>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.partnerTablePriceLabel}>взрослый</span>
 					</p>
 					<p className={styles.priceNum}>
-						<span>{formatPriceWithSign(item.priceChild!)}</span>{' '}
-						<span className={styles.partnerTablePriceLabel}>детский</span>
+						<span>{formatPriceWithSign(item.priceChild!)}</span> <span className={styles.partnerTablePriceLabel}>детский</span>
 					</p>
 				</>
 			)}
@@ -444,11 +432,9 @@ export const PoezdkiCarRow: FC<{ item: PoezdkiCarItem }> = ({ item }) => (
 		<div className={styles.whatWeEatItemRight}>
 			{item.pricePerHour !== undefined && (
 				<>
-					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span>{' '}
-					<span className={styles.whatWeEatItemDescriptor}>час</span>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span> <span className={styles.whatWeEatItemDescriptor}>час</span>
 					<br />
-					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerDay!)}</span>{' '}
-					<span className={styles.whatWeEatItemDescriptor}>сутки</span>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerDay!)}</span> <span className={styles.whatWeEatItemDescriptor}>сутки</span>
 				</>
 			)}
 			{item.price !== undefined && (
@@ -468,8 +454,7 @@ export const PoezdkiGuideRow: FC<{ item: PoezdkiGuideItem }> = ({ item }) => (
 			{item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
 		</div>
 		<div className={styles.whatWeEatItemRight}>
-			<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span>{' '}
-			<span className={styles.whatWeEatItemDescriptor}>час</span>
+			<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span> <span className={styles.whatWeEatItemDescriptor}>час</span>
 		</div>
 	</div>
 );
@@ -553,25 +538,27 @@ const PuteshestviyaBlock: FC = () => {
 			<h3 className={styles.subsectionHeading}>{mainHeading}</h3>
 			<div className={styles.travelsWrap}>
 				{items.map((item, i) => (
-					<div key={i} className={styles.travelsRow}>
-						<div>
-							<h4 className={styles.puteshestviyaCardHeading}>{item.title}</h4>
-							<p className={styles.puteshestviyaCardDescription}>{item.description}</p>
+					<>
+						<h4 className={styles.puteshestvieCardHeading}>{item.title}</h4>
+						<div key={i} className={styles.travelsRow}>
+							<div>
+								<p className={styles.puteshestvieItem}>{item.description}</p>
+							</div>
+							<div className={styles.puteshestvieRightGroup}>
+								{item.rightItems.map((rightItem, j) =>
+									rightItem.isPrice ? (
+										<p key={j} className={styles.puteshestviePrice}>
+											{rightItem.text}
+										</p>
+									) : (
+										<p key={j} className={styles.puteshestvieDescription}>
+											{rightItem.text}
+										</p>
+									),
+								)}
+							</div>
 						</div>
-						<div className={styles.travelsRightGroup}>
-							{item.rightItems.map((rightItem, j) =>
-								rightItem.isPrice ? (
-									<p key={j} className={styles.whatWeEatItemPrice}>
-										{rightItem.text}
-									</p>
-								) : (
-									<p key={j} className={styles.whatWeEatItemTitle}>
-										{rightItem.text}
-									</p>
-								),
-							)}
-						</div>
-					</div>
+					</>
 				))}
 			</div>
 		</>
@@ -629,7 +616,8 @@ const GroupHikingsBlock: FC = () => (
 	</div>
 );
 
-const BlagodatSaunaBlock: FC = () => (
+/** Те же цены, что в аккордеоне «Благодать» на /v-sibir-za-svoy-schet */
+export const BlagodatSaunaBlock: FC = () => (
 	<div className={styles.whatWeEatColumns}>
 		<div className={styles.whatWeEatColumn}>
 			{BLAGODAT_SAUNA.leftColumn.map((item, i) => (
@@ -1387,9 +1375,7 @@ export const PricesPage: FC = () => {
 				<ProzhivanieGrid items={PROZHIVANIE_ROOMS} />
 				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В&nbsp;ОТДЕЛЬНО СТОЯЩИХ ДОМАХ</h3>
 				<ProzhivanieGrid items={PROZHIVANIE_HOUSES} />
-				<p className={styles.additionalPersonNote}>
-					Каждый дополнительный человек в&nbsp;спальне и&nbsp;доме: от&nbsp;+5&nbsp;000&nbsp;₽ взрослый; от&nbsp;+4&nbsp;000&nbsp;₽ ребёнок от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети до&nbsp;5&nbsp;лет&nbsp;&mdash; комплиментарно.
-				</p>
+				<p className={styles.additionalPersonNote}>Каждый дополнительный человек в&nbsp;спальне и&nbsp;доме: от&nbsp;+5&nbsp;000&nbsp;₽ взрослый; от&nbsp;+4&nbsp;000&nbsp;₽ ребёнок от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети до&nbsp;5&nbsp;лет&nbsp;&mdash; комплиментарно.</p>
 			</AccordionSection>
 			<AccordionSection defaultOpen={false} title={WHAT_WE_EAT.title}>
 				<WhatWeEatBlock />

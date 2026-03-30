@@ -21,8 +21,8 @@ export const APP_ROUTES: MenuItem[] = [
 		subItems: [
 			{ label: '— МОЛОДОСТЬ НА БАЙКАЛЕ', href: '/baikal' },
 			{ label: '— КАК МЫ ЖИВЕМ', href: '/baikal', anchorId: 'roomsOnBaikal' },
-			{ label: '— КАК МЫ ЕДИМ', href: '/baikal', anchorId: 'baikal-what-we-eat-title' },
-			{ label: '— КУДА МЫ ЕЗДИМ', href: '/baikal', anchorId: 'kak-my-puteshestvuem' },
+			{ label: '— Что мы едим', href: '/baikal', anchorId: 'baikal-what-we-eat-title' },
+			{ label: '— Как мы путешествуем', href: '/baikal', anchorId: 'kak-my-puteshestvuem' },
 			{ label: '— В СИБИРЬ ЗА СВОЙ СЧЕТ', href: '/v-sibir-za-svoy-schet-baikal' },
 		],
 	},

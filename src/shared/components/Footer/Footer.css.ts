@@ -24,7 +24,9 @@ export const inner = style([
 		boxSizing: 'border-box',
 	},
 	tablet({
-		maxWidth: 1200,
+		display: "grid",
+		gridTemplateColumns: "1fr 1fr 1.3fr",
+		maxWidth: 900,
 		gap: 0,
 	}),
 ]);
@@ -132,7 +134,7 @@ export const rightColumn = style([
 	{
 		display: 'flex',
 		flexDirection: 'row',
-		alignItems: 'flex-start',
+		alignItems: 'flex-end',
 		justifyContent: 'flex-end',
 		gap: 6,
 		flex: '1 1 auto',
@@ -151,7 +153,7 @@ export const rightContent = style([
 	{
 		display: 'flex',
 		flexDirection: 'column',
-		alignItems: 'center',
+		alignItems: 'flex-end',
 		gap: 0,
 		flex: '1 1 auto',
 		minWidth: 0,
@@ -166,7 +168,7 @@ export const rightContent = style([
 export const emailWrap = style([
 	{
 		width: '100%',
-		textAlign: 'center',
+		textAlign: 'right',
 		marginBottom: 6,
 	},
 	tablet({
@@ -212,6 +214,7 @@ export const phonePill = style([
 		':hover': {
 			opacity: 0.95,
 		},
+		alignSelf: 'flex-end',
 	},
 	tablet({
 		gap: 12,
@@ -312,7 +315,7 @@ export const legalRow = style({
 	flexDirection: 'row',
 	alignItems: 'stretch',
 	gap: 0,
-	justifyContent: 'center',
+	justifyContent: 'flex-end',
 	width: '100%',
 });
 

@@ -3,12 +3,7 @@ import { FC } from 'react';
 import { PageHeading } from '@uikit';
 import { AccordionSection } from '@shared/components';
 import { formatPriceWithSign } from '@utils';
-import {
-	DrinkPriceRow,
-	PoezdkiCarRow,
-	PoezdkiGuideRow,
-	ProzhivanieGrid,
-} from '../PricesPage/PricesPage';
+import { DrinkPriceRow, PoezdkiCarRow, PoezdkiGuideRow, ProzhivanieGrid } from '../PricesPage/PricesPage';
 import * as styles from '../PricesPage/PricesPage.css';
 import { WHAT_WE_DRINK } from '../PricesPage/PricesPage.constants';
 import {
@@ -28,7 +23,7 @@ import {
 } from './PricesPageBaikal.constants';
 
 const NaBazeBlock: FC = () => {
-	const { gastropub, guestsStaying, guestsNotStaying, coffeeShop } = NA_BAZE_BAIKAL;
+	const { gastropub, guestsStaying, guestsNotStaying } = NA_BAZE_BAIKAL;
 	return (
 		<>
 			<div className={styles.whatWeEatGastropubLayout}>
@@ -39,9 +34,7 @@ const NaBazeBlock: FC = () => {
 							{m.name} {m.time}
 						</div>
 					))}
-					{gastropub.mealPackageSummary ? (
-						<p className={styles.whatWeEatDescription}>{gastropub.mealPackageSummary}</p>
-					) : null}
+					{gastropub.mealPackageSummary ? <p className={styles.whatWeEatDescription}>{gastropub.mealPackageSummary}</p> : null}
 				</div>
 			</div>
 			<div className={styles.whatWeEatColumns}>
@@ -52,27 +45,16 @@ const NaBazeBlock: FC = () => {
 							<div className={styles.whatWeEatItem}>
 								<div className={styles.whatWeEatItemLeft}>
 									<span className={styles.whatWeEatItemTitle}>{item.title}</span>
-									{'description' in item && typeof item.description === 'string' && item.description ? (
-										<span className={styles.whatWeEatItemDescription}>{item.description}</span>
-									) : null}
+									{'description' in item && typeof item.description === 'string' && item.description ? <span className={styles.whatWeEatItemDescription}>{item.description}</span> : null}
 								</div>
 								<div className={styles.whatWeEatItemRight}>
-									{'priceAdult' in item &&
-										item.priceAdult !== undefined &&
-										'priceChild' in item &&
-										item.priceChild !== undefined && (
-											<>
-												<span className={styles.whatWeEatItemPrice}>
-													{formatPriceWithSign(item.priceAdult)}
-												</span>{' '}
-												<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
-												<br />
-												<span className={styles.whatWeEatItemPrice}>
-													{formatPriceWithSign(item.priceChild)}
-												</span>{' '}
-												<span className={styles.whatWeEatItemDescriptor}>ребенок</span>
-											</>
-										)}
+									{'priceAdult' in item && item.priceAdult !== undefined && 'priceChild' in item && item.priceChild !== undefined && (
+										<>
+											<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+											<br />
+											<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+										</>
+									)}
 								</div>
 							</div>
 						</div>
@@ -86,20 +68,22 @@ const NaBazeBlock: FC = () => {
 								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
 							</div>
 							<div className={styles.whatWeEatItemRight}>
-								<span className={styles.whatWeEatItemPrice}>
-									{formatPriceWithSign(item.priceAdult)}
-								</span>{' '}
-								<span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+								<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
 								<br />
-								<span className={styles.whatWeEatItemPrice}>
-									{formatPriceWithSign(item.priceChild)}
-								</span>{' '}
-								<span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+								<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
 							</div>
 						</div>
 					))}
 				</div>
 			</div>
+		</>
+	);
+};
+
+const WhatWeDrinkBlockBaikal: FC = () => {
+	const { coffeeShop, bar, corkage } = BAR_AND_CORKAGE_BAIKAL;
+	return (
+		<>
 			<h3 className={styles.subsectionHeading}>{coffeeShop.name}</h3>
 			<p className={styles.additionalPersonNote}>{coffeeShop.description}</p>
 			<div className={styles.whatWeEatColumns}>
@@ -126,14 +110,6 @@ const NaBazeBlock: FC = () => {
 					)}
 				</div>
 			</div>
-		</>
-	);
-};
-
-const WhatWeDrinkBlockBaikal: FC = () => {
-	const { bar, corkage } = BAR_AND_CORKAGE_BAIKAL;
-	return (
-		<>
 			<h3 className={styles.subsectionHeading}>{bar.name}</h3>
 			<p className={styles.whatWeDrinkBarDescription}>{bar.description}</p>
 			<div className={styles.whatWeEatColumns}>
@@ -201,18 +177,13 @@ const PoezdkiBlockBaikal: FC = () => {
 						<div className={styles.whatWeEatItem} key={i}>
 							<div className={styles.whatWeEatItemLeft}>
 								<span className={styles.whatWeEatItemTitleBrand}>{item.title}</span>
-								{item.note && (
-									<span className={styles.whatWeEatItemDescription}>{item.note}</span>
-								)}
+								{item.note && <span className={styles.whatWeEatItemDescription}>{item.note}</span>}
 							</div>
 							<div className={styles.whatWeEatItemRight}>
-								{item.priceText && (
-									<span className={styles.whatWeEatItemPrice}>{item.priceText}</span>
-								)}
+								{item.priceText && <span className={styles.whatWeEatItemPrice}>{item.priceText}</span>}
 								{item.subItems?.map((sub, j) => (
 									<div key={j}>
-										<span className={styles.whatWeEatItemTitleBrand}>{sub.label}</span>{' '}
-										<span className={styles.whatWeEatItemPrice}>{sub.priceText}</span>
+										<span className={styles.whatWeEatItemTitleBrand}>{sub.label}</span> <span className={styles.whatWeEatItemPrice}>{sub.priceText}</span>
 									</div>
 								))}
 							</div>
@@ -236,9 +207,7 @@ const PuteshestviyaBlockBaikal: FC = () => {
 						<div className={styles.whatWeEatItem} key={i}>
 							<div className={styles.whatWeEatItemLeft}>
 								<span className={styles.whatWeEatItemTitleBrand}>{item.title}</span>
-								{item.description && (
-									<span className={styles.whatWeEatItemDescription}>{item.description}</span>
-								)}
+								{item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
 							</div>
 							<div className={styles.whatWeEatItemRight}>
 								<span className={styles.whatWeEatItemPrice}>{item.priceText}</span>
@@ -312,7 +281,7 @@ export const PricesPageBaikal: FC = () => {
 						))}
 					</ul>
 				</AccordionSection>
-				<AccordionSection title={NA_BAZE_BAIKAL.title}>
+				<AccordionSection title={NA_BAZE_BAIKAL.title} defaultOpen={false}>
 					<NaBazeBlock />
 				</AccordionSection>
 				<AccordionSection defaultOpen={false} title={WHAT_WE_DRINK.title}>

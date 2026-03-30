@@ -63,7 +63,7 @@ export const subsectionHeading = style({
 	color: vars.color.black,
 	textTransform: 'uppercase',
 	marginTop: 32,
-	marginBottom: 20,
+	marginBottom: 28,
 });
 
 /** Подзаголовок секции — красный (brand), 27px */
@@ -212,6 +212,43 @@ export const whatWeEatItemPrice = style({
 	fontFamily: vars.font.CeraCondensedCYBold,
 	fontSize: 18,
 	color: vars.color.brand,
+});
+
+export const puteshestvieCardHeading = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 27,
+	lineHeight: 1,
+	textTransform: 'uppercase',
+	color: vars.color.brand,
+	marginBottom: 28,
+});
+
+export const puteshestvieItem = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 18,
+	lineHeight: 1.1,
+	color: vars.color.black,
+});
+
+export const puteshestvieRightGroup = style({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 4,
+});
+
+export const puteshestviePrice = style({
+	fontFamily: vars.font.CeraCondensedCYBold,
+	fontSize: 18,
+	color: vars.color.brand,
+	textTransform: 'uppercase',
+});
+
+export const puteshestvieDescription = style({
+	fontFamily: vars.font.ApercuProBold,
+	fontSize: 14,
+	lineHeight: 1,
+	color: vars.color.gray,
+	textTransform: 'lowercase',
 });
 
 export const whatWeEatItemDescriptor = style({
@@ -493,10 +530,10 @@ export const travelsSubheadingWithGap = style([
 
 /** Блок «Путешествия» — обёртка строк */
 export const travelsWrap = style({
-	marginTop: 20,
+	marginTop: 0,
 	display: 'flex',
 	flexDirection: 'column',
-	gap: 40,
+	gap: 0,
 });
 
 /** Одна строка путешествия — две колонки ~65% / 35%, gap 40px */
@@ -506,8 +543,10 @@ export const travelsRow = style([
 		gridTemplateColumns: '1fr',
 		gap: 24,
 		alignItems: 'start',
+		marginBottom: 30,
 	},
 	tablet({
+		marginBottom: 44,
 		gridTemplateColumns: '65% 1fr',
 		gap: 40,
 	}),
@@ -610,7 +649,7 @@ export const priceRowSmall = style([
 		alignItems: 'center',
 	},
 	tablet({
-		gridTemplateColumns: '3fr 1fr',
+		gridTemplateColumns: '2fr 1fr',
 	}),
 ]);
 

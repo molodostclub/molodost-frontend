@@ -89,7 +89,7 @@ export const Housing: FC<HousingProps> = ({
 			{showCarousel && pictures.data ? (
 				<HouseCarousel pictures={pictures.data} video={video?.data} videoPreview={videoPreview?.data} />
 			) : null}
-			<div className={carouseled}>
+			<div className={cn(carouseled, styles.cardContent)}>
 				<h3 className={styles.title}>{title}</h3>
 				<div className={styles.areaInfo}>
 					<div className={styles.capacity}>

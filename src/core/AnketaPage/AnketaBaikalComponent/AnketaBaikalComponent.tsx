@@ -298,7 +298,7 @@ export function AnketaBaikalComponent() {
 											</Label>
 										</div>
 									</div>
-									<button type="button" className={cn(styles.ctaBtn, styles.linkButton)} onClick={() => document.getElementById('sendForm')?.scrollIntoView({ behavior: 'smooth' })}>
+									<button type="submit" className={cn(styles.ctaBtn, styles.contactFormCta)}>
 										СВЯЖИТЕСЬ СО&nbsp;МНОЙ
 									</button>
 								</div>
@@ -309,7 +309,7 @@ export function AnketaBaikalComponent() {
 							<p className={styles.pageTitle}>Анкета</p>
 							<br />
 							<br />
-							<p className={styles.description}>ВЫ&nbsp;СМОЖЕТЕ ЗАПОЛНЯТЬ ТОЛЬКО ТЕ&nbsp;ПОЛЯ, КОТОРЫЕ КАЖУТСЯ ВАМ ВАЖНЫМИ ДЛЯ ВАС САМИХ.</p>
+							<p className={styles.description}>Вы&nbsp;сможете заполнять только те&nbsp;поля, которые кажутся вам важными для вас самих.</p>
 							<br />
 							<div className={indent.mt_4}>
 								<div className={styles.formRow}>
@@ -365,9 +365,11 @@ export function AnketaBaikalComponent() {
 							<div className={indent.mt_4}>
 								<div className={styles.formRow}>
 									<div className={styles.fromCol}>
-										<Label caption="Количество взрослых">
-											<BaseInput value={adults} type="text" regExp={/[^\d]/gi} required={false} onChange={(e: InputEvent) => setAdults(e.target.value)} />
-										</Label>
+										<div style={{ marginBottom: 2 }}>
+											<Label caption="Количество взрослых">
+												<BaseInput value={adults} type="text" regExp={/[^\d]/gi} required={false} onChange={(e: InputEvent) => setAdults(e.target.value)} />
+											</Label>
+										</div>
 									</div>
 									<div className={styles.fromCol}>
 										<Label caption="Количество детей">
@@ -439,9 +441,8 @@ export function AnketaBaikalComponent() {
 								</div>
 							))}
 							<br />
-							<small>
-								<span className={styles.note}>Каждый дополнительный человек в&nbsp;спальне или в&nbsp;доме:</span>{' '}
-								<span className={styles.noteBlack}>8&nbsp;000&nbsp;р в&nbsp;сутки за&nbsp;взрослого, 6&nbsp;000&nbsp;р в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.</span>
+							<small className={styles.note}>
+								Каждый дополнительный человек в&nbsp;спальне или в&nbsp;доме: 8&nbsp;000&nbsp;р в&nbsp;сутки за&nbsp;взрослого, 6&nbsp;000&nbsp;р в&nbsp;сутки за&nbsp;ребенка с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети младше 5&nbsp;лет наши бесплатные гости.
 							</small>
 							<br />
 							<br />
@@ -457,9 +458,9 @@ export function AnketaBaikalComponent() {
 							</div>
 							<small className={styles.note}>С&nbsp;вами свяжется наш батлер и&nbsp;подберет идеальную конфигурацию.</small>
 							<br />
-							<br />
-							<p className={styles.noteBlack}>Мы&nbsp;кормим целый день завтраком, обедом и&nbsp;ужином взрослых за&nbsp;8&nbsp;900&nbsp;р, детей с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет за&nbsp;5&nbsp;500&nbsp;р.</p>
-							<br />
+							<div className={indent.mt_4}>
+								<Label caption="Мы&nbsp;кормим целый день завтраком, обедом и&nbsp;ужином взрослых за&nbsp;8&nbsp;900&nbsp;р, детей с&nbsp;5&nbsp;до&nbsp;12&nbsp;лет за&nbsp;5&nbsp;500&nbsp;р:" />
+							</div>
 							{howToFood.map((item, i) => (
 								<div key={i} className={indent.mt_2}>
 									<BaseCheckbox name="howToFood" item={item} required={false} onChange={() => onChangeCheckbox(item.value, howToFood, (data) => setFoodMethod(data))} />
@@ -475,11 +476,12 @@ export function AnketaBaikalComponent() {
 								</Label>
 							</div>
 						</div>
-						<h2 className={styles.sectionHeading}>Путешествие по&nbsp;Байкалу</h2>
+						<h2 className={styles.separatorText}>Путешествие по&nbsp;Байкалу</h2>
 						<br />
 						<div>
-							<p className={styles.noteBlack}>Мы&nbsp;ничего не&nbsp;планируем заранее, единственное, скажите нам сейчас если:</p>
-							<br />
+							<div className={indent.mt_4}>
+								<Label caption="Мы&nbsp;ничего не&nbsp;планируем заранее, единственное, скажите нам сейчас если:" />
+							</div>
 							{plany.map((item, i) => (
 								<div key={i} className={indent.mt_2}>
 									<BaseCheckbox name="plany" item={item} required={false} onChange={() => onChangeCheckbox(item.value, plany, (data) => setPlany(data))} />
@@ -507,7 +509,7 @@ export function AnketaBaikalComponent() {
 								</div>
 							))}
 						</div>
-						<h2 className={styles.sectionHeading}>Комфорт и&nbsp;удобства</h2>
+						<h2 className={styles.separatorText}>Комфорт и&nbsp;удобства</h2>
 						<div>
 							<div className={indent.mt_4}>
 								<Label caption="Скажите, нужна&nbsp;ли вам услуга детского клуба?" />
@@ -533,7 +535,8 @@ export function AnketaBaikalComponent() {
 						<br />
 						<br />
 						<br />
-						<p className={styles.descriptionCenter}>Я&nbsp;МОЛОДЕЦ Я&nbsp;ВСЕ ПОНЯЛ, Я&nbsp;СО ВСЕМ СОГЛАСЕН, Я&nbsp;ВСЕ ХОЧУ</p>
+						<p className={styles.descriptionCenter}>Я МОЛОДЕЦ</p>
+						<p className={styles.descriptionCenter}>Я ВСЕ ПОНЯЛ, Я СО ВСЕМ СОГЛАСЕН, Я ВСЕ ХОЧУ</p>
 						<br />
 						<br />
 						<div className={indent.mt_4}>
