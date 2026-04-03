@@ -66,6 +66,14 @@ export const subsectionHeading = style({
 	marginBottom: 28,
 });
 
+/** Подзаголовок в блоке «Для детей» — как остальные h3 в аккордеонах, без верхнего поля после абзаца */
+export const dlyaDeteyIntro = style([
+	subsectionHeading,
+	{
+		marginTop: 0,
+	},
+]);
+
 /** Подзаголовок секции — красный (brand), 27px */
 export const subsectionHeadingBrand = style({
 	fontFamily: vars.font.CeraCondensedCYBold,
@@ -716,6 +724,27 @@ export const listItem = style([
 		fontSize: 16,
 	}),
 ]);
+
+/** Список в блоке «Для детей» — тот же шрифт, что у абзаца над ним (Apercu), не прайсовый Cera */
+export const dlyaDeteyList = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 14,
+	lineHeight: 1.4,
+	color: vars.color.gray,
+	display: 'flex',
+	flexDirection: 'column',
+	gap: 8,
+	listStyle: 'disc',
+	paddingLeft: 20,
+	margin: 0,
+});
+
+export const dlyaDeteyListItem = style({
+	fontFamily: vars.font.ApercuProRegular,
+	fontSize: 14,
+	lineHeight: 1.4,
+	color: vars.color.gray,
+});
 
 export const priceList = style([
 	{

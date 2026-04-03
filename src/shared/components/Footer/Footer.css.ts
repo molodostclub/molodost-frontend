@@ -96,12 +96,15 @@ export const centerColumn = style([
 		flex: '0 1 auto',
 		minWidth: 0,
 		maxWidth: '24%',
+		/* Мобильная: блок с телефоном и мессенджерами — перед этой колонкой со ссылками */
+		order: 2,
 	},
 	tablet({
 		gap: 4,
 		alignItems: 'center',
 		alignSelf: 'center',
 		maxWidth: 'none',
+		order: 0,
 	}),
 ]);
 
@@ -134,17 +137,19 @@ export const rightColumn = style([
 	{
 		display: 'flex',
 		flexDirection: 'row',
-		alignItems: 'flex-end',
+		alignItems: 'flex-start',
 		justifyContent: 'flex-end',
 		gap: 6,
 		flex: '1 1 auto',
 		minWidth: 0,
+		order: 1,
 	},
 	tablet({
 		alignItems: 'center',
 		justifyContent: 'center',
 		gap: 12,
 		minWidth: 280,
+		order: 0,
 	}),
 ]);
 
@@ -170,6 +175,8 @@ export const emailWrap = style([
 		width: '100%',
 		textAlign: 'right',
 		marginBottom: 6,
+		display: 'flex',
+		justifyContent: 'center',
 	},
 	tablet({
 		marginBottom: 10,

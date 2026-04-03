@@ -570,10 +570,10 @@ const DlyaDeteyBlock: FC = () => {
 	return (
 		<div className={styles.textStack}>
 			<p className={styles.whatWeEatItemDescription}>{paragraph}</p>
-			<h4 className={styles.whatWeEatColumnHeading}>{intro}</h4>
-			<ul className={styles.list}>
+			<h3 className={styles.dlyaDeteyIntro}>{intro}</h3>
+			<ul className={styles.dlyaDeteyList}>
 				{listItems.map((item, i) => (
-					<li key={i} className={styles.listItem}>
+					<li key={i} className={styles.dlyaDeteyListItem}>
 						{item}
 					</li>
 				))}
