@@ -10,7 +10,7 @@ export const description = style([
     lineHeight: '18px',
   },
   tablet({
-    fontSize: 22,
+    fontSize: 20,
     lineHeight: '24px',
   }),
 ]);

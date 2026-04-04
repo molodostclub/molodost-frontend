@@ -1,4 +1,4 @@
-import { vars } from '@styles';
+import { tablet, vars } from '@styles';
 
 import { style, styleVariants } from '@vanilla-extract/css';
 
@@ -56,37 +56,48 @@ export const twbColor = styleVariants({
   },
 });
 
-const twbArrowBase = style({
-  objectFit: 'contain',
-  objectPosition: 'center',
-  position: 'absolute',
-  top: -0.5,
-  height: HEIGHT - 0,
-  width: 23,
-});
-export const twbArrow = styleVariants({
-  left: [
-    twbArrowBase,
-    {
-      left: -3,
+const ARROW_LINE_LENGTH = '77.7%';
+const arrowLinePropsRight = {
+  content: '""' as const,
+  position: 'absolute' as const,
+  width: `${BORDER_WIDTH}px`,
+  height: ARROW_LINE_LENGTH,
+  backgroundColor: 'currentColor',
+  right: -16,
+  transformOrigin: 'right center',
+};
+
+const arrowLinePropsLeft = {
+  content: '""' as const,
+  position: 'absolute' as const,
+  width: `${BORDER_WIDTH}px`,
+  height: ARROW_LINE_LENGTH,
+  backgroundColor: 'currentColor',
+  left: -16,
+  transformOrigin: 'left center',
+};
+
+const ARROW_PADDING = '0.9em';
+
+export const twbArrowCss = styleVariants({
+  left: {
+    paddingLeft: ARROW_PADDING,
+    selectors: {
+      '&::after': { ...arrowLinePropsLeft, top: '62%', transform: 'translateY(-100%) rotate(45deg)' },
+      '&::before': { ...arrowLinePropsLeft, top: '40%', transform: 'translateY(0) rotate(-45deg)' },
     },
-  ],
-  right: [
-    twbArrowBase,
-    {
-      right: -3,
-    },
-  ],
-});
-export const twbArrowSize = styleVariants({
-  small: {
-    height: 30,
-    right: 0,
   },
-  large: {},
+  right: {
+    paddingRight: ARROW_PADDING,
+    selectors: {
+      '&::after': { ...arrowLinePropsRight, top: '62%', transform: 'translateY(-100%) rotate(-45deg)' },
+      '&::before': { ...arrowLinePropsRight, top: '40%', transform: 'translateY(0) rotate(45deg)' },
+    },
+  },
 });
 
 const twbRectangleBase = style({
+  position: 'relative',
   padding: '6px 14px',
   width: 'fit-content',
   borderStyle: 'solid',

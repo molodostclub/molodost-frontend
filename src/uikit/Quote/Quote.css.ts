@@ -1,15 +1,18 @@
 import { style } from '@vanilla-extract/css';
+import { tablet, vars } from '@styles';
 
-import { vars } from '@styles';
-
-export const container = style({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: '16px 30px 16px 30px',
-  maxWidth: 405,
-});
+export const container = style([
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '16px 20px',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
+  },
+  tablet({ margin: '16px 30px', maxWidth: 405 }),
+]);
 
 export const quote = style({
   fontFamily: vars.font.CeraCondensedCYBold,

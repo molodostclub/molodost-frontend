@@ -37,3 +37,6 @@ export const ENTERTAINMENT_DATA = [
     linkTo: '/molodost-zazhigayet',
   },
 ];
+
+/** Индексы карточек для страницы Manjerok: баня, зож, дети, молодость зажигает */
+export const ENTERTAINMENT_MANJEROK_INDICES = [2, 3, 4, 5];

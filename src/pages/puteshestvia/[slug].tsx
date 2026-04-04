@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 import { backendApi, getMediaLinkFromModel, getTripsList } from '@utils';
 import { TripModel } from '@/shared/types';
 import { Trip } from '@/core/Trip';
@@ -15,6 +15,7 @@ export default function TripPage({ trip }: { trip: TripModel }) {
 			<PageMeta title={trip.attributes.title} />
 			<InnerPageHeader />
 			<PageCover src={coverUrl} unoptimized />
+			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Как мы путешествуем', href: '/kak-my-puteshevstvuem' }, { label: trip.attributes.title }]} />
 			<Trip trip={trip} />
 			<Footer />
 		</>

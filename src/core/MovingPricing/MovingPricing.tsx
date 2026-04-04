@@ -48,7 +48,7 @@ export const MovingPricing: FC = () => (
 				<br />
 				<br />
 				<br />
-				<div className={stylesPrice.grid}>
+
 					<div className={stylesPrice.priceTable}>
 						<p className={stylesPrice.groupTitle}>ПАРТНЁРСКИЕ АКТИВНОСТИ</p>
 						<div className={stylesPrice.priceRowSmall}>
@@ -84,7 +84,7 @@ export const MovingPricing: FC = () => (
 							</div>
 						))}
 					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>

@@ -4,7 +4,7 @@ import { style } from '@vanilla-extract/css';
 export const content = style([
   pageContent,
   tablet({
-    maxWidth: 720,
+    maxWidth: 746,
     marginLeft: 'auto',
     marginRight: 'auto',
   }),
@@ -27,7 +27,7 @@ export const separator = style([
 const textBase = style({
   fontFamily: vars.font.CeraCondensedCYMedium,
   fontWeight: 500,
-  fontSize: 25,
+  fontSize: 20,
   lineHeight: '25px',
   textTransform: 'uppercase',
 });
@@ -48,7 +48,7 @@ export const ctaBtn = style({
   borderRadius: 30,
   minHeight: 60,
   border: 'none',
-  fontSize: 25,
+  fontSize: 20,
   lineHeight: '25px',
   backgroundColor: vars.color.brand,
   color: vars.color.white,

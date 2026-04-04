@@ -22,8 +22,8 @@ export const headingSize = styleVariants({
       lineHeight: '30px',
     },
     tablet({
-      fontSize: 40,
-      lineHeight: '40px',
+      fontSize: 50,
+      lineHeight: '45px',
     })
   ],
   // (M)edium
@@ -74,5 +74,23 @@ export const headingAccented = style({
   fontSize: 23,
   lineHeight: '23px',
   textTransform: 'uppercase',
+  color: vars.color.brand,
+});
+
+export const sectionMoreLink = style({
+  textDecoration: 'none',
+  color: 'inherit',
+  flexShrink: 0,
+  alignSelf: 'flex-start',
+});
+
+export const sectionMoreLabel = style({
+  fontSize: 13,
+  lineHeight: '13px',
+  paddingTop: 6,
+  paddingBottom: 6,
+  paddingLeft: 12,
+  paddingRight: 32,
+  whiteSpace: 'nowrap',
   color: vars.color.brand,
 });

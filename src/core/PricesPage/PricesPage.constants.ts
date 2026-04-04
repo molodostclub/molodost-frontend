@@ -13,6 +13,16 @@ type PricesModel = {
 	note?: string;
 };
 
+/** Элемент размещения для грида: все поля берутся из констант, description — опционально */
+export type AccommodationItem = {
+	title: string;
+	capacity: string;
+	area: string;
+	/** Подпись/описание — не у всех элементов есть */
+	description?: string;
+	price: number;
+};
+
 type HeatLabModel = {
 	title: string;
 	subtitle?: string;
@@ -28,26 +38,22 @@ type HeatLabModel = {
 	note?: string;
 };
 
-export const ZOZH_ZOM: HeatLabModel[] = [
-	{
-		title: 'Индивидуальная тренировка с\u00A0тренером',
-		duration: '60 минут',
-		clients: '1',
-		price: 10_000,
-	},
-	{
-		title: 'Каждый следующий человек',
-		duration: '60 минут',
-		clients: '1',
-		price: 5_000,
-	},
-	{
-		title: 'Сплит-тренировка с\u00A0тренером',
-		duration: '60 минут',
-		clients: '5 раз',
-		price: 40_000,
-	},
-];
+/** Блок «ЗОЖ И ЗОМ» — сетка с ценами, 2 колонки */
+export const ZOZH_ZOM = {
+	title: 'ЗОЖ И ЗОМ',
+	leftColumn: [
+		{ title: 'ПЕРСОНАЛЬНАЯ ТРЕНИРОВКА', price: 10_000, unit: '60 минут' },
+		{ title: 'ПЕРСОНАЛЬНАЯ ТРЕНИРОВКА ДОП ЧЕЛОВЕК', price: 5_000, unit: '60 минут' },
+		{ title: 'ЧАШИ ИНДИВИДУАЛЬНЫЕ', description: 'до 5 человек', price: 15_000, unit: '60 минут' },
+		{ title: 'ЧАШИ ГРУППОВЫЕ', description: 'от 5 человек', price: 25_000, unit: '60 минут' },
+	] as DrinkMenuItem[],
+	rightColumn: [
+		{
+			title: 'ГРУППОВАЯ УТРЕННЯЯ ЗАРЯДКА, ЙОГА И МЕДИТАЦИЯ',
+			priceText: 'БЕСПЛАТНО',
+		},
+	] as DrinkMenuItem[],
+} as const;
 
 export const PROZHIVANIE_PRICES: PricesModel[] = [
 	{
@@ -123,6 +129,331 @@ export const PROZHIVANIE_PRICES: PricesModel[] = [
 		priceHigh: 80_000,
 	},
 ];
+
+/** Размещение в номерах и домах: единый источник — цена, название, подпись (где есть), площадь, вместимость */
+export const PROZHIVANIE_ACCOMMODATION: AccommodationItem[] = [
+	// Номера
+	{ title: 'Хорошая спальня', capacity: '1-2', area: '18-24 м²', price: 18_000 },
+	{ title: 'Замечательная спальня', capacity: '1-2', area: '24-28 м²', price: 26_000 },
+	{ title: 'Семейный номер', capacity: '2-4', area: '70 м²', description: 'две спальни, общая зона', price: 45_000 },
+	{ title: 'Потрясающая спальня', capacity: '1-2', area: '24-28 м²', price: 33_000 },
+	// Дома
+	{ title: 'Дом с печкой', capacity: '1-2', area: '38 м²', description: 'отдельно стоящий дом, одна спальня с печкой и верандой', price: 45_000 },
+	{ title: 'Бранхаус', capacity: '2-3', area: '68 м²', description: 'отдельно стоящий дом, две спальни, общая зона', price: 50_000 },
+	{ title: 'Семейный дом', capacity: '4-6', area: '100 м²', description: 'отдельно стоящий дом с тремя спальнями и гостиной', price: 60_000 },
+	{ title: 'Малый Шукшинский дом', capacity: '2-4', area: '70 м²', description: 'наш любимый дом, две спальни, печка, живописная терраса с видом на Катунь', price: 60_000 },
+	{ title: 'Дом на холме', capacity: '4-8', area: '150 м²', description: 'четыре спальни с санузлами и терраса с видом на Катунь', price: 90_000 },
+	{ title: 'Большой Шукшинский дом', capacity: '4-8', area: '110 м²', description: 'четыре спальни, общая зона, печка, живописная терраса с видом на Катунь', price: 90_000 },
+	{ title: 'Карахаус', capacity: '3-6', area: '120 м²', description: 'дом, посвящённый архитектору Фрэнку Гери, три спальни, общая зона', price: 80_000 },
+];
+
+export const PROZHIVANIE_ROOMS = PROZHIVANIE_ACCOMMODATION.slice(0, 4);
+export const PROZHIVANIE_HOUSES = PROZHIVANIE_ACCOMMODATION.slice(4);
+
+/** Блок «Что едим» — всё из переменных */
+export const WHAT_WE_EAT = {
+	title: 'ЧТО ЕДИМ?',
+	gastropub: {
+		name: 'ГАСТРОТРАКТИР «ДОВОЛЬНЫЙ ДРАКОН»',
+		mealTimes: [
+			{ name: 'ЗАВТРАК', time: '9:00-12:00' },
+			{ name: 'ОБЕД', time: '14:00-17:00' },
+			{ name: 'УЖИН', time: '20:00-22:30' },
+		],
+	},
+	guestsStaying: {
+		title: 'ПИТАНИЕ ДЛЯ ГОСТЕЙ ПРОЖИВАЮЩИХ НА БАЗЕ',
+		items: [
+			{
+				title: 'УСЛУГА «СЪЕДОБНОЕ БРЕВНО»',
+				priceAdult: 8_000,
+				priceChild: 5_000,
+				packageDescription:
+					'Круглосуточное питание - обед, ужин, алтайский водопой - безлимитный запас воды «Петроглиф», ланч-боксы в путешествия и ночной дожор, Алтайский травяной сбор (чай) весь день - комплиментарно',
+			},
+			{ title: 'ЗАВТРАК', note: 'ВКЛЮЧЕН В ПРОЖИВАНИЕ' },
+			{ title: 'ОБЕД', priceAdult: 3_500, priceChild: 2_000 },
+			{ title: 'УЖИН', priceAdult: 4_500, priceChild: 3_000 },
+			{ title: 'АЛТАЙСКИЙ РИБАЙ', price: 5_000, description: 'от кооператива «Дружба», 320±10g' },
+			{ title: 'СЫРНО-МЕДОВАЯ ТАРЕЛКА', price: 3_000, description: 'от «Логовской сыроварни» и пасеки «Медом в ухо» 180±10g' },
+			{ title: 'ЛАНЧ-БОКС', price: 2_000 },
+		],
+	},
+	guestsNotStaying: {
+		title: 'ПИТАНИЕ ДЛЯ ГОСТЕЙ НЕ ПРОЖИВАЮЩИХ НА БАЗЕ',
+		items: [
+			{ title: 'ЗАВТРАК', priceAdult: 3_000, priceChild: 2_000 },
+			{ title: 'ОБЕД', priceAdult: 5_000, priceChild: 2_500 },
+			{ title: 'УЖИН', priceAdult: 10_000, priceChild: 6_000 },
+		],
+	},
+} as const;
+
+/** Элемент меню напитков: title, price (или priceText), опционально pricePrefix, description, unit */
+export type DrinkMenuItem = {
+	title: string;
+	price?: number;
+	priceText?: string;
+	pricePrefix?: string;
+	description?: string;
+	unit?: string;
+};
+
+/** Блок «Что пьем» */
+export const WHAT_WE_DRINK = {
+	title: 'ЧТО ПЬЕМ?',
+	coffeeShop: {
+		name: 'КОФЕЙНЯ «ТРИКСТЕР»',
+		description:
+			'С\u00A09:00 до\u00A012:00 фильтр кофе включен в\u00A0ваш завтрак в\u00A0любом количестве. Полный ассортимент и\u00A0цены уточняйте за\u00A0нашей стойкой кофейни.',
+		subheading: 'НЕКОТОРЫЕ ПОЗИЦИИ',
+		leftColumn: [
+			{ title: 'ЭСПРЕССО / АМЕРИКАНО', price: 450 },
+			{ title: 'КАПУЧИНО / ЛАТТЕ', price: 550 },
+			{ title: 'МАТЧА / КАКАО', price: 550 },
+			{ title: 'БЕЗАЛКОГОЛЬНЫЕ НАПИТКИ', price: 500, pricePrefix: 'ОТ ' },
+		] as DrinkMenuItem[],
+		rightColumn: [
+			{ title: 'ЧАЙ ТРАВЯНОЙ / ЗЕЛЁНЫЙ / ЧЁРНЫЙ', price: 700 },
+			{ title: 'НАШ АВТОРСКИЙ ЧАЙ', price: 1_000, description: 'облепиховый, имбирный, брусничный' },
+			{ title: 'ЧАЙ МАРЬЯЖ ЧЁРНЫЙ', price: 1_000 },
+		] as DrinkMenuItem[],
+	},
+	bar: {
+		name: 'БАР «Я ДОГОНЮ»',
+		description:
+			'У нас приличная винная карта и\u00A0большой выбор крепкого алкоголя. Мы\u00A0верим, что воздух Алтая пьянит и\u00A0дурманит сам по\u00A0себе, поэтому цены в\u00A0нашем баре специально высокие:',
+		items: [
+			{ title: 'КОКТЕЙЛИ', price: 1_000, pricePrefix: 'ОТ ', unit: 'штука' },
+			{ title: 'ВИНА', price: 3_000, pricePrefix: 'ОТ ', unit: 'бутылка' },
+			{ title: 'КРЕПКИЙ АЛКОГОЛЬ', price: 1_000, unit: '70 грамм' },
+		] as DrinkMenuItem[],
+	},
+	corkage: 'Если вы приносите алкоголь с\u00A0собой, наш пробковый сбор составляет 2\u00A0000\u00A0₽ с\u00A0бутылки слабого алкоголя и\u00A05\u00A0000\u00A0₽ за\u00A0крепкий.',
+} as const;
+
+/** Блок «Комфорт» — только цены, 2 колонки (правая пустая) */
+export const COMFORT = {
+	title: 'КОМФОРТ',
+	items: [
+		{ title: 'ГЛАЖКА', price: 500, unit: '1 единица' },
+		{ title: 'ПРАЧЕЧНАЯ (СТИРКА + СУШКА)', price: 2_000, unit: '1 загрузка' },
+		{ title: 'ОБСЛУЖИВАНИЕ В НОМЕРЕ', price: 1_000, description: 'мы\u00A0можем принести вам завтрак, обед, ужин или все, что вы\u00A0захотите в\u00A0номер или в\u00A0дом.' },
+		{ title: 'ИНДИВИДУАЛЬНЫЕ УСЛУГИ НЯНИ', price: 12_000, unit: '8 часов' },
+	] as DrinkMenuItem[],
+} as const;
+
+/** Элемент поездки 3–5 ч / на целый день: название + цена взрослый/ребёнок или priceText */
+export type PoezdkiTripItem = {
+	title: string;
+	priceText?: string;
+	priceAdult?: number;
+	priceChild?: number;
+};
+
+/** Элемент партнёрской активности: название, продолжительность/условие, цена */
+export type PoezdkiPartnerItem = {
+	title: string;
+	duration?: string;
+	condition?: string;
+	priceText?: string;
+	priceAdult?: number;
+	priceChild?: number;
+	pricePrefix?: string;
+	price?: number;
+};
+
+/** Элемент автопроката/трансфера: название, примечание, цены за час/сутки или одна цена */
+export type PoezdkiCarItem = {
+	title: string;
+	note?: string;
+	pricePerHour?: number;
+	pricePerDay?: number;
+	price?: number;
+	priceNote?: string;
+};
+
+/** Элемент блока гидов: название, описание, цена за час */
+export type PoezdkiGuideItem = {
+	title: string;
+	description?: string;
+	pricePerHour: number;
+};
+
+/** Блок «Поездки» — по скриншоту: 3–5 ч, целый день, партнёрские активности, автопрокат */
+export const POEZDKI = {
+	title: 'ПОЕЗДКИ',
+	trips35: {
+		sectionTitle: 'ПОЕЗДКИ НА 3-5 ЧАСОВ',
+		leftColumn: [
+			{ title: 'ЗА МУЗЕЙ', priceText: 'КОМПЛИМЕНТ' },
+			{ title: 'ЗАЯЧИЙ ОСТРОВ', priceAdult: 7_000, priceChild: 4_500 },
+			{ title: 'ТЕНЬ НА ПЛЕТЕНЬ', priceAdult: 7_000, priceChild: 5_500 },
+			{ title: 'ЗУБРОВЫЙ ПИТОМНИК +\u00A0БОТАНИЧЕСКИЙ САД', priceAdult: 6_000, priceChild: 3_500 },
+		] as PoezdkiTripItem[],
+		rightColumn: [
+			{ title: 'ВСЕСЕЗОННЫЙ КУРОРТ МАНЖЕРОК', priceAdult: 3_000, priceChild: 2_000 },
+			{ title: 'ПАСЕКА «МЕДОМ В\u00A0УХО»', priceAdult: 3_000, priceChild: 2_000 },
+			{ title: 'ПАЛЕОПАРК И\u00A0ЛОХМАТАЯ ФЕРМА', priceAdult: 7_000, priceChild: 5_000 },
+			{ title: 'КАРЫМ', priceAdult: 5_000, priceChild: 3_500 },
+		] as PoezdkiTripItem[],
+	},
+	fullDay: {
+		sectionTitle: 'ПОЕЗДКИ НА ЦЕЛЫЙ ДЕНЬ',
+		leftColumn: [
+			{ title: 'КРАЕУГОЛЬНЫЙ КАМЕНЬ', priceAdult: 10_000, priceChild: 6_500 },
+			{ title: 'СТОЯНКА ЧЕРНОГО ХАНА', priceAdult: 10_000, priceChild: 6_500 },
+			{ title: 'ТЕНЬ НА ПЛЕТЕНЬ (АВТОРСКОЕ ПРИКЛЮЧЕНИЕ)', priceAdult: 10_000, priceChild: 7_000 },
+		] as PoezdkiTripItem[],
+		rightColumn: [
+			{ title: 'СТЕПНЯК НА СТОЯНКЕ ЧЕРНОГО ХАНА', priceAdult: 15_000, priceChild: 10_500 },
+			{ title: 'АЛТАЙСКИЙ ТРИПТИХ (ЗУБРЫ+БОТАНИЧЕСКИЙ САД+МОТОРАФТИНГ)', priceAdult: 10_500, priceChild: 8_500 },
+			{ title: 'ЧУЙСКИЙ ТРАКТ 1/2', priceAdult: 15_000, priceChild: 10_500 },
+		] as PoezdkiTripItem[],
+	},
+	partner: {
+		sectionTitle: 'ПАРТНЁРСКИЕ АКТИВНОСТИ',
+		items: [
+			{ title: 'КОННЫЕ ПРОГУЛКИ', duration: '2 ЧАСА', priceAdult: 6_000, priceChild: 4_500 },
+			{ title: 'ПОЕЗДКИ НА БОЛОТОХОДАХ И КВАДРОЦИКЛАХ', condition: 'ПРОВОДИТСЯ ОТ 3 ЧЕЛОВЕК', priceText: '12 000 ₽ / ЧАС' },
+			{ title: 'РАФТИНГ', condition: 'ПРОВОДИТСЯ ОТ\u00A06\u00A0ЧЕЛОВЕК', priceText: '7\u00A0000\u00A0₽ / ЧЕЛ' },
+			{ title: 'ВЕРТОЛЁТНЫЕ ТУРЫ', condition: 'ПРИ ПОЛНОЙ ЗАГРУЗКЕ ВЕРТОЛЕТА', pricePrefix: 'ОТ\u00A0', price: 1_000_000 },
+		] as PoezdkiPartnerItem[],
+	},
+	carRental: {
+		sectionTitle: 'АВТОПРОКАТ «БЫВАЛЫЙ РЕЙНДЖЕР»',
+		leftColumn: [
+			{ title: 'TANK 300', note: '+15\u00A0руб./км топливо', pricePerHour: 3_000, pricePerDay: 20_000 },
+			{ title: 'MERCEDES VIANO', note: '+15\u00A0руб./км топливо', pricePerHour: 3_500, pricePerDay: 25_000 },
+		] as PoezdkiCarItem[],
+		rightColumn: [
+			{ title: 'ВСТРЕЧА В/ИЗ АЭРОПОРТ TANK 300', note: 'в\u00A0одну сторону за машину / до\u00A03\u00A0человек', price: 9_000 },
+			{ title: 'ВСТРЕЧА В/ИЗ АЭРОПОРТ MERCEDES VIANO', note: 'в\u00A0одну сторону за машину / до\u00A05\u00A0человек', price: 11_000 },
+			{ title: 'ИНДИВИДУАЛЬНЫЙ ТРАНСФЕР', price: 4_000, priceNote: 'час' },
+			{ title: 'ГРУППОВОЙ ТРАНСФЕР В/ИЗ АЭРОПОРТА', note: 'в\u00A0одну сторону', price: 3_500 },
+			{ title: 'ДОСТАВКА', note: 'в\u00A0течение дня', price: 2_500, priceNote: '+ СУММА ЧЕКА' },
+			{ title: 'ДОСТАВКА', note: 'прямо сейчас', price: 5_000, priceNote: '+ СУММА ЧЕКА' },
+		] as PoezdkiCarItem[],
+	},
+	guides: {
+		sectionTitle: 'ГИДЫ-СЛЕДОПЫТЫ И ВОДИТЕЛИ',
+		subheading: 'СОПРОВОЖДАЮЩИЕ',
+		leftColumn: [
+			{
+				title: 'ПОПУТЧИК',
+				description: 'один из\u00A0членов нашей команды, который знает детали маршрута, составит вам компанию и\u00A0поговорит о\u00A0том о\u00A0сем',
+				pricePerHour: 3_000,
+			},
+			{ title: 'ВОДИТЕЛЬ', pricePerHour: 2_000 },
+		] as PoezdkiGuideItem[],
+		rightColumn: [
+			{
+				title: 'СЛЕДОПЫТ',
+				description: 'подготовленный гид, который знает маршруты, рассказывает интересные факты по\u00A0маршруту и\u00A0в\u00A0целом про алтай и\u00A0может вести автомобиль',
+				pricePerHour: 3_000,
+			},
+		] as PoezdkiGuideItem[],
+	},
+} as const;
+
+/** Элемент правой колонки блока «Путешествия» — подпись (чёрная) или ценник (красный) */
+export type PuteshestviyaRightItem = {
+	text: string;
+	isPrice?: boolean;
+};
+
+/** Одно путешествие: красный подзаголовок, описание, правый столбец (подписи + цены) */
+export type PuteshestviyaItem = {
+	title: string;
+	description: string;
+	rightItems: PuteshestviyaRightItem[];
+};
+
+/** Блок «Путешествия» — индивидуальные авторские приключения */
+export const PUTESHESTVIYA = {
+	title: 'ПУТЕШЕСТВИЯ',
+	mainHeading: 'ИНДИВИДУАЛЬНЫЕ АВТОРСКИЕ ПРИКЛЮЧЕНИЯ',
+	items: [
+		{
+			title: 'ПРОХОД В ШАМБАЛУ',
+			description:
+				'Путешествие к\u00A0горе Белуха с\u00A0посещением мест Рериха с\u00A0обедом или\u00A0ночевкой в\u00A0люкспенге наших друзей «We\u00A0are Altay». У нас есть разные варианты посещения этих мест с\u00A0полетом на\u00A0вертолете, поездкой на\u00A0машине через самые красивые места Алтая и\u00A08\u00A0часовым пешим переходом, который позволит вам совершить «средний алтайский круг».',
+			rightItems: [
+				{ text: 'ПОЕЗДКА БРОНИРУЕТСЯ ЗА\u00A0ТРИ ДНЯ' },
+				{ text: 'ОТ 150 000 Р НА ЧЕЛОВЕКА', isPrice: true },
+				{ text: 'ПУТЕШЕСТВИЕ ЗАНИМАЕТ НЕ\u00A0МЕНЕЕ 3\u00A0ДНЕЙ И\u00A02\u00A0НОЧЕЙ.' },
+				{ text: 'ПОЕЗДКА БРОНИРУЕТСЯ ЗА 14 ДНЕЙ.' },
+			],
+		},
+		{
+			title: 'АЛТАЙСКОЕ КОЛЬЦО',
+			description:
+				'Большое путешествие по\u00A0всему Алтаю, которое позволяет рассмотреть все\u00A0самые главные ландшафты и\u00A0пейзажи, проехать по\u00A0всему Чуйскому тракту до\u00A0границы с\u00A0Монголией, побывать на\u00A0Марсе, увидеть скифские курганы в\u00A0Чулышманской долине и\u00A0переправиться через Телецкое озеро.',
+			rightItems: [
+				{ text: 'ОТ 300 000 Р НА ЧЕЛОВЕКА', isPrice: true },
+				{ text: 'ПУТЕШЕСТВИЕ ЗАНИМАЕТ ОТ 3-Х ДНЕЙ.' },
+				{ text: 'ПОЕЗДКА БРОНИРУЕТСЯ ЗА 3 ДНЯ' },
+			],
+		},
+		{
+			title: 'ВОДА-ВОДА',
+			description:
+				'Поездка на\u00A0целый день на\u00A0Телецкое озеро, которое входит в\u00A0список наследия ЮНЕСКО. Озеро находится на высоте 434\u00A0м над уровнем моря, его длина составляет 78\u00A0км. Посещение озера включает прогулку на\u00A0катерах от\u00A0северного до\u00A0южного берега, где вода прогревается достаточно, чтобы можно было купаться. Дополнительно можно сделать остановку на\u00A0ночь в\u00A0отеле.',
+			rightItems: [
+				{
+					text: 'ОТ\u00A050\u00A0000\u00A0Р НА ЧЕЛОВЕКА, С\u00A0УЧЕТОМ ПЛАВАНИЯ ЧЕРЕЗ ВСЕ ОЗЕРО, НОЧЬ В ОТЕЛЕ ОПЛАЧИВАЕТСЯ ОТДЕЛЬНО',
+					isPrice: true,
+				},
+				{ text: 'ПОЕЗДКА ЗАНИМАЕТ ЦЕЛЫЙ' },
+				{ text: 'ДЕНЬ' },
+			],
+		},
+		{
+			title: 'МИССИЯ НА МАРС',
+			description:
+				'Поездка по\u00A0Чуйскому тракту, одной из\u00A0самых красивых дорог в\u00A0мире по\u00A0версии National Geographic. Дорожное путешествие с\u00A0остановками на\u00A0уникальных природных и\u00A0исторических достопримечательностях: Каракольская долина с\u00A0курганами, перевалы Семинский и\u00A0Чике-Таман, гейзерово озеро. Вишенкой на\u00A0торте этой поездки является хайкинг в\u00A0горном районе Марс на\u00A0границе с\u00A0Монголией.',
+			rightItems: [{ text: 'ОТ\u00A0110\u00A0000\u00A0Р НА ЧЕЛОВЕКА', isPrice: true }],
+		},
+	] as PuteshestviyaItem[],
+} as const;
+
+/** Блок «Для детей» */
+export const DLYA_DETEY = {
+	title: 'ДЛЯ ДЕТЕЙ',
+	paragraph: 'Дети в\u00A0«Молодости» считаются от\u00A05 до\u00A012\u00A0лет.',
+	intro: 'На\u00A0территории базы есть:',
+	listItems: [
+		'Детская площадка имени Дамблдора',
+		'Домашний и\u00A0уличный кинотеатры',
+		'Спортивные игры',
+		'Услуги няни (8\u00A0часов 12\u00A0000\u00A0₽)',
+	],
+} as const;
+
+/** Текст под аккордеонами: фирменный магазин + призыв */
+export const CONCEPT_STORE = {
+	paragraph:
+		'А ещё не забудьте заглянуть в\u00A0наш фирменный магазин: там представлены сувениры и продукция с символикой «Молодости», в том числе премиальные алтайские сувениры.',
+	ctaText:
+		'Если вам что-то хочется, а мы об этом ещё не подумали — скажите нам, и мы вместе решим, сколько это будет стоить.',
+} as const;
+
+/** Блок «Банно-оздоровительный комплекс Благодать» — сетка с ценами, 2 колонки */
+export const BLAGODAT_SAUNA = {
+	title: 'БАННО-ОЗДОРОВИТЕЛЬНЫЙ КОМПЛЕКС «БЛАГОДАТЬ»',
+	leftColumn: [
+		{ title: 'ПАРЕНИЕ', description: '90 минут / 1 человек', price: 20_000 },
+		{ title: 'каждый дополнительный час', description: '60 минут / 1 человек', price: 10_000 },
+		{ title: 'ЧАН НА АЛТАЙСКИХ ТРАВАХ', price: 20_000 },
+	] as DrinkMenuItem[],
+	rightColumn: [
+		{ title: 'МАССАЖ РАССЛАБЛЯЮЩИЙ', description: '60 минут / 1 человек', price: 9_000 },
+		{ title: '', description: '90 минут / 1 человек', price: 12_000 },
+		{ title: '', description: '120 минут / 1 человек', price: 16_000 },
+		{ title: 'МАНУАЛЬНЫЙ МАССАЖ', description: '35-40 минут / 1 человек', price: 15_000 },
+		{ title: 'ЭНЕРГОТЕРАПЕВТ', description: 'сеанс / 1 человек', price: 25_000 },
+	] as DrinkMenuItem[],
+} as const;
 
 export const ADDITIONAL_PRICES: PricesModel[] = [
 	{
@@ -411,7 +742,7 @@ export const TRIKSTER_MENU: PricesModel[] = [
 		price: 1_000,
 	},
 	{
-		title: 'Чай Mariage чёрный ENGLISH\u00A0BREAKFAST TEA',
+		title: 'Чай Марьяж чёрный ENGLISH\u00A0BREAKFAST TEA',
 		subtitle: 'насыщенный, утренний купаж (чайник)',
 		twoCol: '',
 		price: 1_000,
@@ -452,7 +783,7 @@ export const HEAT_LAB_SERVICE: HeatLabModel[] = [
 	{
 		title: '',
 		listTitle: 'Входит:',
-		list: ['— аренда подготовленного пространства бани', '— веники', '— вода Petroglyph с\u00A0газом и\u00A0без', '— алтайский травяной чай', '— мед, сушки и\u00A0варенье', '— необходимое количество полотенец и\u00A0простыней', '— фирменная шапка в\u00A0подарок'],
+		list: ['— аренда подготовленного пространства бани', '— веники', '— вода Петроглиф с\u00A0газом и\u00A0без', '— алтайский травяной чай', '— мед, сушки и\u00A0варенье', '— необходимое количество полотенец и\u00A0простыней', '— фирменная шапка в\u00A0подарок'],
 	},
 ];
 
@@ -757,6 +1088,22 @@ export const TOUR_GROUPS: PricesModel[] = [
 	},
 ];
 
+/** Блок «Групповые хайкинги» — отдельный аккордеон */
+export const GROUP_HIKINGS = {
+	title: 'ГРУППОВЫЕ ХАЙКИНГИ',
+	leftColumn: [
+		{ title: 'ГРУППОВОЙ ХАЙКИНГ ПО ХОББИТАНИИ', description: '3-4 часа', price: 3_500 },
+		{ title: 'ГРУППОВОЙ ХАЙКИНГ НА ГОРУ ЧЕРЕПАН', description: '3-4 часа', price: 3_500 },
+		{ title: 'ГРУППОВОЙ ТРЕКИНГ «НЕ ОДИНОКАЯ ГОРА БАБЫРГАН»', description: '5-6 часов', price: 6_000 },
+		{ title: 'ГРУППОВОЙ ХАЙКИНГ НА РАССВЕТНО-ЗАКАТНУЮ ТОЧКУ', description: '2-3 часа', price: 3_500 },
+	] as DrinkMenuItem[],
+	rightColumn: [
+		{ title: 'ГРУППОВОЙ ТРЕКИНГ НА ГОРУ САРЛЫК', description: '6-7 часов', price: 10_000 },
+		{ title: 'ГРУППОВОЙ ХАЙКИНГ НА ГОРУ ВЕРБЛЮД', description: '3-4 часа', price: 3_500 },
+		{ title: 'АРЕНДА ВЕЛОСИПЕДОВ', priceText: 'БЕСПЛАТНО' },
+	] as DrinkMenuItem[],
+} as const;
+
 export const TOUR_HIKINGS: PricesModel[] = [
 	{
 		title: 'Групповой хайкинг по\u00A0«Хоббитании»',
@@ -855,11 +1202,6 @@ export const TOUR_PARTNERS: PricesModel[] = [
 		title: 'Конные прогулки',
 		subtitle: '2\u00A0часа',
 		priceText: 'Взрослый 6\u00A0000\u00A0₽ / Ребенок 4\u00A0500\u00A0₽',
-	},
-	{
-		title: ' ',
-		subtitle: ' ',
-		priceText: ' ',
 	},
 	{
 		title: 'Поездки на болотоходах и\u00A0квадроциклах',
@@ -1358,7 +1700,7 @@ export const CLOSED_TOURS: HeatLabModel[] = [
 export const PRICE_SERVICES: PricesModel[] = [
 	{
 		title: 'Входной билет за индивидуальный визит',
-		subtitle: 'вода PETROGLYPH, чай, кофе + закуски по ситуации + Wi+Fi',
+		subtitle: 'вода Петроглиф, чай, кофе + закуски по ситуации + Wi+Fi',
 		twoCol: '1 человек',
 		price: 1_234,
 	},
@@ -1388,19 +1730,19 @@ export const PRICE_SERVICES: PricesModel[] = [
 	},
 	{
 		title: 'Кофе-брейк',
-		subtitle: 'вода PETROGLYPH, чай, кофе',
+		subtitle: 'вода Петроглиф, чай, кофе',
 		twoCol: '1 человек',
 		price: 1_234,
 	},
 	{
 		title: 'Кофе-брейк с перекусом',
-		subtitle: 'вода PETROGLYPH, чай, кофе + бутерброд (рыба/мясо/сыр) + горячая закуска/авторский курут + десерт дня',
+		subtitle: 'вода Петроглиф, чай, кофе + бутерброд (рыба/мясо/сыр) + горячая закуска/авторский курут + десерт дня',
 		twoCol: '1 человек',
 		price: 3_000,
 	},
 	{
 		title: 'Кофе-брейк с едой',
-		subtitle: 'вода PETROGLYPH, чай, кофе + индивидуальное меню',
+		subtitle: 'вода Петроглиф, чай, кофе + индивидуальное меню',
 		twoCol: '1 человек',
 		price: 6_000,
 	},

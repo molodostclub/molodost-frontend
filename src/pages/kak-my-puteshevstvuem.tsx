@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 
 import { HowWeTrip } from '@core/HowWeTrip';
-import { InnerPageHeader, PageCover, Footer, PageCoverSmall, PageMeta } from '@shared/components';
+import { Breadcrumb, InnerPageHeader, PageCover, Footer, PageCoverSmall, PageMeta } from '@shared/components';
 import { TripsSplit, getTripsSplit } from '@utils';
 import { TravelBureau } from '@/core/TravelBureau';
 import { MovingPricing } from '@/core/MovingPricing';
@@ -42,6 +42,7 @@ export default function Home({ trips }: Props) {
 			<PageMeta title="Как мы путешествуем" />
 			<InnerPageHeader />
 			<PageCover src="/images/how-we-trip-cover.jpg" />
+			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Как мы путешествуем' }]} />
 			<HowWeTrip trips={trips} />
 			<TravelBureau />
 			<MovingPricing />

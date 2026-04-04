@@ -22,8 +22,8 @@ const imageBase = style([
     height: '70vh',
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    borderBottomLeftRadius: 43,
-    borderBottomRightRadius: 43,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
   }),
 ]);
 
@@ -47,7 +47,7 @@ export const cover = style([
   tablet({
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    borderBottomLeftRadius: 43,
-    borderBottomRightRadius: 43,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
   }),
 ]);

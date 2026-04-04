@@ -1,11 +1,7 @@
 import { FC } from 'react';
 
-import { formatPriceWithSign } from '@utils';
-import { Description, PageHeading, PriceTableRow, priceTable } from '@uikit';
-import * as stylesPrice from '../PricesPage/PricesPage.css';
-import { HeatLabSibir } from '../PricesPage/PricesPage';
-import cn from 'classnames';
-import { indent } from '@/styles';
+import { Description, PageHeading } from '@uikit';
+import { BlagodatSaunaBlock } from '../PricesPage/PricesPage';
 
 import * as styles from './HeatLab.css';
 import Image from 'next/image';
@@ -33,7 +29,7 @@ export const HeatLab: FC = () => {
 			</div>
 			<br />
 			<br />
-			<HeatLabSibir />
+			<BlagodatSaunaBlock />
 		</main>
 	);
 };

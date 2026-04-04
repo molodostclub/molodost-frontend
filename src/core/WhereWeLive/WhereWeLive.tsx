@@ -8,7 +8,6 @@ import { Housing } from './Housing/Housing';
 import * as styles from './WhereWeLive.css';
 import { Modal } from '@/shared/components/Modal';
 import { ContactForm } from '../ContactForm';
-import Link from 'next/link';
 
 const PricingInfo: FC = () => (
 	<>
@@ -16,7 +15,7 @@ const PricingInfo: FC = () => (
 			<div className={styles.border} />
 			<div className={styles.pricingInfoContainer}>
 				<div>
-					<p className={styles.priceText}>{formatPriceWithSign(6000)}</p>
+					<p className={styles.priceText}>{formatPriceWithSign(5000)}</p>
 					<p className={styles.pricingInfoText}>доплата за&nbsp;взрослого</p>
 				</div>
 				<div>
@@ -84,15 +83,7 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
 						</div>
 						<div className={styles.noteBlock}>
 							<p className={styles.accentText} style={{ marginBottom: 30 }}>
-								Бронирование проживания на турбазе «Молодость» на Алтае
-							</p>
-							<div className={styles.contacts}>
-								<Link className={styles.ctaBtn} href="/booking">
-									<button className={styles.ctaBtn}>Забронировать</button>
-								</Link>
-							</div>
-							<p className={styles.accentText} style={{ marginBottom: 30 }}>
-								Или свяжитесь с&nbsp;нами по&nbsp;номеру
+								Свяжитесь с&nbsp;нами по&nbsp;номеру
 							</p>
 							<div className={styles.contacts}>
 								<ContactsBox type="small" />
@@ -104,7 +95,6 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
 					</div>
 					<br />
 					<br />
-					<Description>ИЮЛЬ - АВГУСТ ВЫСОКИЙ СЕЗОН</Description>
 
 					<h2 className={styles.heading}>размещение в&nbsp;номерах</h2>
 				</div>

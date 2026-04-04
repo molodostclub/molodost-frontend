@@ -17,7 +17,7 @@ export const WhereDoWeLive: FC<Props> = ({ houses }) => {
   
   return (
     <>
-      <div className={styles.container.withMargin}>
+      <div className={styles.container.default}>
         <div className={styles.content}>
           <SectionHeading linkTo="/rooms">Где живём?</SectionHeading>
           <div className={styles.descriptionWrapper}>

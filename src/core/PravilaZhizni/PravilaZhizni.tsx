@@ -1,6 +1,5 @@
 import { FC } from 'react';
 
-import { PageHeading } from '@uikit';
 import cn from 'classnames';
 
 import * as styles from './PravilaZhizni.css';
@@ -70,68 +69,6 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
-				Главное&nbsp;&mdash; мы&nbsp;<span className={styles.listItemHighlight}>культурная турбаза</span> с&nbsp;классификацией <span className={styles.listItemHighlight}>&laquo;без звезд&raquo;</span>, а наши звезды&nbsp;&mdash; это{' '}
-				<span className={styles.listItemHighlight}>наши гости и наши сотрудники</span>.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				<span className={styles.listItemHighlight}>Мы работаем по принципу &laquo;План на завтра вы узнаете завтра&raquo;</span>. <br />
-				Наши организаторы мероприятий, повара, дизайнеры путешествий, банщики и&nbsp;следопыты ежедневно корректируют планы на&nbsp;день и&nbsp;свою работу&nbsp;&mdash; с учетом погоды, свежести продуктов на рынке, вновь найденных возможностей, индивидуальных особенностей и настроения наших
-				гостей. <br />
-				Доверьтесь нашему опыту, и&nbsp;вы получите от поездки в&nbsp;&laquo;Молодость&raquo; больше, чем ожидаете! А мы сможем показать вам именно такой Алтай, каким мы его сами знаем и любим.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				У нас живут только <span className={styles.listItemHighlight}>друзья &laquo;Молодости&raquo; и друзья друзей</span>. Поэтому нас нет на агрегаторах. <br />
-				Чтобы забронировать поездку к нам, нужно позвонить или написать нам напрямую по номеру{' '}
-				<Link href="tel:+79647002112" className={styles.listItemLink}>
-					+7 964 700-21-12
-				</Link>{' '}
-				или{' '}
-				<Link href="/booking" className={styles.listItemLink}>
-					забронировать на сайте
-				</Link>
-				.
-				<br />
-				Прямое бронирование позволяет не только оказаться в кругу понятных и приятных людей, но и сэкономить около 20%, которые берут сайты-посредники.
-				<br />
-				<br />
-				При работе с турагентами и туроператорами мы сотрудничаем только с теми, кого очень хорошо знаем и кому доверяем в выборе гостей, которые будут жить с нами.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы бронируем номера по предоплате <span className={styles.listItemHighlight}>стоимость первых суток</span>. <br />
-				Если ваши планы поменяются, мы <span className={styles.listItemHighlight}>перенесем ваш депозит</span> на другие даты без штрафа. Очень просим вас сообщать об изменениях в ваших планах&nbsp;&mdash; особенно летом, в майские праздники и в Новый год.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы <span className={styles.listItemHighlight}>дружелюбный бизнес</span> и стараемся не усложнять правила отмены и переноса бронирования. Но мы малый бизнес, и каждое бронирование имеет для нас важное денежное значение, поэтому, если вы скажете об изменении ваших планов в последний
-				момент, мы не сможем продать ваш номер кому-то еще. И нам будет сложнее платить зарплату нашим сотрудникам зимой.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы не скрываем собственные комиссии и наценки. За работу с подрядчиками мы берем комиссию от <span className={styles.listItemHighlight}>7%</span> (вертолеты) до <span className={styles.listItemHighlight}>20%</span> (бизнес-зал), которую вы увидите в своем счете.
-			</p>
-		</li>
-		{/* <li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				За организацию корпоративных и групповых заездов от 10 человек отвечает наш постоянный <span className={styles.listItemHighlight}>партнер&nbsp;&mdash; ивент-агентство &laquo;Маури&raquo;</span>, которое берет свою комиссию 10% от стоимости всей программы без учета проживания. <br />
-			</p>
-		</li> */}
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
 				<span className={styles.listItemHighlight}>Чаевые команде &laquo;Молодость&raquo;</span>.
 				<br />
 				Мы будем рады, если за время проживания с нами вам захочется отблагодарить команду дополнительно и <span className={styles.listItemHighlight}>оставить нам чаевые</span>. Если вы захотите оставить чаевые, мы с благодарностью включим их в ваш счет&nbsp;&mdash; в размере{' '}
@@ -148,19 +85,6 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>При высокой загрузке нашей базы и для вашего удобства мы можем выслать вам итоговый счет уже после отъезда из &laquo;Молодости&raquo;. Оплатить его можно по ссылке.</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Для нас <span className={styles.listItemHighlight}>разумная достаточность</span>&nbsp;&mdash; это не просто слова. Мы стараемся использовать то, что уже есть на нашей стройке: перестраиваем существующие здания, покупаем ветровальную древесину, собираем топляк по берегам местных
-				рек&nbsp;&mdash; и таким образом сохранили от вырубки уже 3000 деревьев.
-				<br />
-				<br />
-				Мы стараемся экономить ваши деньги и собственные силы, а также природные ресурсы Алтая. Поэтому многие вещи мы делаем либо по запросу, либо в режиме самообслуживания, а не навязанных и предоплаченных сервисов.
-				<br />
-				<br />
-				<span className={styles.listItemHighlight}>Если вам что-то нужно&nbsp;&mdash; скажите нам об этом</span>, и мы обязательно постараемся вам помочь.
-			</p>
 		</li>
 		<li className={styles.listItem}>
 			<ListIco />
@@ -196,47 +120,8 @@ const PravilaZhizniItem: FC = () => (
 				<span className={styles.listItemHighlight}>Мы считаем, что вода и воздух на Алтае должны быть бесплатными, и не хотим торговать ни тем ни другим</span>.
 				<br />
 				<br />
-				При этом на закупку воды Petroglyph и переработку пластика, который возим в Новосибирск, мы тратим миллионы рублей в год. Поэтому посчитали справедливым включать в ваш счет водяной сбор 500 рублей в день с человека. Все деньги, которые мы получим за эту услугу, пойдут на реализацию
+				При этом на закупку воды Петроглиф и переработку пластика, который возим в Новосибирск, мы тратим миллионы рублей в год. Поэтому посчитали справедливым включать в ваш счет водяной сбор 500 рублей в день с человека. Все деньги, которые мы получим за эту услугу, пойдут на реализацию
 				образовательных и экологических проектов на Алтае. Если вам это не подходит, мы не будем включать в ваш счет этот сбор.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>Мы стараемся не селить никого менее чем на две ночи, а в фестивальные сезоны не менее чем на четыре. Исключения мы делаем для тех, кому очень надо и кого мы хорошо знаем.</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				<span className={styles.listItemHighlight}>У &laquo;Молодости&raquo; много друзей</span>, поэтому если вы хотите попасть к нам в Новый год, на майские и в разгар лета, то бронируйте проживание как можно скорее. У нас всего 42 спальни, и мы физически не можем принять больше людей, чем
-				можем разместить на ночлег.
-				<br />
-				<br />
-				При этом очень не любим отказывать своим, и у нас порой случается перебукинг. Поэтому на всякий случай мы хотим сказать, что если у нас не получается поселить вас на нашей базе, то мы{' '}
-				<span className={styles.listItemHighlight}>поселим вас в гостиницу 5* без дополнительных расходов или у наших друзей в бутик-отеле &laquo;Август&raquo;</span>, который тоже находится на берегу Катуни. Конечно же, мы постараемся сказать вам об этом заранее.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Если вам нужно пригласить своих друзей, чтобы посмотреть нашу базу, поучаствовать в мероприятиях, перекусить в гастротрактире &laquo;Довольный дракон&raquo; и попариться в банном комплексе «Благодатъ», вы можете это сделать,{' '}
-				<span className={styles.listItemHighlight}>сообщив заранее дежурному базы</span>. Для не проживающих у нас гостей есть специальные однодневные контрамарки в &laquo;Молодость&raquo;. Цена зависит от сезона.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Наши сотрудники&nbsp;&mdash; <span className={styles.listItemHighlight}>не роботы, выдрессированные на конкретную сервисную модель</span>, и наш приоритет&nbsp;&mdash; это не выученность и вышколенность, а искреннее гостеприимство. У нас работает много помощников разных возрастов из
-				соседних деревень и регионов, мы считаем важным для себя поддерживать местных жителей и талантливых ребят со всей страны, у них свои скорости, и бывает, что они не понимают вас с полуслова.
-				<br />
-				<br />
-				Простите, что у нас пока не все идеально, но мы очень стараемся и все время учимся.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				<span className={styles.listItemHighlight}>И, конечно, мы работаем с ошибками</span>. Если что-то пошло не так, как должно, сообщите, нам это помогает становиться лучше, и ждите комплиментов и подарков. Но даже если вы нами недовольны, пожалуйста, не злитесь слишком сильно, не
-				забывайте, что ошибки в &laquo;Молодости&raquo;&nbsp;&mdash; и те случаются только по любви. А кто из нас не ошибался в молодости?
 			</p>
 		</li>
 		<li className={styles.listItem}>
@@ -267,90 +152,8 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
-				Алтай&nbsp;&mdash; уникальное и самобытное место с точки зрения культуры, религий и традиций местных жителей.
-				<br />
-				<br />
-				Шаманизм и малознакомые нам религии&nbsp;&mdash; такие как тенгрианство&nbsp;&mdash; поклонение богу великого синего неба, которое исповедовал еще сам Чингисхан, являются живыми и основными религиозными обычаями для некоторых наших сотрудников. Будьте любопытны, но аккуратны: во
-				время путешествий не спешите повязывать ленточки на деревья, шуметь на перевалах и купаться в источниках.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы <span className={styles.listItemHighlight}>рады всем людям</span> вне зависимости от их возраста, веса, образа жизни и образа мысли, если только они не бросают мусор во время прогулки по лесу и не грубят другим гостям и нашим сотрудникам. <br />
-				<span className={styles.listItemHighlight}>Мы оставляем за собой право не селить тех, кто нарушал наши правила или покой наших гостей в предыдущий визит</span>.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы обращаемся к своим гостям по полному имени и на &laquo;вы&raquo; вне зависимости от возраста и социального статуса. Если вам это не подходит и вы хотите перейти на имя-отчество или на &laquo;ты&raquo;,&nbsp;&mdash; мы, конечно, перестроимся.
-				<br />
-				<br />
-				Детей и подростков мы называем полным именем и на &laquo;ты&raquo;. <br />К нашим сотрудникам можно обращаться по имени на &laquo;ты&raquo; или &laquo;вы&raquo; или &laquo;извините, пожалуйста&raquo;, если вы пока не знаете, кого как зовут.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>Если вы приезжаете к нам не первый раз, у нас иногда возникает желание обняться при радостной встрече или &laquo;на дорожку&raquo;. Надеемся, вы с пониманием отнесетесь к таким искренним проявлениям наших чувств.</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				При этом мы просим не путать наше искреннее гостеприимство и дружелюбие с флиртом и не провоцировать наших сотрудников на неаккуратные действия. Личные отношения с нашими сотрудниками, безусловно, могут возникнуть: любовь сильнее любых правил. Но не удивляйтесь, если наши сотрудники
-				не отвечают на ваше сообщение неформального характера в течение двух недель после вашего отъезда: им это запрещено.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
 				Мы берем ваши контакты на въезде и выезде и вносим их в нашу клиентскую базу, чтобы рассказывать вам <span className={styles.listItemHighlight}>про действительно самое интересное, что у нас происходит</span>&nbsp;&mdash; это тематические заезды и специальные предложения, про новые
 				пространства в новых точках нашей страны и встречи друзей &laquo;Молодости&raquo;.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы не верим в надуманные правила жесткого времени для заезда и выезда, поэтому постараемся заселить и выселить вас тогда, когда вам будет удобно, без доплаты. Наша служба чистоты и красоты, если необходимо, готова работать в режиме аврала, чтобы вы не ждали ни одной лишней минуты,
-				чтобы попасть к себе в номер после дороги.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				<span className={styles.listItemHighlight}>В нашей &laquo;Молодости&raquo; никто никуда не опаздывает</span>. Алтай очень большой, и сфотографироваться во всех классных местах за один приезд все равно не получится. Не торопите нас,{' '}
-				<span className={styles.listItemHighlight}>не бронируйте ничего заранее</span>: вы получите от поездки больше, чем ожидаете, даже если вдруг что-то и пропустите.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>Мы рады помочь вам с багажом и донести вещи от номера до машины, но просим вас лично проконтролировать, что с ними все в порядке и мы ничего не забыли.</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				<span className={styles.listItemHighlight}>Мы живем по алтайскому времяисчислению</span>. Для определения времени мы используем термины: &laquo;когда вам удобно&raquo;, &laquo;утром&raquo;, &laquo;днем&raquo;, &laquo;вечером&raquo;, &laquo;вторая половина дня&raquo;, &laquo;когда
-				стемнеет&raquo;, &laquo;как вернетесь из поездки&raquo;, &laquo;с рассветом&raquo;, &laquo;как дождь закончится&raquo;, &laquo;когда луна будет растущей&raquo;. А посмотреть на легендарную принцессу Укока в государственном музее можно действительно только на растущую луну. <br />
-				Если мы вдруг просим вас поторопиться и указываем конкретное время, значит, мы соблюдаем условия работы наших подрядчиков&nbsp;&mdash; артистов и график работы государственных учреждений. В остальных случаях&nbsp;&mdash; давайте вместе не торопиться.
-				<br />
-				<br />
-				Для комфорта наших московских гостей мы начинаем наш день позже, чтобы не нужно было сильно перестраиваться (разница с Алтаем +4 часа). А все поездки, кроме длинных, мы начинаем ближе к полудню. При этом просим всех гостей, как, впрочем, и наших сотрудников, не шуметь за полночь.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы фиксируем только примерное время бронирований и расписание поездок и начала культурных событий на базе. При необходимости мы оставляем за собой право сдвигать все плюс-минус на час. Разумеется, такое же право есть и у вас.
-				<br />
-				<br />
-				Мы <span className={styles.listItemHighlight}>не берем штраф за гибкость вашего и нашего времени</span> и надеемся на взаимопонимание.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Даже если вы отменили, перенесли и переиграли ваши планы в последний момент, мы не выставим вам штраф, за исключением тех счетов, которые <span className={styles.listItemHighlight}>выставили нам наши подрядчики</span>. Но мы постараемся найти других гостей, которые воспользуются
-				вашей бронью и отправятся в поездку вместо вас. И нашу комиссию мы тоже выставлять вам не будем.
 			</p>
 		</li>
 		{/* <li className={styles.listItem}>
@@ -441,78 +244,6 @@ const PravilaZhizniItem: FC = () => (
 		<li className={styles.listItem}>
 			<ListIco />
 			<p className={styles.listItemText}>
-				Почти все наши поездки можно совершить самостоятельно, воспользовавшись нашим автопрокатом. Мы с удовольствием расскажем, как и куда проехать и где по пути стоит задержаться.
-				<br />
-				<br />
-				Карту маршрутов и описание местности вы можете получить в нашем турбюро.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Наши автомобили <span className={styles.listItemHighlight}>не застрахованы КАСКО</span>. Если вы попадете в аварию, мы разберем ваш случай и вместе с вами решим, как будет справедливо поступить. <br />
-				<span className={styles.listItemHighlight}>Серьезные аварии&nbsp;&mdash; на вашей ответственности</span>, мелкие царапины &nbsp;&mdash; мы не считаем, но включаем в ваш счет бензин из расчета 15 руб./километр. Или действует правило полного бака.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				За скоростью на Алтае следит много камер, и <span className={styles.listItemHighlight}>если вы получите штраф&nbsp;&mdash; мы пришлем его вам позже</span>. <br />В любом случае не гоняйте: вы можете пропустить все самое красивое и интересное, а еще можете наехать на корову или
-				верблюда, переходящих дорогу.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Если ваш автомобиль сломался в пути,{' '}
-				<span className={styles.listItemHighlight}>
-					звоните{' '}
-					<Link href="tel:+79139911133" className={styles.listItemLink}>
-						+7 913 991-11-33
-					</Link>
-				</span>
-				, и мы придумаем, как исправить ситуацию с минимальным дискомфортом для вас. Поломки машин&nbsp;&mdash; это наши расходы и наша ответственность. Заправка, пробитые шины и любые повреждения, случившиеся, если вы съехали с трассы,&nbsp;&mdash; на вашей.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				<span className={styles.listItemHighlight}>Детьми в &laquo;Молодости&raquo; считаются гости от 5 до 12 лет</span>. <br />
-				На территории базы для детей есть площадка имени Дамблдора, домашний и уличный кинотеатры, детская комната. А еще у нас есть няня, творческие мастерские, попкорн и много чего полезного, вредного и любопытного. Дети до 5 лет питаются и размещаются бесплатно. <br />
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Однако просим вас не забывать, что <span className={styles.listItemHighlight}>ваши дети&nbsp;&mdash; это ваша ответственность, и за ними следите вы, а не мы</span>. Если, конечно, вы не оплатили услуги няни. Для сохранения спокойствия взрослых мы периодически создаем в разных местах
-				зоны, свободные от детей.
-				<br />
-				<br />И конечно же, безопасность ваших детей&nbsp;&mdash; это ваша ответственность, а не наша.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Мы рекомендуем <span className={styles.listItemHighlight}>минимизировать употребление алкоголя</span> во время пребывания на Алтае. Местный воздух пьянит сам собой, а ландшафтотерапия успокаивает лучше, чем любой бокал пива к обеду или коньяк перед сном. Поэтому мы сознательно делаем
-				цены на алкоголь и пробковый сбор высокими.
-				<br />
-				Разумеется, при этом у нас имеется большой выбор алкогольных напитков и большая винная карта, которую мы собрали с нашими партнерами <span className={styles.listItemHighlight}>SIMPLE</span>.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
-				Чтобы вам было удобно выйти на утренний маршрут или медитацию у реки, после полуночи <span className={styles.listItemHighlight}>мы увеличиваем цену на все алкогольные позиции на 50%, а с 02:00 ночи, за исключением Нового года, у нас на базе действует сухой закон</span>. Все-таки мы
-				культурное и туристическое учреждение.
-			</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>Если вы берете напитки в холодильнике, в баре или в винной комнате&nbsp;&mdash; запишитесь в нашей гостевой книге или у сотрудника, чтобы мы не забыли вам их посчитать.</p>
-		</li>
-		<li className={styles.listItem}>
-			<ListIco />
-			<p className={styles.listItemText}>
 				На нашей базе нет специальной службы охраны. Мы не верим в эффективность людей, единственным делом которых является сидение целый день у шлагбаума. А наш первый и единственный начальник охраны был уволен на первой же неделе, когда его поймали на воровстве чугунных каминов, которые он
 				собирался сдать на металлолом.
 				<br />
@@ -566,19 +297,318 @@ const WaitingForYou: FC = () => (
 export const PravilaZhizni: FC = () => {
 	return (
 		<main className={styles.content}>
-			<PageHeading>ПРАВИЛА ЖИЗНИ</PageHeading>
-			<p className={styles.subtitle}>Мы&nbsp;культурная турбаза с&nbsp;классификацией &laquo;без звёзд&raquo;, а&nbsp;наши звезды&nbsp;&mdash; это наши гости и&nbsp;наши сотрудники.</p>
-			<p className={styles.lead}>
-				Мы&nbsp;открытый клуб &laquo;для своих&raquo; и&nbsp;просим вас уточнить наши правила, чтобы вам было понятно, чего от&nbsp;нас ждать, чего не&nbsp;ждать и&nbsp;чего мы&nbsp;ждём от&nbsp;вас.
-				<br />
-				<br />
+			<h1 className={styles.pageTitle}>ПРАВИЛА ЖИЗНИ</h1>
+			{/* Блок 1 */}
+			<div className={styles.block1TitleRow}>
+				<ListIco />
+				<p className={styles.block1Title}>
+					МЫ&nbsp;КУЛЬТУРНАЯ ТУРБАЗА С&nbsp;КЛАССИФИКАЦИЕЙ «БЕЗ ЗВЁЗД», А&nbsp;НАШИ ЗВЕЗДЫ&nbsp;&mdash; ЭТО НАШИ ГОСТИ И&nbsp;НАШИ СОТРУДНИКИ.
+				</p>
+			</div>
+			<div className={styles.block1Intro}>
+				<p className={styles.block1IntroPFirst}>Мы&nbsp;открытый клуб «для своих» и&nbsp;просим вас уточнить наши правила, чтобы вам было понятно, чего от&nbsp;нас ждать, чего не&nbsp;ждать и&nbsp;чего мы&nbsp;ждём от&nbsp;вас.</p>
+				<p className={styles.block1IntroP}>
 				Мы&nbsp;вместе три года писали, переписывали, уточняли и&nbsp;обсуждали эти правила. Перед тем, как вносить предоплату, хотя&nbsp;бы пробегите их&nbsp;глазами&nbsp;&mdash; это займёт 5&ndash;7&nbsp;минут.
-				<br />
-				<br />
-				Нам очень хочется, чтобы сюрпризы в&nbsp;&laquo;Молодости&raquo; были для всех только приятными. Ну&nbsp;и&nbsp;самое интересное, конечно&nbsp;же,&nbsp;&mdash; почти в&nbsp;самом конце.
+				</p>
+				<p className={styles.block1IntroP}>
+					Нам очень хочется, чтобы сюрпризы в&nbsp;«Молодости» были для всех только приятными. Ну&nbsp;и&nbsp;самое интересное, конечно&nbsp;же,&nbsp;– почти в&nbsp;самом конце.
+				</p>
+			</div>
+			<div className={styles.ruleHeaderRow}>
+				<ListIco />
+				<p className={styles.ruleHeader}>ПЕРВОЕ ПРАВИЛО «МОЛОДОСТИ»:</p>
+			</div>
+			<p className={styles.ruleDescription}>
+				План на&nbsp;завтра вы&nbsp;узнаете завтра&nbsp;&mdash; полностью соответствует второму закону термодинамики: энтропия в&nbsp;замкнутых системах возрастает. Мы&nbsp;работаем по&nbsp;принципу:
 			</p>
-			<PravilaZhizniItem />
-			<WaitingForYou />
+			{/* Блок 2 */}
+			<div className={styles.block2}>
+				<h2 className={styles.block2Title}>ПЛАН НА&nbsp;ЗАВТРА ВЫ&nbsp;УЗНАЕТЕ ЗАВТРА</h2>
+				<div className={styles.block2Body}>
+					<p className={styles.block2ParagraphFirst}>
+						Наши организаторы мероприятий, повара, дизайнеры путешествий, банщики и&nbsp;следопыты ежедневно корректируют планы на&nbsp;день и&nbsp;свою работу&nbsp;&mdash;{' '}
+						<span className={cn(styles.listItemHighlight, styles.listItemLink)}>с&nbsp;учётом погоды, свежести продуктов на&nbsp;рынке, вновь найденных возможностей, индивидуальных особенностей и&nbsp;настроения наших гостей</span>.
+					</p>
+					<p className={styles.block2Paragraph}>
+						Доверьтесь нашему опыту, и&nbsp;вы&nbsp;получите от&nbsp;поездки в&nbsp;«Молодость» больше, чем ожидаете! А&nbsp;мы&nbsp;сможем показать вам именно такой Алтай, каким мы&nbsp;его сами знаем и&nbsp;любим.
+					</p>
+				</div>
+				<div className={styles.block2BottomLine} />
+			</div>
+			{/* Блок 3 */}
+			<div className={styles.block3}>
+				<div className={styles.block3HeaderRow}>
+					<ListIco />
+					<div className={styles.block3Body}>
+						<p>
+							Для нас <span className={cn(styles.listItemHighlight, styles.listItemLink)}>разумная достаточность</span>&nbsp;&mdash; это не&nbsp;просто слова. Мы&nbsp;стараемся использовать то, что уже есть на&nbsp;нашей стройке: перестраиваем существующие здания, покупаем ветровальную древесину, собираем топляк по&nbsp;берегам местных рек&nbsp;&mdash; и&nbsp;таким образом сохранили от&nbsp;вырубки уже <span className={cn(styles.listItemHighlight, styles.listItemLink)}>3000 деревьев</span>.
+						</p>
+						<p className={styles.block3Paragraph}>
+							Мы&nbsp;стараемся <span className={cn(styles.listItemHighlight, styles.listItemLink)}>экономить ваши деньги и&nbsp;собственные силы</span>, а&nbsp;также природные ресурсы Алтая. Поэтому многие вещи мы&nbsp;делаем либо по&nbsp;запросу, либо в&nbsp;режиме самообслуживания, а&nbsp;не&nbsp;навязанных и&nbsp;предоплаченных сервисов.
+						</p>
+						<p className={styles.block3ParagraphRed}>
+							Если вам что-то нужно&nbsp;&mdash; скажите нам об&nbsp;этом, и&nbsp;мы&nbsp;обязательно постараемся вам помочь.
+						</p>
+					</div>
+				</div>
+				<div className={styles.block3BottomLine} />
+			</div>
+			{/* Блок 4 — ПРО ОПЛАТУ */}
+			<div className={styles.block4}>
+				<div className={styles.block4HeaderRow}>
+					<ListIco />
+					<p className={styles.block4Title}>ПРО&nbsp;ОПЛАТУ</p>
+				</div>
+				<div className={styles.block4Body}>
+					<p>
+						Мы&nbsp;бронируем номера <span className={cn(styles.listItemHighlight, styles.listItemLink)}>по&nbsp;предоплате 20%</span> от&nbsp;стоимости проживания, <span className={cn(styles.listItemHighlight, styles.listItemLink)}>но&nbsp;не&nbsp;менее 30&nbsp;000&nbsp;₽</span>. За&nbsp;10&nbsp;дней до&nbsp;заезда мы&nbsp;напомним вам о&nbsp;нём и&nbsp;попросим внести ещё&nbsp;30%. Если ваши планы поменяются, мы&nbsp;перенесём ваш депозит на&nbsp;другие даты без штрафа. Очень просим вас сообщать об&nbsp;изменениях в&nbsp;ваших планах&nbsp;&mdash; особенно летом, в&nbsp;майские праздники и&nbsp;в&nbsp;Новый год.
+					</p>
+					<p className={styles.block4Paragraph}>
+						Мы&nbsp;дружелюбный бизнес и&nbsp;стараемся не&nbsp;усложнять правила отмены и&nbsp;переноса бронирования. Но&nbsp;мы&nbsp;малый бизнес, и&nbsp;каждое бронирование имеет для нас важное денежное значение, поэтому, если вы&nbsp;скажете об&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>изменении ваших планов в&nbsp;последний момент, мы&nbsp;не&nbsp;сможем продать ваш номер кому-то ещё</span>. И&nbsp;нам будет сложнее платить зарплату нашим сотрудникам в&nbsp;низкий сезон и&nbsp;когда мы&nbsp;закрыты.
+					</p>
+					<p className={styles.block4Paragraph}>
+						<span className={cn(styles.listItemHighlight, styles.listItemLink)}>Мы&nbsp;не&nbsp;скрываем собственные комиссии и&nbsp;наценки</span>. За&nbsp;работу с&nbsp;подрядчиками мы&nbsp;берём комиссию от&nbsp;10% (вертолёты) до&nbsp;20% (бизнес-зал), которую вы&nbsp;увидите в&nbsp;своём счёте.
+					</p>
+					<p className={styles.block4Paragraph}>
+						За&nbsp;организацию корпоративных и&nbsp;групповых заездов от&nbsp;10&nbsp;человек мы&nbsp;берём свою комиссию 10% от&nbsp;стоимости всей программы без учёта проживания.
+					</p>
+				</div>
+				<div className={styles.block4BottomLine} />
+			</div>
+			{/* Блок 5 — О БРОНИРОВАНИИ И ФЕСТИВАЛЕ */}
+			<div className={styles.block5}>
+				<div className={styles.block5HeaderRow}>
+					<ListIco />
+					<p className={styles.block5Title}>О&nbsp;БРОНИРОВАНИИ И&nbsp;ФЕСТИВАЛЕ</p>
+				</div>
+				<div className={styles.block5Body}>
+					<p>
+						У&nbsp;нас живут только друзья &laquo;Молодости&raquo; и&nbsp;друзья друзей. Поэтому <span className={cn(styles.listItemHighlight, styles.listItemLink)}>нас нет на&nbsp;агрегаторах</span>.
+					</p>
+					<p className={styles.block5Paragraph}>
+						Чтобы забронировать поездку к&nbsp;нам, нужно позвонить и&nbsp;написать нам напрямую. Это позволяет не&nbsp;только оказаться в&nbsp;кругу понятных и&nbsp;приятных людей, но&nbsp;и&nbsp;сэкономить около 20%, которые берут посредники.
+					</p>
+					<p className={styles.block5Paragraph}>
+						Из&nbsp;турагентов и&nbsp;туроператоров мы&nbsp;работаем только с&nbsp;теми, кого очень хорошо знаем и&nbsp;кому доверяем.
+					</p>
+					<p className={styles.block5Paragraph}>
+						Мы&nbsp;стараемся не&nbsp;селить никого менее <span className={cn(styles.listItemHighlight, styles.listItemLink)}>чем на&nbsp;две ночи</span>, а&nbsp;в&nbsp;фестивальные сезоны не&nbsp;менее чем на&nbsp;четыре. Исключения мы&nbsp;делаем для тех, кому очень надо и&nbsp;кого мы&nbsp;хорошо знаем.
+					</p>
+					<p className={styles.block5Paragraph}>
+						У&nbsp;&laquo;Молодости&raquo; много друзей, поэтому если вы&nbsp;хотите попасть к&nbsp;нам в&nbsp;Новый год, на&nbsp;майские и&nbsp;в&nbsp;разгар лета, то&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>бронируйте проживание как можно скорее</span>. У&nbsp;нас ограниченное количество спален, и&nbsp;мы&nbsp;физически не&nbsp;можем принять больше людей, чем можем разместить на&nbsp;ночлег.
+					</p>
+				</div>
+				<div className={styles.block5BottomLine} />
+			</div>
+			{/* Блок 6 — О ЗАСЕЛЕНИИ */}
+			<div className={styles.block6}>
+				<div className={styles.block6HeaderRow}>
+					<ListIco />
+					<p className={styles.block6Title}>О&nbsp;ЗАСЕЛЕНИИ</p>
+				</div>
+				<div className={styles.block6Body}>
+					<p>
+						Мы&nbsp;отель на&nbsp;природе и&nbsp;у&nbsp;нас может что-то пойти не&nbsp;так в&nbsp;сезон пиковой загрузки или в&nbsp;холодные месяцы.
+					</p>
+					<p className={styles.block6Paragraph}>
+						Поэтому, на&nbsp;всякий случай, мы&nbsp;хотим сказать, что если у&nbsp;нас <span className={cn(styles.listItemHighlight, styles.listItemLink)}>не&nbsp;получается поселить вас на&nbsp;нашей базе</span>, то&nbsp;мы&nbsp;поселим вас в&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>гостиницу 5*</span> без дополнительных расходов. Конечно&nbsp;же, мы&nbsp;постараемся сказать вам об&nbsp;этом заранее.
+					</p>
+					<p className={styles.block6Paragraph}>
+						Если вам нужно пригласить своих друзей, чтобы посмотреть нашу базу, поучаствовать в&nbsp;мероприятиях, перекусить в&nbsp;гастро-трактире &laquo;Довольный дракон&raquo; и&nbsp;попариться в&nbsp;Лаборатории тепла, вы&nbsp;можете это сделать, предупредив заранее дежурного базы. Для <span className={cn(styles.listItemHighlight, styles.listItemLink)}>не&nbsp;проживающих гостей</span> у&nbsp;нас есть <span className={cn(styles.listItemHighlight, styles.listItemLink)}>специальные тарифы</span>.
+					</p>
+					<p className={styles.block6Paragraph}>
+						В&nbsp;фестивальные сезоны наше турбюро и&nbsp;&laquo;Лаборатория тепла&raquo; работают только для проживающих на&nbsp;базе.
+					</p>
+					<p className={styles.block6Paragraph}>
+						Мы&nbsp;не&nbsp;верим в&nbsp;надуманные правила жёсткого времени заезда и&nbsp;выезда, поэтому постараемся <span className={cn(styles.listItemHighlight, styles.listItemLink)}>заселить и&nbsp;выселить вас тогда</span>, когда <span className={cn(styles.listItemHighlight, styles.listItemLink)}>вам будет удобно, без доплаты</span>.
+					</p>
+					<p className={styles.block6Paragraph}>
+						Мы&nbsp;рады помочь вам с&nbsp;багажом и&nbsp;донести вещи от&nbsp;номера до&nbsp;машины, но&nbsp;просим вас проконтролировать, что с&nbsp;ними всё в&nbsp;порядке.
+					</p>
+				</div>
+				<div className={styles.block6BottomLine} />
+			</div>
+			{/* Блок 7 — ПРО ВРЕМЯИСЧИСЛЕНИЕ */}
+			<div className={styles.block7}>
+				<div className={styles.block7HeaderRow}>
+					<ListIco />
+					<p className={styles.block7Title}>ПРО&nbsp;ВРЕМЯИСЧИСЛЕНИЕ</p>
+				</div>
+				<div className={styles.block7Body}>
+					<p>
+						В&nbsp;нашей &laquo;Молодости&raquo; никто никуда не&nbsp;опаздывает. Сфотографироваться во&nbsp;всех классных местах за&nbsp;один приезд всё равно не&nbsp;получится. Не&nbsp;торопите нас, не&nbsp;бронируйте ничего заранее&nbsp;&mdash; вы&nbsp;получите от&nbsp;поездки больше, чем ожидаете, даже если вдруг что-то и&nbsp;пропустите.
+					</p>
+					<p className={styles.block7Paragraph}>
+						Мы&nbsp;живём по&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>внутреннему времяисчислению</span>. Для определения времени мы&nbsp;используем термины: &laquo;когда вам удобно&raquo;, &laquo;утром&raquo;, &laquo;днём&raquo;, &laquo;вечером&raquo;, &laquo;вторая половина дня&raquo;, &laquo;когда стемнеет&raquo;, &laquo;как вернётесь из&nbsp;поездки&raquo;, &laquo;с&nbsp;рассветом&raquo;, &laquo;как дождь закончится&raquo;, &laquo;когда луна будет растущей&raquo;. А&nbsp;посмотреть на&nbsp;легендарную принцессу Укока в&nbsp;государственном музее в&nbsp;Горно-Алтайске можно действительно только на&nbsp;растущую луну.
+					</p>
+					<p className={styles.block7Paragraph}>
+						Если мы&nbsp;вдруг <span className={cn(styles.listItemHighlight, styles.listItemLink)}>просим вас поторопиться</span> и&nbsp;указываем конкретное время, значит, мы&nbsp;соблюдаем <span className={cn(styles.listItemHighlight, styles.listItemLink)}>условия работы наших подрядчиков</span>&nbsp;&mdash; артистов и&nbsp;государственных учреждений.
+					</p>
+					<p className={styles.block7Paragraph}>
+						Мы&nbsp;не&nbsp;фиксируем время предварительного бронирования дополнительных услуг и&nbsp;начала мероприятий на&nbsp;базе и&nbsp;оставляем за&nbsp;собой <span className={cn(styles.listItemHighlight, styles.listItemLink)}>право сдвигать всё плюс-минус на&nbsp;час</span>.
+					</p>
+					<p className={styles.block7Paragraph}>
+						<span className={cn(styles.listItemHighlight, styles.listItemLink)}>Мы&nbsp;не&nbsp;берём штраф</span> за&nbsp;гибкость вашего и&nbsp;нашего времени и&nbsp;надеемся на&nbsp;ваше и&nbsp;наше взаимопонимание.
+					</p>
+					<p className={styles.block7Paragraph}>
+						Даже если <span className={cn(styles.listItemHighlight, styles.listItemLink)}>вы&nbsp;отменили, перенесли и&nbsp;переиграли поездки, мы&nbsp;не&nbsp;выставим вам штраф</span>, за&nbsp;исключением тех счётов, которые выставили нам наши подрядчики. Но&nbsp;мы&nbsp;постараемся найти других гостей, которые воспользуются вашей бронью и&nbsp;отправятся в&nbsp;поездку вместо вас. И&nbsp;нашу комиссию мы&nbsp;тоже выставлять вам не&nbsp;будем.
+					</p>
+				</div>
+				<div className={styles.block7BottomLine} />
+			</div>
+			{/* Блок 8 — ПЛАНЫ */}
+			<div className={styles.block8}>
+				<div className={styles.block8HeaderRow}>
+					<ListIco />
+					<p className={styles.block8Title}>ПЛАНЫ</p>
+				</div>
+				<div className={styles.block8Body}>
+					<p>
+						Если для вашего спокойствия вам всё-таки необходимо всё <span className={cn(styles.listItemHighlight, styles.listItemLink)}>спланировать заранее</span>, то&nbsp;учтите, что для нас это большая дополнительная нагрузка. Пошаговое планирование вашего пребывания в&nbsp;&laquo;Молодости&raquo; на&nbsp;семью или <span className={cn(styles.listItemHighlight, styles.listItemLink)}>компанию до&nbsp;6&nbsp;человек стоит 12&nbsp;345&nbsp;рублей</span> за&nbsp;день вашего пребывания с&nbsp;нами.
+					</p>
+					<p className={styles.block8Paragraph}>
+						Нам нравится зарабатывать на&nbsp;дополнительных услугах, но&nbsp;ещё раз повторяем, что мы&nbsp;рекомендуем, <span className={cn(styles.listItemHighlight, styles.listItemLink)}>оказавшись в&nbsp;&laquo;Молодости&raquo;, жить в&nbsp;другой логике</span>, никуда не&nbsp;бежать, не&nbsp;торопиться, не&nbsp;планировать и&nbsp;не&nbsp;забывать, что план на&nbsp;завтра вы&nbsp;узнаете завтра.
+					</p>
+				</div>
+				<div className={styles.block8BottomLine} />
+			</div>
+			{/* Блок 9 — ПРО ДОРОГИ И ПУТЕШЕСТВИЯ */}
+			<div className={styles.block9}>
+				<div className={styles.block9HeaderRow}>
+					<ListIco />
+					<p className={styles.block9Title}>ПРО&nbsp;ДОРОГИ И&nbsp;ПУТЕШЕСТВИЯ</p>
+				</div>
+				<div className={styles.block9Body}>
+					<p>
+						Почти все наши поездки можно сделать самостоятельно, воспользовавшись нашим <span className={cn(styles.listItemHighlight, styles.listItemLink)}>автопрокатом</span>. Мы&nbsp;с&nbsp;удовольствием <span className={cn(styles.listItemHighlight, styles.listItemLink)}>расскажем, как и&nbsp;куда проехать</span> и&nbsp;где по&nbsp;пути стоит задержаться. Карту маршрутов и&nbsp;описание местности вы&nbsp;можете получить в&nbsp;нашем турбюро.
+					</p>
+					<p className={styles.block9Paragraph}>
+						Если вы&nbsp;попадёте в&nbsp;аварию, мы&nbsp;разберём ваш случай и&nbsp;вместе с&nbsp;вами решим, как будет справедливо поступить.
+					</p>
+					<p className={styles.block9Paragraph}>
+						Серьёзные аварии&nbsp;&mdash; на&nbsp;вашей ответственности, мелкие царапины&nbsp;&mdash; мы&nbsp;не&nbsp;считаем, но&nbsp;включаем в&nbsp;ваш счёт бензин из&nbsp;расчёта 15&nbsp;₽/километр.
+					</p>
+					<p className={styles.block9Paragraph}>
+						За&nbsp;скоростью на&nbsp;дорогах следит много камер, и&nbsp;если вы&nbsp;получите <span className={cn(styles.listItemHighlight, styles.listItemLink)}>штраф</span>&nbsp;&mdash; <span className={cn(styles.listItemHighlight, styles.listItemLink)}>мы&nbsp;пришлём его вам позже</span>.
+					</p>
+					<p className={styles.block9Paragraph}>
+						И&nbsp;не&nbsp;гоняйте&nbsp;&mdash; вы&nbsp;можете пропустить всё самое красивое и&nbsp;интересное.
+					</p>
+					<p className={styles.block9Paragraph}>
+						Если ваш автомобиль сломался, звоните на&nbsp;ресепшен или своему батлеру, и&nbsp;мы&nbsp;придумаем, как исправить ситуацию с&nbsp;минимальным дискомфортом для вас. Поломки машин&nbsp;&mdash; это наши расходы и&nbsp;наша ответственность. Заправка и&nbsp;пробитые шины&nbsp;&mdash; на&nbsp;вашей.
+					</p>
+				</div>
+				<div className={styles.block9BottomLine} />
+			</div>
+			{/* Блок 10 — ПРО ЛЮДЕЙ */}
+			<div className={styles.block10}>
+				<div className={styles.block10HeaderRow}>
+					<ListIco />
+					<p className={styles.block10Title}>ПРО&nbsp;ЛЮДЕЙ</p>
+				</div>
+				<div className={styles.block10Body}>
+					<p>
+						У&nbsp;нас работает много помощников разных возрастов из&nbsp;соседних деревень и&nbsp;регионов, мы&nbsp;считаем важным для себя <span className={cn(styles.listItemHighlight, styles.listItemLink)}>поддерживать местных жителей</span> и&nbsp;талантливых ребят со&nbsp;всей страны, у&nbsp;них свои скорости, и&nbsp;бывает, что они не&nbsp;понимают вас с&nbsp;полуслова.
+					</p>
+					<p className={styles.block10Paragraph}>
+						Наши сотрудники&nbsp;&mdash; не&nbsp;роботы, выдрессированные на&nbsp;конкретную сервисную модель, и&nbsp;наш приоритет&nbsp;&mdash; это не&nbsp;выученность и&nbsp;вышколенность, а&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>искреннее гостеприимство</span>. Простите, что у&nbsp;нас пока не&nbsp;всё идеально, но&nbsp;мы&nbsp;очень стараемся и&nbsp;всё время учимся. И&nbsp;бывает, что <span className={cn(styles.listItemHighlight, styles.listItemLink)}>мы&nbsp;работаем с&nbsp;ошибками</span>.
+					</p>
+					<p className={styles.block10Paragraph}>
+						Наша страна многолика и&nbsp;уникальна с&nbsp;точки зрения культуры, религий и&nbsp;традиций местных жителей.
+					</p>
+					<p className={styles.block10Paragraph}>
+						Шаманизм и&nbsp;малознакомые нам религии&nbsp;&mdash; такие как тенгрианство, поклонение богу великого синего неба, которое исповедовал ещё сам Чингисхан,&nbsp;&mdash; являются живыми религиозными обычаями для некоторых наших сотрудников. <span className={cn(styles.listItemHighlight, styles.listItemLink)}>Будьте любопытны, но&nbsp;аккуратны</span>: во&nbsp;время путешествий не&nbsp;спешите повязывать ленточки на&nbsp;деревья, шуметь на&nbsp;перевалах и&nbsp;купаться в&nbsp;источниках.
+					</p>
+					<p className={styles.block10Paragraph}>
+						Мы&nbsp;рады всем людям вне зависимости от&nbsp;их&nbsp;возраста, веса, образа жизни и&nbsp;образа мысли, если только они не&nbsp;бросают мусор во&nbsp;время прогулки по&nbsp;лесу и&nbsp;не&nbsp;грубят другим гостям и&nbsp;нашим сотрудникам.
+					</p>
+					<p className={styles.block10Paragraph}>
+						<span className={cn(styles.listItemHighlight, styles.listItemLink)}>Мы&nbsp;оставляем за&nbsp;собой право не&nbsp;селить тех, кто нарушал наши правила</span> или покой наших гостей в&nbsp;предыдущий визит.
+					</p>
+					<p className={styles.block10Paragraph}>
+						Мы&nbsp;обращаемся к&nbsp;своим гостям по&nbsp;полному имени и&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>на&nbsp;&laquo;вы&raquo;</span> вне зависимости от&nbsp;возраста и&nbsp;социального статуса. Если вам это не&nbsp;подходит и&nbsp;вы&nbsp;хотите перейти на&nbsp;имя-отчество или на&nbsp;&laquo;ты&raquo;&nbsp;&mdash; мы, конечно, перестроимся.
+					</p>
+					<p className={styles.block10Paragraph}>
+						Детей и&nbsp;подростков мы&nbsp;называем полным именем и&nbsp;на&nbsp;&laquo;ты&raquo;. К&nbsp;нашим сотрудникам можно обращаться по&nbsp;имени на&nbsp;&laquo;ты&raquo; или &laquo;вы&raquo; или &laquo;извините, пожалуйста&raquo;, если вы&nbsp;пока не&nbsp;знаете, кого как зовут.
+					</p>
+					<p className={styles.block10Paragraph}>
+						Если вы&nbsp;приезжаете к&nbsp;нам не&nbsp;первый раз, у&nbsp;нас <span className={cn(styles.listItemHighlight, styles.listItemLink)}>иногда возникает желание обняться</span> <span className={cn(styles.listItemHighlight, styles.listItemLink)}>при встрече или &laquo;на&nbsp;дорожку&raquo;</span>. Надеемся, вы&nbsp;с&nbsp;пониманием отнесётесь к&nbsp;таким искренним проявлениям наших чувств.
+					</p>
+					<p className={styles.block10Paragraph}>
+						При этом мы&nbsp;просим <span className={cn(styles.listItemHighlight, styles.listItemLink)}>не&nbsp;путать наше искреннее гостеприимство и&nbsp;дружелюбие с&nbsp;флиртом</span> и&nbsp;не&nbsp;провоцировать наших сотрудников на&nbsp;неаккуратные действия. Личные отношения с&nbsp;нашими сотрудниками, безусловно, могут возникнуть: <span className={cn(styles.listItemHighlight, styles.listItemLink)}>любовь сильнее любых правил</span>. Но&nbsp;не&nbsp;удивляйтесь, если наши сотрудники не&nbsp;отвечают на&nbsp;ваше сообщение неформального характера в&nbsp;течение двух недель после вашего отъезда: <span className={cn(styles.listItemHighlight, styles.listItemLink)}>им&nbsp;это запрещено</span>.
+					</p>
+				</div>
+				<div className={styles.block10BottomLine} />
+			</div>
+			{/* Блок 11 — ПРО ДЕТЕЙ */}
+			<div className={styles.block11}>
+				<div className={styles.block11HeaderRow}>
+					<ListIco />
+					<p className={styles.block11Title}>ПРО&nbsp;ДЕТЕЙ</p>
+				</div>
+				<div className={styles.block11Body}>
+					<p>
+						Дети в&nbsp;&laquo;Молодости&raquo; считаются от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет.
+					</p>
+					<p className={styles.block11Paragraph}>
+						На&nbsp;территории базы для детей есть площадка имени Дамблдора, домашний и&nbsp;уличный кинотеатры, детская комната. А&nbsp;ещё у&nbsp;нас есть няня, творческие мастерские, попкорн и&nbsp;много чего полезного, вредного и&nbsp;любопытного.
+					</p>
+					<p className={styles.block11Paragraph}>
+						Однако просим вас не&nbsp;забывать, что <span className={cn(styles.listItemHighlight, styles.listItemLink)}>ваши дети</span>&nbsp;&mdash; это ваша ответственность, и&nbsp;за&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>ними следите вы, а&nbsp;не&nbsp;мы</span>. Если, конечно, вы&nbsp;не&nbsp;оплатили услуги няни. Для сохранения спокойствия взрослых мы&nbsp;периодически создаём в&nbsp;разных местах зоны, свободные от&nbsp;детей.
+					</p>
+					<p className={styles.block11Paragraph}>
+						И, конечно&nbsp;же, безопасность ваших детей&nbsp;&mdash; это ваша ответственность, а&nbsp;не&nbsp;наша.
+					</p>
+				</div>
+				<div className={styles.block11BottomLine} />
+			</div>
+			{/* Блок 12 — ОШИБКИ */}
+			<div className={styles.block12}>
+				<div className={styles.block12HeaderRow}>
+					<ListIco />
+					<p className={styles.block14Title}>ОШИБКИ</p>
+				</div>
+				<div className={styles.block12Body}>
+					<p>
+						И, конечно, мы&nbsp;работаем с&nbsp;ошибками. Если что-то пошло не&nbsp;так, как должно, сообщите&nbsp;&mdash; нам это помогает становиться лучше, и&nbsp;ждите комплиментов и&nbsp;подарков. Но&nbsp;даже если вы&nbsp;нами недовольны, пожалуйста, не&nbsp;злитесь слишком сильно, не&nbsp;забывайте, что <span className={cn(styles.listItemHighlight, styles.listItemLink)}>ошибки в&nbsp;&laquo;Молодости&raquo;&nbsp;&mdash; и&nbsp;те&nbsp;случаются только по&nbsp;любви</span>. А&nbsp;кто из&nbsp;нас не&nbsp;ошибался в&nbsp;молодости?
+					</p>
+				</div>
+				<div className={styles.block12BottomLine} />
+			</div>
+			{/* Блок 13 — ВОЗДУХ ПЬЯНИТ */}
+			<div className={styles.block13}>
+				<div className={styles.block13HeaderRow}>
+					<ListIco />
+					<p className={styles.block14Title}>ВОЗДУХ ПЬЯНИТ</p>
+				</div>
+				<div className={styles.block13Body}>
+					<p>
+						Мы&nbsp;рекомендуем минимизировать употребление алкоголя во&nbsp;время пребывания на&nbsp;Алтае. Местный воздух пьянит сам собой, а&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>ландшафтотерапия успокаивает лучше</span>, чем любой бокал пива к&nbsp;обеду или коньяк перед сном. Поэтому мы&nbsp;сознательно делаем цены на&nbsp;алкоголь и&nbsp;пробковый сбор высокими.
+					</p>
+					<p className={styles.block13Paragraph}>
+						Разумеется, при этом у&nbsp;нас имеется <span className={cn(styles.listItemHighlight, styles.listItemLink)}>большой выбор</span> алкогольных напитков и&nbsp;большая винная карта, которую мы&nbsp;собрали с&nbsp;нашими партнёрами SIMPLE.
+					</p>
+					<p className={styles.block13Paragraph}>
+						Если вы&nbsp;берёте напитки в&nbsp;холодильнике, в&nbsp;баре или в&nbsp;винной комнате&nbsp;&mdash; <span className={cn(styles.listItemHighlight, styles.listItemLink)}>запишитесь у&nbsp;сотрудника</span>, чтобы мы&nbsp;не&nbsp;забыли вам их&nbsp;посчитать.
+					</p>
+				</div>
+				<div className={styles.block13BottomLine} />
+			</div>
+			{/* Блок 14 — КОМФОРТНЫЙ РЕЖИМ */}
+			<div className={styles.block14}>
+				<div className={styles.block14HeaderRow}>
+					<ListIco />
+					<p className={styles.block14Title}>КОМФОРТНЫЙ РЕЖИМ</p>
+				</div>
+				<div className={styles.block14Body}>
+					<p>
+						Чтобы вам было удобно выйти на&nbsp;утренний маршрут или медитацию у&nbsp;реки, <span className={cn(styles.listItemHighlight, styles.listItemLink)}>после полуночи</span> мы&nbsp;увеличиваем цену на&nbsp;все алкогольные позиции на&nbsp;50%, а&nbsp;с&nbsp;02:00 ночи, за&nbsp;исключением Нового года, у&nbsp;нас на&nbsp;базе действует сухой закон. Всё-таки <span className={cn(styles.listItemHighlight, styles.listItemLink)}>мы&nbsp;культурное и&nbsp;туристическое учреждение</span>.
+					</p>
+					<p className={styles.block14Paragraph}>
+						Для комфорта наших московских гостей <span className={cn(styles.listItemHighlight, styles.listItemLink)}>мы&nbsp;начинаем</span> наш день позже, чтобы не&nbsp;нужно было сильно перестраиваться (разница с&nbsp;Алтаем +4&nbsp;часа). А&nbsp;<span className={cn(styles.listItemHighlight, styles.listItemLink)}>все поездки</span>, кроме длинных, <span className={cn(styles.listItemHighlight, styles.listItemLink)}>мы&nbsp;начинаем ближе к&nbsp;полудню</span>. При этом просим всех гостей, как, впрочем, и&nbsp;наших сотрудников, не&nbsp;шуметь <span className={cn(styles.listItemHighlight, styles.listItemLink)}>за&nbsp;полночь</span>.
+					</p>
+				</div>
+			</div>
 		</main>
 	);
 };

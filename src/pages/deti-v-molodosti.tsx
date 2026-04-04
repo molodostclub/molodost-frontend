@@ -1,5 +1,5 @@
 import { ChildrenInYouth } from '@core/ChildrenInYouth';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function DetiVMolodosti() {
   return (
@@ -7,6 +7,7 @@ export default function DetiVMolodosti() {
       <PageMeta title="Дети в молодости" />
       <InnerPageHeader />
       <PageCover src="/images/deti-v-molodosti-cover.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Дети в Молодости' }]} />
       <ChildrenInYouth />
       <Footer />
     </>

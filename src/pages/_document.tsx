@@ -9,7 +9,7 @@ export default function Document() {
       <Head>
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"></link>
         <meta name="yandex-verification" content="92dcfd357eeba278" />
-        <script
+        {/*<script
 					dangerouslySetInnerHTML={{
 						__html: `
 							(function(w) {
@@ -39,7 +39,7 @@ export default function Document() {
 							})(window);
 						`,
 					}}
-				/>
+				/>*/}
       </Head>
       <body className={themeClass}>
         <Main />

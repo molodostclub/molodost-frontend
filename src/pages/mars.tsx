@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { PageContainer, Postscriptum } from '@core/Home';
-import { InnerPageHeader, PageCover, Footer, PageMeta } from '@shared/components';
+import { Breadcrumb, InnerPageHeader, PageCover, Footer, PageMeta } from '@shared/components';
 import { Mars } from '@/core/Mars';
 import { HousesSplit } from '@/utils';
 import { GetStaticProps } from 'next';
@@ -38,10 +38,14 @@ export default function MarsPage(pageProps: Props) {
 			<PageMeta title="Приют на марсе" />
 			<InnerPageHeader />
 			<PageCover src="/images/mars/main.jpeg" />
+			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Марс' }]} />
 			<PageContainer>
 				<Mars {...pageProps} />
 				<Postscriptum />
 			</PageContainer>
+			<br />
+			<br />
+			<br />
 			<Footer />
 		</>
 	);
@@ -65,6 +69,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			props: {
 				individual: [],
 				inHouse: [],
+				luxiping: [],
 			},
 			revalidate: 60,
 		};

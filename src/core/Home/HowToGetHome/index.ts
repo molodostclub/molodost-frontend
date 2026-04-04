@@ -1,0 +1,1 @@
+export { HowToGetHome } from './HowToGetHome';

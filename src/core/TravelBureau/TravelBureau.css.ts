@@ -5,7 +5,7 @@ import { pageContent, tablet, uikit, vars } from '@styles';
 export const content = style([
   pageContent,
   tablet({
-    maxWidth: 825,
+    maxWidth: 746,
     marginLeft: 'auto',
     marginRight: 'auto',
   }),

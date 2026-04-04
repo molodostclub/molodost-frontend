@@ -5,11 +5,16 @@ import { tablet, vars } from '@styles';
 export const containerBase = style([
   {
     marginTop: 45,
-    marginLeft: 30,
-    marginRight: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
   },
   tablet({
+    width: '100%',
+    paddingLeft: 0,
+    paddingRight: 0,
     maxWidth: 825,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   }),
 ]);
 

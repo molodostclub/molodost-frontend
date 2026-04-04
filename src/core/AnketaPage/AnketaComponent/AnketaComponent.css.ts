@@ -1,5 +1,4 @@
 import { tablet, vars } from '@/styles';
-import { flexDirection } from '@/uikit/FlexContainer/FlexContainer.css';
 import { style } from '@vanilla-extract/css';
 
 export const formRow = style([
@@ -38,10 +37,13 @@ export const separatorText = style([
   {
     width: '100%',
     color: vars.color.brand,
-    marginTop: '30px',
-    fontSize: '30px',
-    fontFamily: vars.font.ApercuProRegular,
+    marginTop: '40px',
+    fontFamily: vars.font.CeraCondensedCYMedium,
+    fontWeight: 500,
+    fontSize: 50,
+    lineHeight: '45px',
     textTransform: 'uppercase',
+    textAlign: 'left',
   },
   tablet({}),
 ]);
@@ -50,9 +52,12 @@ export const pageTitle = style([
   {
     width: '100%',
     color: vars.color.brand,
-    fontSize: '50px',
-    fontFamily: vars.font.ApercuProRegular,
+    fontFamily: vars.font.CeraCondensedCYMedium,
+    fontWeight: 500,
+    fontSize: 50,
+    lineHeight: '45px',
     textTransform: 'uppercase',
+    textAlign: 'left',
   },
   tablet({}),
 ]);
@@ -60,8 +65,8 @@ export const pageTitle = style([
 const textBase = style({
   fontFamily: vars.font.CeraCondensedCYMedium,
   fontWeight: 500,
-  fontSize: 25,
-  lineHeight: '25px',
+  fontSize: 20,
+  lineHeight: '24px',
   textTransform: 'uppercase',
 });
 
@@ -69,6 +74,32 @@ export const accentText = style([
   textBase,
   {
     color: vars.color.brand,
+  },
+]);
+
+export const introBlock = style({
+  color: vars.color.brand,
+  fontFamily: vars.font.ApercuProRegular,
+  textTransform: 'none',
+});
+
+export const introBold = style([
+  introBlock,
+  {
+    fontSize: 20,
+    fontWeight: 700,
+    lineHeight: 1.4,
+    marginBottom: 16,
+  },
+]);
+
+export const introRegular = style([
+  introBlock,
+  {
+    fontSize: 20,
+    fontWeight: 400,
+    lineHeight: 1.5,
+    marginBottom: 16,
   },
 ]);
 
@@ -86,7 +117,7 @@ export const separatorLine = style([
 export const note = style([
   {
     display: 'block',
-    fontSize: 16,
+    fontSize: 20,
     color: vars.color.brand,
     fontFamily: vars.font.ApercuProRegular,
   },
@@ -94,7 +125,7 @@ export const note = style([
 ]);
 export const noteBlack = style([
   {
-    fontSize: 16,
+    fontSize: 20,
     color: vars.color.black,
     fontFamily: vars.font.ApercuProRegular,
   },
@@ -110,7 +141,7 @@ export const noteRed = style([
 
 export const description = style([
   {
-    fontSize: 18,
+    fontSize: 20,
     color: vars.color.black,
     fontFamily: vars.font.ApercuProRegular,
     textTransform: 'uppercase',
@@ -118,17 +149,61 @@ export const description = style([
   tablet({}),
 ]);
 
+export const contactFormIntro = style({
+  fontSize: 20,
+  color: vars.color.black,
+  fontFamily: vars.font.ApercuProRegular,
+  marginBottom: 24,
+  textTransform: 'none',
+});
+
+export const contactFormCta = style({
+  marginTop: 24,
+});
+
 export const redBorder = style([
   {
-    border: `1px solid ${vars.color.brand}`,
-    padding: '20px',
+    border: `2px solid ${vars.color.brand}`,
+    borderRadius: 15,
+    padding: 24,
+    backgroundColor: 'transparent',
   },
   tablet({}),
 ]);
 
+export const sectionHeading = style({
+  fontFamily: vars.font.CeraCondensedCYMedium,
+  fontWeight: 500,
+  fontSize: 50,
+  lineHeight: '45px',
+  color: vars.color.brand,
+  textTransform: 'uppercase',
+  textAlign: 'left',
+});
+
+export const pricingBox = style([
+  {
+    border: `2px solid ${vars.color.brand}`,
+    padding: '20px 24px',
+    marginBottom: 20,
+  },
+  tablet({
+    padding: '24px 28px',
+  }),
+]);
+
+export const pricingLine = style({
+  fontFamily: vars.font.CeraCondensedCYMedium,
+  fontWeight: 500,
+  fontSize: 20,
+  lineHeight: '20px',
+  color: vars.color.brand,
+  textTransform: 'uppercase',
+});
+
 export const descriptionCenter = style([
   {
-    fontSize: 24,
+    fontSize: 20,
     textAlign: 'center',
     color: vars.color.brand,
     fontFamily: vars.font.ApercuProRegular,
@@ -139,7 +214,16 @@ export const descriptionCenter = style([
 
 export const descriptionAttention = style([
   {
-    fontSize: 18,
+    fontSize: 20,
+    color: vars.color.brand,
+    fontFamily: vars.font.ApercuProRegular,
+  },
+  tablet({}),
+]);
+
+export const descriptionAttentionTwo = style([
+  {
+    fontSize: 24,
     color: vars.color.brand,
     fontFamily: vars.font.ApercuProRegular,
   },
@@ -148,14 +232,14 @@ export const descriptionAttention = style([
 
 export const checkBoxNote = style([
   {
-    fontSize: 16,
+    fontSize: 20,
     color: vars.color.brand,
     fontFamily: vars.font.ApercuProRegular,
   },
 ]);
 
 export const labelDescription = style({
-  fontSize: 14,
+  fontSize: 20,
   color: vars.color.gray,
   fontFamily: vars.font.ApercuProRegular,
 });
@@ -165,7 +249,7 @@ export const ctaBtn = style({
   borderRadius: 30,
   minHeight: 60,
   border: 'none',
-  fontSize: 24,
+  fontSize: 20,
   lineHeight: 1,
   backgroundColor: vars.color.brand,
   color: vars.color.white,
@@ -184,7 +268,7 @@ export const linkButton = style({
 });
 
 export const agreementLink = style({
-  fontSize: 16,
+  fontSize: 20,
   lineHeight: '14px',
   color: vars.color.brand,
   fontFamily: vars.font.ApercuProRegular,
@@ -192,8 +276,50 @@ export const agreementLink = style({
 });
 
 export const modalDescription = style({
-  fontSize: 16,
+  fontSize: 20,
   lineHeight: 1.2,
   color: vars.color.brand,
   fontFamily: vars.font.ApercuProRegular,
+});
+
+export const navButtonsBottom = style([
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
+    marginTop: 40,
+    marginBottom: 20,
+  },
+  tablet({
+    flexDirection: 'row',
+    gap: '16px',
+  }),
+]);
+
+export const navButton = style([
+  {
+    display: 'inline-block',
+    padding: '14px 28px',
+    borderRadius: '40px',
+    border: `2px solid ${vars.color.brand}`,
+    backgroundColor: 'transparent',
+    fontFamily: vars.font.CeraCondensedCYMedium,
+    fontSize: 20,
+    color: vars.color.brand,
+    textDecoration: 'none',
+    textTransform: 'uppercase',
+    textAlign: 'center',
+    ':hover': {
+      backgroundColor: vars.color.brand,
+      color: vars.color.white,
+    },
+  },
+  tablet({
+    fontSize: 20,
+  }),
+]);
+
+export const navButtonActive = style({
+  backgroundColor: vars.color.brand,
+  color: vars.color.white,
 });

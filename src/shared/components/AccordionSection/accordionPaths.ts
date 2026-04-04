@@ -1,0 +1,6 @@
+/** Те же path, что в SVG аккордеона «В Сибирь за свой счёт» */
+export const ACCORDION_PATH_SINGLE =
+	'M284.151 2L303.589 29.1016L284.075 60H2V2H284.151Z';
+
+export const ACCORDION_PATH_MULTILINE =
+	'M283.144 2L303 44.5342L283.077 93H2V2H283.144Z';

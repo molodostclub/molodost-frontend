@@ -1,5 +1,5 @@
 import { OurContacts } from '@core/OurContacts';
-import { Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
+import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function NashyKontakty() {
   return (
@@ -7,6 +7,7 @@ export default function NashyKontakty() {
       <PageMeta title="Наши контакты" />
       <InnerPageHeader />
       <PageCover src="/images/our-contacts-cover.jpg" />
+      <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Контакты' }]} />
       <OurContacts />
       <Footer />
     </>

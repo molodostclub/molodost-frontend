@@ -2,9 +2,11 @@ import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import * as styles from './InfoCard.css';
-import { ArrowButton } from '@uikit/Button';
 import cn from 'classnames';
+
+import { AccordionGraphic } from '@shared/components/AccordionSection';
+
+import * as styles from './InfoCard.css';
 
 export type InfoCardProps = {
   image: string;
@@ -14,6 +16,7 @@ export type InfoCardProps = {
   shade?: boolean;
   smallTitle?: boolean;
   smallHeight?: boolean;
+  containerClassName?: string;
 };
 
 export const InfoCard: FC<InfoCardProps> = ({
@@ -24,6 +27,7 @@ export const InfoCard: FC<InfoCardProps> = ({
   shade = true,
   smallTitle = false,
   smallHeight = false,
+  containerClassName,
 }) => {
   const content = (
     <>
@@ -41,29 +45,29 @@ export const InfoCard: FC<InfoCardProps> = ({
         {!!text && <span className={styles.description}>{text}</span>}
         <div>
           {!!linkTo && (
-            <ArrowButton direction="right" size="small">
+            <AccordionGraphic
+              layout="single"
+              inline
+              graphicClassName={styles.cardMoreGraphic}
+              titleClassName={styles.cardMoreLabel}
+            >
               Подробнее
-            </ArrowButton>
+            </AccordionGraphic>
           )}
         </div>
       </div>
     </>
   );
 
+  const containerClass = cn(styles.container, smallHeight && styles.smallHeight, containerClassName);
+
   if (linkTo) {
     return (
-      <Link
-        href={linkTo}
-        className={cn(styles.container, smallHeight && styles.smallHeight)}
-      >
+      <Link href={linkTo} className={containerClass}>
         {content}
       </Link>
     );
   }
 
-  return (
-    <div className={cn(styles.container, smallHeight && styles.smallHeight)}>
-      {content}
-    </div>
-  );
+  return <div className={containerClass}>{content}</div>;
 };

@@ -1,0 +1,1 @@
+export { Manjerok } from './Manjerok';

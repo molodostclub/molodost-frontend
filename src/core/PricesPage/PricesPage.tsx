@@ -1,10 +1,23 @@
 import { FC } from 'react';
+import Link from 'next/link';
+import cn from 'classnames';
 
 import { Description, PageHeading } from '@uikit';
+import { AccordionSection, PackageBlock } from '@shared/components';
 import * as styles from './PricesPage.css';
 import { formatPriceWithSign } from '@utils';
 import {
-	PROZHIVANIE_PRICES,
+	BLAGODAT_SAUNA,
+	COMFORT,
+	GROUP_HIKINGS,
+	POEZDKI,
+	PUTESHESTVIYA,
+	DLYA_DETEY,
+	CONCEPT_STORE,
+	PROZHIVANIE_HOUSES,
+	PROZHIVANIE_ROOMS,
+	WHAT_WE_DRINK,
+	WHAT_WE_EAT,
 	ADDITIONAL_PRICES,
 	TRAKTIR_MENU,
 	GASTRO_TRAKTIR_FESTIVAL,
@@ -13,7 +26,6 @@ import {
 	TRIKSTER_MENU,
 	HEAT_LAB,
 	TOUR_GROUPS,
-	TOUR_HIKINGS,
 	TOUR_INDIVIDUAL,
 	TOUR_PARTNERS,
 	AUTO_RENT,
@@ -30,34 +42,32 @@ import {
 	HEAT_LAB_SERVICE,
 	ZOZH_ZOM,
 } from './PricesPage.constants';
+import type { PoezdkiCarItem, PoezdkiGuideItem, PoezdkiPartnerItem, PoezdkiTripItem } from './PricesPage.constants';
 
-const Prozhivanie: FC = () => {
-	return (
-		<div className={styles.priceTable}>
-			<div className={styles.priceRowFour}>
-				<div className={styles.tableHeaderCol}></div>
-				<div className={styles.tableHeaderCol}>
-					кол-во <br />
-					человек
+interface ProzhivanieGridProps {
+	items: import('./PricesPage.constants').AccommodationItem[];
+}
+
+export const ProzhivanieGrid: FC<ProzhivanieGridProps> = ({ items }) => (
+	<div className={styles.accommodationGrid}>
+		{items.map((item, index) => (
+			<div className={styles.accommodationCard} key={index}>
+				<div className={styles.accommodationCardHeader}>
+					<h4 className={styles.accommodationCardTitle}>{item.title}</h4>
+					<span className={styles.accommodationCardPrice}>ОТ&nbsp;{formatPriceWithSign(item.price)}</span>
 				</div>
-				<div className={styles.tableHeaderCol}>Стоимость в&nbsp;низкий сезон, руб/сутки</div>
-				<div className={styles.tableHeaderCol}>Стоимость в&nbsp;высокий сезон, руб/сутки</div>
+				<div className={styles.accommodationCardMeta}>
+					{/* eslint-disable-next-line @next/next/no-img-element */}
+					<img src="/icons/user.svg" alt="" width={14} height={14} className={styles.accommodationCardIcon} />
+					<span>{item.capacity}</span>
+					<span>{item.area}</span>
+				</div>
+				{item.description && <p className={styles.accommodationCardDescription}>{item.description}</p>}
 			</div>
+		))}
+	</div>
+);
 
-			{PROZHIVANIE_PRICES.map((item, index) => (
-				<div className={styles.priceRowFour} key={index}>
-					<p className={styles.priceTitle}>{item.title}</p>
-					<p className={styles.twoCol}>{item.twoCol}</p>
-					<div>
-						<p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p>
-						{item.note && <p className={styles.priceNote}>{item.note}</p>}
-					</div>
-					<p className={styles.priceNum}>{formatPriceWithSign(item.priceHigh)}</p>
-				</div>
-			))}
-		</div>
-	);
-};
 interface ProzhivanieSideProps {
 	showExtraPerson?: boolean; // Флаг для отображения информации о дополнительном человеке
 }
@@ -85,7 +95,7 @@ export const ProzhivanieSide: FC<ProzhivanieSideProps> = ({ showExtraPerson = tr
 		<p className={styles.sideText}>Что входит:</p>
 		<ul className={styles.list}>
 			<li className={styles.listItem}>круглосуточное питание&nbsp;- обед, ужин</li>
-			<li className={styles.listItem}>«алтайский водопой» от&nbsp;воды Petroglyph</li>
+			<li className={styles.listItem}>«алтайский водопой» от&nbsp;воды Петроглиф</li>
 			<li className={styles.listItem}>ланчбоксы в&nbsp;путешествия и&nbsp;ночной дожор</li>
 			<li className={styles.listItem}>алтайский травяной сбор (чай) весь день&nbsp;- комплиментарно</li>
 		</ul>
@@ -197,7 +207,7 @@ export const TraktirMeals: FC = () => (
 			))}
 			<br />
 			<br />
-			<p className={styles.sideText}>Услуга &laquo;водопой&raquo; &mdash;&nbsp;500&nbsp;руб.&nbsp;с&nbsp;человека в&nbsp;сутки. Неограниченный запас воды Petroglyph с&nbsp;газом и&nbsp;без оплачивается теми гостями, которые не&nbsp;берут &laquo;съедобное бревно&raquo;.</p>
+			<p className={styles.sideText}>Услуга &laquo;водопой&raquo; &mdash;&nbsp;500&nbsp;руб.&nbsp;с&nbsp;человека в&nbsp;сутки. Неограниченный запас воды Петроглиф с&nbsp;газом и&nbsp;без оплачивается теми гостями, которые не&nbsp;берут &laquo;съедобное бревно&raquo;.</p>
 		</div>
 	</>
 );
@@ -241,6 +251,387 @@ export const TraktirMealsForNonGuests: FC = () => (
 		))}
 	</div>
 );
+/** Те же цены и вёрстка, что в аккордеоне «Что едим» на /v-sibir-za-svoy-schet */
+export const WhatWeEatBlock: FC = () => {
+	const { gastropub, guestsStaying, guestsNotStaying } = WHAT_WE_EAT;
+	return (
+		<>
+			<div className={styles.whatWeEatGastropubLayout}>
+				<div className={styles.whatWeEatMealTimes}>
+					<h3 className={styles.whatWeEatGastropubHeading}>{gastropub.name}</h3>
+					{gastropub.mealTimes.map((m, i) => (
+						<div className={styles.whatWeEatMealTimeRow} key={i}>
+							{m.name}: {m.time}
+						</div>
+					))}
+				</div>
+			</div>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					<h4 className={styles.whatWeEatColumnHeading}>{guestsStaying.title}</h4>
+					{guestsStaying.items.map((item, i) => (
+						<div className={styles.whatWeEatItemGroup} key={i}>
+							<div className={styles.whatWeEatItem}>
+								<div className={styles.whatWeEatItemLeft}>
+									<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+									{'description' in item && item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
+								</div>
+								<div className={styles.whatWeEatItemRight}>
+									{'note' in item && item.note && <span className={styles.whatWeEatItemNote}>{item.note}</span>}
+									{'price' in item && item.price !== undefined && <span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>}
+									{'priceAdult' in item && 'priceChild' in item && item.priceAdult !== undefined && item.priceChild !== undefined && (
+										<>
+											<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+											<br />
+											<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+										</>
+									)}
+								</div>
+							</div>
+							{'packageDescription' in item && typeof item.packageDescription === 'string' && item.packageDescription ? <p className={styles.whatWeEatPackageDescription}>{item.packageDescription}</p> : null}
+						</div>
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					<h4 className={styles.whatWeEatColumnHeading}>{guestsNotStaying.title}</h4>
+					{guestsNotStaying.items.map((item, i) => (
+						<div className={styles.whatWeEatItem} key={i}>
+							<div className={styles.whatWeEatItemLeft}>
+								<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+							</div>
+							<div className={styles.whatWeEatItemRight}>
+								<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+								<br />
+								<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild)}</span> <span className={styles.whatWeEatItemDescriptor}>ребенок</span>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</>
+	);
+};
+
+export const DrinkPriceRow: FC<{
+	item: { title?: string; price?: number; priceText?: string; pricePrefix?: string; description?: string; unit?: string };
+}> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			{item.title && <span className={styles.whatWeEatItemTitle}>{item.title}</span>}
+			{item.description && <span className={item.title ? styles.whatWeEatItemDescription : styles.whatWeEatItemTitle}>{item.description}</span>}
+		</div>
+		<div className={styles.whatWeEatItemRight}>
+			<span className={styles.whatWeEatItemPrice}>{item.priceText ?? (item.price != null ? `${item.pricePrefix ?? ''}${formatPriceWithSign(item.price)}` : '')}</span>
+			{item.unit && <span className={styles.whatWeEatItemDescriptor}> {item.unit}</span>}
+		</div>
+	</div>
+);
+
+/** Те же цены, что в аккордеоне «Что пьём» на /v-sibir-za-svoy-schet */
+export const WhatWeDrinkBlock: FC = () => {
+	const { coffeeShop, bar, corkage } = WHAT_WE_DRINK;
+	return (
+		<>
+			<h3 className={styles.subsectionHeading}>{coffeeShop.name}</h3>
+			<p className={styles.additionalPersonNote}>{coffeeShop.description}</p>
+			<h4 className={styles.whatWeDrinkAccentSubheading}>{coffeeShop.subheading}</h4>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{coffeeShop.leftColumn.map((item, i) => (
+						<DrinkPriceRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{coffeeShop.rightColumn.map((item, i) => (
+						<DrinkPriceRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeading}>{bar.name}</h3>
+			<p className={styles.whatWeDrinkBarDescription}>{bar.description}</p>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{bar.items.map((item, i) => (
+						<DrinkPriceRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn} />
+			</div>
+			<p className={styles.additionalPersonNote}>{corkage}</p>
+		</>
+	);
+};
+
+const ComfortBlock: FC = () => (
+	<div className={styles.whatWeEatColumns}>
+		<div className={styles.whatWeEatColumn}>
+			{COMFORT.items.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+		<div className={styles.whatWeEatColumn} />
+	</div>
+);
+
+const PoezdkiTripRow: FC<{ item: PoezdkiTripItem }> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+		</div>
+		<div className={styles.whatWeEatItemRight}>
+			{item.priceText ? (
+				<span className={styles.whatWeEatItemPrice}>{item.priceText}</span>
+			) : (
+				<>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceAdult!)}</span> <span className={styles.whatWeEatItemDescriptor}>взрослый</span>
+					<br />
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.priceChild!)}</span> <span className={styles.whatWeEatItemDescriptor}>детский</span>
+				</>
+			)}
+		</div>
+	</div>
+);
+
+const PoezdkiPartnerTableRow: FC<{ item: PoezdkiPartnerItem }> = ({ item }) => (
+	<div className={styles.priceRow}>
+		<div>
+			<p className={styles.partnerTableServiceTitle}>{item.title}</p>
+			{item.condition && <p className={styles.whatWeEatItemDescriptor}>{item.condition}</p>}
+		</div>
+		<div className={styles.partnerTableColLeft}>
+			<p className={styles.partnerTableDuration}>{item.duration ?? ''}</p>
+		</div>
+		<div className={styles.partnerTableColRight}>
+			{item.priceText && <p className={styles.priceNum}>{item.priceText}</p>}
+			{item.price !== undefined && (
+				<p className={styles.priceNum}>
+					{item.pricePrefix}
+					{formatPriceWithSign(item.price)}
+				</p>
+			)}
+			{item.priceAdult !== undefined && (
+				<>
+					<p className={styles.priceNum}>
+						<span>{formatPriceWithSign(item.priceAdult)}</span> <span className={styles.partnerTablePriceLabel}>взрослый</span>
+					</p>
+					<p className={styles.priceNum}>
+						<span>{formatPriceWithSign(item.priceChild!)}</span> <span className={styles.partnerTablePriceLabel}>детский</span>
+					</p>
+				</>
+			)}
+		</div>
+	</div>
+);
+
+export const PoezdkiCarRow: FC<{ item: PoezdkiCarItem }> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+			{item.note && <span className={styles.whatWeEatItemDescription}>{item.note}</span>}
+		</div>
+		<div className={styles.whatWeEatItemRight}>
+			{item.pricePerHour !== undefined && (
+				<>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span> <span className={styles.whatWeEatItemDescriptor}>час</span>
+					<br />
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerDay!)}</span> <span className={styles.whatWeEatItemDescriptor}>сутки</span>
+				</>
+			)}
+			{item.price !== undefined && (
+				<>
+					<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.price)}</span>
+					{item.priceNote && <span className={styles.whatWeEatItemDescriptor}> {item.priceNote}</span>}
+				</>
+			)}
+		</div>
+	</div>
+);
+
+export const PoezdkiGuideRow: FC<{ item: PoezdkiGuideItem }> = ({ item }) => (
+	<div className={styles.whatWeEatItem}>
+		<div className={styles.whatWeEatItemLeft}>
+			<span className={styles.whatWeEatItemTitle}>{item.title}</span>
+			{item.description && <span className={styles.whatWeEatItemDescription}>{item.description}</span>}
+		</div>
+		<div className={styles.whatWeEatItemRight}>
+			<span className={styles.whatWeEatItemPrice}>{formatPriceWithSign(item.pricePerHour)}</span> <span className={styles.whatWeEatItemDescriptor}>час</span>
+		</div>
+	</div>
+);
+
+const PoezdkiBlock: FC = () => {
+	const { trips35, fullDay, partner, carRental, guides } = POEZDKI;
+	return (
+		<>
+			<h3 className={styles.subsectionHeading}>{trips35.sectionTitle}</h3>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{trips35.leftColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{trips35.rightColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeading}>{fullDay.sectionTitle}</h3>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{fullDay.leftColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{fullDay.rightColumn.map((item, i) => (
+						<PoezdkiTripRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeadingBrand}>{partner.sectionTitle}</h3>
+			<div className={styles.priceTable}>
+				<div className={styles.partnerTableHeaderRow}>
+					<span className={styles.partnerTableHeaderCol}>УСЛУГА</span>
+					<span className={styles.partnerTableHeaderCol}>ПРОДОЛЖИТЕЛЬНОСТЬ</span>
+					<span className={styles.partnerTableHeaderCol}>ЦЕНА, РУБ.</span>
+				</div>
+				{partner.items.map((item, i) => (
+					<PoezdkiPartnerTableRow item={item} key={i} />
+				))}
+			</div>
+			<h3 className={styles.subsectionHeading}>{carRental.sectionTitle}</h3>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{carRental.leftColumn.map((item, i) => (
+						<PoezdkiCarRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{carRental.rightColumn.map((item, i) => (
+						<PoezdkiCarRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+			<h3 className={styles.subsectionHeading}>{guides.sectionTitle}</h3>
+			<h4 className={styles.whatWeDrinkAccentSubheading}>{guides.subheading}</h4>
+			<div className={styles.whatWeEatColumns}>
+				<div className={styles.whatWeEatColumn}>
+					{guides.leftColumn.map((item, i) => (
+						<PoezdkiGuideRow item={item} key={i} />
+					))}
+				</div>
+				<div className={styles.whatWeEatColumn}>
+					{guides.rightColumn.map((item, i) => (
+						<PoezdkiGuideRow item={item} key={i} />
+					))}
+				</div>
+			</div>
+		</>
+	);
+};
+
+const PuteshestviyaBlock: FC = () => {
+	const { mainHeading, items } = PUTESHESTVIYA;
+	return (
+		<>
+			<h3 className={styles.subsectionHeading}>{mainHeading}</h3>
+			<div className={styles.travelsWrap}>
+				{items.map((item, i) => (
+					<>
+						<h4 className={styles.puteshestvieCardHeading}>{item.title}</h4>
+						<div key={i} className={styles.travelsRow}>
+							<div>
+								<p className={styles.puteshestvieItem}>{item.description}</p>
+							</div>
+							<div className={styles.puteshestvieRightGroup}>
+								{item.rightItems.map((rightItem, j) =>
+									rightItem.isPrice ? (
+										<p key={j} className={styles.puteshestviePrice}>
+											{rightItem.text}
+										</p>
+									) : (
+										<p key={j} className={styles.puteshestvieDescription}>
+											{rightItem.text}
+										</p>
+									),
+								)}
+							</div>
+						</div>
+					</>
+				))}
+			</div>
+		</>
+	);
+};
+
+const DlyaDeteyBlock: FC = () => {
+	const { paragraph, intro, listItems } = DLYA_DETEY;
+	return (
+		<div className={styles.textStack}>
+			<p className={styles.whatWeEatItemDescription}>{paragraph}</p>
+			<h3 className={styles.dlyaDeteyIntro}>{intro}</h3>
+			<ul className={styles.dlyaDeteyList}>
+				{listItems.map((item, i) => (
+					<li key={i} className={styles.dlyaDeteyListItem}>
+						{item}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+};
+
+const ZozhZomBlock: FC = () => (
+	<>
+		<div className={styles.whatWeEatColumns}>
+			<div className={styles.whatWeEatColumn}>
+				{ZOZH_ZOM.leftColumn.map((item, i) => (
+					<DrinkPriceRow item={item} key={i} />
+				))}
+			</div>
+			<div className={styles.whatWeEatColumn}>
+				{ZOZH_ZOM.rightColumn.map((item, i) => (
+					<DrinkPriceRow item={item} key={i} />
+				))}
+			</div>
+		</div>
+		<h4 className={styles.travelsSubheadingWithGap}>{GROUP_HIKINGS.title}</h4>
+		<GroupHikingsBlock />
+	</>
+);
+
+const GroupHikingsBlock: FC = () => (
+	<div className={styles.whatWeEatColumns}>
+		<div className={styles.whatWeEatColumn}>
+			{GROUP_HIKINGS.leftColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+		<div className={styles.whatWeEatColumn}>
+			{GROUP_HIKINGS.rightColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+	</div>
+);
+
+/** Те же цены, что в аккордеоне «Благодать» на /v-sibir-za-svoy-schet */
+export const BlagodatSaunaBlock: FC = () => (
+	<div className={styles.whatWeEatColumns}>
+		<div className={styles.whatWeEatColumn}>
+			{BLAGODAT_SAUNA.leftColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+		<div className={styles.whatWeEatColumn}>
+			{BLAGODAT_SAUNA.rightColumn.map((item, i) => (
+				<DrinkPriceRow item={item} key={i} />
+			))}
+		</div>
+	</div>
+);
+
 const TraktirSide: FC = () => (
 	<div>
 		<p className={styles.sideTitle}>Режим работы</p>
@@ -407,7 +798,7 @@ const TriksterSide: FC = () => (
 			Мы&nbsp;считаем, что вода и&nbsp;воздух на&nbsp;Алтае должны быть бесплатными и&nbsp;не&nbsp;хотим ничего считать.
 			<br />
 			<br />
-			На&nbsp;закупку воды Petroglyph и&nbsp;переработку пластика, который мы&nbsp;возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей. Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 350&nbsp;рублей/день с человека, который идёт на&nbsp;реализацию образовательных
+			На&nbsp;закупку воды Петроглиф и&nbsp;переработку пластика, который мы&nbsp;возим в&nbsp;Новосибирск, мы&nbsp;тратим миллионы рублей. Поэтому посчитали справедливым включать в&nbsp;ваш счёт водяной сбор 350&nbsp;рублей/день с человека, который идёт на&nbsp;реализацию образовательных
 			и&nbsp;экологических проектов на&nbsp;Алтае. А&nbsp;если вы&nbsp;не&nbsp;согласны, то&nbsp;мы&nbsp;не&nbsp;будем включать это в&nbsp;ваш счёт.
 		</p>
 	</div>
@@ -576,37 +967,6 @@ const TourBureau: FC = () => {
 								</p>
 							</div>
 						)}
-					</div>
-				))}
-			</div>
-
-			{/* ГРУППОВЫЕ ХАЙКИНГИ */}
-			<div>
-				<br />
-				<br />
-				<br />
-				<p className={styles.groupTitle}>ГРУППОВЫЕ ХАЙКИНГИ</p>
-				<br />
-			</div>
-			<div className={styles.priceTable}>
-				<div className={styles.priceRow}>
-					<div className={styles.tableHeaderCol}>услуга</div>
-					<div className={styles.tableHeaderCol}>про&shy;дол&shy;жи&shy;тель&shy;ность</div>
-					<div className={styles.tableHeaderCol}>цена, руб</div>
-				</div>
-
-				{TOUR_HIKINGS.map((item, index) => (
-					<div className={styles.priceRow} key={index}>
-						{item.subtitle ? (
-							<p className={styles.priceTitle}>
-								{item.title} <br />
-								<span className={styles.priceSubtitle}>{item.subtitle}</span>
-							</p>
-						) : (
-							<p className={styles.priceTitle}>{item.title}</p>
-						)}
-						<p className={styles.twoCol}>{item.twoCol}</p>
-						{item.price ? <p className={styles.priceNum}>{formatPriceWithSign(item.price)}</p> : <p className={styles.priceNum}>{item.priceText}</p>}
 					</div>
 				))}
 			</div>
@@ -1001,155 +1361,50 @@ const ToMars: FC = () => (
 	</>
 );
 
-export const ZozhZom: FC = () => (
-	<div className={styles.priceTable}>
-		{/* Заголовок таблицы */}
-		<div className={styles.priceRowWide}>
-			<div className={styles.tableHeaderColWide}>услуга</div>
-			<div className={styles.tableHeaderColWide}>дли&shy;тель&shy;ность</div>
-			<div className={styles.tableHeaderColWide}>кол-во, чел.</div>
-			<div className={styles.tableHeaderColWide}>цена, руб</div>
-		</div>
-
-		{/* Данные из HEAT_LAB */}
-		{ZOZH_ZOM.map((item, itemIndex) => (
-			<div key={itemIndex} className={styles.priceRowWide}>
-				<div>
-					<p className={styles.priceTitle}>{item.title}</p>
-					{!!item.subtitle && (
-						<>
-							<p className={styles.priceSubtitle}>{item.subtitle}</p>
-							<p className={styles.priceListTitle}>{item.listTitle}</p>
-							{!!item.list && (
-								<ul className={styles.priceList}>
-									{item.list.map((listItem, listIndex) => (
-										<li key={listIndex}>{listItem}</li>
-									))}
-								</ul>
-							)}
-						</>
-					)}
-				</div>
-				<p className={styles.priceNumList}>{item.duration}</p>
-				<p className={styles.priceNumList}>{item.clients}</p>
-				<p className={styles.priceNumList}>
-					{formatPriceWithSign(item.price)}
-					{!!item.note && (
-						<>
-							<br />
-							<span className={styles.priceNote}>{item.note}</span>
-						</>
-					)}
-				</p>
-			</div>
-		))}
-	</div>
-);
+export const ZozhZom: FC = () => <ZozhZomBlock />;
 
 export const PricesPage: FC = () => {
 	return (
 		<main className={styles.content} id="vsibirzasvoyschet">
-			<PageHeading>ТАРИФ НА&nbsp;ПРОЖИВАНИЕ И&nbsp;УСЛУГИ НА&nbsp;БАЗЕ И&nbsp;В&nbsp;РАМКАХ ЭКОСИСТЕМЫ МОЛОДОСТЬ НА&nbsp;АЛТАЕ</PageHeading>
+			<PageHeading>В&nbsp;СИБИРЬ ЗА&nbsp;СВОЙ СЧЁТ&nbsp;&mdash; АЛТАЙ</PageHeading>
 			<br />
-			{/* <Description>
-				<br />
-				<br />
-				Если по&nbsp;итогу отдыха вы&nbsp;захотите оставить чаевые, мы&nbsp;с&nbsp;благодарностью включим их&nbsp;в&nbsp;счет в&nbsp;размере 5-10%.
-			</Description> */}
-			<h2 className={styles.subtitle}>
-				ПРОЖИВАНИЕ
-				<br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
-			</h2>
-			<div className={styles.grid}>
-				<Prozhivanie />
-				<ProzhivanieSide showExtraPerson={true} />
+			<AccordionSection defaultOpen={false} title="ПРОЖИВАНИЕ">
+				<PackageBlock />
+				<p className={styles.separatorNote}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
+				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В&nbsp;НОМЕРАХ</h3>
+				<ProzhivanieGrid items={PROZHIVANIE_ROOMS} />
+				<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В&nbsp;ОТДЕЛЬНО СТОЯЩИХ ДОМАХ</h3>
+				<ProzhivanieGrid items={PROZHIVANIE_HOUSES} />
+				<p className={styles.additionalPersonNote}>Каждый дополнительный человек в&nbsp;спальне и&nbsp;доме: от&nbsp;+5&nbsp;000&nbsp;₽ взрослый; от&nbsp;+4&nbsp;000&nbsp;₽ ребёнок от&nbsp;5&nbsp;до&nbsp;12&nbsp;лет. Дети до&nbsp;5&nbsp;лет&nbsp;&mdash; комплиментарно.</p>
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={WHAT_WE_EAT.title}>
+				<WhatWeEatBlock />
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={WHAT_WE_DRINK.title}>
+				<WhatWeDrinkBlock />
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={COMFORT.title}>
+				<ComfortBlock />
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={BLAGODAT_SAUNA.title}>
+				<BlagodatSaunaBlock />
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={ZOZH_ZOM.title}>
+				<ZozhZomBlock />
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={POEZDKI.title}>
+				<PoezdkiBlock />
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={PUTESHESTVIYA.title}>
+				<PuteshestviyaBlock />
+			</AccordionSection>
+			<AccordionSection defaultOpen={false} title={DLYA_DETEY.title}>
+				<DlyaDeteyBlock />
+			</AccordionSection>
+			<div className={styles.conceptStoreStatic}>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE.paragraph}</p>
+				<p className={styles.whatWeEatItemDescription}>{CONCEPT_STORE.ctaText}</p>
 			</div>
-			<h2 className={styles.subtitle}>
-				ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
-				<br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
-			</h2>
-			<div className={styles.grid}>
-				<AdditionalServices />
-				<AdditionalServicesSide />
-			</div>
-			<h2 className={styles.subtitle}>Питание для&nbsp;гостей проживающих на&nbsp;базе</h2>
-			<br />
-			<br />
-			<div className={styles.grid}>
-				<TraktirMeals />
-				<TraktirSide />
-			</div>
-			<br />
-			<br />
-			<h2 className={styles.subtitle}>Питание для гостей не&nbsp;проживающих на&nbsp;базе</h2>
-			<div className={styles.grid}>
-				<TraktirMealsForNonGuests />
-			</div>
-			<div className={styles.separator}></div>
-			<h2 className={styles.subtitle}>
-				&laquo;СЧАСТЛИВЫЙ ДРАКОН&raquo;
-				<br />
-				Бар-Буфет
-			</h2>
-			<div className={styles.grid}>
-				<BarMenu />
-				<BarSide />
-			</div>
-			<h2 className={styles.subtitle}>
-				&laquo;ТРИКСТЕР&raquo;
-				<br />
-				Кафе и&nbsp;лавка
-			</h2>
-			<div className={styles.grid}>
-				<TriksterMenu />
-			</div>
-			<h2 className={styles.subtitle}>
-				Лаборатория тепла
-				<br />
-				&laquo;БлагодатЪ&raquo;
-			</h2>
-			<br />
-			<HeatLabSibir />
-			<h2 className={styles.subtitle}>ЗОЖ и ЗОМ</h2>
-			<br />
-			<ZozhZom />
-			<div className={styles.separator}></div>
-			<h2 className={styles.subtitle}>
-				ТУРБЮРО
-				<br />
-				&laquo;АЛТАЙСКИЙ ТРАКТАТ&raquo;
-			</h2>
-			<br />
-			<TourBureau />
-			<div className={styles.separator}></div>
-			<h2 className={styles.subtitle}>
-				АВТОПРОКАТ
-				<br />
-				&laquo;БЫВАЛЫЙ РЕЙНДЖЕР&raquo;
-			</h2>
-			<AutoRent />
-			<h2 className={styles.subtitle}>&nbsp;</h2>
-			<Transfer />
-			<div className={styles.separator}></div>
-			{/* <h2 className={styles.subtitle}>
-				КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ <br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo;
-			</h2>
-			<Corporative /> */}
-			<h2 className={styles.subtitle}>
-				КОРПОРАТИВНЫЕ И&nbsp;ГРУППОВЫЕ ЗАЕЗДЫ <br />
-				НА&nbsp;ТУРБАЗЕ &laquo;МОЛОДОСТЬ&raquo; <br />
-				ДЛЯ НЕ&nbsp;ПРОЖИВАЮЩИХ ГОСТЕЙ
-			</h2>
-			<CorporativeNonGuests />
-			{/* <h2 className={styles.subtitle}>
-				ПРОЖИВАНИЕ <br />
-				ПРИЮТ &laquo;НА МАРСЕ&raquo;
-			</h2>
-			<ToMars />
-			 */}
 		</main>
 	);
 };

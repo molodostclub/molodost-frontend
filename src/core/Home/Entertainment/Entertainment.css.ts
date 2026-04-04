@@ -18,6 +18,38 @@ export const container = style([
   }),
 ]);
 
+export const containerCompactTop = style([
+  {
+    width: '100%',
+    paddingLeft: 0,
+    paddingRight: 0,
+    marginTop: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  tablet({
+    maxWidth: '100%',
+  }),
+]);
+
+export const cardWide = style({
+  maxWidth: '100%',
+});
+
+export const containerManjerok = style([
+  {
+    width: '100%',
+    maxWidth: 920,
+    paddingLeft: 0,
+    paddingRight: 0,
+    marginTop: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+]);
+
 export const list = style([
   {
     listStyle: 'none',

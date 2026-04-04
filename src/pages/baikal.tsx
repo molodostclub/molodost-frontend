@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { PageContainer, Postscriptum } from '@core/Home';
-import { InnerPageHeader, PageCover, Footer, PageMeta } from '@shared/components';
+import { PageContainer } from '@core/Home';
+import { Breadcrumb, InnerPageHeader, PageCover, Footer, PageMeta } from '@shared/components';
 import { BaikalPage } from '@/core/Baikal';
 import { HousesSplit } from '@/utils';
 import { GetStaticProps } from 'next';
@@ -38,11 +38,11 @@ export default function Baikal(pageProps: Props) {
 			<PageMeta title="Молодость на Байкале" />
 			<InnerPageHeader />
 			<PageCover src="/images/baikal/main.png" />
+			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Байкал' }]} />
 			<PageContainer>
 				<BaikalPage {...pageProps} />
-				<Postscriptum />
 			</PageContainer>
-			<Footer />
+			<Footer variant="baikal" />
 		</>
 	);
 }
@@ -60,6 +60,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			props: {
 				individual: [],
 				inHouse: [],
+				luxiping: [],
 			},
 			revalidate: 300,
 		};
