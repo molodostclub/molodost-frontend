@@ -43,3 +43,4 @@ deploy/
 *.conf
 *.sh
 *.md
+/test
