@@ -10,7 +10,7 @@ export const PackageBlock: FC = () => (
 				это сильно проще и&nbsp;дешевле:
 			</p>
 			<p className={styles.packagePrice}>
-				от&nbsp;<strong>40&nbsp;000&nbsp;₽</strong> за&nbsp;1&nbsp;взрослого в&nbsp;хорошей спальне (6&nbsp;ночь в&nbsp;подарок)
+				от&nbsp;<strong>40&nbsp;000&nbsp;₽</strong> за&nbsp;1&nbsp;взрослого в&nbsp;хорошей спальне (5&nbsp;ночь в&nbsp;подарок)
 			</p>
 			<p className={styles.packagePrice}>
 				доп взрослый от&nbsp;<strong>15&nbsp;000&nbsp;₽</strong> в&nbsp;сутки

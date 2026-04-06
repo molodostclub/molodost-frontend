@@ -6,7 +6,7 @@ export default function NashFestival() {
     <>
       <PageMeta title="Наш Фестиваль" />
       <InnerPageHeader />
-      <PageCover src="/images/festival/main.jpg" />
+      <PageCover src="/images/festival/beginning.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Наш Фестиваль' }]} />
       <Festival />
       <Footer />

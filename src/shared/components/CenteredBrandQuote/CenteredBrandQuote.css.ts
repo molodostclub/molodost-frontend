@@ -9,7 +9,7 @@ export const block = style({
 	backgroundColor: vars.color.mainBackground,
 	borderRadius: 14,
 	textAlign: 'center',
-	padding: '30px 24px',
+	padding: '30px 0',
 });
 
 export const blockNoMarginBottom = style({

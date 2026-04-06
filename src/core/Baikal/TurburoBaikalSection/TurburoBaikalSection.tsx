@@ -21,7 +21,7 @@ const PRICE_ROWS = [
 	{
 		title: 'ТРАНСФЕР ИЗ/В АЭРОПОРТ',
 		price: 18_000,
-		priceNote: 'в одну сторону',
+		priceNote: 'в\u00A0одну сторону',
 	},
 	{
 		title: 'Индивидуальный трансфер',
@@ -36,7 +36,7 @@ export const TurburoBaikalSection: FC = () => {
 
 	return (
 		<section className={styles.section}>
-			<h2 className={styles.heading}>ТУРБЮРО И АВТОПРОКАТ «БЫВАЛЫЙ РЕЙНДЖЕР»</h2>
+			<h2 className={styles.heading}>ТУРБЮРО И&nbsp;АВТОПРОКАТ «БЫВАЛЫЙ&nbsp;РЕЙНДЖЕР»</h2>
 
 			<div className={styles.topRow}>
 				<div className={styles.topColLeft}>

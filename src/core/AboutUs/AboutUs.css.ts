@@ -322,13 +322,14 @@ export const comandMembersRowTwo = style([
 	{
 		display: 'flex',
 		flexDirection: 'column',
-		gap: 40,
+		gap: 35,
 		width: '100%',
 	},
 	tablet({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'flex-start',
+		gap: 40,
 	}),
 ]);
 
@@ -337,11 +338,12 @@ export const comandMembersRowThree = style([
 		display: 'flex',
 		flexDirection: 'column',
 		width: '100%',
+		gap: 35,
 	},
 	tablet({
 		flexDirection: 'row',
 		alignItems: 'flex-start',
-		gap: 40,
+		
 	}),
 ]);
 
@@ -586,7 +588,11 @@ export const luxpingImageWrap = style({
 	marginBottom: 40,
 });
 
-export const luxpingImage = style({});
+export const luxpingImage = style({
+	width: '100%',
+	height: 'auto',
+	objectFit: 'cover',
+});
 
 export const projectsContainer = style({});
 

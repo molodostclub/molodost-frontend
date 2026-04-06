@@ -147,11 +147,10 @@ export const guideItemDesc = style({
 	marginTop: 4,
 });
 
-/** Широкая картинка: отступ до 30px, отступ после 40px, radius 40px, drop-shadow */
 export const wideImage = style({
 	width: '100%',
 	height: 'auto',
-	borderRadius: 40,
+	borderRadius: 14,
 	objectFit: 'cover',
 	display: 'block',
 	marginTop: 30,
@@ -159,7 +158,6 @@ export const wideImage = style({
 	filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
 });
 
-/** Текст после картинки — mobile 18px, tablet 24px */
 export const middleText = style([
 	{
 		fontFamily: vars.font.CeraCondensedCYRegular,
@@ -282,7 +280,7 @@ export const narrowImage = style({
 	width: '100%',
 	height: 'auto',
 	maxHeight: 400,
-	borderRadius: 40,
+	borderRadius: 14,
 	objectFit: 'cover',
 	display: 'block',
 	filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',

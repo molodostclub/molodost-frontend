@@ -89,13 +89,13 @@ export const wrapper = style([
 		width: '100%',
 		overflow: 'hidden',
 		position: 'relative',
-		borderRadius: '14px',
+		borderRadius: 14,
 		marginBottom: '70px',
 	},
 	tablet({
 		maxWidth: '1000px',
 		margin: '0 auto',
-		borderRadius: '14px',
+		borderRadius: 14,
 		marginBottom: '80px',
 	}),
 ]);
@@ -105,14 +105,14 @@ export const slideImage = style({
 	width: '100%',
 	height: '100%',
 	objectFit: 'cover',
-	borderRadius: '14px',
+	borderRadius: 14,
 });
 
 // Swiper-обёртки для стрелок и пагинации
 export const swiper = style({});
 
 export const mySwiper = style({
-	borderRadius: '14px',
+	borderRadius: 14,
 });
 
 export const navButton = style([
@@ -450,7 +450,7 @@ export const photo = style([
 		width: '100%',
 		height: '315px',
 		objectFit: 'cover',
-		borderRadius: '14px',
+		borderRadius: 14,
 		display: 'block',
 	},
 	tablet({
@@ -473,9 +473,9 @@ export const row = style({
 
 export const spaPhoto = style([
 	{
-		height: '315px',
+		height: 315,
 		width: '100%',
-		borderRadius: '14px',
+		borderRadius: 14,
 		objectFit: 'cover',
 		display: 'block',
 	},
@@ -584,7 +584,7 @@ export const blagodatGalleryRow2 = style([
 export const blagodatPhoto = style({
 	width: '100%',
 	height: '100%',
-	borderRadius: 40,
+	borderRadius: 14,
 	objectFit: 'cover',
 	display: 'block',
 });
@@ -603,7 +603,7 @@ export const dekabristsHeading = style([
 		fontStyle: 'normal',
 		fontWeight: 700,
 		fontSize: 25,
-		lineHeight: '28px',
+		lineHeight: 28,
 		textTransform: 'uppercase',
 		fontFeatureSettings: "'salt' on",
 		color: vars.color.black,
@@ -612,7 +612,7 @@ export const dekabristsHeading = style([
 	},
 	tablet({
 		fontSize: 40,
-		lineHeight: '40px',
+		lineHeight: 1,
 	}),
 ]);
 
@@ -703,7 +703,7 @@ export const dekabristsCol = style({
 export const dekabristsPhoto = style({
 	width: '100%',
 	height: 'auto',
-	borderRadius: 25,
+	borderRadius: 14,
 	objectFit: 'cover',
 	display: 'block',
 });
@@ -817,7 +817,7 @@ export const zvukPhotoWrap = style({
 	position: 'relative',
 	width: '100%',
 	aspectRatio: '4 / 5',
-	borderRadius: 20,
+	borderRadius: 14,
 	overflow: 'hidden',
 });
 
@@ -825,7 +825,7 @@ export const zvukPhotoWrap = style({
 export const zvukPhotoInRow = style({
 	width: '100%',
 	height: '100%',
-	borderRadius: 20,
+	borderRadius: 14,
 	objectFit: 'cover',
 	display: 'block',
 });
@@ -840,7 +840,7 @@ export const zvukCol2 = style({
 export const zvukPhoto = style({
 	width: '100%',
 	height: 'auto',
-	borderRadius: 20,
+	borderRadius: 14,
 	objectFit: 'cover',
 	display: 'block',
 });
@@ -978,7 +978,7 @@ export const flamingoPhotoWrap = style({
 	position: 'relative',
 	width: '100%',
 	aspectRatio: '4 / 5',
-	borderRadius: 20,
+	borderRadius: 14,
 	overflow: 'hidden',
 });
 
@@ -988,7 +988,7 @@ export const flamingoPhotoWrapRight = style([
 		position: 'relative',
 		width: '100%',
 		aspectRatio: '4 / 5',
-		borderRadius: 20,
+		borderRadius: 14,
 		overflow: 'hidden',
 	},
 	tablet({
@@ -1004,7 +1004,7 @@ export const flamingoPhotoHeroWrap = style([
 		position: 'relative',
 		width: '100%',
 		aspectRatio: '3 / 5',
-		borderRadius: 20,
+		borderRadius: 14,
 		overflow: 'hidden',
 	},
 	tablet({
@@ -1019,7 +1019,7 @@ export const flamingoPhotoWideWrap = style({
 	position: 'relative',
 	width: '100%',
 	aspectRatio: '16 / 9',
-	borderRadius: 20,
+	borderRadius: 14,
 	overflow: 'hidden',
 });
 
@@ -1027,7 +1027,7 @@ export const flamingoPhotoWideWrap = style({
 export const flamingoPhoto = style({
 	width: '100%',
 	height: '100%',
-	borderRadius: 20,
+	borderRadius: 14,
 	objectFit: 'cover',
 	display: 'block',
 });

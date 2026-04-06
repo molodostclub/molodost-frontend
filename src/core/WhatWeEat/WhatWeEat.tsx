@@ -27,27 +27,13 @@ export const WhatWeEat = () => (
 		<br />
 		<WhatWeEatBlock />
 		<div className={styles.imageContainer}>
-			<Image
-				fill
-				src="/images/chto-edim/coffe.jpg"
-				alt="бар «я догоню»"
-				sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw"
-				className={styles.image}
-				unoptimized
-			/>
+			<Image fill src="/images/chto-my-edim-coffe.jpg" alt="кофейня «Трикстер»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 		</div>
 		<h2 className={uikit.titleVaryingSize}>Что мы пьём</h2>
 		<br />
 		<WhatWeDrinkBlock />
 		<div className={styles.imageContainer}>
-			<Image
-				fill
-				src="/images/chto-my-edim-coffe.jpg"
-				alt="кофейня «Трикстер»"
-				sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw"
-				className={styles.image}
-				unoptimized
-			/>
+			<Image fill src="/images/chto-edim/coffe.jpg" alt="бар «я догоню»" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw" className={styles.image} unoptimized />
 		</div>
 	</div>
 );

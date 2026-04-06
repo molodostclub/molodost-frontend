@@ -19,15 +19,15 @@ export function AnketaComponent() {
 	const currentDate = new Date();
 
 	const checkboxesHowManyTimes: Checkbox[] = [
-		{ label: 'Я в первый раз', value: '1', checked: false },
-		{ label: '2-3 раза', value: '2', checked: false },
-		{ label: '3-6 раз', value: '3', checked: false },
-		{ label: 'Более 6 раз', value: '4', checked: false },
+		{ label: 'Я в\u00A0первый раз', value: '1', checked: false },
+		{ label: '2-3\u00A0раза', value: '2', checked: false },
+		{ label: '3-6\u00A0раз', value: '3', checked: false },
+		{ label: 'Более 6\u00A0раз', value: '4', checked: false },
 	];
 
 	const checkboxesFood: Checkbox[] = [
 		{ label: 'Да, меня это устраивает', value: '1', checked: false },
-		{ label: 'Нет, я хочу платить за еду на месте', value: '2', checked: false },
+		{ label: 'Нет, я\u00A0хочу платить за\u00A0еду на месте', value: '2', checked: false },
 	];
 
 	const checkboxesNanny: Checkbox[] = [
@@ -36,14 +36,14 @@ export function AnketaComponent() {
 	];
 
 	const checkboxesPriority: Checkbox[] = [
-		{ label: 'Быть за рулем самому (от 20 000 р)', value: '1', checked: false },
+		{ label: 'Быть за рулем самому (от 20\u00A0000 р)', value: '1', checked: false },
 		{
-			label: 'Ездить с водителем или следопытом (от 2 000 р/час)',
+			label: 'Ездить с\u00A0водителем или следопытом (от 2\u00A0000 р/час)',
 			value: '2',
 			checked: false,
 		},
 		{
-			label: 'Ездить в групповые поездки, это прикольно и значительно дешевле',
+			label: 'Ездить в\u00A0групповые поездки, это прикольно и\u00A0значительно дешевле',
 			value: '3',
 			checked: false,
 		},
@@ -51,7 +51,7 @@ export function AnketaComponent() {
 
 	const checkboxesPackageSelect: Checkbox[] = [
 		{
-			label: 'Супер, я выбираю пакет',
+			label: 'Супер, я\u00A0выбираю пакет',
 			value: '1',
 			checked: false,
 		},
@@ -59,17 +59,17 @@ export function AnketaComponent() {
 
 	const checkboxesHouses: Checkbox[] = [
 		{
-			label: 'Хорошая спальня от 18 000 р/в день',
+			label: 'Хорошая спальня от\u00A018\u00A0000\u00A0р / в\u00A0день',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Замечательная спальня от 26 000 р/в день',
+			label: 'Замечательная спальня от\u00A026\u00A0000\u00A0р / в\u00A0день',
 			value: '2',
 			checked: false,
 		},
 		{
-			label: 'Свой дом от 45 000 р/в день',
+			label: 'Свой дом от\u00A045\u00A0000\u00A0р / в\u00A0день',
 			value: '3',
 			checked: false,
 		},
@@ -77,17 +77,17 @@ export function AnketaComponent() {
 
 	const checkboxesHouses2: Checkbox[] = [
 		{
-			label: 'Семейный номер от 45 000 р/в день',
+			label: 'Семейный номер от\u00A045\u00A0000\u00A0р / в\u00A0день',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Потрясающая спальня от 31 000 р/в день',
+			label: 'Потрясающая спальня от\u00A031\u00A0000\u00A0р / в\u00A0день',
 			value: '2',
 			checked: false,
 		},
 		{
-			label: 'Большой дом на компанию или семью от 60 000 р/в день',
+			label: 'Большой дом на\u00A0компанию или семью от\u00A060\u00A0000\u00A0р / в\u00A0день',
 			value: '3',
 			checked: false,
 		},
@@ -100,22 +100,22 @@ export function AnketaComponent() {
 
 	const checkboxesPlany: Checkbox[] = [
 		{
-			label: 'Вы хотите полететь на вертолете до Белухи (от 200 000 р/чел)',
+			label: 'Вы\u00A0хотите полететь на\u00A0вертолете до\u00A0Белухи (от\u00A0200\u00A0000\u00A0р / ел)',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Вы хотите путешествовать на катере по Телецкому озеру (от 50 000 р/чел)',
+			label: 'Вы\u00A0хотите путешествовать на\u00A0катере по\u00A0Телецкому озеру (от\u00A050\u00A0000\u00A0р / чел)',
 			value: '2',
 			checked: false,
 		},
 		{
-			label: 'Покататься на лошадях (от 6 000 р)',
+			label: 'Покататься на\u00A0лошадях (от\u00A06\u00A0000\u00A0р)',
 			value: '3',
 			checked: false,
 		},
 		{
-			label: 'Покататься на квадроциклах (от 12 000 р)',
+			label: 'Покататься на\u00A0квадроциклах (от\u00A012\u00A0000\u00A0р)',
 			value: '4',
 			checked: false,
 		},
@@ -153,7 +153,7 @@ export function AnketaComponent() {
 		{ label: '5-8 дней', value: '3', checked: false },
 		{ label: '8-10 дней', value: '4', checked: false },
 		{
-			label: 'Приеду дней на 10, хочу посмотреть весь Алтай, хорошенько отдохнуть и никуда не торопиться',
+			label: 'Приеду дней на\u00A010, хочу посмотреть весь Алтай, хорошенько отдохнуть и\u00A0никуда не\u00A0торопиться',
 			value: '5',
 			checked: false,
 		},
@@ -166,12 +166,12 @@ export function AnketaComponent() {
 
 	const checkboxesWishes: Checkbox[] = [
 		{
-			label: 'Да, меня устраивает узнавать о планах на завтра завтра.',
+			label: 'Да, меня устраивает узнавать о\u00A0планах на\u00A0завтра завтра.',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Нет, я хочу приобрести пакет BLACK KHAN за 23 456₽ в день и чтобы мне индивидуально распланировали все мои поездки.',
+			label: 'Нет, я хочу приобрести пакет BLACK KHAN за\u00A023\u00A0456\u00A0₽ в\u00A0день и\u00A0чтобы мне индивидуально распланировали все мои поездки.',
 			value: '2',
 			checked: false,
 		},
@@ -179,7 +179,7 @@ export function AnketaComponent() {
 
 	const checkboxesForChildren: Checkbox[] = [
 		{
-			label: 'Да, мне нужно будет много ездить с детьми',
+			label: 'Да, мне нужно будет много ездить с\u00A0детьми',
 			value: '1',
 			checked: false,
 		},
@@ -187,7 +187,7 @@ export function AnketaComponent() {
 
 	const checkboxesStepnik: Checkbox[] = [
 		{
-			label: 'Мне это важно (целый день, 15 000 ₽ взрослый, 10 500 ₽ ребенок)',
+			label: 'Мне это важно (целый день, 15\u00A0000\u00A0₽ взрослый, 10\u00A0500\u00A0₽ ребенок)',
 			value: '1',
 			checked: false,
 		},
@@ -205,7 +205,7 @@ export function AnketaComponent() {
 			checked: false,
 		},
 		{
-			label: 'Лагерь «Молодости» в Намибии с 20 февраля по 10 марта',
+			label: 'Лагерь «Молодости» в\u00A0Намибии с 20 февраля по 10 марта',
 			value: '2',
 			checked: false,
 		},
@@ -213,15 +213,15 @@ export function AnketaComponent() {
 	];
 
 	const checkboxesWantTry: Checkbox[] = [
-		{ label: 'Зажаренного барана на вертеле 45 000 ₽', value: '1', checked: false },
-		{ label: 'Алтайский рибай 4 000 ₽', value: '2', checked: false },
-		{ label: 'Легендарный хариус 2 000 ₽', value: '3', checked: false },
+		{ label: 'Зажаренного барана на вертеле 45\u00A0000\u00A0₽', value: '1', checked: false },
+		{ label: 'Алтайский рибай 4\u00A0000\u00A0₽', value: '2', checked: false },
+		{ label: 'Легендарный хариус 2\u00A0000\u00A0₽', value: '3', checked: false },
 	];
 
 	const checkboxesCoffee: Checkbox[] = [
-		{ label: 'У вас и так нормальный выбор', value: '1', checked: false },
+		{ label: 'У вас и\u00A0так нормальный выбор', value: '1', checked: false },
 		{
-			label: 'У меня особые пожелания, обсудим во время разговора',
+			label: 'У меня особые пожелания, обсудим во\u00A0время разговора',
 			value: '2',
 			checked: false,
 		},
@@ -234,7 +234,7 @@ export function AnketaComponent() {
 			checked: false,
 		},
 		{
-			label: 'Мне и так будет хорошо, понимаю, что алтайский воздух пьянит сам по себе',
+			label: 'Мне и\u00A0так будет хорошо, понимаю, что алтайский воздух пьянит сам по\u00A0себе',
 			value: '2',
 			checked: false,
 		},
@@ -242,38 +242,27 @@ export function AnketaComponent() {
 
 	const checkboxesRestTime: Checkbox[] = [
 		{
-			label: 'Помедитировать под тибетские поющие чаши (15 000 ₽)',
+			label: 'Помедитировать под тибетские поющие чаши (15\u00A0000\u00A0₽)',
 			value: '1',
 			checked: false,
 		},
 		{
-			label: 'Заняться цигун или йогой на берегу реки (5 000 ₽)',
+			label: 'Заняться цигун или йогой на\u00A0берегу реки (5\u00A0000\u00A0₽)',
 			value: '2',
 			checked: false,
 		},
-		{ label: 'Попасть к вашему остеопату (10 000 ₽)', value: '3', checked: false },
-		{ label: 'Расслабиться на массаже  (8 000 ₽)', value: '4', checked: false },
-		{ label: 'Регулярно ходить на хайкинг (от 3 500 ₽)', value: '5', checked: false },
-		{ label: 'Определюсь на месте', value: '6', checked: false },
+		{ label: 'Попасть к вашему остеопату (10\u00A0000\u00A0₽)', value: '3', checked: false },
+		{ label: 'Расслабиться на массаже  (8\u00A0000\u00A0₽)', value: '4', checked: false },
+		{ label: 'Регулярно ходить на\u00A0хайкинг (от\u00A03\u00A0500\u00A0₽)', value: '5', checked: false },
+		{ label: 'Определюсь на\u00A0месте', value: '6', checked: false },
 	];
 
 	const checkboxesBlagodat: Checkbox[] = [
 		{
-			label: 'Банную церемонию «Благодать» в четыре руки (от 30 000 ₽, до 2 чел, 90 мин)',
-			value: '1',
-			checked: false,
-		},
-		{
-			label: 'Банную церемонию «Молодость» (40 000 ₽, до 2 чел, 120 мин)',
+			label: 'Банную церемонию «Молодость» (20\u00A0000\u00A0₽, 1\u00A0чел, 90\u00A0мин)',
 			value: '2',
 			checked: false,
 		},
-		{
-			label: 'Классическое парение (10 000 ₽, 1 чел, 20 мин)',
-			value: '3',
-			checked: false,
-		},
-		{ label: 'Определюсь на месте', value: '4', checked: false },
 	];
 
 	const checkboxesDateAccuracy: Checkbox[] = [
@@ -286,14 +275,14 @@ export function AnketaComponent() {
 	];
 
 	const checkboxesSponsor: Checkbox[] = [
-		{ label: 'Легендарный бард марафон с Борисом Бергером', value: '1', checked: false },
+		{ label: 'Легендарный бард марафон с\u00A0Борисом Бергером', value: '1', checked: false },
 		{
 			label: 'Горловое пение «Тюрк-Кабай»',
 			value: '2',
 			checked: false,
 		},
 		{
-			label: 'Диджейская вечеринка «Танцуем, как чертяки» в клубе «Сруб»',
+			label: 'Диджейская вечеринка «Танцуем, как чертяки» в\u00A0клубе «Сруб»',
 			value: '3',
 			checked: false,
 		},
@@ -301,7 +290,7 @@ export function AnketaComponent() {
 
 	const checkboxesSpecOrder: Checkbox[] = [
 		{
-			label: 'Да, я хотел бы воспользоваться услугой «Молодость по дружбе»',
+			label: 'Да, я\u00A0хотел бы воспользоваться услугой «Молодость по дружбе»',
 			value: '1',
 			checked: false,
 		},
@@ -470,12 +459,8 @@ export function AnketaComponent() {
 			{StateForm === FormState.Default && (
 				<>
 					<div className={styles.introBlock} style={{ marginBottom: 24 }}>
-						<p className={styles.introBold}>
-							Заполните анкету и&nbsp;считайте, что ваше бронирование практически подтверждено.
-						</p>
-						<p className={styles.introRegular}>
-							Мы&nbsp;спрашиваем гораздо больше вещей, чем принято обычно, потому что мы&nbsp;занимаемся не&nbsp;только проживанием, но&nbsp;и&nbsp;всеми вашими поездками и&nbsp;другими развлечениями на&nbsp;Алтае.
-						</p>
+						<p className={styles.introBold}>Заполните анкету и&nbsp;считайте, что ваше бронирование практически подтверждено.</p>
+						<p className={styles.introRegular}>Мы&nbsp;спрашиваем гораздо больше вещей, чем принято обычно, потому что мы&nbsp;занимаемся не&nbsp;только проживанием, но&nbsp;и&nbsp;всеми вашими поездками и&nbsp;другими развлечениями на&nbsp;Алтае.</p>
 						<p className={styles.introRegular} style={{ marginBottom: 0 }}>
 							И&nbsp;мы&nbsp;хотим убедиться, что вам у&nbsp;нас будет хорошо.
 						</p>
@@ -484,9 +469,7 @@ export function AnketaComponent() {
 						<div>
 							<div className={indent.mt_4}>
 								<div className={styles.redBorder}>
-									<p className={styles.contactFormIntro}>
-										Я&nbsp;ничего не&nbsp;хочу заполнять, просто напишите мне.
-									</p>
+									<p className={styles.contactFormIntro}>Я&nbsp;ничего не&nbsp;хочу заполнять, просто напишите мне.</p>
 									<p className={styles.contactFormIntro} style={{ marginTop: 0 }}>
 										Мы&nbsp;договоримся об&nbsp;удобном для меня времени и&nbsp;все обсудим.
 									</p>
@@ -644,39 +627,25 @@ export function AnketaComponent() {
 										<BaseCheckbox name="nights" item={item} required={false} onChange={() => onChangeCheckbox(item.value, nights, (data) => setNights(data))} />
 									</div>
 								))}
-								<div style={{ marginTop: 30 }}>
-									{/* <small className={cn(indent.mt_2, styles.note)}>
-										СЕЗОННЫЕ ЗАЕЗДЫ В&nbsp;МОЛОДОСТИ:
-										<br />
-										<br />
-										25&nbsp;ДЕКАБРЯ&nbsp;&mdash; 10&nbsp;ЯНВАРЯ
-										<br />
-										25&nbsp;АПРЕЛЯ&nbsp;&mdash; 10&nbsp;МАЯ
-										<br />
-										<br />
-										ИЮЛЬ&nbsp;&mdash; АВГУСТ:
-										<br /> В&nbsp;это время к&nbsp;цене проживания добавляется сезонный билет взрослый 7&nbsp;000&nbsp;₽ в&nbsp;день, ребенок (от&nbsp;5&nbsp;до&nbsp;14&nbsp;лет) 5&nbsp;600&nbsp;₽ в&nbsp;день.
-									</small> */}
-								</div>
 							</div>
 						</div>
-					<h2 className={styles.sectionHeading}>Проживание и&nbsp;питание</h2>
-					<br />
-					<PackageBlock />
-					<div className={indent.mt_4}>
-						{packageSelect.map((item, i) => (
-							<div key={i}>
-								<BaseCheckbox name="packageSelect" item={item} required={false} onChange={() => onChangeCheckbox(item.value, packageSelect, (data) => setPackageSelect(data))} />
-							</div>
-						))}
-					</div>
-					<br />
-					<br />
-					<p className={styles.descriptionAttentionTwo}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
-					<div>
-						{/* Varianty prozhivania */}
+						<h2 className={styles.sectionHeading}>Проживание и&nbsp;питание</h2>
+						<br />
+						<PackageBlock />
 						<div className={indent.mt_4}>
-							<Label caption="Варианты проживания на&nbsp;1&nbsp;&mdash; 3&nbsp;человека:" />
+							{packageSelect.map((item, i) => (
+								<div key={i}>
+									<BaseCheckbox name="packageSelect" item={item} required={false} onChange={() => onChangeCheckbox(item.value, packageSelect, (data) => setPackageSelect(data))} />
+								</div>
+							))}
+						</div>
+						<br />
+						<br />
+						<p className={styles.descriptionAttentionTwo}>Если вы&nbsp;все таки хотите все по&nbsp;отдельности и&nbsp;дороже:</p>
+						<div>
+							{/* Varianty prozhivania */}
+							<div className={indent.mt_4}>
+								<Label caption="Варианты проживания на&nbsp;1&nbsp;&mdash; 3&nbsp;человека:" />
 							</div>
 							{apartments.map((item, i) => (
 								<div key={i} className={indent.mt_2}>
@@ -844,6 +813,7 @@ export function AnketaComponent() {
 							))}
 							<br />
 							{/* Vo vremya puteshestvia */}
+							{/*
 							<div className={indent.mt_4}>
 								<Label caption="Мы&nbsp;работаем по&nbsp;принципу &laquo;План на&nbsp;завтра вы&nbsp;узнаете завтра&raquo;. Но, приобретая пакет BLACK KHAN, мы&nbsp;заранее распланируем все понравившиеся вам поездки из&nbsp;нашего списка:" />
 								<div className={indent.mt_4}>
@@ -869,6 +839,7 @@ export function AnketaComponent() {
 								<small className={styles.note}>Мы&nbsp;очень любим зарабатывать, но&nbsp;не&nbsp;рекомендуем пользоваться этой услугой, потому что все планы вы&nbsp;все равно переиграете на&nbsp;месте.</small>
 							</div>
 							<br />
+							*/}
 							{/* Bolshe poezdok dlya detei */}
 							<div className={indent.mt_4}>
 								<Label caption="У&nbsp;нас есть поездки рассчитанные на&nbsp;детей:" />
@@ -969,11 +940,11 @@ export function AnketaComponent() {
 						<button type="submit" className={cn(styles.ctaBtn, indent.mt_4)} id="sendForm">
 							ОСТАВИТЬ ЗАЯВКУ
 						</button>
-					<div className={indent.mt_4}>
-						<small className={styles.noteBlack}>Мы&nbsp;свяжемся с&nbsp;вами в&nbsp;течение 24&nbsp;часов, чтобы мы&nbsp;смогли ответить на&nbsp;все оставшиеся вопросы ваши к&nbsp;нам и&nbsp;наши к&nbsp;вам.</small>
-					</div>
-					<SiberiaNavButtons />
-				</form>
+						<div className={indent.mt_4}>
+							<small className={styles.noteBlack}>Мы&nbsp;свяжемся с&nbsp;вами в&nbsp;течение 24&nbsp;часов, чтобы мы&nbsp;смогли ответить на&nbsp;все оставшиеся вопросы ваши к&nbsp;нам и&nbsp;наши к&nbsp;вам.</small>
+						</div>
+						<SiberiaNavButtons />
+					</form>
 				</>
 			)}
 			{StateForm === FormState.Success && (
@@ -982,9 +953,7 @@ export function AnketaComponent() {
 						СПАСИБО ЗА ОТВЕТЫ!!
 					</SectionHeading>
 					<div className={indent.mt_4}>
-						<Description>
-							{name ? `${name}, ` : ''}мы свяжемся с вами в течение 24 часов, чтобы мы смогли ответить на все оставшиеся вопросы ваши к нам и наши к вам.
-						</Description>
+						<Description>{name ? `${name}, ` : ''}мы свяжемся с вами в течение 24 часов, чтобы мы смогли ответить на все оставшиеся вопросы ваши к нам и наши к вам.</Description>
 					</div>
 				</>
 			)}
