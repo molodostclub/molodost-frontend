@@ -21,7 +21,7 @@ export const content = style([
 
 /** Только в Housing; боковые отступы у карточки не нужны — ширина задаётся контейнером */
 export const carouseled = style({
-  margin: 0,
+  margin: "10px 0 0 0",
   width: '100%',
 });
 

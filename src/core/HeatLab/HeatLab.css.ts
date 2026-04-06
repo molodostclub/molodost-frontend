@@ -14,7 +14,8 @@ export const content = style([
 export const grid = style([
   {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: '1fr',
+    gap: 20,
   },
   tablet({
     marginTop: 30,
@@ -44,7 +45,7 @@ export const tableContainer = style([
 export const itemImageWrapper = style([
   {
     position: 'relative',
-    width: 262,
+    width: '100%',
     height: 204,
     borderRadius: 14,
   },

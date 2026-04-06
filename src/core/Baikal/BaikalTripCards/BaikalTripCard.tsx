@@ -142,8 +142,6 @@ export const BaikalTripCard: FC<Props> = ({ trip: { id, attributes } }) => {
 						{paths.map((src, i) => (
 							<SwiperSlide key={`${id}-${i}`}>
 								<div className={styles.slideImageWrap}>
-									{/* next/image + Swiper часто даёт рантайм-ошибки; статика из /public — обычный img */}
-									{/* eslint-disable-next-line @next/next/no-img-element */}
 									<img src={src} alt="" className={styles.slideImage} />
 								</div>
 							</SwiperSlide>

@@ -13,8 +13,15 @@ export const labelText = style([
   {
     color: vars.color.black,
     fontFamily: vars.font.ApercuProRegular,
-    fontSize: 18,
+    fontSize: 14,
     lineHeight: 1,
     fontWeight: 400,
   },
+  tablet({
+    color: vars.color.black,
+    fontFamily: vars.font.ApercuProRegular,
+    fontSize: 18,
+    lineHeight: 1,
+    fontWeight: 400,
+  })
 ])

@@ -121,7 +121,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 					<p className={styles.flatsTitle}>в&nbsp;гэрах</p>
 					<p className={styles.gersNoteLine}>
 						<span className={styles.gersNotePrefix}>В&nbsp;ГЭРАХ&nbsp;— </span>
-						Мы предлагаем два варианта домов: с одной большой спальней-гостинной и двухкомнатные
+						Мы предлагаем два варианта домов: с&nbsp;одной большой спальней-гостинной и&nbsp;двухкомнатные
 					</p>
 				</div>
 				<div className={styles.housingBlock}>
@@ -159,17 +159,17 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 						attributionFont="cera"
 						quote={
 							<p>
-								&laquo;Молодость&raquo; рассчитана на
+								&laquo;Молодость&raquo; рассчитана
 								<br />
-								разборчивого горожанина,
+								на разборчивого горожанина,
 								<br />
 								которому нужен не&nbsp;только свежий
 								<br />
-								воздух и&nbsp;вид из&nbsp;окна, но&nbsp;и&nbsp;WI-FI и
+								воздух и&nbsp;вид из&nbsp;окна, но&nbsp;и&nbsp;WI-FI
 								<br />
-								неограниченный доступ к&nbsp;латте с
+								и&nbsp;неограниченный доступ к&nbsp;латте
 								<br />
-								миндальным молоком
+								с&nbsp;миндальным молоком
 							</p>
 						}
 						attribution="— так написал Коммерсантъ"
@@ -296,10 +296,10 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 						</div>
 						<div className={styles.zvukPhotosRow}>
 							<div className={styles.zvukPhotoWrap}>
-								<Image src="/images/baikal/zvuk/2.jpg" alt="Йога в Доме звука" width={400} height={500} className={styles.zvukPhotoInRow} />
+								<Image src="/images/baikal/zvuk/12.jpg" alt="Йога в Доме звука" width={400} height={500} className={styles.zvukPhotoInRow} />
 							</div>
 							<div className={styles.zvukPhotoWrap}>
-								<Image src="/images/baikal/zvuk/3.jpg" alt="Интерьер Дома звука" width={600} height={400} className={styles.zvukPhotoInRow} />
+								<Image src="/images/baikal/zvuk/14.jpg" alt="Интерьер Дома звука" width={600} height={400} className={styles.zvukPhotoInRow} />
 							</div>
 						</div>
 					</div>

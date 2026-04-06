@@ -22,7 +22,7 @@ export const OUR_BASE_ITEMS = [
   },
   {
     imageSrc: '/images/manjerok/teplica.jpg',
-    title: 'Творческая мастерская “теплица”',
+    title: 'Творческая мастерская «теплица»',
     description:
       'Пространство для творчества, уюта и уединения.',
   },
