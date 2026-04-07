@@ -58,14 +58,20 @@ export const colPhoto = style([
 	}),
 ]);
 
-export const sideImageWrap = style({
-	position: 'relative',
-	width: '100%',
-	borderRadius: 14,
-	overflow: 'hidden',
-	boxShadow: '0px 9px 8px rgba(0, 0, 0, 0.1), 0px 24px 24px rgba(0, 0, 0, 0.12)',
-	aspectRatio: '4 / 3',
-});
+export const sideImageWrap = style([
+	{
+		display: 'none',
+	},
+	tablet({
+		position: 'relative',
+		width: '100%',
+		borderRadius: 14,
+		overflow: 'hidden',
+		boxShadow: '0px 9px 8px rgba(0, 0, 0, 0.1), 0px 24px 24px rgba(0, 0, 0, 0.12)',
+		aspectRatio: '4 / 3',
+		display: 'block',
+	}),
+]);
 
 export const sideImage = style({
 	objectFit: 'cover',

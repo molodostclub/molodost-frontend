@@ -190,8 +190,8 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 
 			<div className={cn(styles.block825Outer, indent.tablet_mt_16, indent.mt_14)}>
 				<div className={cn(styles.blockContainer825)}>
-				<h2 className={styles.blagodatHeading}>БАННЫЙ КОМПЛЕКС &laquo;БЛАГОДАТЬ&raquo;</h2>
-				<Description className={cn(indent.tablet_mt_10, indent.mt_6)}>
+				<h2 className={styles.blagodatHeading}>БАННЫЙ КОМПЛЕКС &laquo;БЛАГОДАТЪ&raquo;</h2>
+				<Description>
 					Мы&nbsp;долго искали методику, как строить и&nbsp;как парить. И&nbsp;были поражены, когда поняли, что настоящее сибирское парение&nbsp;&mdash; медленное и&nbsp;не&nbsp;жаркое, а&nbsp;лучшие камни для сохранения тепла&nbsp;&mdash; нефритовые.
 				</Description>
 				<Description className={cn(indent.tablet_mt_5, indent.mt_6)}>

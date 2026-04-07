@@ -245,7 +245,8 @@ export function AnketaBaikalComponent() {
 			const { status } = await backendApi.post('form-requests', formRequestObject, {
 				signal: abortRef.current.signal,
 			});
-			if (status === 200) onSuccess();
+			if (status >= 200 && status < 300) onSuccess();
+			else onError();
 		} catch (e) {
 			if (e instanceof Error && e.name === 'AbortError') return;
 			onError();

@@ -396,6 +396,7 @@ export function AnketaComponent() {
 		e.preventDefault();
 
 		const formRequestObject = {
+			variant: 'altay' as const,
 			name,
 			surname,
 			source,
@@ -444,8 +445,10 @@ export function AnketaComponent() {
 				signal: abortRef.current.signal,
 			});
 
-			if (status === 200) {
+			if (status >= 200 && status < 300) {
 				onSuccess();
+			} else {
+				onError();
 			}
 		} catch (e) {
 			if (e instanceof Error && e.name === 'AbortError') return;

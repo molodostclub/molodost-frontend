@@ -175,7 +175,6 @@ export const manjerokTravelHeroTitle = style([
 /** На мобиле кнопку не показываем — только заголовок */
 export const manjerokTravelHeroMoreLink = style([
   {
-    display: 'none',
   },
   tablet({
     display: 'inline-block',
