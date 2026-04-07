@@ -290,8 +290,8 @@ export const socialIcons = style([
 
 export const socialIcon = style([
 	{
-		width: 30,
-		height: 30,
+		width: 20,
+		height: 20,
 		borderRadius: '50%',
 		display: 'flex',
 		alignItems: 'center',
@@ -306,8 +306,8 @@ export const socialIcon = style([
 
 export const socialIconImage = style([
 	{
-		width: 30,
-		height: 30,
+		width: 20,
+		height: 20,
 		objectFit: 'contain',
 	},
 	tablet({
