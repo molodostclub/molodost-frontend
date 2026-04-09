@@ -135,9 +135,9 @@ export function PromoComponent() {
 			{StateForm === FormState.Default && (
 				<>
 					<h1 className={cn(indent.mb_4, styles.pageTitle)}>АНКЕТА</h1>
-					<p className={styles.descriptionCenter} style={{ textTransform: 'none', fontWeight: 400 }}>
+					{/*<p className={styles.descriptionCenter} style={{ textTransform: 'none', fontWeight: 400 }}>
 						Заполните анкету, чтобы у&nbsp;нас остались ваши данные и&nbsp;мы&nbsp;могли прислать вам подарочный билет на&nbsp;бесплатное проживание в&nbsp;&laquo;Молодости&raquo; на&nbsp;Алтае!
-					</p>
+					</p>*/}
 					<br />
 					<form onSubmit={onSubmit}>
 						<div className={indent.mt_4}>
