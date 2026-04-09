@@ -8,7 +8,7 @@ import * as styles from './AnketaComponent.css';
 import cn from 'classnames';
 import { BaseCheckbox } from '@/shared/components/BaseCheckbox';
 import { Checkbox } from '@/shared/components/BaseCheckbox/types';
-import { FormState, backendApi } from '@/utils';
+import { FormState, backendApi, normalizeRuPhone } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
 
@@ -371,6 +371,10 @@ export function AnketaComponent() {
 		callback(modifiedData);
 	};
 
+	const handleWhatsappChange = (e: InputEvent) => {
+		setWhatsapp(normalizeRuPhone(e.target.value).formatted);
+	};
+
 	const localeDate = (date: Date) =>
 		date.toLocaleDateString('ru', {
 			weekday: 'long',
@@ -484,7 +488,7 @@ export function AnketaComponent() {
 										</div>
 										<div className={styles.fromCol}>
 											<Label caption="Ваш номер">
-												<BaseInput type="text" placeholder="+7 999 999 99 99" value={whatsapp} regExp={/[^+\s\d]/gi} required={false} onChange={(e: InputEvent) => setWhatsapp(e.target.value)} />
+												<BaseInput type="tel" placeholder="+7 999 999-99-99" value={whatsapp} required={false} onChange={handleWhatsappChange} />
 											</Label>
 										</div>
 										<div className={styles.fromCol}>
@@ -528,7 +532,7 @@ export function AnketaComponent() {
 								<div className={styles.formRow}>
 									<div className={styles.fromCol}>
 										<Label caption="MAX / Telegram">
-											<BaseInput type="text" placeholder="+7 999 999 99 99" value={whatsapp} regExp={/[^+\s\d]/gi} required={false} onChange={(e: InputEvent) => setWhatsapp(e.target.value)} />
+											<BaseInput type="tel" placeholder="+7 999 999-99-99" value={whatsapp} required={false} onChange={handleWhatsappChange} />
 										</Label>
 									</div>
 									<p className={styles.noteBlack}>или</p>

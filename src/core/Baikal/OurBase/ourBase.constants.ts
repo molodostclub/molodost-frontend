@@ -23,7 +23,7 @@ export const OUR_BASE_CARDS: OurBaseCardData[] = [
 			'«Сруб Декабристов» с каминной, библиотекой, конференс - комнатой и массажным кабинетом. Днем - это место уединения, вечером мы поем здесь караоке и слушаем концерты.',
 	},
 	{
-		imageSrc: '/images/baikal/sport-ploshadki.jpg',
+		imageSrc: '/images/baikal/sport-ploshadki2.jpg',
 		imageAlt: 'Детская и спорт площадки',
 		title: 'Детская и спорт площадки',
 		description:

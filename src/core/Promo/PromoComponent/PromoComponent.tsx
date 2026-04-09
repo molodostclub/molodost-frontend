@@ -6,7 +6,7 @@ import * as styles from './PromoComponent.css';
 import cn from 'classnames';
 import { BaseCheckbox } from '@/shared/components/BaseCheckbox';
 import { Checkbox } from '@/shared/components/BaseCheckbox/types';
-import { FormState } from '@/utils';
+import { FormState, normalizeRuPhone } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
 
@@ -14,54 +14,28 @@ const API_BASE = process.env.NEXT_PUBLIC_STRAPI_API ?? 'https://admin.molodost.c
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
-function onlyDigits(s: string) {
-	return s.replace(/\D/g, '');
-}
-
-function normalizeRuPhone(raw: string) {
-	let digits = onlyDigits(raw);
-	if (!digits) return { formatted: '', valid: false, digits: '' };
-
-	if (digits[0] === '8') digits = '7' + digits.slice(1);
-	if (digits[0] !== '7') {
-		if (digits[0] === '9') digits = '7' + digits;
-		else digits = '7' + digits;
-	}
-
-	digits = digits.slice(0, 11);
-	const valid = digits.length === 11 && digits[0] === '7';
-
-	const cc = '+7';
-	const p1 = digits.slice(1, 4);
-	const p2 = digits.slice(4, 7);
-	const p3 = digits.slice(7, 9);
-	const p4 = digits.slice(9, 11);
-	const formatted = cc + (p1 ? ` ${p1}` : '') + (p2 ? ` ${p2}` : '') + (p3 ? ` ${p3}` : '') + (p4 ? ` ${p4}` : '');
-
-	return { formatted, valid, digits };
-}
-
 type WhatsAppInputChange = { formatted: string; digits: string; valid: boolean };
 
-function WhatsAppInput({ value, onValueChange, placeholder = '+7 999 999 99 99', required = true }: { value: string; onValueChange: (v: WhatsAppInputChange) => void; placeholder?: string; required?: boolean }) {
+function WhatsAppInput({ value, onValueChange, placeholder = '+7 999 999-99-99', required = true }: { value: string; onValueChange: (v: WhatsAppInputChange) => void; placeholder?: string; required?: boolean }) {
 	const [error, setError] = useState<string | null>(null);
+	const formatError = 'Введите номер формата +7 XXX XXX-XX-XX';
 
 	const handleChange = (e: InputEvent) => {
 		const res = normalizeRuPhone(e.target.value);
 		onValueChange(res);
 		if (!res.formatted) setError(null);
-		else setError(res.valid ? null : 'Введите номер формата +7 XXX XXX XX XX');
+		else setError(res.valid ? null : formatError);
 	};
 
 	const handleBlur = () => {
 		const res = normalizeRuPhone(value);
 		onValueChange(res);
-		setError(res.formatted && !res.valid ? 'Введите номер формата +7 XXX XXX XX XX' : null);
+		setError(res.formatted && !res.valid ? formatError : null);
 	};
 
 	return (
 		<>
-			<input type="tel" className={styles.input} placeholder={placeholder} value={value} onChange={handleChange} onBlur={handleBlur} inputMode="tel" maxLength={18} required={required} />
+			<input type="tel" className={styles.input} placeholder={placeholder} value={value} onChange={handleChange} onBlur={handleBlur} inputMode="tel" maxLength={16} required={required} />
 			{error && (
 				<div className={styles.errorText} style={{ marginTop: 6 }}>
 					{error}
@@ -104,7 +78,6 @@ export function PromoComponent() {
 	const [name, setName] = useState('');
 	const [surname, setSurname] = useState('');
 	const [waFormatted, setWaFormatted] = useState('');
-	const [checkAmount, setCheckAmount] = useState('');
 	const [waDigits, setWaDigits] = useState('');
 	const [waValid, setWaValid] = useState(false);
 
@@ -133,9 +106,8 @@ export function PromoComponent() {
 
 	const isFormValid = useMemo(() => {
 		const consentOk = personalAgreement[0]?.checked;
-		const amountOk = String(checkAmount).trim().length > 0;
-		return waValid && consentOk && amountOk;
-	}, [waValid, personalAgreement, checkAmount]);
+		return waValid && consentOk;
+	}, [waValid, personalAgreement]);
 
 	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -146,7 +118,7 @@ export function PromoComponent() {
 			const res = await fetch(`${API_BASE}/form-requests`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ name, surname, whatsapp: `+${waDigits}`, checkAmount }),
+				body: JSON.stringify({ name, surname, whatsapp: `+${waDigits}` }),
 			});
 
 			if (res.ok) onSuccess();
@@ -184,18 +156,18 @@ export function PromoComponent() {
 							</div>
 
 							<div className={indent.mt_4}>
-								<Label caption="Контактный номер WhatsApp">
+								<Label caption="Контактный номер телефона">
 									<br />
 									<WhatsAppInput value={waFormatted} onValueChange={handleWaChange} />
 								</Label>
 							</div>
 
-							<div className={indent.mt_4}>
+							{/*<div className={indent.mt_4}>
 								<Label caption="Сумма чека">
 									<br />
 									<BaseInput type="text" placeholder="Введите сумму" value={checkAmount} required={true} onChange={(e: InputEvent) => setCheckAmount(e.target.value)} />
 								</Label>
-							</div>
+							</div>*/}
 						</div>
 
 						<div className={indent.mt_4}>
