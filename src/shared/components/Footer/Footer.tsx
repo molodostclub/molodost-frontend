@@ -150,7 +150,7 @@ export const Footer: FC<Props> = ({ variant = 'default' }) => {
 
 					<div className={styles.socialIcons}>
 						<a
-							href="https://max.ru"
+							href="https://max.ru/molodostturclub"
 							target="_blank"
 							rel="noopener noreferrer"
 							className={styles.socialIcon}
