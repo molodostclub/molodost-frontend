@@ -29,17 +29,17 @@ export const HowToGetHome: FC = () => {
           </p>
           <div className={styles.cardButtons}>
             <a
-              href="https://t.me/molodostturclub"
+              href="https://max.ru/molodostturclub"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.cardButton}
             >
               <span className={styles.btnMain}>НАПИСАТЬ</span>
-              <span className={styles.btnSub}>В TELEGRAM</span>
+              <span className={styles.btnSub}>В&nbsp;MAX</span>
             </a>
             <a href="tel:+79647002112" className={styles.cardButton}>
               <span className={styles.btnMain}>ПОЗВОНИТЬ</span>
-              <span className={styles.btnSub}>8 964 700 21 12</span>
+              <span className={styles.btnSub}>8&nbsp;964&nbsp;700&nbsp;21&nbsp;12</span>
             </a>
           </div>
         </div>
