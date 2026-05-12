@@ -29,7 +29,7 @@ export const HowToGetHome: FC = () => {
           </p>
           <div className={styles.cardButtons}>
             <a
-              href="https://max.ru/molodostturclub"
+              href="https://max.ru/u/f9LHodD0cOKMOAmtNE7HT3Ds2oN6CPjVH4_4JX-sASCTqXc_EaK3iSZtlEQ"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.cardButton}
