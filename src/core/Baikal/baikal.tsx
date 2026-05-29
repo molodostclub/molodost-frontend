@@ -223,7 +223,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 				</div>
 			</div>
 
-			<div className={cn(styles.block825Outer, indent.tablet_mt_16, indent.mt_14)}>
+			{/* <div className={cn(styles.block825Outer, indent.tablet_mt_16, indent.mt_14)}>
 				<div className={styles.blockContainer825}>
 					<CenteredBrandQuote
 						noMarginBottom
@@ -236,7 +236,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 						attribution="Константин Крюков (звезда)"
 					/>
 				</div>
-			</div>
+			</div> */}
 
 			<div className={cn(styles.block825Outer, indent.tablet_mt_12, indent.mt_12)}>
 				<div className={styles.blockContainer825}>
@@ -363,9 +363,8 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 				<div className={cn(styles.blockContainer825, styles.finalBlock)}>
 				<div className={cn(styles.border, indent.mb_8)}>&nbsp;</div>
 				<p className={styles.finalBlockText}>
-					ПРОЕКТ РЕАЛИЗУЕТСЯ СОВМЕСТНО С НАШИМИ ПАРТНЕРАМИ — ГРУППОЙ КОМПАНИЙ{' '}
-					<span className={styles.attentionRed}>HIGHLAND GOLD</span> И{' '}
-					<span className={styles.attentionRed}>ГОК &laquo;ОЗЕРНЫЙ&raquo;</span>
+					ПРОЕКТ РЕАЛИЗУЕТСЯ СОВМЕСТНО С НАШИМ ПАРТНЕРОМ — ГРУППОЙ КОМПАНИЙ{' '}
+					<span className={styles.attentionRed}>&laquo;Ареал&raquo;</span>
 					<br />
 					<br />
 				</p>
