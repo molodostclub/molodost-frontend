@@ -35,5 +35,6 @@ export const APP_ROUTES: MenuItem[] = [
 			{ label: '— ПРАВИЛА ЖИЗНИ', href: '/pravila-zhizni' },
 		],
 	},
+	{ label: 'ЗАБРОНИРОВАТЬ', href: '/booking' },
 	{ label: 'КОНТАКТЫ', href: '/nashi-kontakty' },
 ];
