@@ -205,7 +205,7 @@ export const PUTESHESTVIYA_BAIKAL = {
 		sectionTitle: 'ПРИКЛЮЧЕНИЯ НА\u00A0ЦЕЛЫЙ ДЕНЬ',
 		items: [
 			{ title: 'НАЛЕВО И\u00A0ДО КОНЦА', priceText: '15\u00A0000 ₽ НА\u00A0ЧЕЛОВЕКА' },
-			{ title: 'ОЛЬХОН-СЕВЕР ОСТРОВА', priceText: '50\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА' },
+			{ title: 'ОЛЬХОН-СЕВЕР ОСТРОВА', priceText: '40\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА' },
 			{
 				title: 'ЧИВЫРКУЙСКИЙ ЗАЛИВ',
 				priceText: '40\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА',
@@ -300,7 +300,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				pictures: TRIP_PICTURES_EMPTY,
 				staticCoverPaths: ['/images/baikal/olhon/olhon1.jpg', '/images/baikal/olhon/olhon.jpg'],
 				footerDuration: 'Весь день',
-				footerPrice: '50\u00A0000\u00A0₽ / чел',
+				footerPrice: '40\u00A0000\u00A0₽ / чел',
 			},
 		},
 		{
