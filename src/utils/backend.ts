@@ -54,6 +54,9 @@ export const backendApi = axios.create({
 	validateStatus: (s) => s < 500,
 });
 
+const isBuildStage = (): boolean => process.env.NEXT_PHASE === 'phase-production-build';
+const getSplitRequestTimeout = (): number => (isBuildStage() ? 8_000 : 20_000);
+
 // Interceptor для установки правильного baseURL перед каждым запросом
 backendApi.interceptors.request.use((config) => {
 	const baseUrl = getBaseUrl();
@@ -89,6 +92,7 @@ export const getHousesSplit = async (): Promise<HousesSplit> => {
 		try {
 			const { data } = await backendApi.get(`houses`, {
 				params: { populate: '*' },
+				timeout: getSplitRequestTimeout(),
 			});
 			const houses: HouseModel[] = data?.data || [];
 			const result = {
@@ -109,11 +113,15 @@ export const getHousesSplit = async (): Promise<HousesSplit> => {
 			} else {
 				console.error('❌ Ошибка в getHousesSplit:', err);
 			}
-			return {
+			const fallback = {
 				individual: [],
 				inHouse: [],
 				luxiping: [],
 			};
+			// Кэшируем fallback, чтобы не повторять медленные запросы в рамках одной build-сессии
+			housesCache = fallback;
+			housesCacheTime = now;
+			return fallback;
 		} finally {
 			housesPromise = null;
 		}
@@ -143,6 +151,7 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 		try {
 			const { data } = await backendApi.get('trips', {
 				params: { populate: '*' },
+				timeout: getSplitRequestTimeout(),
 			});
 			const trips: TripModel[] = data?.data || [];
 			const result = {
@@ -163,10 +172,14 @@ export const getTripsSplit = async (): Promise<TripsSplit> => {
 			} else {
 				console.error('❌ Ошибка в getTripsSplit:', error);
 			}
-			return {
+			const fallback = {
 				allDay: [],
 				notAllDay: [],
 			};
+			// Кэшируем fallback, чтобы не повторять медленные запросы в рамках одной build-сессии
+			tripsCache = fallback;
+			tripsCacheTime = now;
+			return fallback;
 		} finally {
 			tripsPromise = null;
 		}

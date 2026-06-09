@@ -8,6 +8,12 @@ export default function Document() {
     <Html lang="ru">
       <Head>
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"></link>
+        <link rel="preload" href="/fonts/ApercuPro-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/ApercuPro-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/CeraCondensedCY-Desktop-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/CeraCondensedCY-Desktop-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/CeraCondensedCY-Desktop-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/CeraCompactCY-Desktop-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <meta name="yandex-verification" content="92dcfd357eeba278" />
         <script
 					dangerouslySetInnerHTML={{

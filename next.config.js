@@ -15,6 +15,7 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   output: 'standalone',
+  staticPageGenerationTimeout: 90,
   
   // Явно отключаем dev-режим в production
   // Это предотвращает попытки подключения к dev server на порту 38559
