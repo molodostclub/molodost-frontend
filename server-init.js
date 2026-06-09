@@ -175,6 +175,11 @@ function formatSize(bytes) {
  * Проверяет CPU время и память (RSS) для процессов jest-worker
  */
 function startWorkerMonitoring() {
+  if (process.env.ENABLE_RUNTIME_MONITORING !== 'true') {
+    console.log('[Worker Monitor] Мониторинг отключен (ENABLE_RUNTIME_MONITORING != true)');
+    return;
+  }
+
   if (process.platform === 'win32') {
     // На Windows мониторинг не реализован
     console.log('[Worker Monitor] Мониторинг недоступен на Windows');
@@ -399,8 +404,13 @@ process.env.NEXT_TELEMETRY_DISABLED = '1';
 if (process.env.NODE_ENV === 'production') {
   initImageCache();
   
-  // Запускаем мониторинг worker процессов (упрощенная версия)
-  startWorkerMonitoring();
+  // Мониторинг включается только через ENABLE_RUNTIME_MONITORING=true,
+  // чтобы не расходовать ресурсы CPU на проде без необходимости.
+  if (process.env.ENABLE_RUNTIME_MONITORING === 'true') {
+    startWorkerMonitoring();
+  } else {
+    console.log('[Server Init] Runtime monitoring disabled (set ENABLE_RUNTIME_MONITORING=true to enable)');
+  }
 }
 
 // Запускаем оригинальный server.js

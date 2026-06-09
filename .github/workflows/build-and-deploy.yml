@@ -59,7 +59,13 @@ jobs:
                         --memory-swap="768m" \
                         --cpus="1.0" \
                         --restart unless-stopped \
+                        --health-cmd="node -e \"fetch('http://127.0.0.1:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\"" \
+                        --health-interval=30s \
+                        --health-timeout=5s \
+                        --health-retries=3 \
+                        --health-start-period=45s \
                         -e NEXT_PUBLIC_BASE_URL="https://admin.molodost.club" \
                         -e BACKEND_URL="http://molodost-backend:1337" \
+                        -e ENABLE_RUNTIME_MONITORING="false" \
                         -e NODE_OPTIONS="--max-old-space-size=600" \
                         ghcr.io/molodostclub/molodost-frontend:latest

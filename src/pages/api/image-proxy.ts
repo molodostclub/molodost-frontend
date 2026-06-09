@@ -11,6 +11,7 @@ const IMAGE_TIMEOUT_MS = 30000; // 30 секунд
 const MAX_SIZE_MB = 10;
 const MAX_WIDTH = 4000;
 const MAX_HEIGHT = 4000;
+const UPSTREAM_CONNECT_TIMEOUT_MS = 10000;
 
 type Data = {
   error?: string;
@@ -60,8 +61,13 @@ export default async function handler(
       });
     }
 
+    const controller = new AbortController();
+    const connectTimeout = setTimeout(() => {
+      controller.abort('Upstream image request timed out');
+    }, UPSTREAM_CONNECT_TIMEOUT_MS);
+
     // Загружаем изображение с таймаутом
-    const fetchPromise = fetch(url).then(async (response) => {
+    const fetchPromise = fetch(url, { signal: controller.signal }).then(async (response) => {
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
@@ -76,12 +82,20 @@ export default async function handler(
     });
 
     const imageData = await Promise.race([fetchPromise, timeoutPromise]);
+    clearTimeout(connectTimeout);
 
     // Устанавливаем заголовки и отправляем изображение
     res.setHeader('Content-Type', imageData.contentType);
     res.setHeader('Cache-Control', 'public, max-age=604800, s-maxage=604800');
     res.send(imageData.buffer);
   } catch (error) {
+    if (error instanceof Error && (error.name === 'AbortError' || error.message.includes('timed out'))) {
+      return res.status(504).json({
+        error: 'Таймаут соединения с источником изображения',
+        message: 'Источник изображения не ответил вовремя.',
+      });
+    }
+
     console.error('[Image Proxy] Ошибка при обработке изображения:', error);
 
     if (error instanceof Error && error.message.includes('Таймаут')) {
