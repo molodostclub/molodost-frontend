@@ -58,6 +58,7 @@ COPY --chown=nextjs:nodejs server-init.js ./
 ENV NODE_ENV=production
 # Отключаем Turbopack и другие dev-фичи
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV ENABLE_RUNTIME_MONITORING=false
 
 # Запускаем через server-init.js который очистит кеш перед стартом
 CMD ["node", "server-init.js"]
