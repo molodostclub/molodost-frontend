@@ -1367,6 +1367,7 @@ export const PricesPage: FC = () => {
 	return (
 		<main className={styles.content} id="vsibirzasvoyschet">
 			<PageHeading>В&nbsp;СИБИРЬ ЗА&nbsp;СВОЙ СЧЁТ&nbsp;&mdash; АЛТАЙ</PageHeading>
+			<Description>*цены не являются публичной офертой</Description>
 			<br />
 			<AccordionSection defaultOpen={false} title="ПРОЖИВАНИЕ">
 				<PackageBlock />

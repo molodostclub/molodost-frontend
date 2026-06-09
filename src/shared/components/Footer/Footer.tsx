@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import * as styles from './Footer.css';
 import { trimTel, telHref, telegramHref } from '@/utils';
+import { Description } from '@/uikit';
 
 const phoneNumber = '+7 964 700 21 12';
 const phoneDisplay = '8 964 700 21 12';
@@ -81,6 +82,7 @@ export const Footer: FC<Props> = ({ variant = 'default' }) => {
 						</Link>
 					))}
 					<p className={styles.addressText}>{address}</p>
+					<p className={styles.addressText}>*цены не являются публичной офертой</p>
 				</div>
 
 				<div className={styles.centerColumn}>
@@ -179,7 +181,9 @@ export const Footer: FC<Props> = ({ variant = 'default' }) => {
 						</a>
 					</div>
 				</div>
+				
 			</div>
+			
 		</footer>
 	);
 };
