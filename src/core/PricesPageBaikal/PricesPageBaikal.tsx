@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { PageHeading } from '@uikit';
+import { Description, PageHeading } from '@uikit';
 import { AccordionSection } from '@shared/components';
 import { formatPriceWithSign } from '@utils';
 import { DrinkPriceRow, PoezdkiCarRow, PoezdkiGuideRow, ProzhivanieGrid } from '../PricesPage/PricesPage';
@@ -265,6 +265,8 @@ export const PricesPageBaikal: FC = () => {
 	return (
 		<main className={styles.content} id="vsibirzasvoyschet-baikal">
 			<PageHeading>В&nbsp;СИБИРЬ ЗА&nbsp;СВОЙ СЧЁТ&nbsp;&mdash; БАЙКАЛ</PageHeading>
+			<Description>*цены не являются публичной офертой</Description>
+			<br />
 			<div className={styles.pricesBaikalAccordionStack}>
 				<AccordionSection defaultOpen={false} title="ПРОЖИВАНИЕ">
 					<h3 className={styles.subsectionHeading}>РАЗМЕЩЕНИЕ В ГЭРАХ</h3>
