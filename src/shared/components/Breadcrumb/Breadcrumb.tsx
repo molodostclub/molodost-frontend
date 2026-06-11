@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
 
 import * as styles from './Breadcrumb.css';
 
@@ -10,11 +11,12 @@ type BreadcrumbItem = {
 
 type Props = {
 	items: BreadcrumbItem[];
+	className?: string;
 };
 
-export const Breadcrumb: FC<Props> = ({ items }) => {
+export const Breadcrumb: FC<Props> = ({ items, className }) => {
 	return (
-		<nav className={styles.breadcrumb}>
+		<nav className={cn(styles.breadcrumb, className)}>
 			{items.map((item, index) => {
 				const isLast = index === items.length - 1;
 

@@ -15,37 +15,6 @@ export default function Document() {
         <link rel="preload" href="/fonts/CeraCondensedCY-Desktop-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/CeraCompactCY-Desktop-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <meta name="yandex-verification" content="92dcfd357eeba278" />
-        <script
-					dangerouslySetInnerHTML={{
-						__html: `
-							(function(w) {
-								var q = [
-									["setContext", "TL-INT-molodost-club_2025-04-29", "ru"],
-									["embed", "booking-form", {
-											container: "tl-booking-form"
-									}],
-									["embed", "search-form", {
-											container: "tl-search-form"
-									}]
-								];
-								var h = ["ru-ibe.tlintegration.ru", "ibe.tlintegration.ru", "ibe.tlintegration.com"];
-								var t = w.travelline = (w.travelline || {}),
-									ti = t.integration = (t.integration || {});
-								ti.__cq = ti.__cq? ti.__cq.concat(q) : q;
-									if (!ti.__loader) {
-									ti.__loader = true;
-									var d=w.document,c=d.getElementsByTagName("head")[0]||d.getElementsByTagName("body")[0];
-									function e(s,f) {return function() {w.TL||(c.removeChild(s),f())}}
-									(function l(h) {
-										if (0===h.length) return; var s=d.createElement("script");
-										s.type="text/javascript";s.async=!0;s.src="https://"+h[0]+"/integration/loader.js";
-										s.onerror=s.onload=e(s,function(){l(h.slice(1,h.length))});c.appendChild(s)
-									})(h);
-								}
-							})(window);
-						`,
-					}}
-				/>
       </Head>
       <body className={themeClass}>
         <Main />

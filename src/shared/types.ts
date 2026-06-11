@@ -158,7 +158,8 @@ declare global {
 	interface Window {
 		travelline?: {
 			integration?: {
-				__cq?: any[];
+				__cq?: unknown[];
+				__loader?: boolean;
 			};
 		};
 	}
