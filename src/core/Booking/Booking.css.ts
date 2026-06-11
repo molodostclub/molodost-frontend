@@ -16,7 +16,7 @@ export const heading = style([
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	}),
-});
+]);
 
 export const widget = style([
 	{

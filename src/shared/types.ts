@@ -156,6 +156,7 @@ export type EcosystemModel = Entity<{
 
 declare global {
 	interface Window {
+		TL?: unknown;
 		travelline?: {
 			integration?: {
 				__cq?: unknown[];
