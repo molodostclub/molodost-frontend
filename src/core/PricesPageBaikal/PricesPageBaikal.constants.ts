@@ -8,7 +8,7 @@ export type NaBazeCoffeeColumnItem = { subheading: string } | DrinkMenuItem;
 
 /** Размещение в гэрах — блок «Проживание» Байкал */
 export const PROZHIVANIE_BAIKAL_GERAH: AccommodationItem[] = [
-	{ title: 'ГЭР НА\u00A0БЕРЕГУ', capacity: '1-4', area: '40 м²', price: 70_000 },
+	{ title: 'ГЭР НА\u00A0БЕРЕГУ', capacity: '1-4', area: '40 м²', price: 60_000 },
 	{ title: 'ГЭР В\u00A0ЛЕСУ', capacity: '1-4', area: '40 м²', price: 60_000 },
 ];
 

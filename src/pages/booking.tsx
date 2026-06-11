@@ -2,7 +2,7 @@
 import { Booking } from '@core/Booking';
 import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
-export default function KakPopast() {
+export default function BookingPage() {
   return (
     <>
       <PageMeta title="Забронировать проживание" />

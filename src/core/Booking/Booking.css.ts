@@ -1,28 +1,30 @@
-import { style, styleVariants } from '@vanilla-extract/css';
-import { vars } from '@styles';
-import { pageContent, tablet } from '@styles';
+import { style } from '@vanilla-extract/css';
+import { tablet } from '@styles';
 
-export const content = style([
-	pageContent,
-	tablet({
-		maxWidth: `calc(100% - 120px)`,
-		marginLeft: 'auto',
-		marginRight: 'auto',
-	}),
-]);
+export const content = style({
+	paddingTop: 15,
+	paddingBottom: 30,
+	width: '100%',
+});
 
-export const marginTop = style([
-    {marginTop: 150},
-    tablet({
-        marginTop: 220,
-    })
-])
-
-export const titleWrapper = style([
-	pageContent,
+export const heading = style([
+	{
+		width: '100%',
+	},
 	tablet({
 		maxWidth: 746,
 		marginLeft: 'auto',
 		marginRight: 'auto',
+	}),
+});
+
+export const widget = style([
+	{
+		marginTop: 30,
+		width: '100%',
+		minHeight: 120,
+	},
+	tablet({
+		marginTop: 45,
 	}),
 ]);
