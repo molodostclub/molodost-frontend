@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { MobileHeaderMenu } from '@shared/components';
+import { MobileHeaderMenu } from '@shared/components/InnerPageHeader/MobileHeaderMenu';
 import * as styles from './PageCover.css';
 import Image from 'next/image';
 
@@ -10,6 +10,8 @@ type Props = {
   unoptimized?: boolean;
   loader?(): string;
   mobileMenu?: boolean;
+  priority?: boolean;
+  sizes?: string;
 };
 
 export const PageCover: FC<Props> = ({
@@ -18,24 +20,22 @@ export const PageCover: FC<Props> = ({
   unoptimized,
   loader,
   mobileMenu = true,
+  priority = false,
+  sizes = '100vw',
 }) => {
-  // Автоматически отключаем оптимизацию для статических изображений из /images/
-  // Это ускоряет загрузку, так как они уже оптимизированы в билде
-  const isStaticImage = typeof src === 'string' && src.startsWith('/images/');
-  const shouldUnoptimize = unoptimized !== undefined ? unoptimized : isStaticImage;
-
   return (
     <div className={styles.container}>
       {!!src ? (
         <div className={styles.imageWrap}>
           <Image
-            priority
+            priority={priority}
+            fetchPriority={priority ? 'high' : undefined}
             fill
             src={src}
-            unoptimized={shouldUnoptimize}
+            unoptimized={unoptimized}
             loader={loader}
             alt={alt}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw"
+            sizes={sizes}
             className={styles.image}
           />
         </div>
