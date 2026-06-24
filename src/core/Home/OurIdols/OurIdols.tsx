@@ -2,7 +2,8 @@ import { FC } from 'react';
 import Image from 'next/image';
 
 import * as styles from './OurIdols.css';
-import { Description, SectionHeading } from '@/uikit';
+import { Description } from '@/uikit/Description';
+import { SectionHeading } from '@/uikit/SectionHeading';
 import { useIsTablet } from '@/shared/hooks';
 
 export const OurIdols: FC = () => {

@@ -159,8 +159,10 @@ declare global {
 		TL?: unknown;
 		travelline?: {
 			integration?: {
-				__cq?: unknown[];
+				__cq?: unknown;
 				__loader?: boolean;
+				loaded?: boolean;
+				embed?: (widget: string, options?: { container?: string }) => void;
 			};
 		};
 	}
