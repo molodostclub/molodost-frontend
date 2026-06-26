@@ -9,27 +9,6 @@ const LOADER_HOSTS = [
 	'ibe.tlintegration.com',
 ];
 
-/** Early bootstrap: queue booking form before React mounts its container. */
-export const TRAVELLINE_ENTRY_WIDGET_BOOTSTRAP = `(function(w){
-	var q=[
-		["setContext", "${TRAVELLINE_CONTEXT_ID}", "ru"],
-		["embed", "booking-form", { container: "${BOOKING_FORM_CONTAINER_ID}" }]
-	];
-	var h=${JSON.stringify(LOADER_HOSTS)};
-	var t=w.travelline=(w.travelline||{}),ti=t.integration=(t.integration||{});
-	ti.__cq=ti.__cq?ti.__cq.concat(q):q;
-	if(!ti.__loader){
-		ti.__loader=true;
-		var d=w.document,c=d.getElementsByTagName("head")[0]||d.getElementsByTagName("body")[0];
-		function e(s,f){return function(){w.TL||(c.removeChild(s),f())}}
-		(function l(h){
-			if(0===h.length)return;var s=d.createElement("script");
-			s.type="text/javascript";s.async=!0;s.src="https://"+h[0]+"/integration/loader.js";
-			s.onerror=s.onload=e(s,function(){l(h.slice(1))});c.appendChild(s)
-		})(h);
-	}
-})(window);`;
-
 type QueueCommand = [string, ...unknown[]];
 
 type TravellineIntegration = {
@@ -114,8 +93,6 @@ function ensureLoader(): void {
 }
 
 function queueEmbed(widget: string, containerId: string): void {
-	// After loader.js runs, __cq is no longer an array. Prefer the live API, but
-	// booking-form still needs the pre-loader queue on first paint of /booking.
 	if (embedViaApi(widget, containerId)) {
 		return;
 	}
@@ -151,25 +128,32 @@ function bootTravellineBookingForm(containerId: string): void {
 	queueEmbed('booking-form', containerId);
 }
 
+const MOUNT_RETRY_INTERVAL_MS = 500;
+const MOUNT_MAX_ATTEMPTS = 12;
+
 function mountTravellineWidget(
-	boot: (containerId: string) => void,
+	boot: (containerId: string, force?: boolean) => void,
 	containerId: string,
 	isRendered: (containerId: string) => boolean,
 ): () => void {
 	let cancelled = false;
 	let retryTimer: number | undefined;
+	let attempts = 0;
 
 	const attempt = () => {
 		if (cancelled) return;
-		boot(containerId);
+
+		boot(containerId, attempts > 0);
+
+		if (isRendered(containerId) || attempts >= MOUNT_MAX_ATTEMPTS) {
+			return;
+		}
+
+		attempts += 1;
+		retryTimer = window.setTimeout(attempt, MOUNT_RETRY_INTERVAL_MS);
 	};
 
 	attempt();
-
-	retryTimer = window.setTimeout(() => {
-		if (cancelled || isRendered(containerId)) return;
-		attempt();
-	}, 1500);
 
 	return () => {
 		cancelled = true;
