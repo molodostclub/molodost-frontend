@@ -1,37 +1,37 @@
 
 export const ENTERTAINMENT_DATA = [
   {
-    image: '/images/home/feature-1.jpg',
+    image: '/images/home/feature-1.webp',
     title: 'Турбюро',
     text: 'Алтай — очень большой и очень разный. Даже если вы приехали на 8—10 дней, мы рекомендуем не пытаться уложить все самое-самое интересное, поставить все галочки и сфотографироваться у всех достопримечательностей за одну поездку.',
     linkTo: '/kak-my-puteshevstvuem#scrollto=turbjuro',
   },
   {
-    image: '/images/home/ranger.jpg',
+    image: '/images/home/ranger.webp',
     title: (<>{'автопрокат'} <br /> {'«Бывалый рейнджер»'}</>),
     text: 'Почти все наши поездки можно сделать самостоятельно, воспользовавшись нашим автопрокатом.',
     linkTo: '/kak-my-puteshevstvuem#scrollto=avtoprokat',
   },
   {
-    image: '/images/blagodat/blagodat-2.jpg',
+    image: '/images/blagodat/blagodat-2.webp',
     title: 'БАННЫЙ КОМПЛЕКС «БЛАГОДАТЬ»',
     text: 'На Алтае не хочется из-за чего-то париться, поэтому мы создали целый комплекс, где в кедровых банях с нефритовыми печами можно пройти авторскую процедуру медленного парения по методу нашего шеф-пармейстера.',
     linkTo: '/laboratoriya-tepla',
   },
   {
-    image: '/images/home/feature-2.jpg',
+    image: '/images/home/feature-2.webp',
     title: 'ЗОЖ И ЗОМ',
     text: 'Здоровый образ жизни и мыслей - это то, зачем на Алтай приезжают многие наши гости. Мы тоже верим, что местный воздух и востребованная нынче ландшафтотерапия - лучшие средства для того, чтобы выдохнуть и перезагрузиться.',
     linkTo: '/zozh-i-zom',
   },
   {
-    image: '/images/home/feature-4.jpg',
+    image: '/images/home/feature-4.webp',
     title: 'дети',
     text: 'В «Молодости» есть все для отдыха с детьми разного возраста. У нас отлично провели время даже младенцы 4 месяцев. Дети в «Молодости» считаются от 5 до 12 лет.',
     linkTo: '/deti-v-molodosti',
   },
   {
-    image: '/images/home/molodost-zazhigaet.jpg',
+    image: '/images/home/molodost-zazhigaet.webp',
     title: 'молодость зажигает',
     text: 'В «Молодость» лучше всего ехать большой компанией, тогда мы сможем специально под вас организовывать мероприятия на нашей турбазе и остальных площадках нашей экосистемы.',
     linkTo: '/molodost-zazhigayet',

@@ -6,7 +6,7 @@ export default function NashyKontakty() {
     <>
       <PageMeta title="Наши контакты" />
       <InnerPageHeader />
-      <PageCover src="/images/our-contacts-cover.jpg" />
+      <PageCover src="/images/our-contacts-cover.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Контакты' }]} />
       <OurContacts />
       <Footer />

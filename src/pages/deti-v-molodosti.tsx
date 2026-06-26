@@ -6,7 +6,7 @@ export default function DetiVMolodosti() {
     <>
       <PageMeta title="Дети в молодости" />
       <InnerPageHeader />
-      <PageCover src="/images/deti-v-molodosti-cover.jpg" />
+      <PageCover src="/images/deti-v-molodosti-cover.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Дети в Молодости' }]} />
       <ChildrenInYouth />
       <Footer />

@@ -1,1 +1,0 @@
-export { Katalka } from './Katalka';

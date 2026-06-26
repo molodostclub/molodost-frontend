@@ -6,7 +6,7 @@ export default function Avtoprokat() {
     <>
       <PageMeta title="Банный комплекс «Лаборатория тепла»" />
       <InnerPageHeader />
-      <PageCover src="/images/baza/blagodat.jpg" />
+      <PageCover src="/images/baza/blagodat.webp" />
       <Breadcrumb
         items={[
           { label: 'Главная', href: '/' },

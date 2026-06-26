@@ -4,7 +4,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 
 import { Icon } from '@/uikit/icons';
-import { formatPriceWithSign, getMediaLinkFromModel } from '@/utils';
+import { formatPriceWithSign, resolveCmsPath } from '@/utils';
 
 import { carouseled } from '../WhereWeLive.css';
 import { HouseCarousel } from './HouseCarousel';
@@ -51,26 +51,24 @@ const Pricing: FC<{
 
 export const Housing: FC<HousingProps> = ({
 	house: {
-		attributes: {
-			title,
-			description,
-			subtitle,
-			basePrice,
-			basePrice2,
-			area,
-			peopleMax, //min==max
-			peopleMin, //max==min
-			pictures,
-			video,
-			videoPreview,
-			isMars,
-			isBaikal,
-		},
+		title,
+		description,
+		subtitle,
+		basePrice,
+		basePrice2,
+		area,
+		peopleMax,
+		peopleMin,
+		pictures,
+		video,
+		videoPreview,
+		isMars,
+		isBaikal,
 	},
 	staticCover = false,
 }) => {
-	const firstPicture = pictures.data?.[0];
-	const showCarousel = !staticCover && !!pictures.data?.length;
+	const firstPicture = pictures[0];
+	const showCarousel = !staticCover && pictures.length > 0;
 
 	return (
 		<div className={cn(styles.container, staticCover && styles.containerLuxipingStatic)}>
@@ -78,7 +76,7 @@ export const Housing: FC<HousingProps> = ({
 				<div className={styles.staticCoverWrap}>
 					<Image
 						fill
-						src={getMediaLinkFromModel(firstPicture)}
+						src={resolveCmsPath(firstPicture)}
 						alt={title ? `Фото: ${title}` : ''}
 						className={styles.staticCoverImage}
 						sizes="(max-width: 768px) 100vw, 50vw"
@@ -86,8 +84,8 @@ export const Housing: FC<HousingProps> = ({
 					/>
 				</div>
 			) : null}
-			{showCarousel && pictures.data ? (
-				<HouseCarousel pictures={pictures.data} video={video?.data} videoPreview={videoPreview?.data} />
+			{showCarousel ? (
+				<HouseCarousel pictures={pictures} video={video} videoPreview={videoPreview} />
 			) : null}
 			<div className={cn(carouseled, styles.cardContent)}>
 				<h3 className={styles.title}>{title}</h3>

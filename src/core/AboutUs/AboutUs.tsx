@@ -54,7 +54,7 @@ export const AboutUs: FC = () => {
 			</div>
 			<div className={styles.hudruk}>
 				<div className={styles.hudrukImageWrap}>
-					<Image alt="«Молодость»" src="/images/about/hudruk.jpg" className={styles.hudrukImage} width={536} height={365} sizes="(max-width: 768px) 100vw, 536px" unoptimized />
+					<Image alt="«Молодость»" src="/images/about/hudruk.webp" className={styles.hudrukImage} width={536} height={365} sizes="(max-width: 768px) 100vw, 536px" unoptimized />
 				</div>
 				<div className={styles.imageDescription}>
 					<p className={styles.imageDescriptionTitle}>Алексей Карахан</p>
@@ -110,7 +110,7 @@ export const AboutUs: FC = () => {
 					</ul>
 				</div>
 				<div className={styles.cooperativeRightColumn}>
-					<Image src="/images/about/collective.jpg" alt="Молодость" width={400} height={644} sizes="(max-width: 768px) 100vw, 536px" unoptimized className={styles.cooperativeRightColumnImage} />
+					<Image src="/images/about/collective.webp" alt="Молодость" width={400} height={644} sizes="(max-width: 768px) 100vw, 536px" unoptimized className={styles.cooperativeRightColumnImage} />
 				</div>
 			</div>
 			<h2 className={styles.comandTitle}>ЧТО МЫ ДЕЛАЕМ</h2>
@@ -131,7 +131,7 @@ export const AboutUs: FC = () => {
 					<li className={styles.serviceModelListItem}>создание вау-эффекта вокруг туристического бренда;</li>
 					<li className={styles.serviceModelListItem}>глубинная и точечная работа с клиентской базой.</li>
 				</ul>
-				<Image src="/images/about/service.jpg" alt="Приоритеты и преимущества нашей сервисной модели" width={931} height={504} className={styles.serviceModelImage} sizes="(min-width: 768px) 100vw, 100vw" unoptimized />
+				<Image src="/images/about/service.webp" alt="Приоритеты и преимущества нашей сервисной модели" width={931} height={504} className={styles.serviceModelImage} sizes="(min-width: 768px) 100vw, 100vw" unoptimized />
 			</div>
 			<div className={styles.luxpingContainer}>
 				<h2 className={styles.comandTitle}>ЛЮКСПИНГ</h2>
@@ -146,7 +146,7 @@ export const AboutUs: FC = () => {
 					<b>Люкспинг</b> это&nbsp;&mdash; не&nbsp;только функциональное качественное проживание, а&nbsp;ещё и&nbsp;бутиковый сервис, вкусная еда, авторские приключения и&nbsp;путешествия, помогающие гостям погрузиться в&nbsp;культуру и&nbsp;природу региона.
 				</p>
 				<div className={styles.luxpingImageWrap}>
-					<Image src="/images/about/creative.png" alt="Люкспинг" width={540} height={225} className={styles.luxpingImage} sizes="(min-width: 768px) 100vw, 100vw" unoptimized />
+					<Image src="/images/about/creative.webp" alt="Люкспинг" width={540} height={225} className={styles.luxpingImage} sizes="(min-width: 768px) 100vw, 100vw" unoptimized />
 				</div>
 				<div className={styles.cooperativeContainer}>
 					<div className={styles.cooperativeLeftColumn}>
@@ -171,40 +171,40 @@ export const AboutUs: FC = () => {
 						</p>
 					</div>
 					<div className={styles.cooperativeRightColumn}>
-						<Image src="/images/about/masterskaya.jpg" alt="Молодость" width={400} height={593} sizes="(max-width: 768px) 100vw, 536px" unoptimized className={styles.cooperativeRightColumnImage} />
+						<Image src="/images/about/masterskaya.webp" alt="Молодость" width={400} height={593} sizes="(max-width: 768px) 100vw, 536px" unoptimized className={styles.cooperativeRightColumnImage} />
 					</div>
 				</div>
 				<div className={styles.projectsContainer}>
 					<h2 className={styles.comandTitle}>НАШИ ПРОЕКТЫ</h2>
 					<div className={styles.projectsList}>
 						<div className={styles.project}>
-							<Image src="/images/about/altay.png" alt="«Молодость на Алтае»" width={310} height={310} />
+							<Image src="/images/about/altay.webp" alt="«Молодость на Алтае»" width={310} height={310} />
 							<p className={styles.projectDescription}>
 								<b>«Молодость на Алтае»</b> — это туристическая экосистема, которая позволяет побывать в самых интересных и красивых местах региона и сохранить привычный уровень комфорта и уюта.
 							</p>
 						</div>
 						<div className={styles.project}>
-							<Image src="/images/about/baikal.png" alt="«Молодость на Байкале»" width={310} height={310} />
+							<Image src="/images/about/baikal.webp" alt="«Молодость на Байкале»" width={310} height={310} />
 							<p className={styles.projectDescription}>
 								<b>«Молодость на Байкале»</b> — первый в России полноценный люкспинг на песчаном берегу Байкала в Бурятии откроется в тестовом режиме уже этим летом.
 							</p>
 						</div>
 						<div className={styles.project}>
-							<Image src="/images/about/ecoceh.png" alt="ЭКО.ЦЕХ на берегу озера Байкал" width={310} height={310} />
+							<Image src="/images/about/ecoceh.webp" alt="ЭКО.ЦЕХ на берегу озера Байкал" width={310} height={310} />
 							<p className={styles.projectDescription}>
 								<b>ЭКО.ЦЕХ на берегу озера Байкал</b> со стороны Иркутска (г. Байкальск). Проекта по развитию туристического кампуса, включает в себя модернизацию существующих и постройку новых объектов, а также продвижение, продажи, формирование команды и операционное управление
 								другими процессами, связанными с полным циклом оказания гостиничных услуг.
 							</p>
 						</div>
 						<div className={styles.project}>
-							<Image src="/images/about/nachalo.png" alt="ПРИЮТ «МОЛОДОСТЬ» В НАЧАЛЕ ЗЕМЛИ" width={310} height={310} />
+							<Image src="/images/about/nachalo.webp" alt="ПРИЮТ «МОЛОДОСТЬ» В НАЧАЛЕ ЗЕМЛИ" width={310} height={310} />
 							<p className={styles.projectDescription}>
 								<b>ПРИЮТ «МОЛОДОСТЬ» В НАЧАЛЕ ЗЕМЛИ</b> — первый пляжный курорт в России на берегу Тихого океана.
 							</p>
 						</div>
 					</div>
 					<div className={styles.projectRow}>
-						<Image src="/images/about/turclub.png" alt="Турклуб «Молодость»" width={260} height={260} />
+						<Image src="/images/about/turclub.webp" alt="Турклуб «Молодость»" width={260} height={260} />
 						<p className={styles.projectDescription}>
 							<b>Турклуб «Молодость» — поездки по всей России и даже миру</b>. Мы начинаем с Намибии. Пока не построили здесь свою «Молодость», зато проехали сами и отобрали для вас лучшие легендарные африканские лоджи «Zanier» и «Gondwana», о которых можно только мечтать.
 						</p>

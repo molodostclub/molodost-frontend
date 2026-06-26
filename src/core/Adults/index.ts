@@ -1,1 +1,0 @@
-export { Adults } from './Adults';

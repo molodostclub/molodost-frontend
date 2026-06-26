@@ -4,7 +4,6 @@ import { Html, Head, Main, NextScript } from 'next/document';
 import { themeClass } from '@styles';
 import {
 	BOOKING_FORM_CONTAINER_ID,
-	BOOKING_WIDGET_CONTAINER_ID,
 	TRAVELLINE_ENTRY_WIDGET_BOOTSTRAP,
 } from '@/utils/travelline';
 
@@ -26,7 +25,6 @@ export default function Document() {
         <Main />
         <NextScript />
 
-        <div id={BOOKING_WIDGET_CONTAINER_ID} />
         <div id={BOOKING_FORM_CONTAINER_ID} hidden />
 
         <noscript><div><img src="https://mc.yandex.ru/watch/87735647" alt="" style={{ position:'absolute', left:'-9999px' }} /></div></noscript>

@@ -41,42 +41,19 @@ export default function Home({ trips }: Props) {
 		<>
 			<PageMeta title="Как мы путешествуем" />
 			<InnerPageHeader />
-			<PageCover src="/images/how-we-trip-cover.jpg" />
+			<PageCover src="/images/how-we-trip-cover.webp" />
 			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Как мы путешествуем' }]} />
 			<HowWeTrip trips={trips} />
 			<TravelBureau />
 			<MovingPricing />
-			<PageCoverSmall src="/images/carRent/one.jpg" />
+			<PageCoverSmall src="/images/carRent/one.webp" />
 			<CarRent />
 			<Footer />
 		</>
 	);
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	try {
-		const trips = await getTripsSplit();
-		return {
-			props: {
-				trips,
-			},
-			revalidate: 3600, // 1 час - было 5 секунд, это вызывало постоянную регенерацию и 100% CPU
-		};
-	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке trips:', error.message);
-		if (error?.response?.data) {
-			console.error('Ответ от API:', error.response.data);
-		}
-
-		return {
-			props: {
-				trips: {
-					allDay: [],
-					notAllDay: [],
-				},
-			},
-			revalidate: 60,
-		};
-	}
-};
+export const getStaticProps: GetStaticProps<Props> = () => ({
+	props: { trips: getTripsSplit() },
+});
 

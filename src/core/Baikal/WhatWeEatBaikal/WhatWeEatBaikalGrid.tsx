@@ -4,10 +4,10 @@ import Image from 'next/image';
 import * as styles from './WhatWeEatBaikalGrid.css';
 
 const PHOTOS = [
-	{ src: '/images/baikal/chto-edim1.jpg', alt: 'Гриль, стейки на огне' },
-	{ src: '/images/baikal/chto-edim2.jpg', alt: 'Интерьер общего пространства Дома приёмов' },
-	{ src: '/images/baikal/chto-edim3.jpg', alt: 'Терраса с видом на Байкал' },
-	{ src: '/images/baikal/chto-edim4.jpg', alt: 'Завтрак и сервировка' },
+	{ src: '/images/baikal/chto-edim1.webp', alt: 'Гриль, стейки на огне' },
+	{ src: '/images/baikal/chto-edim2.webp', alt: 'Интерьер общего пространства Дома приёмов' },
+	{ src: '/images/baikal/chto-edim3.webp', alt: 'Терраса с видом на Байкал' },
+	{ src: '/images/baikal/chto-edim4.webp', alt: 'Завтрак и сервировка' },
 ] as const;
 
 export const WhatWeEatBaikalGrid: FC = () => {

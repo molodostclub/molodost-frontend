@@ -277,7 +277,6 @@ export const CONCEPT_STORE_BAIKAL = {
 	ctaText: 'Если вам что-то хочется, а\u00A0мы об\u00A0этом ещё не\u00A0подумали —\u00A0скажите нам, и\u00A0мы вместе решим, сколько это будет стоить.',
 } as const;
 
-const TRIP_PICTURES_EMPTY = { data: null } as TripModel['attributes']['pictures'];
 
 
 export const HOW_WE_TRAVEL_BAIKAL_INTRO = 'Все наши поездки очень зависят от\u00A0погоды и\u00A0природы, и\u00A0мы оставляем за\u00A0собой право все менять в\u00A0последний момент. Мы соблюдаем правила безопасности в\u00A0наших поездках и\u00A0напоминаем, что Вы\u00A0сами несете ответственность за\u00A0свою жизнь.';
@@ -286,8 +285,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 	allDay: [
 		{
 			id: 9_101,
-			attributes: {
-				slug: '',
+			slug: '',
 				title: 'ольхон -\u00A0север острова',
 				subtitle:
 					'Переходим на\u00A0катере самую глубокую точку озера Байкал. Едем на\u00A0УАЗах к\u00A0самым красивым местам северной части острова и гуляем к мысам «Три брата» и\u00A0«Хобой». Пробуем омулевую уху и кедровый самогон от местных жителей. Смотрим на скульптуру «Хранитель Байкала» Даши Намдакова.',
@@ -297,16 +295,14 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				isAllDay: true,
 				durationText: null,
 				notes: [],
-				pictures: TRIP_PICTURES_EMPTY,
-				staticCoverPaths: ['/images/baikal/olhon/olhon1.jpg', '/images/baikal/olhon/olhon.jpg'],
+				pictures: [],
+				staticCoverPaths: ['/images/baikal/olhon/olhon1.webp', '/images/baikal/olhon/olhon.webp'],
 				footerDuration: 'Весь день',
 				footerPrice: '40\u00A0000\u00A0₽ / чел',
 			},
-		},
 		{
 			id: 9_102,
-			attributes: {
-				slug: '',
+			slug: '',
 				title: 'чивыркуйский залив (нерпы\u00A0—\u00A0здесь!)',
 				titleNote: '',
 				subtitle: 'Едем на\u00A0танках вдоль побережья, идем на\u00A0хайкинг к\u00A0селу Катунь, где обедаем домашней картошкой и\u00A0жареным омулем, катаемся на\u00A0катере в\u00A0сторону Ушканьих островов, наблюдаем за\u00A0нерпами в\u00A0дикой природе, по\u00A0желанию расслабляемся в\u00A0серных горячих источниках.',
@@ -317,16 +313,14 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				isAllDay: true,
 				durationText: null,
 				notes: [],
-				pictures: TRIP_PICTURES_EMPTY,
-				staticCoverPaths: ['/images/baikal/zaliv/nerpa.jpg'],
+				pictures: [],
+				staticCoverPaths: ['/images/baikal/zaliv/nerpa.webp'],
 				footerDuration: 'Весь день',
 				footerPrice: '40\u00A0000\u00A0₽ / чел',
-			},
 		},
 		{
 			id: 9_103,
-			attributes: {
-				slug: '',
+			slug: '',
 				title: 'поездка налево и\u00A0до конца',
 				subtitle:
 					'Едем в\u00A0село Баргузин (здесь жил и\u00A0работал Вильгельм Карлович фон Кюхельбекер и\u00A0его жена), заходим в\u00A0самобытный школьный музей, отправляемся на\u00A0север вдоль Баргузинского хребта, заезжаем в\u00A0местный дацан, где гуляем по\u00A0лесу до\u00A0проявленного лика богини Янжимы, гуляем по\u00A0песчаной дюне посреди долины «Подкова Аргады».',
@@ -336,18 +330,16 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				isAllDay: true,
 				durationText: null,
 				notes: [],
-				pictures: TRIP_PICTURES_EMPTY,
+				pictures: [],
 				staticCoverPaths: ['/images/baikal/nalevo/nalevo.webp'],
 				footerDuration: 'Весь день',
 				footerPrice: '15\u00A0000\u00A0₽ / чел',
-			},
 		},
 	],
 	notAllDay: [
 		{
 			id: 9_104,
-			attributes: {
-				slug: '',
+			slug: '',
 				title: 'сплав по\u00A0реке турка',
 				titleNote: 'на\u00A0байдарках',
 				subtitle: 'Едем по\u00A0спокойной реке с\u00A0живописными поворотами и\u00A0островами, наблюдаем цапель, чаек, уток, орланов, коз, лошадей, а\u00A0если повезет — байкальскую нерпу. Устраиваем обеденный пикник на\u00A0солнечной поляне.',
@@ -357,16 +349,14 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				isAllDay: false,
 				durationText: null,
 				notes: [],
-				pictures: TRIP_PICTURES_EMPTY,
+				pictures: [],
 				staticCoverPaths: ['/images/baikal/turka/image%2030.jpg'],
 				footerDuration: '',
 				footerPrice: '8\u00A0500\u00A0₽ / чел',
-			},
 		},
 		{
 			id: 9_105,
-			attributes: {
-				slug: '',
+			slug: '',
 				title: 'улан-удэ +\u00A0аэропорт',
 				subtitle: 'Стартуем с\u00A0нашей базы, в\u00A0Улан-Удэ поднимаемся к\u00A0дацану на\u00A0вершине Лысой горы —\u00A0там открывается панорама всего города, смотрим на\u00A0самую большую в\u00A0мире голову Ленина, посещаем Иволгинский дацан и\u00A0погружаемся в\u00A0буддийскую культуру.',
 				description: '',
@@ -375,8 +365,8 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				isAllDay: false,
 				durationText: null,
 				notes: [],
-				pictures: TRIP_PICTURES_EMPTY,
-				staticCoverPaths: ['/images/baikal/airport/Frame.png', '/images/baikal/airport/Frame-1.png', '/images/baikal/airport/Frame-2.png', '/images/baikal/airport/Frame-3.png'],
+				pictures: [],
+				staticCoverPaths: ['/images/baikal/airport/Frame.webp', '/images/baikal/airport/Frame-1.webp', '/images/baikal/airport/Frame-2.webp', '/images/baikal/airport/Frame-3.webp'],
 				priceFooterRows: [
 					{
 						variant: 'twoCols',
@@ -399,12 +389,10 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 						rightNote: 'в\u00A0одну сторону за\u00A0машину',
 					},
 				],
-			},
 		},
 		{
 			id: 9_106,
-			attributes: {
-				slug: '',
+			slug: '',
 				title: 'квадроциклы и\u00A0багги',
 				titleNote: 'по\u00A0побережью байкала',
 				subtitle: 'Едем по\u00A0хвойному лесу и\u00A0песчаным дорогам вдоль Байкала, пересекаем пляжи, крутые тропы и\u00A0живописные участки с\u00A0видом на\u00A0озеро.',
@@ -414,7 +402,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				isAllDay: false,
 				durationText: null,
 				notes: [],
-				pictures: TRIP_PICTURES_EMPTY,
+				pictures: [],
 				staticCoverPaths: ['/images/baikal/kvadro/image%2093.jpg'],
 				priceFooterRows: [
 					{
@@ -432,7 +420,6 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 						rightNoteAccent: true,
 					},
 				],
-			},
 		},
 	],
 };

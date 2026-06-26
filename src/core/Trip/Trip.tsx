@@ -5,7 +5,7 @@ import { AttentionNote, BrandLink, Description, PriceTableRow, SectionHeading, p
 import { formatPriceWithSign } from '@utils';
 import { TripModel } from '@/shared/types';
 
-export const Trip: FC<{ trip: TripModel }> = ({ trip: { attributes: trip } }) => {
+export const Trip: FC<{ trip: TripModel }> = ({ trip }) => {
 	return (
 		<div className={styles.content}>
 			{trip.isAllDay && <SectionHeading accented>Поездки на целый день</SectionHeading>}

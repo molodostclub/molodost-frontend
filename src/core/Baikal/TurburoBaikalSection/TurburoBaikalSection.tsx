@@ -59,7 +59,7 @@ export const TurburoBaikalSection: FC = () => {
 			</div>
 
 			<Image
-				src="/images/baikal/turburo-wide.png"
+				src="/images/baikal/turburo-wide.webp"
 				alt="Автопрокат на берегу Байкала"
 				width={1200}
 				height={600}
@@ -115,7 +115,7 @@ export const TurburoBaikalSection: FC = () => {
 				</div>
 				<div className={styles.bottomColRight}>
 					<Image
-						src="/images/baikal/turburo-short.jpg"
+						src="/images/baikal/turburo-short.webp"
 						alt="Поездка на внедорожнике"
 						width={400}
 						height={500}

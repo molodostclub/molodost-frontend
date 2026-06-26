@@ -80,12 +80,13 @@ function BaikalPriceFooterRows({ rows }: { rows: TripPriceFooterRow[] }) {
 	);
 }
 
-export const BaikalTripCard: FC<Props> = ({ trip: { id, attributes } }) => {
+export const BaikalTripCard: FC<Props> = ({ trip }) => {
+	const { id } = trip;
 	const rawPaths =
-		attributes.staticCoverPaths && attributes.staticCoverPaths.length > 0
-			? attributes.staticCoverPaths
-			: attributes.staticCoverPath
-				? [attributes.staticCoverPath]
+		trip.staticCoverPaths && trip.staticCoverPaths.length > 0
+			? trip.staticCoverPaths
+			: trip.staticCoverPath
+				? [trip.staticCoverPath]
 				: [];
 	const paths = rawPaths.filter((p): p is string => typeof p === 'string' && p.length > 0);
 
@@ -101,14 +102,14 @@ export const BaikalTripCard: FC<Props> = ({ trip: { id, attributes } }) => {
 				}
 			: false;
 
-	const hasSplitFooter = Boolean(attributes.footerDuration || attributes.footerPrice);
-	const hasStructuredFooter = Boolean(attributes.priceFooterRows?.length);
-	const hasLegacyFooterLines = Boolean(attributes.priceFooterLines?.length);
+	const hasSplitFooter = Boolean(trip.footerDuration || trip.footerPrice);
+	const hasStructuredFooter = Boolean(trip.priceFooterRows?.length);
+	const hasLegacyFooterLines = Boolean(trip.priceFooterLines?.length);
 	const hasLinesFooter = hasStructuredFooter || hasLegacyFooterLines;
-	const hasSimpleDuration = Boolean(attributes.durationText) && !hasSplitFooter && !hasLinesFooter;
+	const hasSimpleDuration = Boolean(trip.durationText) && !hasSplitFooter && !hasLinesFooter;
 
 	const hasIntroBlock = Boolean(
-		attributes.subtitle || attributes.titleNote || attributes.subtitleClosing,
+		trip.subtitle || trip.titleNote || trip.subtitleClosing,
 	);
 
 	return (
@@ -154,29 +155,29 @@ export const BaikalTripCard: FC<Props> = ({ trip: { id, attributes } }) => {
 
 			<div className={styles.content}>
 				<div className={styles.contentInteractive}>
-					<h3 className={styles.title}>{attributes.title}</h3>
-					{attributes.titleNote && attributes.subtitle ? (
+					<h3 className={styles.title}>{trip.title}</h3>
+					{trip.titleNote && trip.subtitle ? (
 						<div className={styles.titleNoteRow}>
-							<p className={styles.titleNote}>{attributes.titleNote}</p>
-							<p className={styles.descriptionColumn}>{attributes.subtitle}</p>
+							<p className={styles.titleNote}>{trip.titleNote}</p>
+							<p className={styles.descriptionColumn}>{trip.subtitle}</p>
 						</div>
-					) : attributes.subtitle ? (
-						<p className={styles.description}>{attributes.subtitle}</p>
-					) : attributes.titleNote ? (
-						<p className={styles.titleNote}>{attributes.titleNote}</p>
+					) : trip.subtitle ? (
+						<p className={styles.description}>{trip.subtitle}</p>
+					) : trip.titleNote ? (
+						<p className={styles.titleNote}>{trip.titleNote}</p>
 					) : null}
-					{attributes.subtitleClosing ? (
-						<p className={styles.subtitleClosing}>{attributes.subtitleClosing}</p>
+					{trip.subtitleClosing ? (
+						<p className={styles.subtitleClosing}>{trip.subtitleClosing}</p>
 					) : null}
 
 					{hasLinesFooter ? (
 						<>
 							<div className={cn(styles.line, !hasIntroBlock && styles.lineAfterTitleOnly)} />
 							{hasStructuredFooter ? (
-								<BaikalPriceFooterRows rows={attributes.priceFooterRows!} />
+								<BaikalPriceFooterRows rows={trip.priceFooterRows!} />
 							) : (
 								<div className={styles.priceStack}>
-									{attributes.priceFooterLines!.map((line, i) => (
+									{trip.priceFooterLines!.map((line, i) => (
 										<span key={i} className={styles.priceStackLine}>
 											{line}
 										</span>
@@ -188,15 +189,15 @@ export const BaikalTripCard: FC<Props> = ({ trip: { id, attributes } }) => {
 						<>
 							<div className={cn(styles.line, !hasIntroBlock && styles.lineAfterTitleOnly)} />
 							<div className={styles.priceRow}>
-								<span className={styles.priceText}>{attributes.footerDuration ?? ''}</span>
-								<span className={styles.priceText}>{attributes.footerPrice ?? ''}</span>
+								<span className={styles.priceText}>{trip.footerDuration ?? ''}</span>
+								<span className={styles.priceText}>{trip.footerPrice ?? ''}</span>
 							</div>
 						</>
 					) : hasSimpleDuration ? (
 						<>
 							<div className={cn(styles.line, !hasIntroBlock && styles.lineAfterTitleOnly)} />
 							<div className={styles.priceRow}>
-								<span className={styles.priceText}>{attributes.durationText}</span>
+								<span className={styles.priceText}>{trip.durationText}</span>
 								<span />
 							</div>
 						</>

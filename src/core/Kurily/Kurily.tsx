@@ -4,11 +4,11 @@ import Image from 'next/image';
 import * as styles from './Kurily.css';
 
 const GRID_IMAGES = [
-	{ src: '/images/kurily/grid-1.jpg', alt: 'Курилы' },
-	{ src: '/images/kurily/grid-2.jpg', alt: 'Курилы' },
-	{ src: '/images/kurily/grid-3.jpg', alt: 'Лесопилка' },
-	{ src: '/images/kurily/grid-4.jpg', alt: 'Курилы' },
-	{ src: '/images/kurily/grid-5.jpg', alt: 'Курилы' },
+	{ src: '/images/kurily/grid-1.webp', alt: 'Курилы' },
+	{ src: '/images/kurily/grid-2.webp', alt: 'Курилы' },
+	{ src: '/images/kurily/grid-3.webp', alt: 'Лесопилка' },
+	{ src: '/images/kurily/grid-4.webp', alt: 'Курилы' },
+	{ src: '/images/kurily/grid-5.webp', alt: 'Курилы' },
 ] as const;
 
 export const Kurily: FC = () => {
@@ -40,7 +40,7 @@ export const Kurily: FC = () => {
 						fill
 						priority
 						alt="Лесопилка"
-						src="/images/kurily/lesopilka.jpg"
+						src="/images/kurily/lesopilka.webp"
 						className={styles.image}
 						sizes="(max-width: 768px) 100vw, 746px"
 					/>

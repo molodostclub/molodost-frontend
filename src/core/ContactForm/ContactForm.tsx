@@ -9,7 +9,7 @@ import { OnChangeValue } from 'react-select';
 import cn from 'classnames'
 import { BaseCheckbox } from '@/shared/components/BaseCheckbox';
 import { Checkbox } from '@/shared/components/BaseCheckbox/types';
-import { FormState, backendApi } from '@/utils';
+import { FormState, submitFormRequest } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
 
@@ -127,7 +127,7 @@ export const ContactForm: FC<Props> = ({ options }) => {
     try {
       abortRef.current?.abort()
       abortRef.current = new AbortController()
-      const { status } = await backendApi.post('form-requests', formRequestObject, {
+      const status = await submitFormRequest(formRequestObject, {
         signal: abortRef.current.signal,
       })
 

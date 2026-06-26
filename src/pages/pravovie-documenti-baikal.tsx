@@ -6,7 +6,7 @@ export default function PravovieDocumentiBaikal() {
     <>
       <PageMeta title="Реквизиты — Молодость на Байкале" />
       <InnerPageHeader />
-      <PageCover src="/images/baikal/requisits.jpg" />
+      <PageCover src="/images/baikal/requisits.webp" />
       <Breadcrumb
         items={[
           { label: 'Главная', href: '/' },

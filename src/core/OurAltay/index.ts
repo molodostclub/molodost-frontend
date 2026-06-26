@@ -1,1 +1,0 @@
-export { OurAltay } from './OurAltay';

@@ -19,7 +19,7 @@ export const PageMeta: FC<{
 
 				<meta property="og:title" content="Молодость" />
 				<meta property="og:description" content="Турбаза на Алтае" />
-				<meta property="og:image" content="/images/og-image.jpg" />
+				<meta property="og:image" content="/images/og-image.webp" />
 			</Head>
 		</>
 	);

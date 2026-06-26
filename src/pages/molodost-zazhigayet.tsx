@@ -6,7 +6,7 @@ export default function MolodostZazhigayet() {
     <>
       <PageMeta title="Молодость зажигает" />
       <InnerPageHeader />
-      <PageCover src="/images/home/molodost-zazhigaet.jpg" />
+      <PageCover src="/images/home/molodost-zazhigaet.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Молодость зажигает' }]} />
       <YouthIgnites />
       <Footer />

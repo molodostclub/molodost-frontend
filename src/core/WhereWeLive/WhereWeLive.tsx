@@ -34,10 +34,10 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
 	const [isOpenModal, setOpenModal] = useState<boolean>(false);
 
 	// Фильтруем номера (individual), оставляя только те, где isMars === false
-	const filteredIndividual = individual.filter((house) => !house.attributes.isMars && !house.attributes.isBaikal);
+	const filteredIndividual = individual.filter((house) => !house.isMars && !house.isBaikal);
 
 	// Фильтруем дома (inHouse), оставляя только те, где isMars === false
-	const filteredInHouse = inHouse.filter((house) => !house.attributes.isMars && !house.attributes.isBaikal);
+	const filteredInHouse = inHouse.filter((house) => !house.isMars && !house.isBaikal);
 
 	const openModal = () => setOpenModal(true);
 	const closeModal = () => setOpenModal(false);
@@ -45,11 +45,9 @@ export const WhereWeLive: FC<Props> = ({ inHouse, individual }) => {
 	// options for select
 	const getOptions = () => {
 		return [...filteredInHouse, ...filteredIndividual] // Используем отфильтрованные массивы
-			.sort((a, b) => a.attributes.basePrice - b.attributes.basePrice)
+			.sort((a, b) => a.basePrice - b.basePrice)
 			.map((item) => {
-				const {
-					attributes: { title, basePrice },
-				} = item;
+				const { title, basePrice } = item;
 				const val = `${title.trim()}.\n От ${formatPriceWithSign(basePrice)} / ночь`;
 
 				return {

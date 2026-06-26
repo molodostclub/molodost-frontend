@@ -6,7 +6,7 @@ export default function ChtoMyEdim() {
     <>
       <PageMeta title="Правовые документы" />
       <InnerPageHeader />
-      <PageCover src="/images/main-cover2.jpg" />
+      <PageCover src="/images/main-cover2.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Реквизиты' }]} />
       <LegalDocuments />
       <Footer />

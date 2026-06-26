@@ -6,7 +6,7 @@ export default function AnketaBaikal() {
     <>
       <PageMeta title="Анкета Байкал" />
       <InnerPageHeader />
-      <PageCover src="/images/anketa/large.jpeg" />
+      <PageCover src="/images/anketa/large.webp" />
       <Breadcrumb
         items={[
           { label: 'Главная', href: '/' },

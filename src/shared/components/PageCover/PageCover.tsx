@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Head from 'next/head';
 
 import { MobileHeaderMenu } from '@shared/components/InnerPageHeader/MobileHeaderMenu';
 import * as styles from './PageCover.css';
@@ -20,30 +21,52 @@ export const PageCover: FC<Props> = ({
   unoptimized,
   loader,
   mobileMenu = true,
-  priority = false,
+  priority = true,
   sizes = '100vw',
 }) => {
-  return (
-    <div className={styles.container}>
-      {!!src ? (
-        <div className={styles.imageWrap}>
-          <Image
-            priority={priority}
-            fetchPriority={priority ? 'high' : undefined}
-            fill
-            src={src}
-            unoptimized={unoptimized}
-            loader={loader}
-            alt={alt}
-            sizes={sizes}
-            className={styles.image}
-          />
-        </div>
-      ) : (
-        <div className={styles.cover} />
-      )}
+  const isLocalMedia =
+    typeof src === 'string' && (src.startsWith('/images/') || src.startsWith('/cms/'));
+  const shouldUnoptimize = unoptimized !== undefined ? unoptimized : isLocalMedia;
+  const useStaticImg = Boolean(src && shouldUnoptimize);
 
-      {mobileMenu && <MobileHeaderMenu />}
-    </div>
+  return (
+    <>
+      {useStaticImg && priority ? (
+        <Head>
+          <link rel="preload" as="image" href={src!} />
+        </Head>
+      ) : null}
+      <div className={styles.container}>
+        {!!src ? (
+          <div className={styles.imageWrap}>
+            {useStaticImg ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={src}
+                alt={alt}
+                className={styles.imageStatic}
+                fetchpriority="high"
+                decoding="async"
+              />
+            ) : (
+              <Image
+                priority={priority}
+                fill
+                src={src}
+                unoptimized={shouldUnoptimize}
+                loader={loader}
+                alt={alt}
+                sizes={sizes}
+                className={styles.image}
+              />
+            )}
+          </div>
+        ) : (
+          <div className={styles.cover} />
+        )}
+
+        {mobileMenu && <MobileHeaderMenu />}
+      </div>
+    </>
   );
 };

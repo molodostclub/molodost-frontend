@@ -9,7 +9,7 @@ export default function ChtoMyEdim() {
       <InnerPageHeader />
       <PageCoverWithVideo
         src="/video/0904_VSCO.mp4"
-        poster="/images/chto-my-edim-cover.jpg"
+        poster="/images/chto-my-edim-cover.webp"
       />
       <Breadcrumb
         items={[

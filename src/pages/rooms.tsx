@@ -10,7 +10,7 @@ export default function GdeZhivem(pageProps: Props) {
 		<>
 			<PageMeta title="Где живем?" />
 			<InnerPageHeader />
-			<PageCover src="/images/gde-zhivem-cover.jpg" />
+			<PageCover src="/images/gde-zhivem-cover.webp" />
 			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Где мы живём' }]} />
 			<WhereWeLive {...pageProps} />
 			<Footer />
@@ -18,22 +18,6 @@ export default function GdeZhivem(pageProps: Props) {
 	);
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	try {
-		const data = await getHousesSplit();
-		return {
-			props: { ...data },
-			revalidate: 60,
-		};
-	} catch (error: any) {
-		console.warn('getHousesSplit уже вернул безопасные данные, но произошла ошибка:', error.message);
-		return {
-			props: {
-				individual: [],
-				inHouse: [],
-				luxiping: [],
-			},
-			revalidate: 300,
-		};
-	}
-};
+export const getStaticProps: GetStaticProps<Props> = () => ({
+	props: getHousesSplit(),
+});

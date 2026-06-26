@@ -13,7 +13,7 @@ export const WhatWeEat: FC<Props> = ({
 }) => (
 
 		<InfoCard
-			image="/images/what-we-eat-card.jpg"
+			image="/images/what-we-eat-card.webp"
 			title={title}
 			text={text}
 			linkTo="/chto-my-edim"

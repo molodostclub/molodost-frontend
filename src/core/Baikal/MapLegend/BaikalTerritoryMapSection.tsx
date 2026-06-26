@@ -5,7 +5,7 @@ import { BAIKAL_MAP_LEGEND_ITEMS } from './legend.constants';
 import { LegendListItem } from './LegendListItem';
 import * as styles from './BaikalTerritoryMapSection.css';
 
-const MAP_SRC = '/images/baikal/baikal-map-color.jpg';
+const MAP_SRC = '/images/baikal/baikal-map-color.webp';
 
 export const BaikalTerritoryMapSection: FC = () => (
 	<section className={styles.section} aria-label="Схема территории базы">

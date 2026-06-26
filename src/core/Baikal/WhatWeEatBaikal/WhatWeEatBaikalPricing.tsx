@@ -6,7 +6,7 @@ import { NA_BAZE_BAIKAL } from '@/core/PricesPageBaikal/PricesPageBaikal.constan
 
 import * as styles from './WhatWeEatBaikalPricing.css';
 
-const PHOTO = '/images/baikal/chto-edim5.jpg';
+const PHOTO = '/images/baikal/chto-edim5.webp';
 
 export const WhatWeEatBaikalPricing: FC = () => {
 	const { guestsStaying, guestsNotStaying } = NA_BAZE_BAIKAL;

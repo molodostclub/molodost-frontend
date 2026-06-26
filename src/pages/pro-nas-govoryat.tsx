@@ -6,7 +6,7 @@ export default function ChtoMyEdim() {
     <>
       <PageMeta title="О нас говорят" />
       <InnerPageHeader />
-      <PageCover src="/images/pro-nas-govoryat-cover.jpg" />
+      <PageCover src="/images/pro-nas-govoryat-cover.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'О нас говорят' }]} />
       <TalkAboutUs />
       <Footer />

@@ -11,11 +11,6 @@ const CookieConsent = dynamic(
   { ssr: false },
 );
 
-const TravellineSearch = dynamic(
-  () => import('@/shared/components/TravellineSearch').then((module) => module.TravellineSearch),
-  { ssr: false },
-);
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -42,7 +37,6 @@ export default function App({ Component, pageProps }: AppProps) {
         }}
       />
       <CookieConsent />
-      <TravellineSearch />
     </>
   );
 }

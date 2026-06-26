@@ -17,7 +17,7 @@ export const OurIdols: FC = () => {
           <Image
             fill
             alt="Наши кумиры"
-            src={isTablet ? '/images/our-symbol.jpg' : '/images/our-symbol-mobile.jpg'}
+            src={isTablet ? '/images/our-symbol.webp' : '/images/our-symbol-mobile.webp'}
             className={styles.image}
             unoptimized
           />
@@ -38,7 +38,7 @@ export const OurIdols: FC = () => {
           <Image
             fill
             alt="Наши кумиры"
-            src={isTablet ? '/images/our-idols.jpg' : '/images/our-idols-mobile.jpg'}
+            src={isTablet ? '/images/our-idols.webp' : '/images/our-idols-mobile.webp'}
             className={styles.image}
             unoptimized
           />

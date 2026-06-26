@@ -37,7 +37,7 @@ export default function Baikal(pageProps: Props) {
 		<>
 			<PageMeta title="Молодость на Байкале" />
 			<InnerPageHeader />
-			<PageCover src="/images/baikal/main.png" />
+			<PageCover src="/images/baikal/main.webp" />
 			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Байкал' }]} />
 			<PageContainer>
 				<BaikalPage {...pageProps} />
@@ -47,22 +47,6 @@ export default function Baikal(pageProps: Props) {
 	);
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	try {
-		const data = await getHousesSplit();
-		return {
-			props: { ...data },
-			revalidate: 60,
-		};
-	} catch (error) {
-		console.warn('getHousesSplit уже вернул безопасный объект, но поймано исключение:', error);
-		return {
-			props: {
-				individual: [],
-				inHouse: [],
-				luxiping: [],
-			},
-			revalidate: 300,
-		};
-	}
-};
+export const getStaticProps: GetStaticProps<Props> = () => ({
+	props: getHousesSplit(),
+});

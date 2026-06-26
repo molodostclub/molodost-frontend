@@ -2,11 +2,6 @@ import { globalFontFace, globalStyle } from '@vanilla-extract/css';
 
 import { fonts, vars } from './theme.css';
 
-globalStyle('.x-tl-booking-widget-container', {
-  top: "unset !important",
-  bottom: 20
-})
-
 globalStyle('html', {
   scrollBehavior: "smooth",
   overflowX: "hidden",

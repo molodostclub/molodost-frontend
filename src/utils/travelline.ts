@@ -1,8 +1,5 @@
 export const TRAVELLINE_CONTEXT_ID = 'TL-INT-molodost-club_2025-04-29';
 
-/** Container id for the global entry widget (floating booking button). */
-export const BOOKING_WIDGET_CONTAINER_ID = 'tl-search-form';
-
 /** Container id for the full booking form on /booking. */
 export const BOOKING_FORM_CONTAINER_ID = 'tl-booking-form';
 
@@ -12,11 +9,10 @@ const LOADER_HOSTS = [
 	'ibe.tlintegration.com',
 ];
 
-/** Early bootstrap: queue both widgets before React mounts their containers. */
+/** Early bootstrap: queue booking form before React mounts its container. */
 export const TRAVELLINE_ENTRY_WIDGET_BOOTSTRAP = `(function(w){
 	var q=[
 		["setContext", "${TRAVELLINE_CONTEXT_ID}", "ru"],
-		["embed", "search-form", { container: "${BOOKING_WIDGET_CONTAINER_ID}" }],
 		["embed", "booking-form", { container: "${BOOKING_FORM_CONTAINER_ID}" }]
 	];
 	var h=${JSON.stringify(LOADER_HOSTS)};
@@ -143,12 +139,7 @@ function isBookingRendered(containerId: string): boolean {
 	const el = document.getElementById(containerId);
 	if (!el) return false;
 	if (el.childElementCount > 0) return true;
-	// Fallback на случай, если TravelLine рендерит отложенно через вложенные контейнеры.
 	return Boolean(el.querySelector('.x-tl-booking-widget-container, iframe, form'));
-}
-
-function isBookingWidgetRendered(): boolean {
-	return Boolean(document.querySelector('.x-tl-booking-widget-container'));
 }
 
 function bootTravellineBookingForm(containerId: string): void {
@@ -158,13 +149,6 @@ function bootTravellineBookingForm(containerId: string): void {
 	if (!container || isBookingRendered(containerId)) return;
 
 	queueEmbed('booking-form', containerId);
-}
-
-function bootTravellineBookingWidget(containerId: string): void {
-	if (typeof window === 'undefined') return;
-	if (isBookingWidgetRendered()) return;
-
-	queueEmbed('search-form', containerId);
 }
 
 function mountTravellineWidget(
@@ -195,14 +179,4 @@ function mountTravellineWidget(
 
 export function mountTravellineBookingForm(containerId: string): () => void {
 	return mountTravellineWidget(bootTravellineBookingForm, containerId, isBookingRendered);
-}
-
-export function mountTravellineBookingWidget(
-	containerId: string = BOOKING_WIDGET_CONTAINER_ID,
-): () => void {
-	return mountTravellineWidget(
-		bootTravellineBookingWidget,
-		containerId,
-		() => isBookingWidgetRendered(),
-	);
 }

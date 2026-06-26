@@ -6,7 +6,7 @@ export default function AnketaThanksPage() {
     <>
       <PageMeta title="Спасибо!" />
       <InnerPageHeader />
-      <PageCover src="/images/main-cover2.jpg" />
+      <PageCover src="/images/main-cover2.webp" />
       <Breadcrumb
         items={[
           { label: 'Главная', href: '/' },
