@@ -5,6 +5,9 @@ FROM base AS builder
 
 WORKDIR /app
 
+# Native modules (sharp, better-sqlite3) on Alpine
+RUN apk add --no-cache libc6-compat python3 make g++
+
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
