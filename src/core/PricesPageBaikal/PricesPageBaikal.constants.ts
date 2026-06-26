@@ -350,7 +350,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				durationText: null,
 				notes: [],
 				pictures: [],
-				staticCoverPaths: ['/images/baikal/turka/image%2030.jpg'],
+				staticCoverPaths: ['/images/baikal/turka/image%2030.webp'],
 				footerDuration: '',
 				footerPrice: '8\u00A0500\u00A0₽ / чел',
 		},
@@ -403,7 +403,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				durationText: null,
 				notes: [],
 				pictures: [],
-				staticCoverPaths: ['/images/baikal/kvadro/image%2093.jpg'],
+				staticCoverPaths: ['/images/baikal/kvadro/image%2093.webp'],
 				priceFooterRows: [
 					{
 						variant: 'threeCols',

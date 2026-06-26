@@ -1,4 +1,4 @@
-FROM node:20-alpine AS base
+FROM node:22-alpine AS base
 
 # sharp (native) на Alpine: без libc6-compat падает в медленный squoosh-wasm
 RUN apk add --no-cache libc6-compat
@@ -6,8 +6,6 @@ RUN apk add --no-cache libc6-compat
 FROM base AS builder
 
 WORKDIR /app
-
-RUN apk add --no-cache vips-dev
 
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
@@ -26,8 +24,6 @@ RUN npm run build
 FROM base AS runner
 
 WORKDIR /app
-
-RUN apk add --no-cache vips
 
 # nginx proxy_cache для /_next/image (рекомендация для prod):
 #   proxy_cache_path /var/cache/nginx/images levels=1:2 keys_zone=img_cache:50m max_size=500m inactive=30d;
