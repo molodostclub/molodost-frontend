@@ -16,6 +16,11 @@ const nextConfig = {
   poweredByHeader: false,
   output: 'standalone',
   staticPageGenerationTimeout: 90,
+  experimental: {
+    outputFileTracingIncludes: {
+      '/_next/image': ['./node_modules/sharp/**/*', './node_modules/@img/**/*'],
+    },
+  },
   
   // Явно отключаем dev-режим в production
   // Это предотвращает попытки подключения к dev server на порту 38559
@@ -30,20 +35,16 @@ const nextConfig = {
   }),
 
   images: {
-    // Уменьшаем время кеширования с года до 7 дней для лучшей ротации
-    minimumCacheTTL: 604800, // 7 дней в секундах (было 31536000 - год)
-    // Оптимизируем размеры изображений - оставляем только нужные
-    // Ограничиваем максимальные размеры для предотвращения обработки слишком больших изображений
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048], // Максимум 2048px
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Максимум 384px
-    formats: ['image/webp', 'image/avif'],
-    // Ограничиваем качество для уменьшения нагрузки
+    // Кеш оптимизированных вариантов на диске Next.js (для внешних/не-prebuild src)
+    minimumCacheTTL: 2592000, // 30 дней
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Только WebP: AVIF-кодирование в 5–10× медленнее sharp, источники уже WebP после prebuild
+    formats: ['image/webp'],
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // В production используем только production домены
     domains: process.env.NODE_ENV === 'production' ? [] : ['127.0.0.1'],
     remotePatterns: [],
-    // Отключаем unoptimized в production - используем только оптимизацию Next.js
     unoptimized: false,
   },
 
@@ -66,8 +67,8 @@ const nextConfig = {
       {
         source: '/_next/image',
         headers: [
-          // Уменьшаем время кеширования в браузере до 7 дней (совпадает с minimumCacheTTL)
-          { key: 'Cache-Control', value: 'public, max-age=604800, s-maxage=604800, immutable' },
+          // Совпадает с minimumCacheTTL; для nginx см. комментарий в Dockerfile
+          { key: 'Cache-Control', value: 'public, max-age=2592000, s-maxage=2592000, immutable' },
           { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
         ],
       },

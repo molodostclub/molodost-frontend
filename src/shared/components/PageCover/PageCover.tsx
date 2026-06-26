@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { MobileHeaderMenu } from '@shared/components/InnerPageHeader/MobileHeaderMenu';
+import { isPrebuiltStaticImage } from '@utils';
 import * as styles from './PageCover.css';
 import Image from 'next/image';
 
@@ -21,8 +22,10 @@ export const PageCover: FC<Props> = ({
   loader,
   mobileMenu = true,
   priority = true,
-  sizes = '100vw',
+  sizes = '(max-width: 768px) 100vw, (max-width: 1920px) 90vw, 1920px',
 }) => {
+  const skipOptimization = unoptimized || isPrebuiltStaticImage(src);
+
   return (
     <div className={styles.container}>
       {!!src ? (
@@ -31,7 +34,7 @@ export const PageCover: FC<Props> = ({
             priority={priority}
             fill
             src={src}
-            unoptimized={unoptimized}
+            unoptimized={skipOptimization}
             loader={loader}
             alt={alt}
             sizes={sizes}

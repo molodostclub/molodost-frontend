@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { isPrebuiltStaticImage } from '@utils';
 import * as styles from './PageCoverSmall.css';
 import Image from 'next/image';
 
@@ -11,6 +12,8 @@ type Props = {
 };
 
 export const PageCoverSmall: FC<Props> = ({ src, alt = '', unoptimized = false, loader }) => {
+  const skipOptimization = unoptimized || isPrebuiltStaticImage(src);
+
   return (
     <div className={styles.container}>
       {!!src ? (
@@ -19,7 +22,7 @@ export const PageCoverSmall: FC<Props> = ({ src, alt = '', unoptimized = false, 
             priority
             fill
             src={src}
-            unoptimized={unoptimized}
+            unoptimized={skipOptimization}
             loader={loader}
             alt={alt}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw"
