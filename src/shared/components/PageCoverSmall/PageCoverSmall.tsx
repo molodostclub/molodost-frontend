@@ -32,7 +32,6 @@ export const PageCoverSmall: FC<Props> = ({ src, alt = '', unoptimized, loader }
                 src={src}
                 alt={alt}
                 className={styles.imageStatic}
-                fetchpriority="high"
                 decoding="async"
               />
             ) : (
