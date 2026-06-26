@@ -1,21 +1,21 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 
 import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
-import { backendApi, getMediaLinkFromModel, getTripsList } from '@utils';
+import { getTripBySlug, getTripsList, resolveCmsPath } from '@utils';
 import { TripModel } from '@/shared/types';
 import { Trip } from '@/core/Trip';
 
 export default function TripPage({ trip }: { trip: TripModel }) {
-	if (!trip) return <div>❌ Страница не найдена</div>; // 💡 защита на уровне UI
+	if (!trip) return <div>❌ Страница не найдена</div>;
 
-	const coverUrl = trip.attributes.pictures.data?.length ? getMediaLinkFromModel(trip.attributes.pictures.data[0]) : null;
+	const coverUrl = trip.pictures[0] ? resolveCmsPath(trip.pictures[0]) : null;
 
 	return (
 		<>
-			<PageMeta title={trip.attributes.title} />
+			<PageMeta title={trip.title} />
 			<InnerPageHeader />
 			<PageCover src={coverUrl} unoptimized />
-			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Как мы путешествуем', href: '/kak-my-puteshevstvuem' }, { label: trip.attributes.title }]} />
+			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Как мы путешествуем', href: '/kak-my-puteshevstvuem' }, { label: trip.title }]} />
 			<Trip trip={trip} />
 			<Footer />
 		</>
@@ -26,37 +26,19 @@ export const getStaticProps: GetStaticProps<{ trip: TripModel | null }, { slug: 
 	const slug = params?.slug;
 	if (!slug) return { notFound: true };
 
-	try {
-		const res = await backendApi.get(`slugify/slugs/trip/${slug}`, {
-			params: { populate: '*' },
-			timeout: 8000,
-			validateStatus: (s) => s < 500,
-		});
+	const trip = getTripBySlug(slug);
+	if (!trip) return { notFound: true };
 
-		const trip = res.data?.data as TripModel | undefined;
-		if (!trip) return { notFound: true };
-
-		return { props: { trip }, revalidate: 60 };
-	} catch {
-		return { notFound: true };
-	}
+	return { props: { trip } };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	try {
-		const trips = await getTripsList();
-		const paths = trips
-			.filter((t) => !!t.attributes?.slug)
-			.map((trip) => ({
-				params: { slug: trip.attributes.slug },
-			}));
+export const getStaticPaths = () => {
+	const trips = getTripsList();
+	const paths = trips
+		.filter((t) => !!t.slug)
+		.map((trip) => ({
+			params: { slug: trip.slug },
+		}));
 
-		return { paths, fallback: 'blocking' };
-	} catch (error: unknown) {
-		console.error('🔥 Ошибка при загрузке getStaticPaths для trips:', error instanceof Error ? error.message : error);
-		return {
-			paths: [],
-			fallback: 'blocking',
-		};
-	}
+	return { paths, fallback: false };
 };

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { SectionHeading } from '@uikit';
-import { getMediaLinkFromModel } from '@utils';
+import { resolveCmsPath } from '@utils';
 import { EcosystemEntryModel } from '@shared/types';
 import { EcosystemCard } from './EcosystemCard';
 import * as styles from './OurEcosystem.css';
@@ -48,11 +48,11 @@ export const OurEcosystem: FC<Props> = ({ ecosystemEntries }) => {
 				</p>
 			</div>
 			<div className={styles.mapImageWrap}>
-				<Image src="/images/ecosystem/map.png" alt="" width={740} height={400} className={styles.mapImage} unoptimized />
+				<Image src="/images/ecosystem/map.webp" alt="" width={740} height={400} className={styles.mapImage} unoptimized />
 			</div>
 			<ul className={styles.list}>
 				{ecosystemEntries.map((ecosystemEntry) => {
-					const cover = ecosystemEntry.cover.data ? getMediaLinkFromModel(ecosystemEntry.cover.data, 'medium') : null;
+					const cover = ecosystemEntry.cover ? resolveCmsPath(ecosystemEntry.cover) : null;
 
 					return (
 						<li key={ecosystemEntry.id}>

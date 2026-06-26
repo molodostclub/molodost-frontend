@@ -7,7 +7,7 @@ export default function BookingPage() {
     <>
       <PageMeta title="Забронировать проживание" />
       <InnerPageHeader />
-      <PageCover src="/images/booking/main.jpg" />
+      <PageCover src="/images/booking/main.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Забронировать' }]} />
       <Booking />
       <Footer />

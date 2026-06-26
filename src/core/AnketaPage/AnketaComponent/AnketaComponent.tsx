@@ -8,7 +8,7 @@ import * as styles from './AnketaComponent.css';
 import cn from 'classnames';
 import { BaseCheckbox } from '@/shared/components/BaseCheckbox';
 import { Checkbox } from '@/shared/components/BaseCheckbox/types';
-import { FormState, backendApi, normalizeRuPhone } from '@/utils';
+import { FormState, normalizeRuPhone, submitFormRequest } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
 
@@ -445,7 +445,7 @@ export function AnketaComponent() {
 		try {
 			abortRef.current?.abort();
 			abortRef.current = new AbortController();
-			const { status } = await backendApi.post('form-requests', formRequestObject, {
+			const status = await submitFormRequest(formRequestObject, {
 				signal: abortRef.current.signal,
 			});
 

@@ -9,12 +9,19 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/optimize-images.js",
+    "prebuild": "node scripts/optimize-images.js && node scripts/optimize-cms-images.js",
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p 3000",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.+(ts|tsx|json|css|md)\"",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "optimize-cms-images": "node scripts/optimize-cms-images.js",
+    "audit-images": "node scripts/audit-static-images.mjs && node scripts/audit-cms-images.mjs",
+    "audit:orphan-media": "node scripts/audit-orphan-media.mjs",
+    "audit:dead-code": "npx knip",
+    "restore-missing-images": "node scripts/restore-missing-images.mjs",
+    "import-content": "node scripts/migrate-strapi-export.mjs",
+    "import-content:backup": "node scripts/migrate-strapi-export.mjs --backup=../molodost-migration/backup-2026-06-26_06-29-54"
   },
   "browserslist": [
     "defaults, iOS >= 8.0"
@@ -26,7 +33,6 @@
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "@vanilla-extract/css": "1.11.0",
-    "axios": "1.4.0",
     "classnames": "^2.3.2",
     "embla-carousel": "8.0.0-rc02",
     "embla-carousel-react": "8.0.0-rc02",
@@ -44,6 +50,7 @@
   "devDependencies": {
     "@types/react-datepicker": "^4.15.0",
     "@vanilla-extract/next-plugin": "2.1.2",
+    "better-sqlite3": "^12.11.1",
     "husky": "^8.0.3",
     "prettier": "^2.8.8"
   }

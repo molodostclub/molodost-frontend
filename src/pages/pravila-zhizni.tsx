@@ -6,7 +6,7 @@ export default function PravilaKolivinga() {
     <>
       <PageMeta title="Правила жизни" />
       <InnerPageHeader />
-      <PageCover src="/images/pravila-zhizni/pravila_main.jpg" />
+      <PageCover src="/images/pravila-zhizni/pravila_main.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Правила жизни' }]} />
       <PravilaZhizni />
       <Footer />

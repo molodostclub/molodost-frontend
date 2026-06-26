@@ -7,7 +7,7 @@ export default function Anketa() {
     <>
       <PageMeta title="Промо" />
       <InnerPageHeader />
-      <PageCover src="/images/promo/promo-main.jpg" />
+      <PageCover src="/images/promo/promo-main.webp" />
       <Promo />
       <Footer />
     </>

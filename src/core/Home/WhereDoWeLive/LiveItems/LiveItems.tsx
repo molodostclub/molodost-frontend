@@ -5,7 +5,7 @@ import Image from 'next/image';
 import * as styles from './LiveItems.css';
 import { Icon } from '@/uikit/icons';
 import { HouseModel } from '@/shared/types';
-import { getMediaLinkFromModel } from '@/utils';
+import { resolveCmsPath } from '@/utils';
 import { CardsCarousel } from '@/shared/components';
 
 type Props = {
@@ -16,9 +16,7 @@ export const LiveItems: FC<Props> = ({ houses }) => {
   return (
     <CardsCarousel itemsCount={houses.length}>
       {houses.map((house) => {
-        const { data } = house.attributes.pictures;
-
-        const src = data ? getMediaLinkFromModel(data[0].attributes, 'medium') : null;
+        const src = house.pictures[0] ? resolveCmsPath(house.pictures[0]) : null;
 
         return (
           <Link href="/rooms" key={house.id} className={styles.item}>
@@ -29,31 +27,30 @@ export const LiveItems: FC<Props> = ({ houses }) => {
                   src={src}
                   alt=""
                   unoptimized
-                  // loader={({ src }) => src}
                   className={styles.itemImage}
                 />
               )}
             </div>
             <div className={styles.itemContent}>
               <div className={styles.itemMainInfo}>
-                <span className={styles.itemTitle}>{house.attributes.title}</span>
+                <span className={styles.itemTitle}>{house.title}</span>
                 <span className={styles.itemDescription}>
-                  {house.attributes.description}
+                  {house.description}
                 </span>
               </div>
               <div className={styles.itemPriceWrapper}>
                 <div className={styles.itemCapacity}>
                   <span className={styles.itemPrice}>
-                    {house.attributes.peopleMin < 2 ? (
+                    {house.peopleMin < 2 ? (
                       <>
                         <p>
-                          {house.attributes.peopleMin}-{house.attributes.peopleMax}
+                          {house.peopleMin}-{house.peopleMax}
                         </p>
                       </>
                     ) : (
                       <>
                         <p>
-                          {house.attributes.peopleMax}-{house.attributes.peopleMin}
+                          {house.peopleMax}-{house.peopleMin}
                         </p>
                       </>
                     )}
@@ -61,7 +58,7 @@ export const LiveItems: FC<Props> = ({ houses }) => {
                   <Icon name="user" className={styles.itemCapacityIcon} />
                 </div>
                 <span className={styles.itemPrice}>
-                  {house.attributes.area} м² / от {house.attributes.basePrice} ₽
+                  {house.area} м² / от {house.basePrice} ₽
                 </span>
               </div>
             </div>

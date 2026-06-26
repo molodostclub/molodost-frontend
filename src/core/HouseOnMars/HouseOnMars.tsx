@@ -21,7 +21,7 @@ export const HouseOnMars: FC = () => {
 				</div>
 			</FlexContainer>
 			<div className={cn(indent.tablet_mt_10, indent.mt_6, styles.imageWrapper)}>
-				<Image fill alt="Равнина" src="/images/house-on-mars/image-1-new.jpg" className={styles.image} unoptimized />
+				<Image fill alt="Равнина" src="/images/house-on-mars/image-1-new.webp" className={styles.image} unoptimized />
 			</div>
 			<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
 				<SectionHeading color="brand">Мы будем искать новое в вечном.</SectionHeading>
@@ -44,13 +44,13 @@ export const HouseOnMars: FC = () => {
 			</div>
 			<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
 				<div className={cn(styles.imageWrapper)}>
-					<Image fill alt="Пруд" src="/images/house-on-mars/new-arc.jpg" className={styles.image} unoptimized />
+					<Image fill alt="Пруд" src="/images/house-on-mars/new-arc.webp" className={styles.image} unoptimized />
 				</div>
 			</div>
 
 			<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
 				<div className={cn(styles.imageWrapper)}>
-					<Image fill alt="Пруд" src="/images/house-on-mars/1.jpg" className={styles.image} unoptimized />
+					<Image fill alt="Пруд" src="/images/house-on-mars/1.webp" className={styles.image} unoptimized />
 				</div>
 				<div className={cn(styles.border, indent.mt_6, indent.tablet_mt_13)}></div>
 				<Description colorBrand className={cn(indent.mt_6, indent.tablet_mt_8, indent.mb_6, indent.tablet_mb_8)}>
@@ -62,7 +62,7 @@ export const HouseOnMars: FC = () => {
 				<SectionHeading>Где живем?</SectionHeading>
 				<FlexContainer desktopGap={20} gap={30} flexDirection="column" desktopFlexDirection="row" className={cn(indent.tablet_mt_15, indent.mt_6)}>
 					<div className={cn(styles.imageWrapper, styles.halfWidthInTablet)}>
-						<Image fill alt="дом" src="/images/house-on-mars/5.jpg" className={styles.image} unoptimized />
+						<Image fill alt="дом" src="/images/house-on-mars/5.webp" className={styles.image} unoptimized />
 					</div>
 					<Description className={styles.halfWidthInTablet}>
 						В&nbsp;нашем новом гостевом доме &laquo;Молодость на&nbsp;Марсе&raquo; в&nbsp;селе Тобелер в&nbsp;20&nbsp;км от&nbsp;границы с&nbsp;Монголией. Мы&nbsp;как всегда пытались проникнуть в&nbsp;суть места, и&nbsp;наш шеф-дизайнер Оля Дмитриева искала и&nbsp;соединяла архаичные
@@ -71,14 +71,14 @@ export const HouseOnMars: FC = () => {
 				</FlexContainer>
 				<FlexContainer desktopGap={20} gap={30} flexDirection="column" desktopFlexDirection="row" className={cn(indent.tablet_mt_13, indent.mt_6)}>
 					<div className={cn(styles.imageWrapper, styles.halfWidthInTablet)}>
-						<Image fill alt="стейк" src="/images/house-on-mars/image-5.jpg" className={styles.image} unoptimized />
+						<Image fill alt="стейк" src="/images/house-on-mars/image-5.webp" className={styles.image} unoptimized />
 					</div>
 					<Description className={styles.halfWidthInTablet}>
 						Гастро-трактир &laquo;Довольный дракон&raquo; создал специальное степное меню из&nbsp;местных и&nbsp;заморских продуктов. Наши кош-агачские бараны чудесно запивать хоть Сан-пелегрино, хоть нашим фирменным можжевеловым квасом, хоть аперольчиком с&nbsp;апельсинчиком.
 					</Description>
 				</FlexContainer>
 				<div className={cn(indent.tablet_mt_15, indent.mt_6, styles.imageWrapper)}>
-					<Image fill alt="номер" src="/images/house-on-mars/image-6.jpg" className={styles.image} unoptimized />
+					<Image fill alt="номер" src="/images/house-on-mars/image-6.webp" className={styles.image} unoptimized />
 				</div>
 				<div className={cn(styles.border, indent.mt_6, indent.tablet_mt_13)}></div>
 				<Description colorBrand className={cn(indent.mt_6, indent.tablet_mt_8, indent.mb_6, indent.tablet_mb_8)}>
@@ -183,7 +183,7 @@ export const HouseOnMars: FC = () => {
 			<div className={cn(styles.border, indent.mb_6, indent.tablet_mb_13, indent.mt_6, indent.tablet_mt_8)}></div>
 
 			<div className={cn(indent.tablet_mt_15, indent.mt_6)}>
-				<InfoCard image="/images/house-on-mars/image-7.jpg" title="Худрук «Молодости» Алексей Карахан:" shade={false} smallTitle smallHeight />
+				<InfoCard image="/images/house-on-mars/image-7.webp" title="Худрук «Молодости» Алексей Карахан:" shade={false} smallTitle smallHeight />
 				<Description className={cn(indent.mt_6, indent.tablet_mt_8)}>
 					&laquo;Создать &laquo;Молодость на&nbsp;Марсе&raquo; было моей главной географической мечтой, когда мы&nbsp;задумали построить нашу эко-систему. Теперь можно просто прилететь на&nbsp;Алтай, через 15&nbsp;минут оказаться на&nbsp;нашей культурной турбазе на&nbsp;берегу Катуни,
 					взять машину в&nbsp;нашем автопрокате &laquo;Бывалый рейнджер&raquo;, получить все ценные советы от&nbsp;наших следопытов и&nbsp;отправиться на&nbsp;Марс по&nbsp;одной из&nbsp;самых красивых дорог в&nbsp;мире. По&nbsp;Чуйскому тракту теперь можно добраться до&nbsp;самых

@@ -37,7 +37,7 @@ export default function MarsPage(pageProps: Props) {
 		<>
 			<PageMeta title="Приют на марсе" />
 			<InnerPageHeader />
-			<PageCover src="/images/mars/main.jpeg" />
+			<PageCover src="/images/mars/main.webp" />
 			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Марс' }]} />
 			<PageContainer>
 				<Mars {...pageProps} />
@@ -51,27 +51,6 @@ export default function MarsPage(pageProps: Props) {
 	);
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	try {
-		const data = await getHousesSplit();
-
-		return {
-			props: { ...data },
-			revalidate: 3600, // 1 час - было 1 секунда, это вызывало постоянную регенерацию и 100% CPU
-		};
-	} catch (error: any) {
-		console.error('🔥 Ошибка при загрузке данных для MarsPage:', error.message);
-		if (error?.response?.data) {
-			console.error('Ответ от API:', error.response.data);
-		}
-
-		return {
-			props: {
-				individual: [],
-				inHouse: [],
-				luxiping: [],
-			},
-			revalidate: 60,
-		};
-	}
-};
+export const getStaticProps: GetStaticProps<Props> = () => ({
+	props: getHousesSplit(),
+});

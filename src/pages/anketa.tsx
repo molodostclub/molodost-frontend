@@ -7,7 +7,7 @@ export default function Anketa() {
     <>
       <PageMeta title="Анкета" />
       <InnerPageHeader />
-      <PageCover src="/images/anketa/large.jpeg" />
+      <PageCover src="/images/anketa/large.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Анкета Алтай' }]} />
       <AnketaPage />
       <Footer />

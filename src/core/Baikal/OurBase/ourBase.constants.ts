@@ -9,42 +9,42 @@ export type OurBaseCardData = {
 /** Порядок и тексты — по макету «Наша база» (2×3) */
 export const OUR_BASE_CARDS: OurBaseCardData[] = [
 	{
-		imageSrc: '/images/baikal/dom-priemov.jpg',
+		imageSrc: '/images/baikal/dom-priemov.webp',
 		imageAlt: 'Дом приёмов',
 		title: 'Дом приёмов',
 		description:
 			'«Дом приемов» с гастротрактиром, кофейней, концепт стором (магазин с нашей фирменной продукцией) и потрясающей видовой верандой.',
 	},
 	{
-		imageSrc: '/images/baikal/srub-dekabristov.jpg',
+		imageSrc: '/images/baikal/srub-dekabristov.webp',
 		imageAlt: 'Сруб декабристов',
 		title: 'Сруб декабристов',
 		description:
 			'«Сруб Декабристов» с каминной, библиотекой, конференс - комнатой и массажным кабинетом. Днем - это место уединения, вечером мы поем здесь караоке и слушаем концерты.',
 	},
 	{
-		imageSrc: '/images/baikal/sport-ploshadki2.jpg',
+		imageSrc: '/images/baikal/sport-ploshadki2.webp',
 		imageAlt: 'Детская и спорт площадки',
 		title: 'Детская и спорт площадки',
 		description:
 			'Здесь вы всегда можете поиграть в волейбол, падел, настольный теннис, запустить воздушного змея и еще много всего.',
 	},
 	{
-		imageSrc: '/images/baikal/dom-zvuka-tishini.jpg',
+		imageSrc: '/images/baikal/dom-zvuka-tishini.webp',
 		imageAlt: 'Дом звука и тишины',
 		title: 'Дом звука и тишины',
 		description:
 			'Уютное пространство для уединения с панорамным видом на озеро. Здесь мы медитируем под тибетские чаши в «Доме звука», глядя на бесконечный горизонт.',
 	},
 	{
-		imageSrc: '/images/baikal/rozoviy-flamingo.jpg',
+		imageSrc: '/images/baikal/rozoviy-flamingo.webp',
 		imageAlt: 'Пляжный клуб «Розовый фламинго»',
 		title: 'Пляжный клуб «Розовый фламинго»',
 		description:
 			'Пляжные полотенца, сап борды и лучшие напитки на Берегу Байкала. С 11:00 до 18:00 на посту сертифицированный спасатель на воде.',
 	},
 	{
-		imageSrc: '/images/baikal/banniy-kompleks.jpg',
+		imageSrc: '/images/baikal/banniy-kompleks.webp',
 		imageAlt: 'Банный комплекс «Благодать»',
 		title: 'Банный комплекс «Благодать»',
 		description:

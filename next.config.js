@@ -42,21 +42,7 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     // В production используем только production домены
     domains: process.env.NODE_ENV === 'production' ? [] : ['127.0.0.1'],
-    remotePatterns: [
-      // В production разрешаем только production домены
-      ...(process.env.NODE_ENV === 'production' 
-        ? [
-            { protocol: 'https', hostname: 'admin.molodost.club', port: '', pathname: '**' },
-          ]
-        : [
-            { protocol: 'http', hostname: '0.0.0.0', port: '1337', pathname: '**' },
-            { protocol: 'http', hostname: 'localhost', port: '1337', pathname: '**' },
-            { protocol: 'http', hostname: '127.0.0.1', port: '1337', pathname: '**' },
-            { protocol: 'https', hostname: 'admin.molodost.club', port: '', pathname: '**' },
-            { protocol: 'http', hostname: 'admin.molodost.club', port: '1337', pathname: '**' },
-          ]
-      ),
-    ],
+    remotePatterns: [],
     // Отключаем unoptimized в production - используем только оптимизацию Next.js
     unoptimized: false,
   },
@@ -116,19 +102,6 @@ const nextConfig = {
           resourceRegExp: /^(fs|child_process|path|os)$/,
         })
       );
-
-      // Исключаем Node.js-специфичные утилиты из клиентского бандла
-      // Заменяем на stub-файлы чтобы избежать ошибок импорта
-      const originalAlias = config.resolve.alias || {};
-      config.resolve.alias = {
-        ...originalAlias,
-      };
-      
-      // Заменяем только при точном совпадении пути
-      const utilsPath = path.resolve(__dirname, 'src/utils');
-      config.resolve.alias['@utils/imageCache$'] = path.join(utilsPath, 'imageCache.stub.ts');
-      config.resolve.alias['@utils/workerMonitor$'] = path.join(utilsPath, 'workerMonitor.stub.ts');
-      config.resolve.alias['@utils/initImageCache$'] = path.join(utilsPath, 'initImageCache.stub.ts');
     }
 
     config.module.rules.push({

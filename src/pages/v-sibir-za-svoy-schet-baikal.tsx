@@ -6,7 +6,7 @@ export default function PricesBaikal() {
     <>
       <PageMeta title="В Сибирь за свой счёт — Байкал" />
       <InnerPageHeader />
-      <PageCover src="/images/baikal/main.png" />
+      <PageCover src="/images/baikal/main.webp" />
       <Breadcrumb
         items={[
           { label: 'Главная', href: '/' },

@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { MediaUploadModel } from '@/shared/types';
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import * as styles from './Housing.css';
 import useEmblaCarousel, { EmblaCarouselType } from 'embla-carousel-react';
-import { getMediaLinkFromModel } from '@/utils';
+import { resolveCmsPath } from '@/utils';
 import Image from 'next/image';
 import { useIsTablet } from '@/shared/hooks';
 
@@ -28,9 +27,9 @@ const LazyImage: FC<{ src: string; inView: boolean }> = ({ inView, src }) => {
 };
 
 type Props = {
-  pictures: MediaUploadModel[]
-  video: MediaUploadModel | null | undefined
-  videoPreview: MediaUploadModel | null | undefined
+  pictures: string[]
+  video?: string
+  videoPreview?: string
 }
 
 export const HouseCarousel: FC<Props> = ({ pictures, video, videoPreview }) => {
@@ -109,9 +108,9 @@ export const HouseCarousel: FC<Props> = ({ pictures, video, videoPreview }) => {
       emblaApi.off('select', onEmblaUpdate);
       emblaApi.off('reInit', onEmblaUpdate);
     };
-  }, [emblaApi, onEmblaUpdate]); // Исправлено: setScrollSnaps (setState функция) не должна быть в зависимостях
+  }, [emblaApi, onEmblaUpdate]);
 
-  const getPosterUrl = () => videoPreview ? getMediaLinkFromModel(videoPreview.attributes) : undefined
+  const posterUrl = videoPreview ? resolveCmsPath(videoPreview) : undefined;
 
   return (
     <>
@@ -126,12 +125,12 @@ export const HouseCarousel: FC<Props> = ({ pictures, video, videoPreview }) => {
           <div className={styles.carousel.container}>
 
             {video && (
-              <div key={`${video.id}`} className={styles.carousel.item}>
+              <div key={video} className={styles.carousel.item}>
                 <div className={styles.carousel.videoContainer}>
                   <video
                     ref={videoEl}
-                    src={getMediaLinkFromModel(video.attributes)}
-                    poster={getPosterUrl()}
+                    src={resolveCmsPath(video)}
+                    poster={posterUrl}
                     className={styles.carousel.video}
                     controls
                   ></video>
@@ -139,11 +138,11 @@ export const HouseCarousel: FC<Props> = ({ pictures, video, videoPreview }) => {
               </div>
             )}
 
-            {pictures.map((media, index) => {
-              const src = getMediaLinkFromModel(media.attributes, 'medium');
+            {pictures.map((picture, index) => {
+              const src = resolveCmsPath(picture);
 
               return (
-                <div key={`${media.id}_${index}`} className={styles.carousel.item}>
+                <div key={`${picture}_${index}`} className={styles.carousel.item}>
                   <div className={styles.carousel.imageContainer}>
                     <LazyImage src={src} inView={slidesInView.indexOf(index) > -1} />
                   </div>

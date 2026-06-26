@@ -6,7 +6,7 @@ export default function AboutPage() {
 		<>
 			<PageMeta title="О нас" />
 			<InnerPageHeader />
-			<PageCover src="/images/o-nas.jpg" />
+			<PageCover src="/images/o-nas.webp" />
 			<Breadcrumb
 				items={[{ label: 'Главная', href: '/' }, { label: 'О нас' }]}
 			/>

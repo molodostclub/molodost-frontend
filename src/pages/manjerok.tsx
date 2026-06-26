@@ -10,7 +10,7 @@ export default function ManjerokPage({ individual, inHouse, luxiping, trips }: P
 		<>
 			<PageMeta title="Молодость в Манжероке" />
 			<InnerPageHeader />
-			<PageCover src="/images/main-cover2.jpg" />
+			<PageCover src="/images/main-cover2.webp" />
 			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Экосистема Алтай', href: '/nasha-ekosistema' }, { label: 'Молодость в Манжероке' }]} />
 			<Manjerok houses={{ individual, inHouse, luxiping }} trips={trips} />
 			<Footer />
@@ -18,24 +18,9 @@ export default function ManjerokPage({ individual, inHouse, luxiping, trips }: P
 	);
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	try {
-		const [housesData, trips] = await Promise.all([getHousesSplit(), getTripsSplit()]);
-		return {
-			props: { ...housesData, trips },
-			revalidate: 60,
-		};
-	} catch (error: unknown) {
-		const message = error instanceof Error ? error.message : 'Unknown error';
-		console.warn('getStaticProps error:', message);
-		return {
-			props: {
-				individual: [],
-				inHouse: [],
-				luxiping: [],
-				trips: { allDay: [], notAllDay: [] },
-			},
-			revalidate: 300,
-		};
-	}
-};
+export const getStaticProps: GetStaticProps<Props> = () => ({
+	props: {
+		...getHousesSplit(),
+		trips: getTripsSplit(),
+	},
+});

@@ -6,11 +6,9 @@ import * as styles from './PromoComponent.css';
 import cn from 'classnames';
 import { BaseCheckbox } from '@/shared/components/BaseCheckbox';
 import { Checkbox } from '@/shared/components/BaseCheckbox/types';
-import { FormState, normalizeRuPhone } from '@/utils';
+import { FormState, normalizeRuPhone, submitFormRequest } from '@/utils';
 import Link from 'next/link';
 import { Description, SectionHeading } from '@/uikit';
-
-const API_BASE = process.env.NEXT_PUBLIC_STRAPI_API ?? 'https://admin.molodost.club/api';
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
@@ -115,13 +113,13 @@ export function PromoComponent() {
 
 		setIsSubmitting(true);
 		try {
-			const res = await fetch(`${API_BASE}/form-requests`, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ name, surname, whatsapp: `+${waDigits}` }),
+			const status = await submitFormRequest({
+				name,
+				surname,
+				whatsapp: `+${waDigits}`,
 			});
 
-			if (res.ok) onSuccess();
+			if (status >= 200 && status < 300) onSuccess();
 			else onError();
 		} catch {
 			onError();

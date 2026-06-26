@@ -39,6 +39,16 @@ export const image = style({
   objectFit: 'cover',
 });
 
+export const imageStatic = style([
+  image,
+  {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+  },
+]);
+
 export const cover = style([
   imageBase,
   {

@@ -5,7 +5,7 @@ export const OurEcosystem = () => {
   return (
     <div className={styles.container}>
       <InfoCard
-        image="/images/ecosystem/ecosystem-new.jpg"
+        image="/images/ecosystem/ecosystem-new.webp"
         title="Наша экосистема"
         linkTo="/nasha-ekosistema"
       />

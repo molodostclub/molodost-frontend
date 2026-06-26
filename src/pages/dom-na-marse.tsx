@@ -7,7 +7,7 @@ export default function HouseOnMarsPage() {
     <>
       <PageMeta title="Дом на марсе" />
       <InnerPageHeader />
-      <PageCover src="/images/house-on-mars-cover-new.jpg" />
+      <PageCover src="/images/house-on-mars-cover-new.webp" />
       <Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Марс', href: '/mars' }, { label: 'Дом на Марсе' }]} />
       <PageContainer>
         <HouseOnMars />

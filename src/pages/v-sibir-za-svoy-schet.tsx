@@ -6,7 +6,7 @@ export default function VSibirZaSvoySchet() {
 		<>
 			<PageMeta title="В Сибирь за свой счет" />
 			<InnerPageHeader />
-			<PageCover src="/images/v-sibir-za-svoy-schet-cover.png" />
+			<PageCover src="/images/v-sibir-za-svoy-schet-cover.webp" />
 			<Breadcrumb items={[{ label: 'Главная', href: '/' }, { label: 'Экосистема Алтай', href: '/nasha-ekosistema' }, { label: 'В Сибирь за свой счёт' }]} />
 			<PricesPage />
 			<Footer />

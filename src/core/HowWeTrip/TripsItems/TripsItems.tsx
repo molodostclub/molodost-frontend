@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import * as styles from './TripsItems.css';
 import { TripModel } from '@/shared/types';
-import { formatPriceWithSign, getMediaLinkFromModel } from '@/utils';
+import { formatPriceWithSign, resolveCmsPath } from '@/utils';
 import { CardsCarousel } from '@/shared/components';
 
 type Props = {
@@ -16,13 +16,10 @@ type Props = {
 export const TripsItems: FC<Props> = ({ trips, listClassName, carouselClassName }) => {
 	return (
 		<CardsCarousel itemsCount={trips.length} listClassName={listClassName} carouselClassName={carouselClassName}>
-			{trips.map(({ id, attributes }) => {
-				const { pictures, title, slug, durationText, priceAdult, subtitle, staticCoverPath, priceFooterLines } =
-					attributes;
+			{trips.map((trip) => {
+				const { id, pictures, title, slug, durationText, priceAdult, subtitle, staticCoverPath, priceFooterLines } = trip;
 
-				const urlFromCms = pictures?.data?.[0]
-					? getMediaLinkFromModel(pictures.data[0].attributes, 'medium')
-					: null;
+				const urlFromCms = pictures[0] ? resolveCmsPath(pictures[0]) : null;
 				const src = staticCoverPath ?? urlFromCms;
 
 				if (!slug && !staticCoverPath) {

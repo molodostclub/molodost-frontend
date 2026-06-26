@@ -17,7 +17,7 @@ export default function Home() {
 			<PageMeta isMainPage />
 			<InnerPageHeader isMainPage />
 			<PageCover
-				src="/images/main-cover2.jpg"
+				src="/images/main-cover2.webp"
 				priority
 				sizes="(max-width: 767px) 100vw, (max-width: 1200px) 100vw, 1200px"
 			/>

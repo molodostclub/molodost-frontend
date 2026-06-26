@@ -6,7 +6,7 @@ import { Housing } from '@/core/WhereWeLive/Housing/Housing';
 
 import * as styles from './LuxipingSection.css';
 
-const SIDE_PHOTO = '/images/baikal/luxiping.jpg';
+const SIDE_PHOTO = '/images/baikal/luxiping.webp';
 
 type Props = {
 	houses: HouseModel[];
