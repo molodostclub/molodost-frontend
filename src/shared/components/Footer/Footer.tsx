@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import * as styles from './Footer.css';
-import { trimTel, telHref, telegramHref } from '@/utils';
+import { trimTel, telHref, telegramHref } from '@/utils/contacts.utils';
 import { Description } from '@/uikit';
 
 const phoneNumber = '+7 964 700 21 12';

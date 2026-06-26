@@ -24,7 +24,7 @@
     "import-content:backup": "node scripts/migrate-strapi-export.mjs --backup=../molodost-migration/backup-2026-06-26_06-29-54"
   },
   "browserslist": [
-    "defaults, iOS >= 8.0"
+    "defaults"
   ],
   "engines": {
     "node": ">=20"

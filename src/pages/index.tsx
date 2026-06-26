@@ -1,15 +1,30 @@
-import { ClosingGallery } from '@core/Home/ClosingGallery';
-import { HowToGetHome } from '@core/Home/HowToGetHome';
-import { OurIdols } from '@core/Home/OurIdols';
-import { PageContainer } from '@core/Home/PageContainer';
-import { Postscriptum } from '@core/Home/Postscriptum';
+import dynamic from 'next/dynamic';
+
 import { TurkClubIntro } from '@core/Home/TurkClubIntro';
+import { PageContainer } from '@core/Home/PageContainer';
 import { Breadcrumb } from '@shared/components/Breadcrumb';
-import { Footer } from '@shared/components/Footer';
 import { InnerPageHeader } from '@shared/components/InnerPageHeader';
 import { PageCover } from '@shared/components/PageCover';
 import { PageMeta } from '@shared/components/PageMeta';
-import { SiberiaNavButtons } from '@shared/components/SiberiaNavButtons';
+
+const HowToGetHome = dynamic(() =>
+	import('@core/Home/HowToGetHome').then((mod) => ({ default: mod.HowToGetHome })),
+);
+const OurIdols = dynamic(() =>
+	import('@core/Home/OurIdols').then((mod) => ({ default: mod.OurIdols })),
+);
+const Postscriptum = dynamic(() =>
+	import('@core/Home/Postscriptum').then((mod) => ({ default: mod.Postscriptum })),
+);
+const ClosingGallery = dynamic(() =>
+	import('@core/Home/ClosingGallery').then((mod) => ({ default: mod.ClosingGallery })),
+);
+const SiberiaNavButtons = dynamic(() =>
+	import('@shared/components/SiberiaNavButtons').then((mod) => ({ default: mod.SiberiaNavButtons })),
+);
+const Footer = dynamic(() =>
+	import('@shared/components/Footer').then((mod) => ({ default: mod.Footer })),
+);
 
 export default function Home() {
 	return (

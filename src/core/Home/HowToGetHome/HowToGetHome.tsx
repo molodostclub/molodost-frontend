@@ -11,9 +11,9 @@ export const HowToGetHome: FC = () => {
         в&nbsp;других местах. Мы&nbsp;работаем в&nbsp;режиме{' '}
         <span className={styles.accentText}>&laquo;открытого клуба для своих&raquo;</span>,
         поэтому бронирований на&nbsp;сайте у&nbsp;нас нет, и&nbsp;для того, чтобы запланировать поездку,{' '}
-        <Link href="/nashi-kontakty" className={styles.accentLink}>напишите нам</Link>{' '}
+        <Link href="/nashi-kontakty" className={styles.accentLink} prefetch={false}>напишите нам</Link>{' '}
         или{' '}
-        <Link href="/anketa" className={styles.accentLink}>заполните анкету</Link>
+        <Link href="/anketa" className={styles.accentLink} prefetch={false}>заполните анкету</Link>
       </p>
 
       <div className={styles.cardsRow}>
@@ -53,11 +53,11 @@ export const HowToGetHome: FC = () => {
             варианты, которые подходят именно вам.
           </p>
           <div className={styles.cardButtons}>
-            <Link href="/anketa" className={styles.cardButton}>
+            <Link href="/anketa" className={styles.cardButton} prefetch={false}>
               <span className={styles.btnMain}>АНКЕТА</span>
               <span className={styles.btnSub}>АЛТАЙ</span>
             </Link>
-            <Link href="/anketa-baikal" className={styles.cardButton}>
+            <Link href="/anketa-baikal" className={styles.cardButton} prefetch={false}>
               <span className={styles.btnMain}>АНКЕТА</span>
               <span className={styles.btnSub}>БАЙКАЛ</span>
             </Link>
