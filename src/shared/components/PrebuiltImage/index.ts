@@ -1,0 +1,1 @@
+export { PrebuiltImage } from './PrebuiltImage';

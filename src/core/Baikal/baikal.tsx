@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Container, Description, FlexContainer, PageHeading, SectionHeading } from '@uikit';
+import { PrebuiltImage } from '@shared/components';
 
 import * as styles from './baikal.css';
 import { indent } from '@/styles';
@@ -52,7 +52,7 @@ export const GallerySlider = () => {
 			<Swiper modules={[Navigation, Pagination]} onSwiper={setSwiperInstance} loop spaceBetween={30} slidesPerView={1} className={styles.mySwiper}>
 				{photos.map((src, i) => (
 					<SwiperSlide key={i} className={styles.mySwiperSlide}>
-						<Image src={src} alt={`Фото ${i + 1}`} width={1200} height={800} className={styles.slideImage} />
+						<PrebuiltImage src={src} alt={`Фото ${i + 1}`} width={1200} height={800} className={styles.slideImage} loading="lazy" />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -108,7 +108,7 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 				</div>
 			</FlexContainer>
 			<div className={cn(styles.imageWrapper, indent.tablet_mt_10, indent.mt_6)}>
-				<Image fill alt="Расположение" src="/images/baikal/baikal_map.webp" className={styles.image} unoptimized />
+				<PrebuiltImage alt="Расположение" src="/images/baikal/baikal_map.webp" className={styles.image} loading="lazy" />
 			</div>
 			<OurBaseSection />
 			<div className={cn(indent.tablet_mt_16, indent.mt_14)}>
@@ -211,13 +211,13 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 				</div>
 				<div className={cn(styles.blagodatGalleryBlock, indent.tablet_mt_10, indent.mt_6)}>
 					<div className={styles.blagodatGalleryRow1}>
-						<Image src="/images/baikal/blagodat/1.webp" alt="Банный комплекс «Благодать»" width={600} height={400} className={styles.blagodatPhoto} />
-						<Image src="/images/baikal/blagodat/2.webp" alt="Банный комплекс «Благодать»" width={600} height={400} className={styles.blagodatPhoto} />
+						<PrebuiltImage src="/images/baikal/blagodat/1.webp" alt="Банный комплекс «Благодать»" width={600} height={400} className={styles.blagodatPhoto} />
+						<PrebuiltImage src="/images/baikal/blagodat/2.webp" alt="Банный комплекс «Благодать»" width={600} height={400} className={styles.blagodatPhoto} />
 					</div>
 					<div className={styles.blagodatGalleryRow2}>
-						<Image src="/images/baikal/blagodat/3.webp" alt="Банный комплекс «Благодать»" width={400} height={500} className={styles.blagodatPhoto} />
-						<Image src="/images/baikal/blagodat/4.webp" alt="Банный комплекс «Благодать»" width={600} height={400} className={styles.blagodatPhotoWide} />
-						<Image src="/images/baikal/blagodat/5.webp" alt="Банный комплекс «Благодать»" width={400} height={500} className={styles.blagodatPhoto} />
+						<PrebuiltImage src="/images/baikal/blagodat/3.webp" alt="Банный комплекс «Благодать»" width={400} height={500} className={styles.blagodatPhoto} />
+						<PrebuiltImage src="/images/baikal/blagodat/4.webp" alt="Банный комплекс «Благодать»" width={600} height={400} className={styles.blagodatPhotoWide} />
+						<PrebuiltImage src="/images/baikal/blagodat/5.webp" alt="Банный комплекс «Благодать»" width={400} height={500} className={styles.blagodatPhoto} />
 					</div>
 				</div>
 				</div>
@@ -249,13 +249,13 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 							</p>
 						</div>
 						<div className={styles.dekabristsCol}>
-							<Image src="/images/baikal/dekabrists/1.webp" alt="Сруб Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
+							<PrebuiltImage src="/images/baikal/dekabrists/1.webp" alt="Сруб Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
 						</div>
 					</div>
 					<h3 className={styles.dekabristsSectionTitle}>ЧТО ВНУТРИ?</h3>
 					<div className={styles.dekabristsRow}>
 						<div className={styles.dekabristsCol}>
-							<Image src="/images/baikal/dekabrists/2.webp" alt="Интерьер Сруба Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
+							<PrebuiltImage src="/images/baikal/dekabrists/2.webp" alt="Интерьер Сруба Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
 						</div>
 						<div className={styles.dekabristsCol}>
 							<p className={styles.dekabristsText}>
@@ -276,8 +276,8 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 						<span className={styles.dekabristsLabel}>Караоке и&nbsp;Конференц-зал:</span> Энергия и&nbsp;идеи. Пространство-трансформер. Днем здесь рождаются новые стратегии и&nbsp;смыслы в&nbsp;конференц-зале, а&nbsp;вечером стены сруба наполняются драйвом и&nbsp;песнями, которые поются всем сердцем.
 					</p>
 					<div className={styles.dekabristsPhotoGrid}>
-						<Image src="/images/baikal/dekabrists/3.webp" alt="Камин в Срубе Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
-						<Image src="/images/baikal/dekabrists/4.webp" alt="Уютный уголок в Срубе Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
+						<PrebuiltImage src="/images/baikal/dekabrists/3.webp" alt="Камин в Срубе Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
+						<PrebuiltImage src="/images/baikal/dekabrists/4.webp" alt="Уютный уголок в Срубе Декабристов" width={600} height={400} className={styles.dekabristsPhoto} />
 					</div>
 				</div>
 			</div>
@@ -296,16 +296,16 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 						</div>
 						<div className={styles.zvukPhotosRow}>
 							<div className={styles.zvukPhotoWrap}>
-								<Image src="/images/baikal/zvuk/12.webp" alt="Йога в Доме звука" width={400} height={500} className={styles.zvukPhotoInRow} />
+								<PrebuiltImage src="/images/baikal/zvuk/12.webp" alt="Йога в Доме звука" width={400} height={500} className={styles.zvukPhotoInRow} />
 							</div>
 							<div className={styles.zvukPhotoWrap}>
-								<Image src="/images/baikal/zvuk/14.webp" alt="Интерьер Дома звука" width={600} height={400} className={styles.zvukPhotoInRow} />
+								<PrebuiltImage src="/images/baikal/zvuk/14.webp" alt="Интерьер Дома звука" width={600} height={400} className={styles.zvukPhotoInRow} />
 							</div>
 						</div>
 					</div>
 					<div className={styles.zvukCol2}>
-						<Image src="/images/baikal/zvuk/1.webp" alt="Гонг на берегу Байкала" width={600} height={400} className={styles.zvukPhoto} />
-						<Image src="/images/baikal/zvuk/4.webp" alt="Тибетские поющие чаши" width={400} height={500} className={styles.zvukPhoto} />
+						<PrebuiltImage src="/images/baikal/zvuk/1.webp" alt="Гонг на берегу Байкала" width={600} height={400} className={styles.zvukPhoto} />
+						<PrebuiltImage src="/images/baikal/zvuk/4.webp" alt="Тибетские поющие чаши" width={400} height={500} className={styles.zvukPhoto} />
 					</div>
 				</div>
 				</div>
@@ -324,35 +324,35 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 						<div className={styles.flamingoGridTop}>
 							<div className={styles.flamingoColLeft}>
 								<div className={styles.flamingoPhotoWrap}>
-									<Image src="/images/baikal/flamingo/left1.webp" alt="Сапы на Байкале" width={400} height={500} className={styles.flamingoPhoto} />
+									<PrebuiltImage src="/images/baikal/flamingo/left1.webp" alt="Сапы на Байкале" width={400} height={500} className={styles.flamingoPhoto} />
 								</div>
 								<div className={styles.flamingoPhotoWrap}>
-									<Image src="/images/baikal/flamingo/left2.webp" alt="Пляж с зонтиками" width={400} height={500} className={styles.flamingoPhoto} />
+									<PrebuiltImage src="/images/baikal/flamingo/left2.webp" alt="Пляж с зонтиками" width={400} height={500} className={styles.flamingoPhoto} />
 								</div>
 								<div className={styles.flamingoPhotoWrap}>
-									<Image src="/images/baikal/flamingo/left3.webp" alt="Шезлонги на песке" width={400} height={500} className={styles.flamingoPhoto} />
+									<PrebuiltImage src="/images/baikal/flamingo/left3.webp" alt="Шезлонги на песке" width={400} height={500} className={styles.flamingoPhoto} />
 								</div>
 							</div>
 							<div className={styles.flamingoColCenter}>
 								<div className={styles.flamingoPhotoHeroWrap}>
-									<Image src="/images/baikal/flamingo/ctr.webp" alt="Медитация на берегу" width={400} height={600} className={styles.flamingoPhoto} />
+									<PrebuiltImage src="/images/baikal/flamingo/ctr.webp" alt="Медитация на берегу" width={400} height={600} className={styles.flamingoPhoto} />
 								</div>
 							</div>
 							<div className={styles.flamingoColRight}>
 								<div className={styles.flamingoPhotoWrapRight}>
-									<Image src="/images/baikal/flamingo/right1.webp" alt="Закат на пляже" width={400} height={500} className={styles.flamingoPhoto} />
+									<PrebuiltImage src="/images/baikal/flamingo/right1.webp" alt="Закат на пляже" width={400} height={500} className={styles.flamingoPhoto} />
 								</div>
 								<div className={styles.flamingoPhotoWrapRight}>
-									<Image src="/images/baikal/flamingo/right2.webp" alt="Дети на фламинго" width={400} height={500} className={styles.flamingoPhoto} />
+									<PrebuiltImage src="/images/baikal/flamingo/right2.webp" alt="Дети на фламинго" width={400} height={500} className={styles.flamingoPhoto} />
 								</div>
 							</div>
 						</div>
 						<div className={styles.flamingoGridBottom}>
 							<div className={styles.flamingoPhotoWideWrap}>
-								<Image src="/images/baikal/flamingo/bottom1.webp" alt="Музыка у костра" width={800} height={450} className={styles.flamingoPhoto} />
+								<PrebuiltImage src="/images/baikal/flamingo/bottom1.webp" alt="Музыка у костра" width={800} height={450} className={styles.flamingoPhoto} />
 							</div>
 							<div className={styles.flamingoPhotoWideWrap}>
-								<Image src="/images/baikal/flamingo/bottom2.webp" alt="Ужин на пляже" width={800} height={450} className={styles.flamingoPhoto} />
+								<PrebuiltImage src="/images/baikal/flamingo/bottom2.webp" alt="Ужин на пляже" width={800} height={450} className={styles.flamingoPhoto} />
 							</div>
 						</div>
 					</div>

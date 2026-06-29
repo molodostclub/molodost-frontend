@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import Image from 'next/image';
 
-import { isPrebuiltStaticImage } from '@utils';
+import { PrebuiltImage } from '@shared/components';
 import type { OurBaseCardData } from './ourBase.constants';
 import * as styles from './OurBaseCard.css';
 
@@ -13,13 +12,13 @@ export const OurBaseCard: FC<Props> = ({ imageSrc, imageAlt, title, description 
 	return (
 		<article className={styles.card}>
 			<div className={styles.imageWrap}>
-				<Image
+				<PrebuiltImage
 					fill
 					src={imageSrc}
 					alt={imageAlt}
 					className={styles.image}
 					sizes="(max-width: 768px) 100vw, 50vw"
-					unoptimized={isPrebuiltStaticImage(imageSrc)}
+					loading="lazy"
 				/>
 			</div>
 			<h3 className={styles.title}>{title}</h3>

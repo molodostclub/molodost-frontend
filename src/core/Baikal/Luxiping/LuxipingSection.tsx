@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Image from 'next/image';
 
 import type { HouseModel } from '@/shared/types';
+import { PrebuiltImage } from '@/shared/components';
 import { Housing } from '@/core/WhereWeLive/Housing/Housing';
 
 import * as styles from './LuxipingSection.css';
@@ -38,13 +38,13 @@ export const LuxipingSection: FC<Props> = ({ houses }) => {
 
 				<div className={styles.colPhoto}>
 					<div className={styles.sideImageWrap}>
-						<Image
+						<PrebuiltImage
 							fill
 							src={SIDE_PHOTO}
 							alt="Люкспинг"
 							className={styles.sideImage}
 							sizes="(max-width: 768px) 100vw, 50vw"
-							unoptimized
+							loading="lazy"
 						/>
 					</div>
 				</div>
