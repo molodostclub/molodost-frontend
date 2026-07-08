@@ -52,6 +52,7 @@ const LEGAL_LINKS_LEFT = [
 const LEGAL_LINKS_RIGHT = [
 	{ label: 'Заявление на возврат', href: '/docs/return-blank.pdf' },
 	{ label: 'Реквизиты', href: '/pravovie-documenti' },
+	{ label: 'Реестровые записи объектов', href: '/docs/reestr-molodost.pdf' },
 ];
 
 const LEGAL_LINKS_RIGHT_BAIKAL = [
