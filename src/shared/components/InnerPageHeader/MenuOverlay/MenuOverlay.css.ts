@@ -14,7 +14,10 @@ export const overlayWrapper = style({
 	visibility: 'hidden',
 	opacity: 0,
 	transition: 'opacity 0.3s ease, visibility 0.3s ease',
-	zIndex: 9999999,
+	// TravelLine's floating iframe uses a very high stacking layer. Keep the
+	// site navigation at the browser's maximum supported z-index so it remains
+	// interactive on both desktop and mobile.
+	zIndex: 2147483647,
 });
 
 export const opened = style({

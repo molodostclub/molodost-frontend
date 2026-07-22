@@ -55,6 +55,7 @@ export const PageCover: FC<Props> = ({
 								href={resolvedMobileSrc}
 								as="image"
 								media={mobileMedia}
+								// React's bundled link attributes do not yet include this standard HTML attribute.
 								// @ts-expect-error fetchpriority is valid in HTML
 								fetchpriority="high"
 							/>
@@ -63,6 +64,7 @@ export const PageCover: FC<Props> = ({
 								href={src}
 								as="image"
 								media={desktopMedia}
+								// React's bundled link attributes do not yet include this standard HTML attribute.
 								// @ts-expect-error fetchpriority is valid in HTML
 								fetchpriority="high"
 							/>
@@ -72,6 +74,7 @@ export const PageCover: FC<Props> = ({
 							rel="preload"
 							href={src}
 							as="image"
+							// React's bundled link attributes do not yet include this standard HTML attribute.
 							// @ts-expect-error fetchpriority is valid in HTML
 							fetchpriority="high"
 						/>
