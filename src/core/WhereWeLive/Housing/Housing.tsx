@@ -1,10 +1,11 @@
 import { HouseModel } from '@/shared/types';
 import { FC } from 'react';
-import Image from 'next/image';
 import cn from 'classnames';
 
 import { Icon } from '@/uikit/icons';
 import { formatPriceWithSign, resolveCmsPath } from '@/utils';
+import { PrebuiltImage } from '@/shared/components';
+import { useIntersection } from '@/shared/hooks';
 
 import { carouseled } from '../WhereWeLive.css';
 import { HouseCarousel } from './HouseCarousel';
@@ -67,25 +68,34 @@ export const Housing: FC<HousingProps> = ({
 	},
 	staticCover = false,
 }) => {
+	const { ref, isInView } = useIntersection({ rootMargin: '250px' });
 	const firstPicture = pictures[0];
 	const showCarousel = !staticCover && pictures.length > 0;
 
 	return (
-		<div className={cn(styles.container, staticCover && styles.containerLuxipingStatic)}>
+		<div ref={ref} className={cn(styles.container, staticCover && styles.containerLuxipingStatic)}>
 			{staticCover && firstPicture ? (
-				<div className={styles.staticCoverWrap}>
-					<Image
-						fill
-						src={resolveCmsPath(firstPicture)}
-						alt={title ? `Фото: ${title}` : ''}
-						className={styles.staticCoverImage}
-						sizes="(max-width: 768px) 100vw, 50vw"
-						unoptimized
-					/>
-				</div>
+				isInView ? (
+					<div className={styles.staticCoverWrap}>
+						<PrebuiltImage
+							fill
+							src={resolveCmsPath(firstPicture)}
+							alt={title ? `Фото: ${title}` : ''}
+							className={styles.staticCoverImage}
+							sizes="(max-width: 768px) 100vw, 50vw"
+							loading="lazy"
+						/>
+					</div>
+				) : (
+					<div className={styles.carouselPlaceholder} aria-hidden />
+				)
 			) : null}
 			{showCarousel ? (
-				<HouseCarousel pictures={pictures} video={video} videoPreview={videoPreview} />
+				isInView ? (
+					<HouseCarousel pictures={pictures} video={video} videoPreview={videoPreview} />
+				) : (
+					<div className={styles.carouselPlaceholder} aria-hidden />
+				)
 			) : null}
 			<div className={cn(carouseled, styles.cardContent)}>
 				<h3 className={styles.title}>{title}</h3>

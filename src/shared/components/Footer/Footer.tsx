@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import * as styles from './Footer.css';
-import { trimTel, telHref, telegramHref } from '@/utils';
+import { trimTel, telHref, telegramHref } from '@/utils/contacts.utils';
 import { Description } from '@/uikit';
 
 const phoneNumber = '+7 964 700 21 12';
@@ -52,6 +52,7 @@ const LEGAL_LINKS_LEFT = [
 const LEGAL_LINKS_RIGHT = [
 	{ label: 'Заявление на возврат', href: '/docs/return-blank.pdf' },
 	{ label: 'Реквизиты', href: '/pravovie-documenti' },
+	{ label: 'Реестровые записи объектов', href: '/docs/reestr-molodost.pdf' },
 ];
 
 const LEGAL_LINKS_RIGHT_BAIKAL = [

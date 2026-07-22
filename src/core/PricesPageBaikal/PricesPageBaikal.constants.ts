@@ -205,7 +205,7 @@ export const PUTESHESTVIYA_BAIKAL = {
 		sectionTitle: 'ПРИКЛЮЧЕНИЯ НА\u00A0ЦЕЛЫЙ ДЕНЬ',
 		items: [
 			{ title: 'НАЛЕВО И\u00A0ДО КОНЦА', priceText: '15\u00A0000 ₽ НА\u00A0ЧЕЛОВЕКА' },
-			{ title: 'ОЛЬХОН-СЕВЕР ОСТРОВА', priceText: '50\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА' },
+			{ title: 'ОЛЬХОН-СЕВЕР ОСТРОВА', priceText: '40\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА' },
 			{
 				title: 'ЧИВЫРКУЙСКИЙ ЗАЛИВ',
 				priceText: '40\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА',
@@ -298,8 +298,8 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				pictures: [],
 				staticCoverPaths: ['/images/baikal/olhon/olhon1.webp', '/images/baikal/olhon/olhon.webp'],
 				footerDuration: 'Весь день',
-				footerPrice: '50\u00A0000\u00A0₽ / чел',
-		},
+				footerPrice: '40\u00A0000\u00A0₽ / чел',
+			},
 		{
 			id: 9_102,
 			slug: '',
@@ -350,7 +350,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				durationText: null,
 				notes: [],
 				pictures: [],
-				staticCoverPaths: ['/images/baikal/turka/image%2030.jpg'],
+				staticCoverPaths: ['/images/baikal/turka/image%2030.webp'],
 				footerDuration: '',
 				footerPrice: '8\u00A0500\u00A0₽ / чел',
 		},
@@ -403,7 +403,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				durationText: null,
 				notes: [],
 				pictures: [],
-				staticCoverPaths: ['/images/baikal/kvadro/image%2093.jpg'],
+				staticCoverPaths: ['/images/baikal/kvadro/image%2093.webp'],
 				priceFooterRows: [
 					{
 						variant: 'threeCols',

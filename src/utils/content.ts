@@ -50,3 +50,8 @@ export function getEcosystem(): EcosystemModel {
 export function resolveCmsPath(path: string | null | undefined): string {
 	return path || '';
 }
+
+/** Статика, уже сжатая в WebP на prebuild — не прогонять через /_next/image. */
+export function isPrebuiltStaticImage(src: string | null | undefined): boolean {
+	return typeof src === 'string' && (src.startsWith('/images/') || src.startsWith('/cms/'));
+}

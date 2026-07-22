@@ -1,4 +1,5 @@
 import { Booking } from '@core/Booking';
+import '@core/Booking/Booking.css';
 import { Breadcrumb, Footer, InnerPageHeader, PageCover, PageMeta } from '@shared/components';
 
 export default function BookingPage() {

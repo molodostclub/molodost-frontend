@@ -64,6 +64,24 @@ export const ImageSize = {
   height: 279,
 };
 
+export const carouselPlaceholder = style({
+  width: '100%',
+  flexShrink: 0,
+  borderRadius: 18,
+  backgroundColor: '#f0f0f0',
+  aspectRatio: `${ImageSize.width} / ${ImageSize.height}`,
+});
+
+export const videoPosterButton = style({
+  display: 'block',
+  padding: 0,
+  border: 'none',
+  background: 'none',
+  cursor: 'pointer',
+  width: '100%',
+  height: '100%',
+});
+
 export const carousel = styleVariants({
   wrapper: {
     overflow: 'hidden',

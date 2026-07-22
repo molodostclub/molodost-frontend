@@ -87,6 +87,10 @@ function embedViaApi(widget: string, options: EmbedOptions): boolean {
 	}
 }
 
+function hasLoaderScriptInDom(): boolean {
+	return Boolean(document.querySelector('script[src*="tlintegration"]'));
+}
+
 function appendLoaderScript(): void {
 	const d = window.document;
 	const head = d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0];
@@ -111,13 +115,10 @@ function appendLoaderScript(): void {
 	tryHost(LOADER_HOSTS);
 }
 
-function hasLoaderScriptInDom(): boolean {
-	return Boolean(document.querySelector('script[data-travelline-loader]'));
-}
-
 function ensureLoader(): void {
 	const ti = getIntegration();
 	if (ti.__loader) return;
+
 	ti.__loader = true;
 
 	if (!hasLoaderScriptInDom()) {
@@ -148,7 +149,7 @@ function queueEmbed(widget: string, options: EmbedOptions = {}): void {
 	ensureLoader();
 }
 
-function isBookingRendered(containerId: string): boolean {
+export function isBookingRendered(containerId: string): boolean {
 	const el = document.getElementById(containerId);
 	if (!el) return false;
 	if (el.childElementCount > 0) return true;
@@ -159,14 +160,19 @@ function bootTravellineBookingForm(containerId: string): void {
 	if (typeof window === 'undefined') return;
 
 	const container = document.getElementById(containerId);
-	if (!container || isBookingRendered(containerId)) return;
+	if (!container?.isConnected || isBookingRendered(containerId)) return;
 
 	queueEmbed('booking-form', { container: containerId });
 }
 
-function mountTravellineWidget(boot: (containerId: string) => void, containerId: string, isRendered: (containerId: string) => boolean): () => void {
+function mountTravellineWidget(
+	boot: (containerId: string) => void,
+	containerId: string,
+	isRendered: (containerId: string) => boolean,
+): () => void {
 	let cancelled = false;
 	let retryTimer: number | undefined;
+	let attempts = 0;
 
 	const attempt = () => {
 		if (cancelled || isRendered(containerId)) return;

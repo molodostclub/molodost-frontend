@@ -82,6 +82,12 @@ async function main() {
 		}
 	}
 
+	const { processCriticalImages } = await import('./lib/critical-images.mjs');
+	const critical = await processCriticalImages(IMAGES_DIR);
+	if (critical.savedBytes > 0) {
+		savedBytes += critical.savedBytes;
+	}
+
 	const refUpdate = updateStaticImageRefs();
 
 	let cleaned = 0;
@@ -101,7 +107,7 @@ async function main() {
 	);
 	if (cleaned > 0) console.log(`🧹 Удалено устаревших jpg/png: ${cleaned}`);
 	console.log(
-		`✅ Готово: ${converted} → webp, ${recompressed} пересжато, ${skipped} без изменений, ${errors} ошибок`,
+		`✅ Готово: ${converted} → webp, ${recompressed} пересжато, ${critical.processed} критических, ${skipped + critical.skipped} без изменений, ${errors + critical.errors} ошибок`,
 	);
 	if (savedBytes > 0) {
 		console.log(`💾 Сэкономлено: ${formatSize(savedBytes)}\n`);

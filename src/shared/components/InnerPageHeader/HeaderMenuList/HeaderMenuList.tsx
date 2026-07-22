@@ -12,6 +12,7 @@ export const HeaderMenuList: FC = () => {
           <Link
             className={styles.menuLink}
             href={item.href}
+            prefetch={false}
             target={item.openInNewWindow ? '_blank' : '_self'}
           >
             {item.label}
