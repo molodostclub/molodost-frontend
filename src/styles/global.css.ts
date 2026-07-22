@@ -1,5 +1,6 @@
 import { globalFontFace, globalStyle } from '@vanilla-extract/css';
 
+import { SEARCH_FORM_BUTTON_SELECTOR } from '@/utils/travelline';
 import { fonts, vars } from './theme.css';
 
 globalStyle('html', {
@@ -10,6 +11,10 @@ globalStyle('html', {
 globalStyle('body', {
   backgroundColor: vars.color.mainBackground,
   overflowX: "hidden",
+});
+
+globalStyle(`html.travelline-booking-page ${SEARCH_FORM_BUTTON_SELECTOR}, html.menu-overlay-open ${SEARCH_FORM_BUTTON_SELECTOR}`, {
+  display: 'none !important',
 });
 
 globalFontFace(fonts.ApercuProRegular, {

@@ -28,6 +28,13 @@ export const MenuOverlay: FC<Props> = ({ opened, onClose }) => {
 		};
 	}, []);
 
+	useEffect(() => {
+		const root = document.documentElement;
+		root.classList.toggle('menu-overlay-open', opened);
+
+		return () => root.classList.remove('menu-overlay-open');
+	}, [opened]);
+
 	const handleClickMenuItem = (event: MouseEvent<HTMLAnchorElement>, item: MenuItem) => {
 		if (isCurrentPage(item.href ?? '#')) {
 			event.preventDefault();

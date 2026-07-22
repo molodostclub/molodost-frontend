@@ -45,7 +45,7 @@ export const PageCover: FC<Props> = ({
                 src={src}
                 alt={alt}
                 className={styles.imageStatic}
-                fetchpriority="high"
+                fetchPriority="high"
                 decoding="async"
               />
             ) : (
