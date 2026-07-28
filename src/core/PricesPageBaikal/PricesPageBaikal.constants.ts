@@ -15,7 +15,7 @@ export const PROZHIVANIE_BAIKAL_GERAH: AccommodationItem[] = [
 /** Размещение в кубиках — блок «Проживание» Байкал */
 export const PROZHIVANIE_BAIKAL_CUBES: AccommodationItem[] = [
 	{ title: 'КУБИК С\u00A0ОДНОЙ СПАЛЬНЕЙ', capacity: '1-2', area: '24\u00A0м²', price: 24_000 },
-	{ title: 'КУБИК С\u00A0ДВУМЯ СПАЛЬНЯМИ', capacity: '1-4', area: '24\u00A0м²', price: 24_000 },
+	{ title: 'КУБИК С\u00A0ДВУМЯ СПАЛЬНЯМИ', capacity: '1-2', area: '24\u00A0м²', price: 24_000 },
 	{ title: 'ЛЮКСПИНГ', capacity: '1-2', area: '20\u00A0м²', price: 24_000 },
 ];
 
