@@ -359,7 +359,7 @@
     "subtitle": "Две спальни",
     "description": "Семейный номер с двумя комнатами - двуспальная кровать и две односпальные",
     "area": 24,
-    "peopleMin": 4,
+    "peopleMin": 2,
     "peopleMax": 1,
     "basePrice": 24000,
     "pictures": [
