@@ -13,7 +13,7 @@ globalStyle('body', {
   overflowX: "hidden",
 });
 
-globalStyle(`html.travelline-booking-page ${SEARCH_FORM_BUTTON_SELECTOR}, html.menu-overlay-open ${SEARCH_FORM_BUTTON_SELECTOR}`, {
+globalStyle(`html.travelline-booking-page ${SEARCH_FORM_BUTTON_SELECTOR}, html.travelline-widget-hidden ${SEARCH_FORM_BUTTON_SELECTOR}, html.menu-overlay-open ${SEARCH_FORM_BUTTON_SELECTOR}`, {
   display: 'none !important',
 });
 

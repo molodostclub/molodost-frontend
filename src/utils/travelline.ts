@@ -6,10 +6,46 @@ export const BOOKING_FORM_CONTAINER_ID = 'tl-booking-form';
 /** Selector used by TravelLine for its floating booking button. */
 export const SEARCH_FORM_BUTTON_SELECTOR = '.tl-search-form-button';
 
+/** Pages where the floating TravelLine widget must not load or appear. */
+export const TRAVELLINE_WIDGET_EXCLUDED_PATHS = ['/baikal', '/mars'] as const;
+
+export function isTravellineWidgetExcludedPath(pathname: string): boolean {
+	return (TRAVELLINE_WIDGET_EXCLUDED_PATHS as readonly string[]).includes(pathname);
+}
+
+export function hideTravellineSearchFormButton(): void {
+	if (typeof document === 'undefined') return;
+
+	document.querySelectorAll(SEARCH_FORM_BUTTON_SELECTOR).forEach((node) => {
+		(node as HTMLElement).style.setProperty('display', 'none', 'important');
+	});
+}
+
+export function syncTravellineWidgetVisibility(pathname: string): void {
+	const root = document.documentElement;
+	const hidden = isTravellineWidgetExcludedPath(pathname);
+	const bookingPage = pathname === '/booking';
+
+	root.classList.toggle('travelline-widget-hidden', hidden);
+	root.classList.toggle('travelline-booking-page', bookingPage);
+
+	if (hidden) {
+		hideTravellineSearchFormButton();
+	}
+}
+
 const LOADER_HOSTS = ['ru-ibe.tlintegration.ru', 'ibe.tlintegration.ru', 'ibe.tlintegration.com'];
 
 /** Early bootstrap: queue booking form before React mounts its container. */
 export const TRAVELLINE_ENTRY_WIDGET_BOOTSTRAP = `(function(w){
+	var excluded=${JSON.stringify([...TRAVELLINE_WIDGET_EXCLUDED_PATHS])};
+	var p=w.location.pathname;
+	if(excluded.indexOf(p)!==-1){
+		var s=w.document.createElement("style");
+		s.textContent="${SEARCH_FORM_BUTTON_SELECTOR}{display:none!important}";
+		w.document.head.appendChild(s);
+		return;
+	}
 	var q=[
 		["setContext", "${TRAVELLINE_CONTEXT_ID}", "ru"],
 		["embed", "booking-form", { container: "${BOOKING_FORM_CONTAINER_ID}" }],

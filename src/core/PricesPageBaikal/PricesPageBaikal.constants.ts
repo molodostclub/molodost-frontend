@@ -177,13 +177,13 @@ export const POEZDKI_BAIKAL = {
 			{
 				title: 'СПЛАВ ПО\u00A0РЕКЕ ТУРКЕ НА\u00A0БАЙДАРКАХ',
 				note: 'ТРАНСФЕР СЧИТАЕТСЯ ОТДЕЛЬНО',
-				priceText: '8\u00A0500\u00A0₽ НА\u00A0ЧЕЛОВЕКА',
+				priceText: '9\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА',
 			},
 			{
 				title: 'КВАДРОЦИКЛЫ И\u00A0БАГГИ',
 				note: 'ТРАНСФЕР СЧИТАЕТСЯ ОТДЕЛЬНО',
 				subItems: [
-					{ label: 'КВАДРОЦИКЛЫ', priceText: 'ОТ 7\u00A0500\u00A0₽ НА\u00A0ЧЕЛОВЕКА' },
+					{ label: 'КВАДРОЦИКЛЫ', priceText: 'ОТ 8\u00A0000\u00A0₽ НА\u00A0ЧЕЛОВЕКА' },
 					{ label: 'БАГГИ', priceText: 'ОТ 11\u00A0000 РУБЛЕЙ' },
 				],
 			},
@@ -352,7 +352,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 				pictures: [],
 				staticCoverPaths: ['/images/baikal/turka/image%2030.webp'],
 				footerDuration: '',
-				footerPrice: '8\u00A0500\u00A0₽ / чел',
+				footerPrice: '9\u00A0000\u00A0₽ / чел',
 		},
 		{
 			id: 9_105,
@@ -408,7 +408,7 @@ export const BAIKAL_TRIPS_FOR_PAGE: TripsSplit = {
 					{
 						variant: 'threeCols',
 						left: 'КВАДРОЦИКЛЫ',
-						mid: '7\u00A0500\u00A0₽',
+						mid: '8\u00A0000\u00A0₽',
 						right: '60\u00A0мин / чел',
 					},
 					{

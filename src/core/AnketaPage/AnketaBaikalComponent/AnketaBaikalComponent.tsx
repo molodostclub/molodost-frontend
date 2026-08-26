@@ -90,12 +90,12 @@ export function AnketaBaikalComponent() {
 			checked: false,
 		},
 		{
-			label: 'Сплавиться на байдарках по реке Турке (от 8 500 p)',
+			label: 'Сплавиться на байдарках по реке Турке (от 9 000 p)',
 			value: '3',
 			checked: false,
 		},
 		{
-			label: 'Покататься на квадроциклах (от 7 500 р)',
+			label: 'Покататься на квадроциклах (от 8 000 р)',
 			value: '4',
 			checked: false,
 		},

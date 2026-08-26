@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 export const PageMeta: FC<{
 	title?: string;
@@ -11,14 +10,6 @@ export const PageMeta: FC<{
 
 	const MAIN_PAGE_META_DESCRIPTION = 'Отдых на Алтае на турбазе “Молодость”: условия проживания, цены, варианты размещения. Забронировать проживание на официальном сайте турбазы “Молодость”';
 	const ANY_PAGE_META_DESCRIPTION = `${title} | официальный сайт турбазы "Молодость" на Алтае`;
-	const router = useRouter();
-
-	useEffect(() => {
-		const root = document.documentElement;
-		root.classList.toggle('travelline-booking-page', router.pathname === '/booking');
-
-		return () => root.classList.remove('travelline-booking-page');
-	}, [router.pathname]);
 
 	return (
 		<>

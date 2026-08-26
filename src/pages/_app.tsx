@@ -3,7 +3,10 @@ import '@styles/global.css';
 
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import Script from 'next/script';
+import { useEffect } from 'react';
+import { syncTravellineWidgetVisibility } from '@/utils/travelline';
 import "../shared/types"
 
 const CookieConsent = dynamic(
@@ -11,7 +14,26 @@ const CookieConsent = dynamic(
   { ssr: false },
 );
 
+function useTravellineWidgetVisibility() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const getPathname = (url: string) => url.split('?')[0].split('#')[0];
+
+    const sync = (url: string) => syncTravellineWidgetVisibility(getPathname(url));
+
+    sync(router.asPath);
+    router.events.on('routeChangeStart', sync);
+
+    return () => {
+      router.events.off('routeChangeStart', sync);
+    };
+  }, [router]);
+}
+
 export default function App({ Component, pageProps }: AppProps) {
+  useTravellineWidgetVisibility();
+
   return (
     <>
       <Component {...pageProps} />
