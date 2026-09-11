@@ -100,7 +100,7 @@ export function AnketaComponent() {
 
 	const checkboxesPlany: Checkbox[] = [
 		{
-			label: 'Вы\u00A0хотите полететь на\u00A0вертолете до\u00A0Белухи (от\u00A0200\u00A0000\u00A0р / ел)',
+			label: 'Вы\u00A0хотите полететь на\u00A0вертолете до\u00A0Белухи (от\u00A0200\u00A0000\u00A0р / чел)',
 			value: '1',
 			checked: false,
 		},
@@ -252,14 +252,14 @@ export function AnketaComponent() {
 			checked: false,
 		},
 		{ label: 'Попасть к вашему остеопату (10\u00A0000\u00A0₽)', value: '3', checked: false },
-		{ label: 'Расслабиться на массаже  (8\u00A0000\u00A0₽)', value: '4', checked: false },
+		{ label: 'Расслабиться на массаже  (от\u00A09\u00A0000\u00A0₽)', value: '4', checked: false },
 		{ label: 'Регулярно ходить на\u00A0хайкинг (от\u00A03\u00A0500\u00A0₽)', value: '5', checked: false },
 		{ label: 'Определюсь на\u00A0месте', value: '6', checked: false },
 	];
 
 	const checkboxesBlagodat: Checkbox[] = [
 		{
-			label: 'Банную церемонию «Молодость» (20\u00A0000\u00A0₽, 1\u00A0чел, 90\u00A0мин)',
+			label: 'Авторское парение (На выбор гостя: Жаркое, Тихое, Бодрое, 25\u00A0000\u00A0₽, 120\u00A0мин)',
 			value: '2',
 			checked: false,
 		},

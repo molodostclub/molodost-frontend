@@ -943,7 +943,7 @@ export const HEAT_LAB: HeatLabModel[] = [
 		title: 'Массаж, классический',
 		duration: '60\u00A0мин.',
 		clients: '1\u00A0человек',
-		price: 8_000,
+		price: 9_000,
 	},
 	{
 		title: 'Массаж, классический',

@@ -14,7 +14,7 @@ export type LegendItemData = {
  */
 export const BAIKAL_MAP_LEGEND_ITEMS: LegendItemData[] = [
 	{ number: 1, label: 'Парковка', gridColumn: '1', gridRow: '1' },
-	{ number: 2, label: 'Сруб', gridColumn: '1', gridRow: '2' },
+	{ number: 2, label: 'Дом Сруб', gridColumn: '1', gridRow: '2' },
 	{ number: 3, label: 'Дом Приёмов', gridColumn: '1', gridRow: '3' },
 	{ number: 4, label: 'Баня\nс бассейном', gridColumn: '2', gridRow: '1' },
 	{ number: 5, label: 'Дом звука', gridColumn: '2', gridRow: '2' },
