@@ -362,6 +362,38 @@ export const finalBlock = style({
 	width: '100%',
 });
 
+/** Ширина локкапа без поля. Мобилка — высота 10 мм, планшет и шире — 15 мм (52.75mm). */
+const logoLockupMobile = '10mm * 160.5 / 45.5';
+const logoLockupDesktop = '52.75mm';
+
+/** Охранное поле = зазор гексагон→«А» (13.34 / 160.5) от ширины локкапа. Слева 0. */
+const logoSafePad = (lockup: string) => `calc((${lockup}) * 13.34 / 160.5)`;
+
+const logoFrameBox = (lockup: string) => ({
+	width: `calc((${lockup}) * (160.5 + 13.34) / 160.5)`,
+	paddingTop: logoSafePad(lockup),
+	paddingRight: logoSafePad(lockup),
+	paddingBottom: logoSafePad(lockup),
+	paddingLeft: 0,
+});
+
+export const partnerLogoFrame = style([
+	{
+		display: 'block',
+		maxWidth: '100%',
+		boxSizing: 'border-box',
+		...logoFrameBox(logoLockupMobile),
+	},
+	tablet(logoFrameBox(logoLockupDesktop)),
+]);
+
+export const partnerLogo = style({
+	display: 'block',
+	width: '100%',
+	height: 'auto',
+	margin: 0,
+});
+
 /** Финальный блок — mobile 25px, tablet 40px */
 export const finalBlockText = style([
 	{
@@ -416,7 +448,7 @@ export const finalBlockLink = style([
 	},
 	tablet({
 		fontSize: 30,
-		lineHeight: '30px',
+		lineHeight: '36px',
 	}),
 ]);
 

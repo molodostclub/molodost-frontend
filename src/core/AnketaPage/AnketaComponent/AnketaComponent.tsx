@@ -259,7 +259,7 @@ export function AnketaComponent() {
 
 	const checkboxesBlagodat: Checkbox[] = [
 		{
-			label: 'Авторское парение (На выбор гостя: Жаркое, Тихое, Бодрое, 25\u00A0000\u00A0₽, 120\u00A0мин)',
+			label: 'Авторское парение (На выбор гостя: Жаркое, Тихое, Бодрое, на одного 25\u00A0000\u00A0₽, на двоих 40\u00A0000\u00A0₽, 90\u00A0мин)',
 			value: '2',
 			checked: false,
 		},

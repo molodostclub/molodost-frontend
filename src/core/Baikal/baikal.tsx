@@ -361,10 +361,19 @@ export const BaikalPage: FC<Props> = ({ inHouse, individual, luxiping }) => {
 
 			<div className={cn(styles.block825Outer, indent.tablet_mt_16, indent.mt_6)}>
 				<div className={cn(styles.blockContainer825, styles.finalBlock)}>
-				<div className={cn(styles.border, indent.mb_8)}>&nbsp;</div>
+				<div className={styles.border}>&nbsp;</div>
+				<div className={styles.partnerLogoFrame}>
+					<img
+						className={styles.partnerLogo}
+						src="/images/baikal/areal-logo.svg"
+						alt="Ареал"
+						width={321}
+						height={91}
+					/>
+				</div>
 				<p className={styles.finalBlockText}>
-					ПРОЕКТ РЕАЛИЗУЕТСЯ СОВМЕСТНО С НАШИМ ПАРТНЕРОМ — ГРУППОЙ КОМПАНИЙ{' '}
-					<span className={styles.attentionRed}>&laquo;Ареал&raquo;</span>
+					ПРОЕКТ РЕАЛИЗУЕТСЯ СОВМЕСТНО С НАШИМ ПАРТНЕРОМ — КОМПАНИЕЙ{' '}
+					<span className={styles.attentionRed}>&laquo;АРЕАЛ&raquo;</span>
 					<br />
 					<br />
 				</p>

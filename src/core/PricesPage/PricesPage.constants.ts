@@ -442,8 +442,9 @@ export const CONCEPT_STORE = {
 export const BLAGODAT_SAUNA = {
 	title: 'БАННО-ОЗДОРОВИТЕЛЬНЫЙ КОМПЛЕКС «БЛАГОДАТЬ»',
 	leftColumn: [
-		{ title: 'ПАРЕНИЕ', description: '90\u00A0минут / 1\u00A0человек', price: 25_000 },
-		{ title: 'каждый дополнительный час', description: '60 минут / 1 человек', price: 10_000 },
+		{ title: 'АВТОРСКОЕ ПАРЕНИЕ', description: '90\u00A0минут / на одного', price: 25_000 },
+		{ title: '', description: '90\u00A0минут / на двоих', price: 40_000 },
+		{ title: 'каждый дополнительный час', description: '60\u00A0минут', price: 10_000 },
 		{ title: 'ЧАН НА АЛТАЙСКИХ ТРАВАХ', price: 15_000 },
 	] as DrinkMenuItem[],
 	rightColumn: [
