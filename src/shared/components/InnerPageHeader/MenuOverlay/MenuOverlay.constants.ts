@@ -14,6 +14,7 @@ export const APP_ROUTES: MenuItem[] = [
 			{ label: '— «МОЛОДОСТЬ» В МАНЖЕРОКЕ', href: '/manjerok' },
 			{ label: '— ПРИЮТ НА МАРСЕ', href: '/mars' },
 			{ label: '— В СИБИРЬ ЗА СВОЙ СЧЕТ', href: '/v-sibir-za-svoy-schet' },
+			{ label: '— КАТАЛКА 2027', href: '/katalka' },
 		],
 	},
 	{
