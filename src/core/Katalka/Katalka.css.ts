@@ -303,12 +303,14 @@ export const katalkaImg = style([
 		borderRadius: 14,
 		objectFit: 'cover',
 		width: '100%',
+		height: 'auto',
 	},
 	tablet({
 		boxShadow: '0px 9px 8px 0px rgba(0, 0, 0, 0.1), 0px 24px 24px 0px rgba(0, 0, 0, 0.12)',
 		borderRadius: 14,
 		objectFit: 'cover',
 		width: '100%',
+		height: 'auto',
 	}),
 ]);
 
@@ -318,6 +320,8 @@ export const katalkaImgSmall = style([
 		borderRadius: 14,
 		objectFit: 'cover',
 		width: '100%',
+		height: 'auto',
+		maxHeight: 'none',
     marginTop: 20,
 	},
 	tablet({
@@ -326,7 +330,8 @@ export const katalkaImgSmall = style([
 		borderRadius: 14,
 		objectFit: 'cover',
 		width: '100%',
-		maxHeight: 217,
+		height: 'auto',
+		maxHeight: 'none',
 	}),
 ]);
 

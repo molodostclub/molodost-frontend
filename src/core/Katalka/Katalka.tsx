@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import Image from 'next/image';
+
+import { PrebuiltImage } from '@shared/components';
 
 import * as styles from './Katalka.css';
-import cn from 'classnames';
 
 export const Katalka: FC = () => {
 	return (
@@ -11,7 +11,6 @@ export const Katalka: FC = () => {
 				<h1 className={styles.textRed96}>Каталка с&nbsp;&laquo;Молодостью&raquo; в&nbsp;Манжероке</h1>
 				<br />
 				<br />
-				<p className={styles.textRed55}>«ТЁПЛЫЙ ПРИЁМ В&nbsp;ХОЛОДНОМ МЕСТЕ»</p>
 				<div className={styles.paragraph}>
 					<p className={styles.textBlack36}>С&nbsp;12&nbsp;ФЕВРАЛЯ по&nbsp;10&nbsp;марта 2027&nbsp;ГОДА</p>
 					{/* <p className={styles.textRed36}>ЛУЧШАЯ КАТАЛКА НА АЛТАЕ</p> */}
@@ -19,13 +18,12 @@ export const Katalka: FC = () => {
 
 				<div className={styles.katalkaColumnsWide}>
 					<div className={styles.katalkaColumn}>
-						<Image
+						<PrebuiltImage
 							alt="Каталка в Манжероке"
 							src="/images/katalka/first.jpg"
 							width={853}
 							height={1280}
 							className={styles.katalkaImg}
-							style={{ height: 'auto' }}
 						/>
 					</div>
 					<div className={styles.katalkaColumn}>
@@ -60,13 +58,12 @@ export const Katalka: FC = () => {
 							<br />
 							<span className={styles.accentText}>А ВОТ КАТАТЬСЯ ВЫ БУДЕТЕ САМИ!)</span>
 						</p>
-						<Image
+						<PrebuiltImage
 							alt="Канатная дорога в Манжероке"
 							src="/images/katalka/second.jpg"
 							width={1280}
 							height={853}
 							className={styles.katalkaImgSmall}
-							style={{ height: 'auto', maxHeight: 'none' }}
 						/>
 					</div>
 					<div className={styles.katalkaColumn}>
