@@ -33,7 +33,8 @@ export const content = style([
 	tablet({
 		paddingTop: 45,
 		paddingBottom: 60,
-		maxWidth: 746,
+		// border-box: 825px column (contacts / home anketa) + 30px padding each side
+		maxWidth: 885,
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	}),
@@ -47,7 +48,7 @@ export const heading = style([
 		minWidth: 0,
 	},
 	tablet({
-		maxWidth: 746,
+		maxWidth: 825,
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	}),

@@ -36,7 +36,12 @@ export function syncTravellineWidgetVisibility(pathname: string): void {
 
 const LOADER_HOSTS = ['ru-ibe.tlintegration.ru', 'ibe.tlintegration.ru', 'ibe.tlintegration.com'];
 
-/** Early bootstrap: queue booking form before React mounts its container. */
+/**
+ * Queue the booking form early so the loader still receives the command,
+ * but do not render #tl-booking-form until after hydration (Booking.tsx).
+ * If the host is in the server HTML, the loader inserts a div before React
+ * hydrates and the client render deletes the widget.
+ */
 export const TRAVELLINE_ENTRY_WIDGET_BOOTSTRAP = `(function(w){
 	var excluded=${JSON.stringify([...TRAVELLINE_WIDGET_EXCLUDED_PATHS])};
 	var p=w.location.pathname;

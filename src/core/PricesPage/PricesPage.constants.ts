@@ -139,7 +139,7 @@ export const PROZHIVANIE_ACCOMMODATION: AccommodationItem[] = [
 	{ title: 'Потрясающая спальня', capacity: '1-2', area: '24-28 м²', price: 33_000 },
 	// Дома
 	{ title: 'Дом с\u00A0печкой', capacity: '1-2', area: '38 м²', description: 'отдельно стоящий дом, одна спальня с\u00A0печкой и верандой', price: 45_000 },
-	{ title: 'Бранхаус', capacity: '2-3', area: '68 м²', description: 'отдельно стоящий дом, две спальни, общая зона', price: 50_000 },
+	{ title: 'Барнхаус', capacity: '2-3', area: '68 м²', description: 'отдельно стоящий дом, две спальни, общая зона', price: 50_000 },
 	{ title: 'Семейный дом', capacity: '4-6', area: '100 м²', description: 'отдельно стоящий дом с\u00A0тремя спальнями и гостиной', price: 60_000 },
 	{ title: 'Малый Шукшинский дом', capacity: '2-4', area: '70 м²', description: 'наш любимый дом, две спальни, печка, живописная терраса с\u00A0видом на Катунь', price: 60_000 },
 	{ title: 'Дом на холме', capacity: '4-8', area: '150 м²', description: 'четыре спальни с\u00A0санузлами и терраса с\u00A0видом на Катунь', price: 90_000 },
